@@ -9,7 +9,6 @@ VALUES
 ,	5
 ,	0
 ,	1
-,	0
 ,	'Attaque simple effectué avec les pièces d\'équipements portées. '
 );
 
@@ -24,7 +23,6 @@ VALUES
 ,	12
 ,	5
 ,	3
-,	0
 ,	'Rayon rouge qui fait trembler l\'ennemi de peur. '
 );
 
@@ -39,7 +37,6 @@ VALUES
 ,	18
 ,	14
 ,	4
-,	2
 ,	CONCAT('Hurlement qui fige l\'ennemi de peur. ',(SELECT description FROM Effets WHERE nom='Peur'),' pendant 2 tour.')
 );
 
@@ -54,7 +51,6 @@ VALUES
 ,	29
 ,	27
 ,	5
-,	0
 ,	'Sort magique qui trouble votre esprit et vous affaiblit. '
 );
 
@@ -69,7 +65,6 @@ VALUES
 ,	12
 ,	6
 ,	2
-,	0
 ,	'Lance une épée qui afflige de lourd dégât à l\'ennemi. '
 );
 
@@ -84,7 +79,6 @@ VALUES
 ,	21
 ,	10
 ,	4
-,	2
 ,	CONCAT('Torture l\'ennemi avec un couteau. ',(SELECT description FROM Effets WHERE nom='Saignement'),' pendant 2 tour.')
 );
 
@@ -99,7 +93,6 @@ VALUES
 ,	30
 ,	19
 ,	5
-,	0
 ,	'Devient en furie et détruit tout sur son passage. '
 );
 
@@ -114,7 +107,6 @@ VALUES
 ,	35
 ,	14
 ,	3
-,	0
 ,	'Absorbe les dégâts reçut dans ce bouclier résistant. '
 );
 
@@ -129,7 +121,6 @@ VALUES
 ,	49
 ,	20
 ,	4
-,	0
 ,	'Il se guérit avec les pouvoirs chamanique. '
 );
 
@@ -144,6 +135,5 @@ VALUES
 ,	30
 ,	18
 ,	3
-,	0
 ,	'Invoque la puissance de la nature puis la déchaine contre l\'ennemi. '
 );
