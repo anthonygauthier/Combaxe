@@ -1,16 +1,18 @@
-DROP TABLE IF EXISTS CompetencesClasses;
+DROP TABLE IF EXISTS CompetencesProfessions;
 DROP TABLE IF EXISTS CompetencesEnnemis;
 DROP TABLE IF EXISTS Competences;
+DROP TABLE IF EXISTS TypesCompetences;
+DROP TABLE IF EXISTS Effets;
 DROP TABLE IF EXISTS EquipementsPersonnages;
 DROP TABLE IF EXISTS InventairesEquipements;
 DROP TABLE IF EXISTS Equipements;
-DROP TABLE IF EXISTS AttributsPersonnages;
-DROP TABLE IF EXISTS AttributsEquipementsModeles;
-DROP TABLE IF EXISTS AttributsEnnemis;
+DROP TABLE IF EXISTS CaracteristiquesPersonnages;
+DROP TABLE IF EXISTS CaracteristiquesEquipementsModeles;
+DROP TABLE IF EXISTS CaracteristiquesEnnemis;
 DROP TABLE IF EXISTS Personnages;
-DROP TABLE IF EXISTS Classes;
+DROP TABLE IF EXISTS Professions;
 DROP TABLE IF EXISTS Statistiques;
-DROP TABLE IF EXISTS Attributs;
+DROP TABLE IF EXISTS Caracteristiques;
 DROP TABLE IF EXISTS EquipementsModeles;
 DROP TABLE IF EXISTS Modeles;
 DROP TABLE IF EXISTS Ennemis;
@@ -27,7 +29,7 @@ CREATE TABLE IF NOT EXISTS Joueurs
 CREATE TABLE IF NOT EXISTS Inventaires
 (
 	idInventaire INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
-,	nom VARCHAR(21) NOT NULL
+,	argent DOUBLE NOT NULL DEFAULT 0.00
 );
 
 CREATE TABLE IF NOT EXISTS Ennemis
@@ -37,6 +39,7 @@ CREATE TABLE IF NOT EXISTS Ennemis
 ,	nom VARCHAR(31) NOT NULL UNIQUE
 ,	niveau INT NOT NULL DEFAULT 1
 ,	image VARCHAR(255)
+,	boss BOOL DEFAULT FALSE
 );
 
 CREATE TABLE IF NOT EXISTS Modeles
@@ -53,12 +56,15 @@ CREATE TABLE IF NOT EXISTS EquipementsModeles
 ,	nom VARCHAR(51) NOT NULL
 ,	prix DOUBLE NOT NULL DEFAULT 0
 ,	image VARCHAR(255)
+,	degatMin INT NOT NULL DEFAULT 0
+,	degatMax INT NOT NULL DEFAULT 0
 );
 
-CREATE TABLE IF NOT EXISTS Attributs
+CREATE TABLE IF NOT EXISTS Caracteristiques
 (
-	idAttribut INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
+	idCaracteristique INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
 ,	nom VARCHAR(31) NOT NULL UNIQUE
+,	valeur INT NOT NULL DEFAULT 0
 );
 
 CREATE TABLE IF NOT EXISTS Statistiques
@@ -73,9 +79,9 @@ CREATE TABLE IF NOT EXISTS Statistiques
 ,	nombreAttaque INT NOT NULL DEFAULT 0
 );
 
-CREATE TABLE IF NOT EXISTS Classes
+CREATE TABLE IF NOT EXISTS Professions
 (
-	idClasse INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
+	idProfession INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
 ,	nom VARCHAR(21)
 ,	image VARCHAR(255)
 ,	description VARCHAR(255)
@@ -84,7 +90,7 @@ CREATE TABLE IF NOT EXISTS Classes
 CREATE TABLE IF NOT EXISTS Personnages
 (
 	idPersonnage INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
-,	idClasse INT NOT NULL
+,	idProfession INT NOT NULL
 ,	idInventaire INT NOT NULL
 ,	idJoueur INT NOT NULL
 ,	idStatistique INT NOT NULL
@@ -94,24 +100,26 @@ CREATE TABLE IF NOT EXISTS Personnages
 ,	image VARCHAR(255)
 );
 
-CREATE TABLE IF NOT EXISTS AttributsEnnemis
+CREATE TABLE IF NOT EXISTS CaracteristiquesEnnemis
 (
-	idAttributEnnemi INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
-,	idAttribut INT NOT NULL
+	idCaracteristiqueEnnemi INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
+,	idCaracteristique INT NOT NULL
 ,	idEnnemi INT NOT NULL
+,	valeur INT NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS AttributsEquipementsModeles
+CREATE TABLE IF NOT EXISTS CaracteristiquesEquipementsModeles
 (
-	idAttributEquipementModele INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
-,	idAttribut INT NOT NULL
+	idCaracteristiqueEquipementModele INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
+,	idCaracteristique INT NOT NULL
 ,	idEquipementModele INT NOT NULL
+,	valeur INT NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS AttributsPersonnages
+CREATE TABLE IF NOT EXISTS CaracteristiquesPersonnages
 (
-	idAttributPersonnage INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
-,	idAttribut INT NOT NULL
+	idCaracteristiquePersonnage INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
+,	idCaracteristique INT NOT NULL
 ,	idPersonnage INT NOT NULL
 );
 
@@ -119,7 +127,6 @@ CREATE TABLE IF NOT EXISTS Equipements
 (
 	idEquipement INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
 ,	idEquipementModele INT NOT NULL
-,	prix DOUBLE NOT NULL DEFAULT 0
 );
 
 CREATE TABLE IF NOT EXISTS InventairesEquipements
@@ -138,15 +145,30 @@ CREATE TABLE IF NOT EXISTS EquipementsPersonnages
 ,	idModele INT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS Effets
+(
+	idEffet INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
+,	nom VARCHAR(21) NOT NULL
+,	description VARCHAR(255) NOT NULL
+,	tempsEffets INT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS TypesCompetences
+(
+	idTypeCompetence INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
+,	idEffet INT
+,	nom VARCHAR(21) NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS Competences
 (
 	idCompetence INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
+,	idTypeCompetence INT NOT NULL
 ,	nom VARCHAR(21) NOT NULL UNIQUE
-,	degatMin INT NOT NULL DEFAULT 0
-,	degatMax INT NOT NULL DEFAULT 0
+,	valeurMin INT NOT NULL DEFAULT 0
+,	valeurMax INT NOT NULL DEFAULT 0
 ,	energieUtilise INT NOT NULL DEFAULT 0
 ,	tempsRecharge INT NOT NULL DEFAULT 0
-,	tempsEffect TIME NOT NULL DEFAULT 0
 ,	description VARCHAR(255)
 ,	image VARCHAR(255)
 );
@@ -155,19 +177,27 @@ CREATE TABLE IF NOT EXISTS CompetencesEnnemis
 (
 	idCompetenceEnnemi INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
 ,	idCompetence INT NOT NULL
-,	idEnnemis INT NOT NULL
+,	idEnnemi INT NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS CompetencesClasses
+CREATE TABLE IF NOT EXISTS CompetencesProfessions
 (
-	idCompetenceClasse INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
+	idCompetenceProfession INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
 ,	idCompetence INT NOT NULL
-,	idClasse INT NOT NULL
+,	idProfession INT NOT NULL
 );
+
+ALTER TABLE Competences
+ADD CONSTRAINT Competences_TypesCompetences_FK
+FOREIGN KEY (idTypeCompetence) REFERENCES TypesCompetences(idTypeCompetence);
+
+ALTER TABLE TypesCompetences
+ADD CONSTRAINT TypesCompetences_Effets_FK
+FOREIGN KEY (idEffet) REFERENCES Effets(idEffet);
 
 ALTER TABLE Personnages
-ADD CONSTRAINT Personnages_Classes_FK
-FOREIGN KEY (idClasse) REFERENCES Classes(idClasse);
+ADD CONSTRAINT Personnages_Professions_FK
+FOREIGN KEY (idProfession) REFERENCES Professions(idProfession);
 
 ALTER TABLE Personnages
 ADD CONSTRAINT Personnages_Inventaires_FK
@@ -181,13 +211,13 @@ ALTER TABLE Personnages
 ADD CONSTRAINT Personnages_Statistique_FK
 FOREIGN KEY (idStatistique) REFERENCES Statistiques(idStatistique);
 
-ALTER TABLE CompetencesClasses
-ADD CONSTRAINT CompetencesClasses_Competences_FK
+ALTER TABLE CompetencesProfessions
+ADD CONSTRAINT CompetencesProfessions_Competences_FK
 FOREIGN KEY (idCompetence) REFERENCES Competences(idCompetence);
 
-ALTER TABLE CompetencesClasses
-ADD CONSTRAINT CompetencesClasses_Classes_FK
-FOREIGN KEY (idClasse) REFERENCES Classes(idClasse);
+ALTER TABLE CompetencesProfessions
+ADD CONSTRAINT CompetencesProfessions_Professions_FK
+FOREIGN KEY (idProfession) REFERENCES Professions(idProfession);
 
 ALTER TABLE CompetencesEnnemis
 ADD CONSTRAINT CompetencesEnnemis_Competences_FK
@@ -201,21 +231,21 @@ ALTER TABLE Ennemis
 ADD CONSTRAINT Ennemis_Inventaires_FK
 FOREIGN KEY (idInventaire) REFERENCES Inventaires(idInventaire);
 
-ALTER TABLE AttributsEnnemis
-ADD CONSTRAINT AttributsEnnemis_Ennemis_FK
+ALTER TABLE CaracteristiquesEnnemis
+ADD CONSTRAINT CaracteristiquesEnnemis_Ennemis_FK
 FOREIGN KEY (idEnnemi) REFERENCES Ennemis(idEnnemi);
 
-ALTER TABLE AttributsEnnemis
-ADD CONSTRAINT AttributsEnnemis_Attributs_FK
-FOREIGN KEY (idAttribut) REFERENCES Attributs(idAttribut);
+ALTER TABLE CaracteristiquesEnnemis
+ADD CONSTRAINT CaracteristiquesEnnemis_Caracteristiques_FK
+FOREIGN KEY (idCaracteristique) REFERENCES Caracteristiques(idCaracteristique);
 
-ALTER TABLE AttributsPersonnages
-ADD CONSTRAINT AttributsPersonnages_Personnages_FK
+ALTER TABLE CaracteristiquesPersonnages
+ADD CONSTRAINT CaracteristiquesPersonnages_Personnages_FK
 FOREIGN KEY (idPersonnage) REFERENCES Personnages(idPersonnage);
 
-ALTER TABLE AttributsPersonnages
-ADD CONSTRAINT AttributsPersonnages_Attributs_FK
-FOREIGN KEY (idAttribut) REFERENCES Attributs(idAttribut);
+ALTER TABLE CaracteristiquesPersonnages
+ADD CONSTRAINT CaracteristiquesPersonnages_Caracteristiques_FK
+FOREIGN KEY (idCaracteristique) REFERENCES Caracteristiques(idCaracteristique);
 
 ALTER TABLE EquipementsPersonnages
 ADD CONSTRAINT EquipementsPersonnages_Personnages_FK
