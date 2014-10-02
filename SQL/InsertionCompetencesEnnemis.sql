@@ -1,6 +1,6 @@
 /* COMPÉTENCES AZAZEL */
 INSERT INTO CompetencesEnnemis
-(idCompetence, idEnnemi)
+(idEnnemi, idCompetence)
 VALUES
 (
 	(SELECT idEnnemi FROM Ennemis WHERE nom='Azazel')
@@ -8,7 +8,7 @@ VALUES
 );
 
 INSERT INTO CompetencesEnnemis
-(idCompetence, idEnnemi)
+(idEnnemi, idCompetence)
 VALUES
 (
 	(SELECT idEnnemi FROM Ennemis WHERE nom='Azazel')
@@ -16,7 +16,7 @@ VALUES
 );
 
 INSERT INTO CompetencesEnnemis
-(idCompetence, idEnnemi)
+(idEnnemi, idCompetence)
 VALUES
 (
 	(SELECT idEnnemi FROM Ennemis WHERE nom='Azazel')
@@ -24,7 +24,7 @@ VALUES
 );
 
 INSERT INTO CompetencesEnnemis
-(idCompetence, idEnnemi)
+(idEnnemi, idCompetence)
 VALUES
 (
 	(SELECT idEnnemi FROM Ennemis WHERE nom='Azazel')
@@ -34,7 +34,7 @@ VALUES
 /* FIN COMPÉTENCES AZAZEL */
 /* COMPÉTENCES Moguarnoch*/
 INSERT INTO CompetencesEnnemis
-(idCompetence, idEnnemi)
+(idEnnemi, idCompetence)
 VALUES
 (
 	(SELECT idEnnemi FROM Ennemis WHERE nom='Moguarnoch')
@@ -42,7 +42,7 @@ VALUES
 );
 
 INSERT INTO CompetencesEnnemis
-(idCompetence, idEnnemi)
+(idEnnemi, idCompetence)
 VALUES
 (
 	(SELECT idEnnemi FROM Ennemis WHERE nom='Moguarnoch')
@@ -50,7 +50,7 @@ VALUES
 );
 
 INSERT INTO CompetencesEnnemis
-(idCompetence, idEnnemi)
+(idEnnemi, idCompetence)
 VALUES
 (
 	(SELECT idEnnemi FROM Ennemis WHERE nom='Moguarnoch')
@@ -58,7 +58,7 @@ VALUES
 );
 
 INSERT INTO CompetencesEnnemis
-(idCompetence, idEnnemi)
+(idEnnemi, idCompetence)
 VALUES
 (
 	(SELECT idEnnemi FROM Ennemis WHERE nom='Moguarnoch')
@@ -69,7 +69,7 @@ VALUES
 
 /* COMPÉTENCES Zakuta*/
 INSERT INTO CompetencesEnnemis
-(idCompetence, idEnnemi)
+(idEnnemi, idCompetence)
 VALUES
 (
 	(SELECT idEnnemi FROM Ennemis WHERE nom='Zakuta')
@@ -77,7 +77,7 @@ VALUES
 );
 
 INSERT INTO CompetencesEnnemis
-(idCompetence, idEnnemi)
+(idEnnemi, idCompetence)
 VALUES
 (
 	(SELECT idEnnemi FROM Ennemis WHERE nom='Zakuta')
@@ -85,7 +85,7 @@ VALUES
 );
 
 INSERT INTO CompetencesEnnemis
-(idCompetence, idEnnemi)
+(idEnnemi, idCompetence)
 VALUES
 (
 	(SELECT idEnnemi FROM Ennemis WHERE nom='Zakuta')
@@ -93,7 +93,7 @@ VALUES
 );
 
 INSERT INTO CompetencesEnnemis
-(idCompetence, idEnnemi)
+(idEnnemi, idCompetence)
 VALUES
 (
 	(SELECT idEnnemi FROM Ennemis WHERE nom='Zakuta')
@@ -104,7 +104,7 @@ VALUES
 
 /* COMPÉTENCES Ful'kitak */
 INSERT INTO CompetencesEnnemis
-(idCompetence, idEnnemi)
+(idEnnemi, idCompetence)
 VALUES
 (
 	(SELECT idEnnemi FROM Ennemis WHERE nom='Ful\'kitak')
@@ -112,7 +112,7 @@ VALUES
 );
 
 INSERT INTO CompetencesEnnemis
-(idCompetence, idEnnemi)
+(idEnnemi, idCompetence)
 VALUES
 (
 	(SELECT idEnnemi FROM Ennemis WHERE nom='Ful\'kitak')
@@ -120,7 +120,7 @@ VALUES
 );
 
 INSERT INTO CompetencesEnnemis
-(idCompetence, idEnnemi)
+(idEnnemi, idCompetence)
 VALUES
 (
 	(SELECT idEnnemi FROM Ennemis WHERE nom='Ful\'kitak')
@@ -128,7 +128,7 @@ VALUES
 );
 
 INSERT INTO CompetencesEnnemis
-(idCompetence, idEnnemi)
+(idEnnemi, idCompetence)
 VALUES
 (
 	(SELECT idEnnemi FROM Ennemis WHERE nom='Ful\'kitak')
@@ -138,7 +138,7 @@ VALUES
 
 /* COMPÉTENCES Harfanghei */
 INSERT INTO CompetencesEnnemis
-(idCompetence, idEnnemi)
+(idEnnemi, idCompetence)
 VALUES
 (
 	(SELECT idEnnemi FROM Ennemis WHERE nom='Harfanghei')
@@ -146,7 +146,7 @@ VALUES
 );
 
 INSERT INTO CompetencesEnnemis
-(idCompetence, idEnnemi)
+(idEnnemi, idCompetence)
 VALUES
 (
 	(SELECT idEnnemi FROM Ennemis WHERE nom='Harfanghei')
@@ -154,7 +154,7 @@ VALUES
 );
 
 INSERT INTO CompetencesEnnemis
-(idCompetence, idEnnemi)
+(idEnnemi, idCompetence)
 VALUES
 (
 	(SELECT idEnnemi FROM Ennemis WHERE nom='Harfanghei')
@@ -162,7 +162,7 @@ VALUES
 );
 
 INSERT INTO CompetencesEnnemis
-(idCompetence, idEnnemi)
+(idEnnemi, idCompetence)
 VALUES
 (
 	(SELECT idEnnemi FROM Ennemis WHERE nom='Harfanghei')
@@ -173,7 +173,7 @@ VALUES
 
 /* COMPÉTENCES Arkanok */
 INSERT INTO CompetencesEnnemis
-(idCompetence, idEnnemi)
+(idEnnemi, idCompetence)
 VALUES
 (
 	(SELECT idEnnemi FROM Ennemis WHERE nom='Arkanok')
@@ -181,7 +181,7 @@ VALUES
 );
 
 INSERT INTO CompetencesEnnemis
-(idCompetence, idEnnemi)
+(idEnnemi, idCompetence)
 VALUES
 (
 	(SELECT idEnnemi FROM Ennemis WHERE nom='Arkanok')
@@ -189,7 +189,7 @@ VALUES
 );
 
 INSERT INTO CompetencesEnnemis
-(idCompetence, idEnnemi)
+(idEnnemi, idCompetence)
 VALUES
 (
 	(SELECT idEnnemi FROM Ennemis WHERE nom='Arkanok')
@@ -197,10 +197,10 @@ VALUES
 );
 
 INSERT INTO CompetencesEnnemis
-(idCompetence, idEnnemi)
+(idEnnemi, idCompetence)
 VALUES
 (
 	(SELECT idEnnemi FROM Ennemis WHERE nom='Arkanok')
-,	(SELECT idCompetence FROM Competences WHERE nom='Coups des dieux corrompus')
+,	(SELECT idCompetence FROM Competences WHERE nom='Coup des dieux corrompus')
 );
 /* FIN COMPÉTENCES Arkanok */
