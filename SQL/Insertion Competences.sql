@@ -177,7 +177,7 @@ VALUES
 ,	45
 ,	36
 ,	4
-,	CONCAT('Attaque l\'ennemi avec le feu brulant des enfers. ',(SELECT description FROM Effets WHERE nom='Brulure'),' pendant ',(SELECT tempsEffets FROM Effets WHERE nom='Brulure') ,' tour.')
+,	CONCAT('Attaque l\'ennemi avec le feu brûlant des enfers. ',(SELECT description FROM Effets WHERE nom='Brulure'),' pendant ',(SELECT tempsEffets FROM Effets WHERE nom='Brulure') ,' tour.')
 );
 
 INSERT INTO Competences
@@ -191,7 +191,7 @@ VALUES
 ,	20
 ,	8
 ,	3
-,	Concat('Coup de griffe sauvage . ',(SELECT description FROM Effets WHERE nom='Saignement'),' pendant ',(SELECT tempsEffets FROM Effets WHERE nom='Saignement') ,' tour.')
+,	Concat('Coup de griffe sauvage. ',(SELECT description FROM Effets WHERE nom='Saignement'),' pendant ',(SELECT tempsEffets FROM Effets WHERE nom='Saignement') ,' tour.')
 );
 
 INSERT INTO Competences
@@ -205,7 +205,7 @@ VALUES
 ,	25
 ,	14
 ,	3
-,	'Attaque l\'ennemi avec le feu brulant des enfers. '
+,	'Attaque l\'ennemi en le mordant avec la puissance de sa mâchoire. '
 );
 
 INSERT INTO Competences
@@ -219,5 +219,173 @@ VALUES
 ,	34
 ,	20
 ,	4
-,	'Attaque l\'ennemi avec le feu brulant des enfers. '
+,	'Déclanche sa furie et attaque l\'ennemi de multiple coups. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
+,	NULL
+,	'Coup demoniaque'
+,	14
+,	27
+,	13
+,	2
+,	'Frappe l\'ennemi avec la puissance des démons. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Support')
+,	NULL
+,	'Rituel de guérison'
+,	32
+,	47
+,	19
+,	3
+,	'Guérit la cible grâce à la puissance des ténèbres. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+,	NULL
+,	'Coup des dieux corrompus'
+,	29
+,	50
+,	29
+,	3
+,	'Frappe l\'ennemi de toute sa puissance avec la hache légendaire des dieux célestes corrompu. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
+,	NULL
+,	'Boule de feu'
+,	5
+,	10
+,	4
+,	2
+,	'Lance une boule de feu à l\'ennemi. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Defensif')
+,	(SELECT idEffet FROM Effets WHERE nom='Protection')
+,	'Armure Arcanique'
+,	6
+,	14
+,	12
+,	3
+,	Concat('Armure des arcanes. ',(SELECT description FROM Effets WHERE nom='Protection'),' pendant ',(SELECT tempsEffets FROM Effets WHERE nom='Protection') ,' tour.')
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
+,	NULL
+,	'Décharge électrique'
+,	16
+,	25
+,	25
+,	4
+,	'Lance une boule de feu à l\'ennemi. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
+,	NULL
+,	'Coup divin'
+,	4
+,	7
+,	3
+,	2
+,	'Attaque l\'ennemi avec la puissance des dieux célestes. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Support')
+,	NULL
+,	'Prière de guérison'
+,	7
+,	10
+,	5
+,	3
+,	'Implore les dieux pour le guérir de ses douleurs et lui donner de la vie. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+,	NULL
+,	'Marteau des dieux'
+,	14
+,	21
+,	17
+,	4
+,	'Les dieux enchantent l\'arme et la transforme en marteau céleste. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Defensif')
+,	(SELECT idEffet FROM Effets WHERE nom='Protection')
+,	'Peau d\'acier'
+,	4
+,	8
+,	2
+,	3
+,	Concat('La peau de la cible se durcit et devient aussi dure que l\'acier. ',(SELECT description FROM Effets WHERE nom='Protection'),' pendant ',(SELECT tempsEffets FROM Effets WHERE nom='Protection') ,' tour.')
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+,	NULL
+,	'Attaque précise'
+,	12
+,	16
+,	5
+,	3
+,	'Concentre son attaque sur un même point précis. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+,	NULL
+,	'Vision de sang'
+,	15
+,	22
+,	12
+,	4
+,	'Devient fou et veut voir son ennemi ensanglanté. '
 );
