@@ -1,5 +1,5 @@
 INSERT INTO Competences
-(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, tempsEffets, description)
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
 	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
@@ -13,7 +13,7 @@ VALUES
 );
 
 INSERT INTO Competences
-(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, tempsEffets, description)
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
 	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
@@ -27,7 +27,7 @@ VALUES
 );
 
 INSERT INTO Competences
-(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, tempsEffets, description)
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
 	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
@@ -41,7 +41,7 @@ VALUES
 );
 
 INSERT INTO Competences
-(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, tempsEffets, description)
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
 	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
@@ -55,7 +55,7 @@ VALUES
 );
 
 INSERT INTO Competences
-(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, tempsEffets, description)
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
 	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
@@ -69,7 +69,7 @@ VALUES
 );
 
 INSERT INTO Competences
-(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, tempsEffets, description)
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
 	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
@@ -83,7 +83,7 @@ VALUES
 );
 
 INSERT INTO Competences
-(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, tempsEffets, description)
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
 	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
@@ -97,21 +97,21 @@ VALUES
 );
 
 INSERT INTO Competences
-(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, tempsEffets, description)
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
 	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Defensif')
-,	NULL
+,	(SELECT idEffet FROM Effets WHERE nom='Protection')
 ,	'Bouclier des éléments'
 ,	30
 ,	35
 ,	14
 ,	3
-,	'Absorbe les dégâts reçut dans ce bouclier résistant. '
+,	CONCAT('Absorbe les dégâts reçut dans ce bouclier résistant. ',(SELECT description FROM Effets WHERE nom='Protection'),' pendant ',(SELECT tempsEffets FROM Effets WHERE nom='Protection') ,' tour.')
 );
 
 INSERT INTO Competences
-(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, tempsEffets, description)
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
 	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Support')
@@ -125,7 +125,7 @@ VALUES
 );
 
 INSERT INTO Competences
-(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, tempsEffets, description)
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
 	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
@@ -136,4 +136,88 @@ VALUES
 ,	18
 ,	3
 ,	'Invoque la puissance de la nature puis la déchaine contre l\'ennemi. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
+,	NULL
+,	'Attaque squelettique'
+,	20
+,	28
+,	26
+,	2
+,	'Envoi une malédiction qui cible le squelette de l\'ennemi . '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
+,	NULL
+,	'Tempête de morts'
+,	25
+,	30
+,	30
+,	3
+,	'Libère la colère des revenants sur l\'ennemi. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
+,	(SELECT idEffet FROM Effets WHERE nom='Brulure')
+,	'Feu démoniaque'
+,	38
+,	45
+,	36
+,	4
+,	CONCAT('Attaque l\'ennemi avec le feu brulant des enfers. ',(SELECT description FROM Effets WHERE nom='Brulure'),' pendant ',(SELECT tempsEffets FROM Effets WHERE nom='Brulure') ,' tour.')
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+,	(SELECT idEffet FROM Effets WHERE nom='Saignement')
+,	'Coup de griffe'
+,	12
+,	20
+,	8
+,	3
+,	Concat('Coup de griffe sauvage . ',(SELECT description FROM Effets WHERE nom='Saignement'),' pendant ',(SELECT tempsEffets FROM Effets WHERE nom='Saignement') ,' tour.')
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+,	NULL
+,	'Morsure endiablée'
+,	18
+,	25
+,	14
+,	3
+,	'Attaque l\'ennemi avec le feu brulant des enfers. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+,	NULL
+,	'Furie animale'
+,	27
+,	34
+,	20
+,	4
+,	'Attaque l\'ennemi avec le feu brulant des enfers. '
 );
