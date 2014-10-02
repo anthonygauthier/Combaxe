@@ -65,6 +65,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="classes\Caracteristique.cs" />
+    <Compile Include="classes\Ennemi.cs" />
+    <Compile Include="classes\Equipement.cs" />
+    <Compile Include="classes\Inventaire.cs" />
     <Compile Include="écrans\creationCompte.xaml.cs">
       <DependentUpon>creationCompte.xaml</DependentUpon>
     </Compile>
