@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Combaxe___New.classes
 {
-    class Ennemi
+    public class Ennemi
     {
         private int idEnnemi;
         private string imageUrl;
@@ -15,7 +15,7 @@ namespace Combaxe___New.classes
         private List<Caracteristique> listeCaracteristique;
 
         /// <summary>
-        /// Constructeur de base
+        /// Constructeur de base - Anthony Gauthier 02/10/2014
         /// </summary>
         public Ennemi()
         {
@@ -27,7 +27,7 @@ namespace Combaxe___New.classes
         }
 
         /// <summary>
-        /// Constructeur paramétrés
+        /// Constructeur paramétrés - Anthony Gauthier 02/10/2014
         /// </summary>
         /// <param name="id">id de l'ennemi</param>
         /// <param name="niv">niveau de l'ennemi</param>
@@ -43,11 +43,19 @@ namespace Combaxe___New.classes
             listeCaracteristique = lstCar;
         }
 
+        /// <summary>
+        /// Fonction qui définit si un ennemi est un boss - Anthony Gauthier 02/10/2014
+        /// </summary>
+        /// <returns>valeur booléenne (true/false (1,0))</returns>
         public bool estBoss()
         { 
             return false;
         }
 
+        /// <summary>
+        /// Définit le butin donné par l'ennemi - Anthony Gauthier 02/10/2014
+        /// </summary>
+        /// <returns>Le nombre d'or donné par l'ennemi</returns>
         public int butinDonne()
         { 
             return 0;
