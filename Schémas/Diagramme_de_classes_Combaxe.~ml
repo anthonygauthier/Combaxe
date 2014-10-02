@@ -1676,7 +1676,7 @@
 <XPD:REF name="Specializations[2]">/poJo9lwl0yzcmd4NBMJsgAA</XPD:REF>
 <XPD:ATTR name="#Operations" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="Operations[0]" type="UMLOperation" guid="ED0G6yzvTUSN6dJM+k3EzAAA">
-<XPD:ATTR name="Name" type="string">AttribuerCaracteristiques</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">AttribuerCaracteristique</XPD:ATTR>
 <XPD:REF name="Owner">EZuBXjWj1kqZf31bZj9suwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:ATTR name="#Associations" type="integer">3</XPD:ATTR>

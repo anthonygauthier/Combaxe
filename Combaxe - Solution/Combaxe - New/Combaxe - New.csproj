@@ -66,9 +66,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="classes\Caracteristique.cs" />
+    <Compile Include="classes\Competence.cs" />
     <Compile Include="classes\Ennemi.cs" />
     <Compile Include="classes\Equipement.cs" />
+    <Compile Include="classes\Guerrier.cs" />
     <Compile Include="classes\Inventaire.cs" />
+    <Compile Include="classes\Joueur.cs" />
+    <Compile Include="classes\Magasin.cs" />
+    <Compile Include="classes\Magicien.cs" />
+    <Compile Include="classes\Paladin.cs" />
+    <Compile Include="classes\Personnage.cs" />
+    <Compile Include="classes\abstraites\Profession.cs" />
+    <Compile Include="classes\Statistique.cs" />
     <Compile Include="écrans\creationCompte.xaml.cs">
       <DependentUpon>creationCompte.xaml</DependentUpon>
     </Compile>
