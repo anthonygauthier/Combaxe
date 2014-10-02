@@ -29,7 +29,7 @@ INSERT INTO Ennemis
 (nom, niveau, boss)
 VALUES
 (
-	'Gul\'kitak'
+	'Ful\'kitak'
 ,	12
 ,	TRUE
 );
