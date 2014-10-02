@@ -1,1 +1,17 @@
 D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\bin\Debug\Combaxe - New.exe.config
+D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe - New.csprojResolveAssemblyReference.cache
+D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\écrans\creationCompte.baml
+D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\MainWindow.baml
+D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\écrans\creationPersonnage.baml
+D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\écrans\creationCompte.g.cs
+D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\MainWindow.g.cs
+D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\écrans\creationPersonnage.g.cs
+D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\App.g.cs
+D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe - New_MarkupCompile.cache
+D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe - New.g.resources
+D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe___New.Properties.Resources.resources
+D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe - New.csproj.GenerateResource.Cache
+D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\bin\Debug\Combaxe - New.exe
+D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\bin\Debug\Combaxe - New.pdb
+D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe - New.exe
+D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe - New.pdb

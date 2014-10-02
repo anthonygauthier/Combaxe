@@ -42,7 +42,7 @@
             <Label Foreground="White" FontFamily="Motorwerk" FontSize="20" HorizontalAlignment="Right" Width="258">confirmation mot de passe:</Label>
         </StackPanel>
 
-        <!-- StackPanel pour le label de Combaxe-->
+        <!-- StackPanel pour le label de creer compte-->
         <StackPanel Grid.Row="0" Grid.ColumnSpan="4" Orientation="Vertical">
             <Label Foreground="White" HorizontalAlignment="Center" Content="Creer Compte" FontFamily="Motorwerk" FontSize="44" Margin="118,0,123,0" Width="276"/>
         </StackPanel>

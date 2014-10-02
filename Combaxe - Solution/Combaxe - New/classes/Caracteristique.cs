@@ -11,8 +11,8 @@ namespace Combaxe___New.classes
         private int idCaracterstique { get; set; }
         private int valeur { get; set; }
         private string nom { get; set; }
-        private enum caracteristiques { force, defense, vie, energie, vitesse, rien };
-        private caracteristiques uneCaracteristique { get; set; }
+        /*private enum cara { force, defense, vie, energie, vitesse, rien };
+        private cara uneCaracteristique { get; set; }*/
 
         /// <summary>
         /// Constructeur de base - Anthony Gauthier 02/10/2014
@@ -22,7 +22,7 @@ namespace Combaxe___New.classes
             idCaracterstique = 0;
             valeur = 0;
             nom = "";
-            uneCaracteristique = caracteristiques.rien;
+            /*uneCaracteristique = cara.rien;*/
         }
 
         /// <summary>
@@ -32,12 +32,12 @@ namespace Combaxe___New.classes
         /// <param name="val">valeur de la caractéristique</param>
         /// <param name="n">nom de la caractéristique</param>
         /// <param name="car">sert à simplifier et repéré plus facilement laquelle caractéristique est traité</param>
-        public Caracteristique(int id, int val, string n, caracteristiques car)
+        public Caracteristique(int id, int val, string n/*, cara car*/)
         { 
             idCaracterstique = id;
             valeur = val;
             nom = n;
-            uneCaracteristique = car;
+            /*uneCaracteristique = car;*/
         }
     }
 }

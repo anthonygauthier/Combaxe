@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Combaxe___New.classes
 {
-    public virtual class Profession
+    public abstract class Profession
     {
         private int idProfession;
         private string nom;
