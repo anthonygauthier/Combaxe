@@ -230,7 +230,7 @@ VALUES
 (
 	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Arkanok')
-,	65
+,	67
 );
 
 INSERT INTO CaracteristiquesEnnemis
