@@ -9,8 +9,9 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="51*"></RowDefinition>
             <RowDefinition Height="87*"></RowDefinition>
-            <RowDefinition Height="151*"></RowDefinition>
-            <RowDefinition Height="31*"/>
+            <RowDefinition Height="30*"></RowDefinition>
+            <RowDefinition Height="128*"/>
+            <RowDefinition Height="24*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="222*"></ColumnDefinition>
@@ -19,79 +20,118 @@
 
         <!-- StackPanel pour le label de création de personnage-->
         <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Vertical">
-            <Label Foreground="White" HorizontalAlignment="Center" Content="Creation de personnage" FontFamily="Motorwerk" FontSize="44" Margin="10,0" Width="497"/>
+            <Label Foreground="White" HorizontalAlignment="Center" Content="CrEation de personnage" FontFamily="Motorwerk" FontSize="44" Margin="10,0" Width="497"/>
         </StackPanel>
 
         <!--StackPanel pour le nom du personnage et sa profesion-->
-        <StackPanel Grid.Row="1">
-            <TextBox Margin="5,0,5,0"/>
-            <StackPanel Margin="6" MinHeight="55" HorizontalAlignment="Center" Orientation="Horizontal">
-                <Button Margin="6" MinWidth="55" x:Name="btnGuerrier" Content="Guerrier"/>
-                <Button Margin="6" MinWidth="55" x:Name="btnPaladin" Content="Paladin"/>
-                <Button Margin="6" MinWidth="55" x:Name="btnMagicien" Content="Magicien"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBox TextAlignment="Center" FontSize="20" Text="Nom du personnage" VerticalAlignment="Stretch" Margin="5,5,5,5" MaxHeight="45" Grid.ColumnSpan="3"/>
+            <Button Grid.Row="1" HorizontalAlignment="Stretch"  Name="btnGuerrier" Content="Guerrier"/>
+            <Button Grid.Row="1" HorizontalAlignment="Stretch"  Name="btnPaladin" Content="Paladin" Grid.Column="1"/>
+            <Button Grid.Row="1" HorizontalAlignment="Stretch"  Name="btnMagicien" Content="Magicien" Grid.Column="2"/>
+        </Grid>
+
+        <!--Description de la profession-->
+        <TextBox TextAlignment="Justify" Grid.Row="1" Grid.Column="1" Text="Description de la profession" IsEnabled="False" Margin="1,35,5,0"></TextBox>
+
+        <!--Grid pour les caractéristiques-->
+        <Label Grid.Row="2" Grid.RowSpan="2" FontSize="25" FontFamily="Motorwerk" Content="Caracteristiques" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <Grid Background="White" Grid.Row="3" MaxWidth="340" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="75*"></ColumnDefinition>
+                <ColumnDefinition Width="137*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <!--Force-->
+            <Label HorizontalAlignment="Right" VerticalAlignment="Center" Content="Force:" Grid.Row="0" Grid.Column="0" Height="24" Width="41"></Label>
+            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                <Button Name="btnMoinsForce" Content="-" MinWidth="30" MaxHeight="40"></Button>
+                <TextBox Name="txtForce" IsEnabled="False" MinWidth="50" MaxHeight="40" TextAlignment="Center"></TextBox>
+                <Button Name="btnPlusForce" Content="+" MinWidth="30" MaxHeight="40"></Button>
             </StackPanel>
-        </StackPanel>
+            <!--Énergie-->
+            <Label HorizontalAlignment="Right" VerticalAlignment="Center" Content="Énergie:" Grid.Row="1" Grid.Column="0" Height="24" Width="52"></Label>
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                <Button Name="btnMoinsEnergie" Content="-" MinWidth="30" MaxHeight="40"></Button>
+                <TextBox Name="txtEnergie" IsEnabled="False" MinWidth="50" MaxHeight="40" TextAlignment="Center"></TextBox>
+                <Button Name="btnPlusEnergie" Content="+" MinWidth="30" MaxHeight="40"></Button>
+            </StackPanel>
+            <!--Vie-->
+            <Label HorizontalAlignment="Right" VerticalAlignment="Center" Content="Vie:" Grid.Row="2" Grid.Column="0" Height="24" Width="29"></Label>
+            <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+                <Button Name="btnMoinsVie" Content="-" MinWidth="30" MaxHeight="40"></Button>
+                <TextBox Name="txtVie" IsEnabled="False" MinWidth="50" MaxHeight="40" TextAlignment="Center"></TextBox>
+                <Button Name="btnPlusVie" Content="+" MinWidth="30" MaxHeight="40"></Button>
+            </StackPanel>
+            <!--Vitesse-->
+            <Label HorizontalAlignment="Right" VerticalAlignment="Center" Content="Vitesse:" Grid.Row="3" Grid.Column="0" Height="24" Width="50"></Label>
+            <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
+                <Button Name="btnMoinsVitesse" Content="-" MinWidth="30" MaxHeight="40"></Button>
+                <TextBox Name="txtVitesse" IsEnabled="False" MinWidth="50" MaxHeight="40" TextAlignment="Center"></TextBox>
+                <Button Name="btnPlusVitesse" Content="+" MinWidth="30" MaxHeight="40"></Button>
+            </StackPanel>
+            <!--Défense-->
+            <Label HorizontalAlignment="Right" VerticalAlignment="Center" Content="Défense:" Grid.Row="4" Grid.Column="0" Height="24" Width="55"></Label>
+            <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal">
+                <Button Name="btnMoinsDefense" Content="-" MinWidth="30" MaxHeight="40"></Button>
+                <TextBox Name="txtDefense" IsEnabled="False" MinWidth="50" MaxHeight="40" TextAlignment="Center"></TextBox>
+                <Button Name="btnPlusDefense" Content="+" MinWidth="30" MaxHeight="40"></Button>
+            </StackPanel>
+        </Grid>
+        <!--Fin Grid pour Caractéristiques-->
 
-        <!--StackPanel pour la description de la profession-->
-        <StackPanel Grid.Row="1" Grid.Column="1">
-            <TextBox IsEnabled="False" Margin="5,0,5,0" Height="79"></TextBox>
-        </StackPanel>
+        <!--Grid pour Apparence personnage-->
+        <Grid Grid.Row="2" Grid.RowSpan="3" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="157*"/>
+                <RowDefinition Height="25*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
 
-        <!--StackPanel pour les caractéristiques-->
-        <StackPanel Grid.Row="2" Grid.RowSpan="2">
-            <Label FontSize="20" FontFamily="Motorwerk" Content="Caracteristiques" Foreground="White" HorizontalAlignment="Center"></Label>
-            <Border Margin="5,-5,5,-135" Background="White" CornerRadius="5,5,5,5"></Border>
-            <Grid Grid.Row="2" Margin="10,0,10,-105">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <!--Force-->
-                <Label HorizontalAlignment="Right" Content="Force:" Grid.Row="0" Grid.Column="0"></Label>
-                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
-                    <Button Content="-" MinWidth="14"></Button>
-                    <TextBox IsEnabled="False" MinWidth="50" TextAlignment="Center"></TextBox>
-                    <Button Content="+"></Button>
-                </StackPanel>
-                <!--Énergie-->
-                <Label HorizontalAlignment="Right" Content="Énergie:" Grid.Row="1" Grid.Column="0"></Label>
-                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
-                    <Button Content="-" MinWidth="14"></Button>
-                    <TextBox IsEnabled="False" MinWidth="50" TextAlignment="Center"></TextBox>
-                    <Button Content="+"></Button>
-                </StackPanel>
-                <!--Vie-->
-                <Label HorizontalAlignment="Right" Content="Vie:" Grid.Row="2" Grid.Column="0"></Label>
-                <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
-                    <Button Content="-" MinWidth="14"></Button>
-                    <TextBox IsEnabled="False" MinWidth="50" TextAlignment="Center"></TextBox>
-                    <Button Content="+"></Button>
-                </StackPanel>
-                <!--Vitesse-->
-                <Label HorizontalAlignment="Right" Content="Vitesse:" Grid.Row="3" Grid.Column="0"></Label>
-                <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
-                    <Button Content="-" MinWidth="14"></Button>
-                    <TextBox IsEnabled="False" MinWidth="50" TextAlignment="Center"></TextBox>
-                    <Button Content="+"></Button>
-                </StackPanel>
-                <!--Défense-->
-                <Label HorizontalAlignment="Right" Content="Défense:" Grid.Row="4" Grid.Column="0"></Label>
-                <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal">
-                    <Button Content="-" MinWidth="14"></Button>
-                    <TextBox IsEnabled="False" MinWidth="50" TextAlignment="Center"></TextBox>
-                    <Button Content="+"></Button>
-                </StackPanel>
+            <!--StackPanel pour boutons gauche-->
+            <StackPanel Orientation="Vertical" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Button Name="btnMoinsCheveux" Content="-" MinWidth="30"></Button>
+                <Button Name="btnMoinsChandail" Margin="0,35" MinWidth="30" Content="-"></Button>
+                <Button Name="btnMoinsPantalons" Content="-" MinWidth="30"></Button>
+            </StackPanel>
+
+            <!--StackPanel pour boutons droite-->
+            <StackPanel Orientation="Vertical" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Button Name="btnPlusCheveux" Content="+" MinWidth="30"></Button>
+                <Button Name="btnPlusChandail" Margin="0,35" Content="+" MinWidth="30"></Button>
+                <Button Name="btnPlusPantalons" Content="+" MinWidth="30"></Button>
+            </StackPanel>
+
+            <!--Border pour le background ou l'image du perso sera-->
+            <Grid Grid.Column="1" Background="White" Margin="5">
+                <!--Insérer l'image du personnage ici--><Image></Image>
             </Grid>
+        </Grid>
+        <!--Fin Grid pour Apparence Personnage-->
+
+        <!--Boutons pour créer et quitter-->
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right">
+            <Button Name="btnRetour" Content="Retour" MinWidth="100" MaxHeight="50" Margin="0,0,5,0"></Button>
+            <Button Name="btnCreerPerso" Content="Créer personnage" MaxHeight="50" Margin="0,0,13,0"></Button>
         </StackPanel>
-        <!--Fin StackPanel pour Caractéristiques-->
-
-
     </Grid>
 </Window>
