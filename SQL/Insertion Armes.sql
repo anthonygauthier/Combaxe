@@ -502,8 +502,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Épée élémentale'
 	,	4735.96
-	,	
-	,	
+	,	10
+	,	20
 	);
 
 	INSERT INTO EquipementsModeles
@@ -513,8 +513,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Bâton élémental'
 	,	4735.96
-	,	
-	,
+	,	10
+	,	20
 	);
 
 	INSERT INTO EquipementsModeles
@@ -524,8 +524,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Marteau élémental'
 	,	3157.30
-	,	
-	,	
+	,	5
+	,	15
 	);
 
 	INSERT INTO EquipementsModeles
@@ -535,8 +535,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Bouclier')
 	,	'Bouclier élémental'
 	,	3157.30
-	,	
-	,	
+	,	0
+	,	0
 	);
 
 	INSERT INTO EquipementsModeles
@@ -546,8 +546,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Dague élémentale'
 	,	3157.30
-	,	
-	,	
+	,	5
+	,	15
 	);
 
 	INSERT INTO EquipementsModeles
@@ -557,8 +557,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Baguette élémentale'
 	,	3157.30
-	,	
-	,	
+	,	5
+	,	15
 	);
 
 	INSERT INTO EquipementsModeles
@@ -568,8 +568,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Hache élémentale'
 	,	4735.96
-	,	
-	,	
+	,	10
+	,	20
 	);
 
 	INSERT INTO EquipementsModeles
@@ -579,8 +579,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Lance élémentale'
 	,	4735.96
-	,	
-	,	
+	,	10
+	,	20
 	);
 /* FIN ÉLÉMENTAL */
 
@@ -592,8 +592,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Épée maudite'
 	,	8171.30
-	,	
-	,	
+	,	12
+	,	24
 	);
 
 	INSERT INTO EquipementsModeles
@@ -603,8 +603,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Bâton maudit'
 	,	8171.30
-	,	
-	,
+	,	12
+	,	24
 	);
 
 	INSERT INTO EquipementsModeles
@@ -614,8 +614,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Marteau maudit'
 	,	5447.53
-	,	
-	,	
+	,	6
+	,	18
 	);
 
 	INSERT INTO EquipementsModeles
@@ -625,8 +625,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Bouclier')
 	,	'Bouclier maudit'
 	,	5447.53
-	,	
-	,	
+	,	0
+	,	0
 	);
 
 	INSERT INTO EquipementsModeles
@@ -636,8 +636,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Dague maudite'
 	,	5447.53
-	,	
-	,	
+	,	6
+	,	18
 	);
 
 	INSERT INTO EquipementsModeles
@@ -647,8 +647,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Baguette maudite'
 	,	5447.53
-	,	
-	,	
+	,	6
+	,	18
 	);
 
 	INSERT INTO EquipementsModeles
@@ -658,8 +658,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Hache maudite'
 	,	8171.30
-	,	
-	,	
+	,	12
+	,	24
 	);
 
 	INSERT INTO EquipementsModeles
@@ -669,8 +669,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Lance maudite'
 	,	8171.30
-	,	
-	,	
+	,	12
+	,	24
 	);
 /* FIN MAUDIT */
 
@@ -682,8 +682,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Épée sacrée'
 	,	10383.77
-	,	
-	,	
+	,	13
+	,	26
 	);
 
 	INSERT INTO EquipementsModeles
@@ -693,8 +693,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Bâton sacré'
 	,	10383.77
-	,	
-	,
+	,	13
+	,	16
 	);
 
 	INSERT INTO EquipementsModeles
@@ -704,8 +704,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Marteau sacré'
 	,	6922.52
-	,	
-	,	
+	,	7
+	,	20
 	);
 
 	INSERT INTO EquipementsModeles
@@ -715,8 +715,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Bouclier')
 	,	'Bouclier sacré'
 	,	6922.52
-	,	
-	,	
+	,	0
+	,	0
 	);
 
 	INSERT INTO EquipementsModeles
@@ -726,8 +726,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Dague sacrée'
 	,	6922.52
-	,	
-	,	
+	,	7
+	,	20
 	);
 
 	INSERT INTO EquipementsModeles
@@ -737,8 +737,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Baguette sacrée'
 	,	6922.52
-	,	
-	,	
+	,	7
+	,	20
 	);
 
 	INSERT INTO EquipementsModeles
@@ -748,8 +748,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Hache sacrée'
 	,	10383.77
-	,	
-	,	
+	,	13
+	,	26
 	);
 
 	INSERT INTO EquipementsModeles
@@ -759,8 +759,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Lance sacrée'
 	,	10383.77
-	,	
-	,	
+	,	13
+	,	26
 	);
 /* FIN SACRÉ */
 
@@ -772,8 +772,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Épée crystale'
 	,	15939.69
-	,	
-	,	
+	,	15
+	,	30
 	);
 
 	INSERT INTO EquipementsModeles
@@ -783,8 +783,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Bâton crystal'
 	,	15939.69
-	,	
-	,
+	,	15
+	,	30
 	);
 
 	INSERT INTO EquipementsModeles
@@ -794,8 +794,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Marteau crystal'
 	,	10626.46
-	,	
-	,	
+	,	8
+	,	23
 	);
 
 	INSERT INTO EquipementsModeles
@@ -805,8 +805,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Bouclier')
 	,	'Bouclier crystal'
 	,	10626.46
-	,	
-	,	
+	,	0
+	,	0
 	);
 
 	INSERT INTO EquipementsModeles
@@ -816,8 +816,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Dague crystale'
 	,	10626.46
-	,	
-	,	
+	,	8
+	,	23
 	);
 
 	INSERT INTO EquipementsModeles
@@ -827,8 +827,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Baguette crystale'
 	,	10626.46
-	,	
-	,	
+	,	8
+	,	23
 	);
 
 	INSERT INTO EquipementsModeles
@@ -838,8 +838,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Hache crystale'
 	,	15939.69
-	,	
-	,	
+	,	15
+	,	30
 	);
 
 	INSERT INTO EquipementsModeles
@@ -849,8 +849,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Lance crystale'
 	,	15939.69
-	,	
-	,	
+	,	15
+	,	30
 	);
 /* FIN CRYSTAL*/
 
@@ -862,8 +862,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Épée héroïque'
 	,	19339.70
-	,	
-	,	
+	,	16
+	,	32
 	);
 
 	INSERT INTO EquipementsModeles
@@ -873,8 +873,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Bâton héroïque'
 	,	19339.70
-	,	
-	,
+	,	16
+	,	32
 	);
 
 	INSERT INTO EquipementsModeles
@@ -884,8 +884,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Marteau héroïque'
 	,	12893.13
-	,	
-	,	
+	,	8
+	,	24
 	);
 
 	INSERT INTO EquipementsModeles
@@ -895,8 +895,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Bouclier')
 	,	'Bouclier héroïque'
 	,	12893.13
-	,	
-	,	
+	,	0
+	,	0
 	);
 
 	INSERT INTO EquipementsModeles
@@ -906,8 +906,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Dague héroïque'
 	,	12893.13
-	,	
-	,	
+	,	8
+	,	24
 	);
 
 	INSERT INTO EquipementsModeles
@@ -917,8 +917,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Baguette héroïque'
 	,	12893.13
-	,	
-	,	
+	,	8
+	,	24
 	);
 
 	INSERT INTO EquipementsModeles
@@ -928,8 +928,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Hache héroïque'
 	,	19339.70
-	,	
-	,	
+	,	16
+	,	32
 	);
 
 	INSERT INTO EquipementsModeles
@@ -939,8 +939,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Lance héroïque'
 	,	19339.70
-	,	
-	,	
+	,	16
+	,	32
 	);
 /* FIN HÉROÏQUE */
 
@@ -952,8 +952,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Épée légendaire'
 	,	23192.08
-	,	
-	,	
+	,	17
+	,	34
 	);
 
 	INSERT INTO EquipementsModeles
@@ -963,8 +963,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Bâton légendaire'
 	,	23192.08
-	,	
-	,
+	,	17
+	,	34
 	);
 
 	INSERT INTO EquipementsModeles
@@ -974,8 +974,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Marteau légendaire'
 	,	15461.38
-	,	
-	,	
+	,	9
+	,	26
 	);
 
 	INSERT INTO EquipementsModeles
@@ -985,8 +985,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Bouclier')
 	,	'Bouclier légendaire'
 	,	15461.38
-	,	
-	,	
+	,	0
+	,	0
 	);
 
 	INSERT INTO EquipementsModeles
@@ -996,8 +996,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Dague légendaire'
 	,	15461.38
-	,	
-	,	
+	,	9
+	,	26
 	);
 
 	INSERT INTO EquipementsModeles
@@ -1007,8 +1007,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Baguette légendaire'
 	,	15461.38
-	,	
-	,	
+	,	9
+	,	26
 	);
 
 	INSERT INTO EquipementsModeles
@@ -1018,8 +1018,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Hache légendaire'
 	,	23192.08
-	,	
-	,	
+	,	17
+	,	34
 	);
 
 	INSERT INTO EquipementsModeles
@@ -1029,8 +1029,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Lance légendaire'
 	,	23192.08
-	,	
-	,	
+	,	17
+	,	34
 	);
 /* FIN LÉGENDAIRE */
 
@@ -1042,8 +1042,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Épée de diamant'
 	,	32367.12
-	,	
-	,	
+	,	19
+	,	38
 	);
 
 	INSERT INTO EquipementsModeles
@@ -1053,8 +1053,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Bâton de diamant'
 	,	32367.12
-	,	
-	,
+	,	19
+	,	38
 	);
 
 	INSERT INTO EquipementsModeles
@@ -1064,8 +1064,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Marteau de diamant'
 	,	21578.08
-	,	
-	,	
+	,	10
+	,	29
 	);
 
 	INSERT INTO EquipementsModeles
@@ -1075,8 +1075,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Bouclier')
 	,	'Bouclier de diamant'
 	,	21578.08
-	,	
-	,	
+	,	0
+	,	0
 	);
 
 	INSERT INTO EquipementsModeles
@@ -1086,8 +1086,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Dague de diamant'
 	,	21578.08
-	,	
-	,	
+	,	10
+	,	29
 	);
 
 	INSERT INTO EquipementsModeles
@@ -1097,8 +1097,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Baguette de diamant'
 	,	21578.08
-	,	
-	,	
+	,	10
+	,	29
 	);
 
 	INSERT INTO EquipementsModeles
@@ -1108,8 +1108,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Hache de diamant'
 	,	32367.12
-	,	
-	,	
+	,	19
+	,	38
 	);
 
 	INSERT INTO EquipementsModeles
@@ -1119,8 +1119,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Lance de diamant'
 	,	32367.12
-	,	
-	,	
+	,	19
+	,	38
 	);
 /* FIN DIAMAND */
 
@@ -1132,8 +1132,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Épée céleste'
 	,	37746.32
-	,	
-	,	
+	,	20
+	,	40
 	);
 
 	INSERT INTO EquipementsModeles
@@ -1143,8 +1143,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Bâton céleste'
 	,	37746.32
-	,	
-	,
+	,	20
+	,	40
 	);
 
 	INSERT INTO EquipementsModeles
@@ -1154,8 +1154,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Marteau céleste'
 	,	25164.22
-	,	
-	,	
+	,	10
+	,	30
 	);
 
 	INSERT INTO EquipementsModeles
@@ -1165,8 +1165,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Bouclier')
 	,	'Bouclier céleste'
 	,	25164.22
-	,	
-	,	
+	,	0
+	,	0
 	);
 
 	INSERT INTO EquipementsModeles
@@ -1176,8 +1176,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Dague céleste'
 	,	25164.22
-	,	
-	,	
+	,	10
+	,	30
 	);
 
 	INSERT INTO EquipementsModeles
@@ -1187,8 +1187,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Baguette céleste'
 	,	25164.22
-	,	
-	,	
+	,	10
+	,	30
 	);
 
 	INSERT INTO EquipementsModeles
@@ -1198,8 +1198,8 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Hache céleste'
 	,	37746.32
-	,	
-	,	
+	,	20
+	,	40
 	);
 
 	INSERT INTO EquipementsModeles
@@ -1209,7 +1209,7 @@
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Lance céleste'
 	,	37746.32
-	,	
-	,	
+	,	20
+	,	40
 	);
 /* FIN CÉLESTE */
