@@ -50,7 +50,7 @@ INSERT INTO Modeles
 (nom, deuxMains)
 VALUES
 (
-	'Botte'
+	'Bottes'
 ,	FALSE
 );
 
