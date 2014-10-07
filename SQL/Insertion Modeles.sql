@@ -34,7 +34,7 @@ INSERT INTO Modeles
 (nom, deuxMains)
 VALUES
 (
-	'Épaules'
+	'Épaulette'
 ,	FALSE
 );
 
@@ -42,7 +42,7 @@ INSERT INTO Modeles
 (nom, deuxMains)
 VALUES
 (
-	'Torse'
+	'Plastron'
 ,	FALSE
 );
 
@@ -50,7 +50,7 @@ INSERT INTO Modeles
 (nom, deuxMains)
 VALUES
 (
-	'Bottes'
+	'Botte'
 ,	FALSE
 );
 
