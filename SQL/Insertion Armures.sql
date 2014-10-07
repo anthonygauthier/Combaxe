@@ -1564,4 +1564,4 @@
 	,	0
 	,	0
 	);
-/* FIN DIAMAND */
+/* FIN CÉLESTE */
