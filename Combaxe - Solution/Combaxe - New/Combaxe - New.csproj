@@ -53,9 +53,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="écrans\changementPerso.xaml.cs">
+      <DependentUpon>changementPerso.xaml</DependentUpon>
+    </Compile>
     <Compile Include="écrans\creationPersonnage.xaml.cs">
       <DependentUpon>creationPersonnage.xaml</DependentUpon>
     </Compile>
+    <Page Include="écrans\changementPerso.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="écrans\creationCompte.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -15,3 +15,5 @@ D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\bin\Debug\Combaxe - New.exe
 D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\bin\Debug\Combaxe - New.pdb
 D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe - New.exe
 D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe - New.pdb
+D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\écrans\changementPerso.baml
+D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\écrans\changementPerso.g.cs
