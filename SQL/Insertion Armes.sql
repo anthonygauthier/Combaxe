@@ -501,7 +501,7 @@
 	(
 		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Épée enchantée'
-	,	4735.96enchanté
+	,	4735.96
 	,	10
 	,	20
 	);
