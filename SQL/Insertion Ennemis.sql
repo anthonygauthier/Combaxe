@@ -55,7 +55,7 @@ VALUES
 );
 /* FIN DES BOSS*/
 
-
+/* DÉBUT ENNEMI COMMUN */
 INSERT INTO Ennemis
 (nom, niveau, boss)
 VALUES
@@ -132,7 +132,7 @@ INSERT INTO Ennemis
 (nom, niveau, boss)
 VALUES
 (
-	'I'
+	'Iguane démoniaque'
 ,	1
 ,	FALSE
 );
@@ -141,7 +141,7 @@ INSERT INTO Ennemis
 (nom, niveau, boss)
 VALUES
 (
-	'J'
+	'Jaguar géant'
 ,	1
 ,	FALSE
 );
@@ -271,3 +271,4 @@ VALUES
 ,	1
 ,	FALSE
 );
+/* FIN ENNEMI COMMUN */
