@@ -160,7 +160,7 @@
 	VALUES
 	(
 		(SELECT idModele FROM Modeles WHERE nom='Épaulette')
-	,	'Épaulettes rouillés'
+	,	'Épaulettes rouillées'
 	,	89.54
 	,	0
 	,	0

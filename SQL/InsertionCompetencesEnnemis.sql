@@ -30,8 +30,8 @@ VALUES
 	(SELECT idEnnemi FROM Ennemis WHERE nom='Azazel')
 ,	(SELECT idCompetence FROM Competences WHERE nom='Coup mental')
 );
-
 /* FIN COMPÉTENCES AZAZEL */
+
 /* COMPÉTENCES Moguarnoch*/
 INSERT INTO CompetencesEnnemis
 (idEnnemi, idCompetence)
@@ -64,7 +64,6 @@ VALUES
 	(SELECT idEnnemi FROM Ennemis WHERE nom='Moguarnoch')
 ,	(SELECT idCompetence FROM Competences WHERE nom='Tuerie')
 );
-
 /* FIN COMPÉTENCES Moguarnoch*/
 
 /* COMPÉTENCES Zakuta*/
@@ -100,7 +99,6 @@ VALUES
 ,	(SELECT idCompetence FROM Competences WHERE nom='Attaque des éléments')
 );
 /* FIN COMPÉTENCES Zakuta*/
-
 
 /* COMPÉTENCES Ful'kitak */
 INSERT INTO CompetencesEnnemis
@@ -168,10 +166,9 @@ VALUES
 	(SELECT idEnnemi FROM Ennemis WHERE nom='Harfanghei')
 ,	(SELECT idCompetence FROM Competences WHERE nom='Furie animale')
 );
-
 /* FIN COMPÉTENCES Harfanghei */
 
-/* COMPÉTENCES Arkanok */
+/* COMPÉTENCES ARKANOK */
 INSERT INTO CompetencesEnnemis
 (idEnnemi, idCompetence)
 VALUES
@@ -203,4 +200,227 @@ VALUES
 	(SELECT idEnnemi FROM Ennemis WHERE nom='Arkanok')
 ,	(SELECT idCompetence FROM Competences WHERE nom='Coup des dieux corrompus')
 );
-/* FIN COMPÉTENCES Arkanok */
+/* FIN COMPÉTENCES ARKANOK */
+
+/* DÉBUT COMPÉTENCES ENNEMI A-H*/
+INSERT INTO CompetencesEnnemis
+(idEnnemi, idCompetence)
+VALUES
+(
+	(SELECT idEnnemi FROM Ennemis WHERE nom='Ange déchu')
+,	(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
+);
+
+INSERT INTO CompetencesEnnemis
+(idEnnemi, idCompetence)
+VALUES
+(
+	(SELECT idEnnemi FROM Ennemis WHERE nom='Ange déchu')
+,	(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
+);
+
+INSERT INTO CompetencesEnnemis
+(idEnnemi, idCompetence)
+VALUES
+(
+	(SELECT idEnnemi FROM Ennemis WHERE nom='Bandit')
+,	(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
+);
+
+INSERT INTO CompetencesEnnemis
+(idEnnemi, idCompetence)
+VALUES
+(
+	(SELECT idEnnemi FROM Ennemis WHERE nom='Centaure')
+,	(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
+);
+
+INSERT INTO CompetencesEnnemis
+(idEnnemi, idCompetence)
+VALUES
+(
+	(SELECT idEnnemi FROM Ennemis WHERE nom='Dragon')
+,	(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
+);
+
+INSERT INTO CompetencesEnnemis
+(idEnnemi, idCompetence)
+VALUES
+(
+	(SELECT idEnnemi FROM Ennemis WHERE nom='Elfe')
+,	(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
+);
+
+INSERT INTO CompetencesEnnemis
+(idEnnemi, idCompetence)
+VALUES
+(
+	(SELECT idEnnemi FROM Ennemis WHERE nom='Elfe')
+,	(SELECT idCompetence FROM Competences WHERE nom='Tir gelé')
+);
+
+INSERT INTO CompetencesEnnemis
+(idEnnemi, idCompetence)
+VALUES
+(
+	(SELECT idEnnemi FROM Ennemis WHERE nom='Elfe')
+,	(SELECT idCompetence FROM Competences WHERE nom='Tir explosif')
+);
+
+INSERT INTO CompetencesEnnemis
+(idEnnemi, idCompetence)
+VALUES
+(
+	(SELECT idEnnemi FROM Ennemis WHERE nom='Farfadet')
+,	(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
+);
+
+INSERT INTO CompetencesEnnemis
+(idEnnemi, idCompetence)
+VALUES
+(
+	(SELECT idEnnemi FROM Ennemis WHERE nom='Gorgone')
+,	(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
+);
+
+INSERT INTO CompetencesEnnemis
+(idEnnemi, idCompetence)
+VALUES
+(
+	(SELECT idEnnemi FROM Ennemis WHERE nom='Hydre')
+,	(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
+);
+/* FIN COMPÉTENCES ENNEMI A-H*/
+
+/* DÉBUT COMPÉTENCES ENNEMI I-P*/
+INSERT INTO CompetencesEnnemis
+(idEnnemi, idCompetence)
+VALUES
+(
+	(SELECT idEnnemi FROM Ennemis WHERE nom='Iguane démoniaque')
+,	(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
+);
+
+INSERT INTO CompetencesEnnemis
+(idEnnemi, idCompetence)
+VALUES
+(
+	(SELECT idEnnemi FROM Ennemis WHERE nom='Jaguar géant')
+,	(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
+);
+
+INSERT INTO CompetencesEnnemis
+(idEnnemi, idCompetence)
+VALUES
+(
+	(SELECT idEnnemi FROM Ennemis WHERE nom='Kraken')
+,	(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
+);
+
+INSERT INTO CompetencesEnnemis
+(idEnnemi, idCompetence)
+VALUES
+(
+	(SELECT idEnnemi FROM Ennemis WHERE nom='Licorne')
+,	(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
+);
+
+INSERT INTO CompetencesEnnemis
+(idEnnemi, idCompetence)
+VALUES
+(
+	(SELECT idEnnemi FROM Ennemis WHERE nom='Minotaure')
+,	(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
+);
+
+INSERT INTO CompetencesEnnemis
+(idEnnemi, idCompetence)
+VALUES
+(
+	(SELECT idEnnemi FROM Ennemis WHERE nom='Nécromancien')
+,	(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
+);
+
+INSERT INTO CompetencesEnnemis
+(idEnnemi, idCompetence)
+VALUES
+(
+	(SELECT idEnnemi FROM Ennemis WHERE nom='Ogre')
+,	(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
+);
+
+INSERT INTO CompetencesEnnemis
+(idEnnemi, idCompetence)
+VALUES
+(
+	(SELECT idEnnemi FROM Ennemis WHERE nom='Panthère d\'eau')
+,	(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
+);
+
+/* FIN COMPÉTENCES ENNEMI I-P*/
+
+/* DÉBUT COMPÉTENCES ENNEMI Q-Z*/
+INSERT INTO CompetencesEnnemis
+(idEnnemi, idCompetence)
+VALUES
+(
+	(SELECT idEnnemi FROM Ennemis WHERE nom='Rhinocéros sauvage')
+,	(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
+);
+
+INSERT INTO CompetencesEnnemis
+(idEnnemi, idCompetence)
+VALUES
+(
+	(SELECT idEnnemi FROM Ennemis WHERE nom='Satyre')
+,	(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
+);
+
+INSERT INTO CompetencesEnnemis
+(idEnnemi, idCompetence)
+VALUES
+(
+	(SELECT idEnnemi FROM Ennemis WHERE nom='Troll')
+,	(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
+);
+
+INSERT INTO CompetencesEnnemis
+(idEnnemi, idCompetence)
+VALUES
+(
+	(SELECT idEnnemi FROM Ennemis WHERE nom='Ubuntu')
+,	(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
+);
+
+INSERT INTO CompetencesEnnemis
+(idEnnemi, idCompetence)
+VALUES
+(
+	(SELECT idEnnemi FROM Ennemis WHERE nom='Vampire')
+,	(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
+);
+
+INSERT INTO CompetencesEnnemis
+(idEnnemi, idCompetence)
+VALUES
+(
+	(SELECT idEnnemi FROM Ennemis WHERE nom='Worg')
+,	(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
+);
+
+INSERT INTO CompetencesEnnemis
+(idEnnemi, idCompetence)
+VALUES
+(
+	(SELECT idEnnemi FROM Ennemis WHERE nom='Yéti')
+,	(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
+);
+
+INSERT INTO CompetencesEnnemis
+(idEnnemi, idCompetence)
+VALUES
+(
+	(SELECT idEnnemi FROM Ennemis WHERE nom='Zombie')
+,	(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
+);
+/* FIN COMPÉTENCES ENNEMI Q-Z*/
