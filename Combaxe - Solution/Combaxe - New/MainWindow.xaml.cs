@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Combaxe___New.classes;
+using Combaxe___New.écrans;
+using MiniBD;
 
 namespace Combaxe___New
 {
@@ -25,11 +28,76 @@ namespace Combaxe___New
             InitializeComponent();
         }
 
+        //Méthode pour se rendre à l'écran de création de compte - Anthony Gauthier 09/10/2014
         private void btnCreerCompte_Click(object sender, RoutedEventArgs e)
         {
             var creationCompte = new creationCompte();
             creationCompte.Show();
             this.Close();
+        }
+
+        //Méthode du bouton pour se connecter - Anthony Gauthier 09/10/2014
+        private void btnConnexion_Click(object sender, RoutedEventArgs e)
+        {
+            //Si l'utilisateur ne fourni pas de nom d'usager - Anthony Gauthier 09/10/2014
+            if(txtbNomUsager.Text.Length == 0)
+            { 
+                MessageBox.Show("ERREUR: Vous devez fournir un nom d'usager");
+            }
+            //Si l'utilisateur ne fourni pas de mot de passe - Anthony Gauthier 09/10/2014
+            else if (pwdbMdp.Password.Length == 0)
+            {
+               MessageBox.Show("ERREUR: Vous devez fournir un mot de passe"); 
+            }
+            //Sinon, on se connecte à la BD et on effectue la requête - Anthony Gauthier 09/10/2014
+            else 
+            { 
+                bool joueurConnecte;
+                joueurConnecte = connexionCombaxe();
+
+                if (joueurConnecte == true)
+                {
+                    var choixPerso = new changementPerso();
+                    choixPerso.Show();
+                    this.Close();
+                }
+                else
+                {
+                
+                }
+            }
+
+        }
+
+        //Méthode pour quitter le jeu - Anthony Gauthier 09/10/2014
+        private void btnQuitter_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        //Méthode pour se connecter - Anthony Gauthier 09/10/2014
+        private bool connexionCombaxe()
+        {
+            BdService bdCombaxe = new BdService();
+            string selConnexion = "SELECT * FROM joueurs WHERE pseudonyme = '" + txtbNomUsager.Text + "' AND motDePasse = '" + pwdbMdp.Password + "';";
+            List<string>[] tabJoueur;
+
+            int nombreRange = 0;
+            tabJoueur = bdCombaxe.selection(selConnexion, 3, ref nombreRange);
+
+            //Si la requête n'a rien retourné, l'utilisateur n'a pas de compte - Anthony Gauthier 09/10/2014
+            if (nombreRange == 0)
+            {
+                MessageBox.Show("ERREUR: Votre combinaison de nom d'usager et de mot de passe n'est pas valide.");
+                return false;
+            }
+            //Sinon, l'utilisateur est connecté - Anthony Gauthier 09/10/2014
+            else
+            {
+                //MessageBox désactivé, réactiver en cas de test - Anthony Gauthier 09/10/2014
+                //MessageBox.Show("Vous êtes connecté, " + tabJoueur[0][1] + ".");
+                return true;
+            }
         }
     }
 }

@@ -20,7 +20,7 @@
 
         <!--StackPanel pour le bouton Quitter-->
         <StackPanel Orientation="Vertical" Grid.Column="3" Grid.Row="2">
-            <Button Name="btnQuitter" Content="Quitter" Margin="0,30,5,0" MinHeight="30" MaxHeight="30" MaxWidth="99"></Button>
+            <Button Name="btnQuitter" Content="Quitter" Margin="0,30,5,0" MinHeight="30" MaxHeight="30" MaxWidth="99" Click="btnQuitter_Click"></Button>
         </StackPanel>
 
         <!--StackPanel pour le bouton CreerCompte-->
@@ -36,7 +36,7 @@
 
         <!--StackPanel pour le bouton de connexion-->
         <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,75">
-            <Button Name="btnConnexion" HorizontalAlignment="Center" Content="Connexion" MinWidth="70" MaxWidth="70" MinHeight="30" MaxHeight="30"></Button>
+            <Button Name="btnConnexion" HorizontalAlignment="Center" Content="Connexion" MinWidth="70" MaxWidth="70" MinHeight="30" MaxHeight="30" Click="btnConnexion_Click"></Button>
         </StackPanel>
 
         <!--StackPanel pour les labels de connexion-->
