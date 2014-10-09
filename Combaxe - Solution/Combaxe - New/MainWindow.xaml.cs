@@ -27,6 +27,8 @@ namespace Combaxe___New
         {
             InitializeComponent();
         }
+        //Lorsque la page s'initialise, on initie une connexion à la BD - Anthony Gauthier 09/10/2014
+        BdService bdCombaxe = new BdService();
 
         //Méthode pour se rendre à l'écran de création de compte - Anthony Gauthier 09/10/2014
         private void btnCreerCompte_Click(object sender, RoutedEventArgs e)
@@ -57,9 +59,23 @@ namespace Combaxe___New
 
                 if (joueurConnecte == true)
                 {
-                    var choixPerso = new changementPerso();
-                    choixPerso.Show();
-                    this.Close();
+                    bool joueurAPersonnage;
+                    joueurAPersonnage = verificationPersonnage();
+
+                    //Si le joueur a des personnages, on affiche l'écran de changement de personnages - Anthony Gauthier 09/10/2014
+                    if (joueurAPersonnage == true)
+                    {
+                        var choixPerso = new changementPerso();
+                        choixPerso.Show();
+                        this.Close();
+                    }
+                    //Sinon, on l'amène à la page de création de personnage - Anthony Gauthier 09/10/2014
+                    else
+                    {
+                        var creationPerso = new creationPersonnage();
+                        creationPerso.Show();
+                        this.Close();
+                    }
                 }
                 else
                 {
@@ -78,15 +94,12 @@ namespace Combaxe___New
         //Méthode pour se connecter - Anthony Gauthier 09/10/2014
         private bool connexionCombaxe()
         {
-            BdService bdCombaxe = new BdService();
-            string selConnexion = "SELECT * FROM joueurs WHERE pseudonyme = '" + txtbNomUsager.Text + "' AND motDePasse = '" + pwdbMdp.Password + "';";
             List<string>[] tabJoueur;
 
-            int nombreRange = 0;
-            tabJoueur = bdCombaxe.selection(selConnexion, 3, ref nombreRange);
+            tabJoueur = selectionCompte();
 
             //Si la requête n'a rien retourné, l'utilisateur n'a pas de compte - Anthony Gauthier 09/10/2014
-            if (nombreRange == 0)
+            if (tabJoueur[0][0].Length == 0)
             {
                 MessageBox.Show("ERREUR: Votre combinaison de nom d'usager et de mot de passe n'est pas valide.");
                 return false;
@@ -94,10 +107,48 @@ namespace Combaxe___New
             //Sinon, l'utilisateur est connecté - Anthony Gauthier 09/10/2014
             else
             {
-                //MessageBox désactivé, réactiver en cas de test - Anthony Gauthier 09/10/2014
-                //MessageBox.Show("Vous êtes connecté, " + tabJoueur[0][1] + ".");
                 return true;
             }
         }
+
+
+        //Méthode pour vérifier si l'utilisateur a des personnages - Anthony Gauthier 09/10/2014
+        private bool verificationPersonnage()
+        {
+            List<string>[] unJoueur;
+            unJoueur = selectionCompte();
+
+            string selPerso = "SELECT * FROM personnages WHERE idJoueur = "+unJoueur[0][0]+";";
+
+            List<string>[] persosDuJoueur;
+            int nombreRange = 0;
+            persosDuJoueur = bdCombaxe.selection(selPerso, 9, ref nombreRange);
+
+            //Si le joueur n'a pas de personnages, on retourne false - Anthony Gauthier 09/10/2014
+            if(persosDuJoueur[0][0].Length == 0)
+            {
+                return false;
+            }
+            //S'il en a, on retourne true - Anthony Gauthier 09/10/2014
+            else
+            {
+                return true;
+            }
+
+            
+        } 
+
+        //Méthode qui retourne les informations du compte du joueur (id, nom, mdp)
+        private List<string>[] selectionCompte()
+        {
+            string selConnexion = "SELECT * FROM joueurs WHERE pseudonyme = '" + txtbNomUsager.Text + "' AND motDePasse = '" + pwdbMdp.Password + "';";
+            List<string>[] unJoueur;
+
+            int nombreRange = 0;
+            unJoueur = bdCombaxe.selection(selConnexion, 3, ref nombreRange);
+
+            return unJoueur;
+        }
+
     }
 }

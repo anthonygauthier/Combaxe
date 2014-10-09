@@ -8,10 +8,34 @@ namespace Combaxe___New.classes
 {
     public class Joueur
     {
-        private int idJoueur;
-        private string pseudo;
-        private string motDePasse;
-        private List<Personnage> listePersonnage;
+        private int _idJoueur;
+        private string _pseudo;
+        private string _motDePasse;
+        private List<Personnage> _listePersonnage;
+
+        public int idJoueur
+        {
+            get { return _idJoueur; }
+            set { _idJoueur = value; }
+        }
+
+        public string pseudo
+        {
+            get { return _pseudo; }
+            set { _pseudo = value; }
+        }
+
+        public string motDePasse
+        {
+            get { return _motDePasse; }
+            set { _motDePasse = value; }
+        }
+
+        public List<Personnage> listePersonnage
+        {
+            get { return _listePersonnage; }
+            set { _listePersonnage = value; }
+        }
 
         /// <summary>
         /// Constructeur de base
