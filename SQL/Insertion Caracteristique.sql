@@ -23,12 +23,12 @@ INSERT INTO Caracteristiques
 (nom)
 VALUES
 (
-	'Defense'
+	'Défense'
 );
 
 INSERT INTO Caracteristiques
 (nom)
 VALUES
 (
-	'Energie'
+	'Énergie'
 );
