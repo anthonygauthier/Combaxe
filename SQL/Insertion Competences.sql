@@ -389,3 +389,339 @@ VALUES
 ,	4
 ,	'Devient fou et veut voir son ennemi ensanglanté. '
 );
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
+,	'Tir gelé'
+,	15
+,	22
+,	12
+,	4
+,	Concat('La peau de la cible se durcit et devient aussi dure que l\'acier. ',(SELECT description FROM Effets WHERE nom='Glacé'),' pendant ',(SELECT tempsEffets FROM Effets WHERE nom='Glacé') ,' tour.')
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+,	NULL
+,	'Tir explosif'
+,	15
+,	22
+,	12
+,	4
+,	'Devient fou et veut voir son ennemi ensanglanté. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+,	NULL
+,	'Empoisonnement'
+,	15
+,	22
+,	12
+,	4
+,	'Devient fou et veut voir son ennemi ensanglanté. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+,	NULL
+,	'Tir rapide'
+,	15
+,	22
+,	12
+,	4
+,	'Devient fou et veut voir son ennemi ensanglanté. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+,	(SELECT idEffet FROM Effets WHERE nom='')
+,	'Gardien'
+,	15
+,	22
+,	12
+,	4
+,	'Devient fou et veut voir son ennemi ensanglanté. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
+,	NULL
+,	'Souffle de feu'
+,	15
+,	22
+,	12
+,	4
+,	'Devient fou et veut voir son ennemi ensanglanté. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+,	(SELECT idEffet FROM Effets WHERE nom='Rapidité accru')
+,	'Mouvement agile'
+,	15
+,	22
+,	12
+,	4
+,	'Devient fou et veut voir son ennemi ensanglanté. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+,	(SELECT idEffet FROM Effets WHERE nom='Immobile')
+,	'Pétrification'
+,	15
+,	22
+,	12
+,	4
+,	'Devient fou et veut voir son ennemi ensanglanté. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Support')
+,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
+,	'Régénération'
+,	15
+,	22
+,	12
+,	4
+,	'Devient fou et veut voir son ennemi ensanglanté. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
+,	'Invisibilité'
+,	15
+,	22
+,	12
+,	4
+,	'Devient fou et veut voir son ennemi ensanglanté. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
+,	'Attaque rapide'
+,	15
+,	22
+,	12
+,	4
+,	'Devient fou et veut voir son ennemi ensanglanté. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
+,	'Rafale de tentacules'
+,	15
+,	22
+,	12
+,	4
+,	'Devient fou et veut voir son ennemi ensanglanté. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
+,	'Invocation des morts'
+,	15
+,	22
+,	12
+,	4
+,	'Devient fou et veut voir son ennemi ensanglanté. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
+,	'Tremblement de terre'
+,	15
+,	22
+,	12
+,	4
+,	'Devient fou et veut voir son ennemi ensanglanté. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
+,	'Cri strident'
+,	15
+,	22
+,	12
+,	4
+,	'Devient fou et veut voir son ennemi ensanglanté. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
+,	'Coup ailé'
+,	15
+,	22
+,	12
+,	4
+,	'Devient fou et veut voir son ennemi ensanglanté. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
+,	'Piétinement'
+,	15
+,	22
+,	12
+,	4
+,	'Devient fou et veut voir son ennemi ensanglanté. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
+,	'Mélodie enchantée'
+,	15
+,	22
+,	12
+,	4
+,	'Devient fou et veut voir son ennemi ensanglanté. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
+,	'Coup foudroyant'
+,	15
+,	22
+,	12
+,	4
+,	'Devient fou et veut voir son ennemi ensanglanté. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
+,	'Confusion'
+,	15
+,	22
+,	12
+,	4
+,	'Devient fou et veut voir son ennemi ensanglanté. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
+,	'Instabilité'
+,	15
+,	22
+,	12
+,	4
+,	'Devient fou et veut voir son ennemi ensanglanté. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
+,	'Morsure'
+,	15
+,	22
+,	12
+,	4
+,	'Devient fou et veut voir son ennemi ensanglanté. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
+,	'Coup féroce'
+,	15
+,	22
+,	12
+,	4
+,	'Devient fou et veut voir son ennemi ensanglanté. '
+);
+
+INSERT INTO Competences
+(idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
+VALUES
+(
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
+,	'Régénération'
+,	15
+,	22
+,	12
+,	4
+,	'Devient fou et veut voir son ennemi ensanglanté. '
+);

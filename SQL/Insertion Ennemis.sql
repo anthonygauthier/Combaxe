@@ -195,7 +195,7 @@ INSERT INTO Ennemis
 (nom, niveau, boss)
 VALUES
 (
-	'Panthère d\'eau'
+	'Ptérodactyle'
 ,	1
 ,	FALSE
 );

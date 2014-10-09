@@ -9,6 +9,7 @@ DROP TABLE IF EXISTS Equipements;
 DROP TABLE IF EXISTS CaracteristiquesPersonnages;
 DROP TABLE IF EXISTS CaracteristiquesEquipementsModeles;
 DROP TABLE IF EXISTS CaracteristiquesEnnemis;
+DROP TABLE IF EXISTS CaracteristiquesProfessions;
 DROP TABLE IF EXISTS Personnages;
 DROP TABLE IF EXISTS Professions;
 DROP TABLE IF EXISTS Statistiques;
@@ -98,6 +99,14 @@ CREATE TABLE IF NOT EXISTS Personnages
 ,	niveau INT NOT NULL DEFAULT 1
 ,	experience INT NOT NULL DEFAULT 0
 ,	image VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS CaracteristiquesProfessions
+(
+	idCaracteristiqueProfession INT AUTO_INCREMENT PRIMARY KEY NOT NULL
+,	idCaracteristique INT NOT NULL
+,	idProfession INT NOT NULL
+,	valeur INT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS CaracteristiquesEnnemis
@@ -262,3 +271,11 @@ FOREIGN KEY (idEquipementModele) REFERENCES EquipementsModeles(idEquipementModel
 ALTER TABLE EquipementsModeles
 ADD CONSTRAINT EquipementsModeles_Modeles_FK
 FOREIGN KEY (idModele) REFERENCES Modeles(idModele);
+
+ALTER TABLE CaracteristiquesProfessions
+ADD CONSTRAINT CaracteristiquesProfessions_Caracteristiques_FK
+FOREIGN KEY (idCaracteristique) REFERENCES Caracteristiques(idCaracteristique);
+
+ALTER TABLE CaracteristiquesProfessions
+ADD CONSTRAINT CaracteristiquesProfessions_Professions_FK
+FOREIGN KEY (idProfession) REFERENCES Professions(idProfession);
