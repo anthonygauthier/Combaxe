@@ -177,7 +177,7 @@ INSERT INTO Ennemis
 (nom, niveau, boss)
 VALUES
 (
-	'Necromancien'
+	'Nécromancien'
 ,	1
 ,	FALSE
 );

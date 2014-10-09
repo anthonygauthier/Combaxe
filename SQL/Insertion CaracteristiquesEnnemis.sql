@@ -1,3 +1,4 @@
+/* DÉBUT CARACTERISTIQUE BOSS */
 INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
@@ -266,5 +267,52 @@ VALUES
 (
 	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Arkanok')
+,	59
+);
+/* FIN CARACTERISTIQUE BOSS */
+
+/* DÉBUT CARACTÉRISTIQUE ENNEMIS */
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ange déchu')
+,	67
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ange déchu')
+,	82
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ange déchu')
+,	72
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ange déchu')
+,	61
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ange déchu')
 ,	59
 );
