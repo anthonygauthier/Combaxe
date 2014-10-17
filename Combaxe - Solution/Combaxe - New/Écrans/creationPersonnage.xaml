@@ -34,7 +34,7 @@
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-            <TextBox Name="txtbNom" GotKeyboardFocus="txtbNom_GotKeyboardFocus" TextAlignment="Center" FontSize="20" Text="Nom du personnage" VerticalAlignment="Stretch" Margin="5,5,5,5" MaxHeight="45" Grid.ColumnSpan="3"/>
+            <TextBox Name="txtbNom" MaxLength="20" GotKeyboardFocus="txtbNom_GotKeyboardFocus" TextAlignment="Center" FontSize="20" Text="Nom du personnage" VerticalAlignment="Stretch" Margin="5,5,5,5" MaxHeight="45" Grid.ColumnSpan="3"/>
             <Button Grid.Row="1" HorizontalAlignment="Stretch"  Name="btnGuerrier" Click="btnGuerrier_Click" Content="Guerrier"/>
             <Button Grid.Row="1" HorizontalAlignment="Stretch"  Name="btnPaladin" Click="btnPaladin_Click" Content="Paladin" Grid.Column="1"/>
             <Button Grid.Row="1" HorizontalAlignment="Stretch"  Name="btnMagicien" Click="btnMagicien_Click" Content="Magicien" Grid.Column="2"/>
@@ -60,37 +60,37 @@
             <!--Force-->
             <Label HorizontalAlignment="Right" VerticalAlignment="Center" Content="Force:" Grid.Row="0" Grid.Column="0" Height="24" Width="41"></Label>
             <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
-                <Button Name="btnMoinsForce" Content="-" MinWidth="30" MaxHeight="40"></Button>
-                <TextBox Name="txtForce" IsEnabled="False" MinWidth="50" MaxHeight="40" TextAlignment="Center"></TextBox>
-                <Button Name="btnPlusForce" Content="+" MinWidth="30" MaxHeight="40"></Button>
+                <Button Name="btnMoinsForce" Content="-" MinWidth="30" MaxHeight="40" Click="btnMoinsForce_Click"></Button>
+                <TextBox Text="0" Name="txtForce" IsEnabled="False" MinWidth="50" MaxHeight="40" TextAlignment="Center"></TextBox>
+                <Button Name="btnPlusForce" Content="+" MinWidth="30" MaxHeight="40" Click="btnPlusForce_Click"></Button>
             </StackPanel>
             <!--Énergie-->
             <Label HorizontalAlignment="Right" VerticalAlignment="Center" Content="Énergie:" Grid.Row="1" Grid.Column="0" Height="24" Width="52"></Label>
             <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
-                <Button Name="btnMoinsEnergie" Content="-" MinWidth="30" MaxHeight="40"></Button>
-                <TextBox Name="txtEnergie" IsEnabled="False" MinWidth="50" MaxHeight="40" TextAlignment="Center"></TextBox>
-                <Button Name="btnPlusEnergie" Content="+" MinWidth="30" MaxHeight="40"></Button>
+                <Button Name="btnMoinsEnergie" Content="-" MinWidth="30" MaxHeight="40" Click="btnMoinsEnergie_Click"></Button>
+                <TextBox Text="0" Name="txtEnergie" IsEnabled="False" MinWidth="50" MaxHeight="40" TextAlignment="Center"></TextBox>
+                <Button Name="btnPlusEnergie" Content="+" MinWidth="30" MaxHeight="40" Click="btnPlusEnergie_Click"></Button>
             </StackPanel>
             <!--Vie-->
             <Label HorizontalAlignment="Right" VerticalAlignment="Center" Content="Vie:" Grid.Row="2" Grid.Column="0" Height="24" Width="29"></Label>
             <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
-                <Button Name="btnMoinsVie" Content="-" MinWidth="30" MaxHeight="40"></Button>
-                <TextBox Name="txtVie" IsEnabled="False" MinWidth="50" MaxHeight="40" TextAlignment="Center"></TextBox>
-                <Button Name="btnPlusVie" Content="+" MinWidth="30" MaxHeight="40"></Button>
+                <Button Name="btnMoinsVie" Content="-" MinWidth="30" MaxHeight="40" Click="btnMoinsVie_Click"></Button>
+                <TextBox Text="0" Name="txtVie" IsEnabled="False" MinWidth="50" MaxHeight="40" TextAlignment="Center"></TextBox>
+                <Button Name="btnPlusVie" Content="+" MinWidth="30" MaxHeight="40" Click="btnPlusVie_Click"></Button>
             </StackPanel>
             <!--Vitesse-->
             <Label HorizontalAlignment="Right" VerticalAlignment="Center" Content="Vitesse:" Grid.Row="3" Grid.Column="0" Height="24" Width="50"></Label>
             <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
-                <Button Name="btnMoinsVitesse" Content="-" MinWidth="30" MaxHeight="40"></Button>
-                <TextBox Name="txtVitesse" IsEnabled="False" MinWidth="50" MaxHeight="40" TextAlignment="Center"></TextBox>
-                <Button Name="btnPlusVitesse" Content="+" MinWidth="30" MaxHeight="40"></Button>
+                <Button Name="btnMoinsVitesse" Content="-" MinWidth="30" MaxHeight="40" Click="btnMoinsVitesse_Click"></Button>
+                <TextBox Text="0" Name="txtVitesse" IsEnabled="False" MinWidth="50" MaxHeight="40" TextAlignment="Center"></TextBox>
+                <Button Name="btnPlusVitesse" Content="+" MinWidth="30" MaxHeight="40" Click="btnPlusVitesse_Click"></Button>
             </StackPanel>
             <!--Défense-->
             <Label HorizontalAlignment="Right" VerticalAlignment="Center" Content="Défense:" Grid.Row="4" Grid.Column="0" Height="24" Width="55"></Label>
             <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal">
-                <Button Name="btnMoinsDefense" Content="-" MinWidth="30" MaxHeight="40"></Button>
-                <TextBox Name="txtDefense" IsEnabled="False" MinWidth="50" MaxHeight="40" TextAlignment="Center"></TextBox>
-                <Button Name="btnPlusDefense" Content="+" MinWidth="30" MaxHeight="40"></Button>
+                <Button Name="btnMoinsDefense" Content="-" MinWidth="30" MaxHeight="40" Click="btnMoinsDefense_Click"></Button>
+                <TextBox Text="0" Name="txtDefense" IsEnabled="False" MinWidth="50" MaxHeight="40" TextAlignment="Center"></TextBox>
+                <Button Name="btnPlusDefense" Content="+" MinWidth="30" MaxHeight="40" Click="btnPlusDefense_Click"></Button>
             </StackPanel>
         </Grid>
         <!--Fin Grid pour Caractéristiques-->
@@ -131,7 +131,13 @@
         <!--Boutons pour créer et quitter-->
         <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right">
             <Button Name="btnRetour" Content="Retour" MinWidth="100" MaxHeight="50" Margin="0,0,5,0"></Button>
-            <Button Name="btnCreerPerso" Content="Créer personnage" MaxHeight="50" Margin="0,0,13,0"></Button>
+            <Button Name="btnCreerPerso" Content="Créer personnage" MaxHeight="50" Margin="0,0,13,0" Click="btnCreerPerso_Click"></Button>
+        </StackPanel>
+        
+        <!--Stackpanel pour les points restants-->
+        <StackPanel HorizontalAlignment="Center" Grid.Row="4" Orientation="Horizontal">
+            <Label FontSize="15" FontFamily="motorwerk" Foreground="White" Content="Points restants:"></Label>
+            <TextBox Name="txtbPointsRestants" VerticalAlignment="Top" IsEnabled="False" Margin="0,0,0,2" MaxHeight="40" MinWidth="30" Text="0" TextAlignment="Center"></TextBox>
         </StackPanel>
     </Grid>
 </Window>

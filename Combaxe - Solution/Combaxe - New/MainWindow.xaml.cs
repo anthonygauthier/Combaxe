@@ -107,6 +107,8 @@ namespace Combaxe___New
             //Sinon, l'utilisateur est connecté - Anthony Gauthier 09/10/2014
             else
             {
+                int id = Int32.Parse(tabJoueur[0][0]);
+                VarGlobales.idJoueur = id;
                 return true;
             }
         }
