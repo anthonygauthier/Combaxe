@@ -173,7 +173,7 @@ CREATE TABLE IF NOT EXISTS Competences
 	idCompetence INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
 ,	idTypeCompetence INT NOT NULL
 ,	idEffet INT
-,	nom VARCHAR(21) NOT NULL UNIQUE
+,	nom VARCHAR(31) NOT NULL UNIQUE
 ,	valeurMin INT NOT NULL DEFAULT 0
 ,	valeurMax INT NOT NULL DEFAULT 0
 ,	energieUtilise INT NOT NULL DEFAULT 0
@@ -199,10 +199,6 @@ CREATE TABLE IF NOT EXISTS CompetencesProfessions
 ALTER TABLE Competences
 ADD CONSTRAINT Competences_TypesCompetences_FK
 FOREIGN KEY (idTypeCompetence) REFERENCES TypesCompetences(idTypeCompetence);
-
-ALTER TABLE TypesCompetences
-ADD CONSTRAINT TypesCompetences_Effets_FK
-FOREIGN KEY (idEffet) REFERENCES Effets(idEffet);
 
 ALTER TABLE Personnages
 ADD CONSTRAINT Personnages_Professions_FK

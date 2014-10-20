@@ -68,12 +68,12 @@ VALUES
 );
 /* FIN COMPÉTENCES Paladin */
 
-/* COMPÉTENCES Mage */
+/* COMPÉTENCESMagicien */
 INSERT INTO CompetencesProfessions
 (idProfession, idCompetence)
 VALUES
 (
-	(SELECT idProfession FROM Professions WHERE nom='Mage')
+	(SELECT idProfession FROM Professions WHERE nom='Magicien')
 ,	(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
 );
 
@@ -81,7 +81,7 @@ INSERT INTO CompetencesProfessions
 (idProfession, idCompetence)
 VALUES
 (
-	(SELECT idProfession FROM Professions WHERE nom='Mage')
+	(SELECT idProfession FROM Professions WHERE nom='Magicien')
 ,	(SELECT idCompetence FROM Competences WHERE nom='Boule de feu')
 );
 
@@ -89,7 +89,7 @@ INSERT INTO CompetencesProfessions
 (idProfession, idCompetence)
 VALUES
 (
-	(SELECT idProfession FROM Professions WHERE nom='Mage')
+	(SELECT idProfession FROM Professions WHERE nom='Magicien')
 ,	(SELECT idCompetence FROM Competences WHERE nom='Armure arcanique')
 );
 
@@ -97,7 +97,7 @@ INSERT INTO CompetencesProfessions
 (idProfession, idCompetence)
 VALUES
 (
-	(SELECT idProfession FROM Professions WHERE nom='Mage')
+	(SELECT idProfession FROM Professions WHERE nom='Magicien')
 ,	(SELECT idCompetence FROM Competences WHERE nom='Décharge électrique')
 );
-/* FIN COMPÉTENCES Mage */
+/* FIN COMPÉTENCESMagicien */

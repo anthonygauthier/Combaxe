@@ -718,7 +718,7 @@ VALUES
 (
 	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
-,	'Régénération'
+,	'Coup de corne'
 ,	15
 ,	22
 ,	12
