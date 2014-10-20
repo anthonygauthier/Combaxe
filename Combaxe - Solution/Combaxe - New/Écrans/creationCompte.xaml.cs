@@ -36,12 +36,13 @@ namespace Combaxe___New
             this.Close();
         }
 
-        //Méthode losrque le bouton de confirmation de création de compte est appuyé
+        //Méthode losrque le bouton de confirmation de création de compte est appuyé - William Themens 19/10/2014
         private void btnCreerCompte_Click(object sender, RoutedEventArgs e)
         {
             if(verificationChamps())
             {
                 string reqInsert = "INSERT INTO Joueurs (pseudonyme,motDePasse) VALUES ('"+txtbNomUsager.Text+"','"+pwdboxMdp.Password.ToUpper()+"')";
+                bdCombaxe.Insertion(reqInsert);
                 MessageBox.Show("Compte créer avec succès!", "Création de compte", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 var connexion = new creationPersonnage();
                 connexion.Show();
@@ -50,7 +51,7 @@ namespace Combaxe___New
             }
         }
 
-        //Méthode qui vérifie si les champs entrés pour la création de compte sont valide
+        //Méthode qui vérifie si les champs entrés pour la création de compte sont valide - William Themens 19/10/2014
         private bool verificationChamps()
         {
             Regex alphanumerique = new Regex("^[a-zA-Z0-9]*$");
@@ -138,22 +139,22 @@ namespace Combaxe___New
             return true;
         }
 
-        //Méthode qui vérifie dans la base de donnée si le nom d'usager du compte est déjà existant
+        //Méthode qui vérifie dans la base de donnée si le nom d'usager du compte est déjà existant - William Themens 19/10/2014
         private bool usagerDisponible(BdService bdCombaxe)
         {
-            string selUsager = "SELECT pseudonyme FROM Joueurs WHERE pseudonyme=" + txtbNomUsager.Text;
+            string selUsager = "SELECT pseudonyme FROM Joueurs WHERE pseudonyme='" + txtbNomUsager.Text+"';";
             int r = 0;
 
             List<string>[] retourSel = bdCombaxe.selection(selUsager, 1, ref r);
 
-            if(retourSel[0][1]=="")
+            if(retourSel[0][0]=="")
             {
-                return false;
+                return true;
             }
 
             else
             {
-                return true;
+                return false;
             }
         }
     }
