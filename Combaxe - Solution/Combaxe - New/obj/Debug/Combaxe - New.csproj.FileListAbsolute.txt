@@ -55,3 +55,22 @@ C:\Users\Anthony\Desktop\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Comb
 C:\Users\Anthony\Desktop\Combaxe\Combaxe - Solution\Combaxe - New\bin\Debug\Combaxe - New.exe
 C:\Users\Anthony\Desktop\Combaxe\Combaxe - Solution\Combaxe - New\bin\Debug\Combaxe - New.pdb
 C:\Users\Anthony\Desktop\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe - New.csprojResolveAssemblyReference.cache
+E:\Combaxe\Combaxe - Solution\Combaxe - New\bin\Debug\Combaxe - New.exe.config
+E:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe - New.exe
+E:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe - New.pdb
+E:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe - New.csprojResolveAssemblyReference.cache
+E:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\écrans\changementPerso.baml
+E:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\écrans\creationCompte.baml
+E:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\MainWindow.baml
+E:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\écrans\creationPersonnage.baml
+E:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\écrans\changementPerso.g.cs
+E:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\écrans\creationCompte.g.cs
+E:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\MainWindow.g.cs
+E:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\écrans\creationPersonnage.g.cs
+E:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\App.g.cs
+E:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe - New_MarkupCompile.cache
+E:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe - New.g.resources
+E:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe___New.Properties.Resources.resources
+E:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe - New.csproj.GenerateResource.Cache
+E:\Combaxe\Combaxe - Solution\Combaxe - New\bin\Debug\Combaxe - New.exe
+E:\Combaxe\Combaxe - Solution\Combaxe - New\bin\Debug\Combaxe - New.pdb

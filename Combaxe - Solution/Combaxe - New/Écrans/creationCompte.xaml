@@ -32,14 +32,14 @@
 
         <!--StackPanel pour le bouton de connexion-->
         <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,142,0,10">
-            <Button HorizontalAlignment="Center" Content="Créer compte" MinWidth="90" MaxWidth="90" MinHeight="30" MaxHeight="30"></Button>
+            <Button Name="btnCreerCompte" HorizontalAlignment="Center" Content="Créer compte" MinWidth="90" MaxWidth="90" MinHeight="30" MaxHeight="30" Click="btnCreerCompte_Click"></Button>
         </StackPanel>
 
         <!--StackPanel pour les labels de connexion-->
         <StackPanel Grid.Row="1" Orientation="Vertical" Grid.ColumnSpan="2">
-            <Label Foreground="White" FontFamily="Motorwerk" FontSize="20" HorizontalAlignment="Right">Nom d'usager:</Label>
-            <Label Foreground="White" FontFamily="Motorwerk" FontSize="20" HorizontalAlignment="Right">Mot de passe:</Label>
-            <Label Foreground="White" FontFamily="Motorwerk" FontSize="20" HorizontalAlignment="Right" Width="258">confirmation mot de passe:</Label>
+            <Label Name="lblUsager" Foreground="White" FontFamily="Motorwerk" FontSize="20" HorizontalAlignment="Right">Nom d'usager:</Label>
+            <Label Name="lblMDP" Foreground="White" FontFamily="Motorwerk" FontSize="20" HorizontalAlignment="Right">Mot de passe:</Label>
+            <Label Name="lblConfirmationMDP" Foreground="White" FontFamily="Motorwerk" FontSize="20" HorizontalAlignment="Right" Width="258">Confirmation mot de passe:</Label>
         </StackPanel>
 
         <!-- StackPanel pour le label de creer compte-->

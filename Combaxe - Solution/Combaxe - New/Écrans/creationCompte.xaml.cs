@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Combaxe___New.écrans;
+using MiniBD;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,11 +27,134 @@ namespace Combaxe___New
             InitializeComponent();
         }
 
+        BdService bdCombaxe = new BdService();
+
         private void btnRetour_Click(object sender, RoutedEventArgs e)
         {
             var connexion = new MainWindow();
             connexion.Show();
             this.Close();
+        }
+
+        //Méthode losrque le bouton de confirmation de création de compte est appuyé
+        private void btnCreerCompte_Click(object sender, RoutedEventArgs e)
+        {
+            if(verificationChamps())
+            {
+                string reqInsert = "INSERT INTO Joueurs (pseudonyme,motDePasse) VALUES ('"+txtbNomUsager.Text+"','"+pwdboxMdp.Password.ToUpper()+"')";
+                MessageBox.Show("Compte créer avec succès!", "Création de compte", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                var connexion = new creationPersonnage();
+                connexion.Show();
+                this.Close();
+                
+            }
+        }
+
+        //Méthode qui vérifie si les champs entrés pour la création de compte sont valide
+        private bool verificationChamps()
+        {
+            Regex alphanumerique = new Regex("^[a-zA-Z0-9]*$");
+
+            txtbNomUsager.BorderBrush = new SolidColorBrush(Colors.Black);
+            pwdboxMdp.BorderBrush = new SolidColorBrush(Colors.Black);
+            pwdbConfirmMdp.BorderBrush = new SolidColorBrush(Colors.Black);
+
+            /* DÉBUT DES VALIDATIONS DE L'USAGER */
+            if (txtbNomUsager.Text == "")
+            {
+                MessageBox.Show("Votre compte doit posséder un nom d'usager","Erreur lors de la création de compte",MessageBoxButton.OK, MessageBoxImage.Error);
+                txtbNomUsager.BorderBrush = new SolidColorBrush(Colors.Red);
+                return false;
+            }
+
+            else if (!alphanumerique.IsMatch(txtbNomUsager.Text))
+            {
+                MessageBox.Show("L'usager doit être composé seulement de caractères alphanumériques", "Erreur lors de la création de compte", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtbNomUsager.BorderBrush = new SolidColorBrush(Colors.Red);
+                return false;
+            }
+
+            else if (txtbNomUsager.Text.Length <3)
+            {
+                MessageBox.Show("L'usager doit être composé d'au moins 3 caractères alphanumériques", "Erreur lors de la création de compte", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtbNomUsager.BorderBrush = new SolidColorBrush(Colors.Red);
+                return false;
+            }
+
+            else if (txtbNomUsager.Text.Length > 20)
+            {
+                MessageBox.Show("L'usager doit être composé d'au plus 20 caractères alphanumériques", "Erreur lors de la création de compte", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtbNomUsager.BorderBrush = new SolidColorBrush(Colors.Red);
+                return false;
+            }
+
+            else if(!usagerDisponible(bdCombaxe))
+            {
+                MessageBox.Show("L'usager désiré existe déjà", "Erreur lors de la création de compte", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtbNomUsager.BorderBrush = new SolidColorBrush(Colors.Red);
+                return false;
+            }
+            
+            /* FIN DES VALIDATIONS DE L'USAGER */
+
+            /* DÉBUT DES VALIDATIONS DU MOT DE PASSE */
+            else if (pwdboxMdp.Password == "")
+            {
+                MessageBox.Show("Votre compte doit posséder un mot de passe", "Erreur lors de la création de compte", MessageBoxButton.OK, MessageBoxImage.Error);
+                pwdboxMdp.BorderBrush = new SolidColorBrush(Colors.Red);
+                return false;
+            }
+
+            else if (!alphanumerique.IsMatch(pwdboxMdp.Password))
+            {
+                MessageBox.Show("Le mot de passe doit être composé seulement de caractères alphanumériques", "Erreur lors de la création de compte", MessageBoxButton.OK, MessageBoxImage.Error);
+                pwdboxMdp.BorderBrush = new SolidColorBrush(Colors.Red);
+                return false;
+            }
+
+            else if (pwdboxMdp.Password.Length < 5)
+            {
+                MessageBox.Show("Le mot de passe doit être composé d'au moins 5 caractères alphanumériques", "Erreur lors de la création de compte", MessageBoxButton.OK, MessageBoxImage.Error);
+                pwdboxMdp.BorderBrush = new SolidColorBrush(Colors.Red);
+                return false;
+            }
+
+            else if (pwdboxMdp.Password.Length > 30)
+            {
+                MessageBox.Show("Le mot de passe doit être composé d'au plus 30 caractères alphanumériques", "Erreur lors de la création de compte", MessageBoxButton.OK, MessageBoxImage.Error);
+                pwdboxMdp.BorderBrush = new SolidColorBrush(Colors.Red);
+                return false;
+            }
+
+            else if (pwdboxMdp.Password.ToUpper()!=pwdbConfirmMdp.Password.ToUpper())
+            {
+                MessageBox.Show("Votre mot de passe doit être le même que la confirmation", "Erreur lors de la création de compte", MessageBoxButton.OK, MessageBoxImage.Error);
+                pwdboxMdp.BorderBrush = new SolidColorBrush(Colors.Red);
+                pwdbConfirmMdp.BorderBrush = new SolidColorBrush(Colors.Red);
+                return false;
+            }
+            /* FIN DES VALIDATIONS DU MOT DE PASSE */
+            
+            return true;
+        }
+
+        //Méthode qui vérifie dans la base de donnée si le nom d'usager du compte est déjà existant
+        private bool usagerDisponible(BdService bdCombaxe)
+        {
+            string selUsager = "SELECT pseudonyme FROM Joueurs WHERE pseudonyme=" + txtbNomUsager.Text;
+            int r = 0;
+
+            List<string>[] retourSel = bdCombaxe.selection(selUsager, 1, ref r);
+
+            if(retourSel[0][1]=="")
+            {
+                return false;
+            }
+
+            else
+            {
+                return true;
+            }
         }
     }
 }
