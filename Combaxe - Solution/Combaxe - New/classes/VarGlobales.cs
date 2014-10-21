@@ -8,18 +8,18 @@ namespace Combaxe___New.classes
 {
     class VarGlobales
     {
-        static int _idJoueur;
+        static Joueur _Joueur;
 
         //Variable qui sauvegarde le idJoueur à travers le programme (lorsqu'il est connecté)
-        public static int idJoueur
+        public static Joueur Joueur
         {
             get
             {
-                return _idJoueur;
+                return _Joueur;
             }
             set
             {
-                _idJoueur = value;
+                _Joueur = value;
             }
         }
     }

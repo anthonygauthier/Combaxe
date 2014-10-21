@@ -429,7 +429,7 @@ namespace Combaxe___New.écrans
         {
             if (verificationChamps())
             {
-                string reqInsert = "INSERT INTO Personnages (idProfession, idInventaire, idJoueur, idJoueur, idStatistique, nom, niveau, experience, image) VALUES (,,"+VarGlobales.idJoueur+",,,'"+txtbNom.Text+"',1,0,null)";
+                string reqInsert = "INSERT INTO Personnages (idProfession, idInventaire, idJoueur, idJoueur, idStatistique, nom, niveau, experience, image) VALUES (,,"+VarGlobales.Joueur.idJoueur+",,,'"+txtbNom.Text+"',1,0,null)";
                 MessageBox.Show("Personnage créer avec succès!", "Création de personnage", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }

@@ -10,8 +10,6 @@ namespace Combaxe___New.classes
     {
         private int _idJoueur;
         private string _pseudo;
-        private string _motDePasse;
-        private List<Personnage> _listePersonnage;
 
         public int idJoueur
         {
@@ -25,18 +23,6 @@ namespace Combaxe___New.classes
             set { _pseudo = value; }
         }
 
-        public string motDePasse
-        {
-            get { return _motDePasse; }
-            set { _motDePasse = value; }
-        }
-
-        public List<Personnage> listePersonnage
-        {
-            get { return _listePersonnage; }
-            set { _listePersonnage = value; }
-        }
-
         /// <summary>
         /// Constructeur de base
         /// </summary>
@@ -44,8 +30,6 @@ namespace Combaxe___New.classes
         {
             idJoueur = 0;
             pseudo = "";
-            motDePasse = "";
-            listePersonnage = null;
         }
 
         /// <summary>
@@ -55,12 +39,10 @@ namespace Combaxe___New.classes
         /// <param name="user">pseudonyme du compte du joueur</param>
         /// <param name="mdp">mot de passe du compte du joueur</param>
         /// <param name="lstPerso">liste de personnage(s) du joueur</param>
-        public Joueur(int id, string user, string mdp, List<Personnage> lstPerso)
+        public Joueur(int id, string user)
         {
             idJoueur = id;
             pseudo = user;
-            motDePasse = mdp;
-            listePersonnage = lstPerso;
         }
 
         /// <summary>
@@ -72,19 +54,12 @@ namespace Combaxe___New.classes
         }
 
         /// <summary>
-        /// Méthode pour se connecter
-        /// </summary>
-        public void Connexion()
-        { 
-            return;
-        }
-
-        /// <summary>
         /// Méthode pour se déconnecter
         /// </summary>
         public void Deconnexion()
         { 
-            return;
+            this.idJoueur = 0; // vaut 0 lorsque le joueur n'est pas connecté
+            this.pseudo = "";
         }
 
         /// <summary>

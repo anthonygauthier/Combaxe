@@ -11,6 +11,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Combaxe___New.classes;
+using Combaxe___New.écrans;
+using MiniBD;
+using System.Text.RegularExpressions;
 
 namespace Combaxe___New.écrans
 {
@@ -23,5 +27,14 @@ namespace Combaxe___New.écrans
         {
             InitializeComponent();
         }
+        //Lorsque la page s'initialise, on initie une connexion à la BD
+        BdService bdCombaxe = new BdService();
+
+        // on va chercher les personnages pour un joueur
+        //VarGlobales
+
+        // on affiche les personnages dans leur section appropriée
+        // on peut choisir le personnage et aller au menu principal
+
     }
 }

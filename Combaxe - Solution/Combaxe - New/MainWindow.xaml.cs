@@ -108,7 +108,7 @@ namespace Combaxe___New
             else
             {
                 int id = Int32.Parse(tabJoueur[0][0]);
-                VarGlobales.idJoueur = id;
+                VarGlobales.Joueur = new Joueur(id, tabJoueur[0][1]);
                 return true;
             }
         }
