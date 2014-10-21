@@ -56,7 +56,7 @@ INSERT INTO Effets
 VALUES
 (
 	'Immobile'
-,	'La vitesse est augmenté de 50%'
+,	'L\'ennemi ne peut pas attaqué'
 ,	2
 );
 
@@ -65,7 +65,15 @@ INSERT INTO Effets
 VALUES
 (
 	'Manipulation'
-,	'La vitesse est augmenté de 50%'
+,	'La cible s\'inflige des dégats avec sa propre attaque'
 ,	0
 );
 
+INSERT INTO Effets
+(nom, description, tempsEffets)
+VALUES
+(
+	'Empoisonné'
+,	'La cible reçoit des dégâts par tour'
+,	3
+);

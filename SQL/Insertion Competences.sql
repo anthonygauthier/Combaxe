@@ -450,14 +450,14 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
-,	(SELECT idEffet FROM Effets WHERE nom='')
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Defensif')
+,	(SELECT idEffet FROM Effets WHERE nom='Protection')
 ,	'Gardien'
 ,	15
-,	22
-,	12
+,	20
+,	7
 ,	4
-,	'Devient fou et veut voir son ennemi ensanglanté. '
+,	Concat('Bouclier divin pouvant absorber les dégats pendant ',(SELECT tempsEffets FROM Effets WHERE nom='Protection'))
 );
 
 INSERT INTO Competences
