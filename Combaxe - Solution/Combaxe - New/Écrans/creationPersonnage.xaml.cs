@@ -120,6 +120,7 @@ namespace Combaxe___New.écrans
             txtVie.Text = caracteristiquesPal[2][0];
             txtVitesse.Text = caracteristiquesPal[3][0];
             txtEnergie.Text = caracteristiquesPal[4][0];
+            VarGlobales.idProfessionCreation = selectionIdProfession(btnGuerrier.Content.ToString());
             enableBtnMoins();
             enableBtnPlus();
         }
@@ -139,6 +140,7 @@ namespace Combaxe___New.écrans
             txtVie.Text = caracteristiquesMagi[2][0];
             txtVitesse.Text = caracteristiquesMagi[3][0];
             txtEnergie.Text = caracteristiquesMagi[4][0];
+            VarGlobales.idProfessionCreation = selectionIdProfession(btnGuerrier.Content.ToString());
             enableBtnMoins();
             enableBtnPlus();
         }
