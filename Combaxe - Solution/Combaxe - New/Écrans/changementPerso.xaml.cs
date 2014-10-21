@@ -30,6 +30,13 @@ namespace Combaxe___New.écrans
         //Lorsque la page s'initialise, on initie une connexion à la BD
         BdService bdCombaxe = new BdService();
 
+        private void btnCreerPerso_Click(object sender, RoutedEventArgs e)
+        {
+            var creationPerso = new creationPersonnage();
+            creationPerso.Show();
+            this.Close();
+        }
+
         // on va chercher les personnages pour un joueur
         //VarGlobales
 

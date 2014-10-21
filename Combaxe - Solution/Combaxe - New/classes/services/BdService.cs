@@ -143,5 +143,23 @@ namespace MiniBD
             }
             return listeRetour;
         }
+
+        //--------------LAST INSERT ID----------------
+        public int lastInsertId()
+        { 
+            int id = 0;
+            List<string>[] listId;
+            BdService bd = new BdService();
+            int nbRangee = 0;
+            
+
+            string req = "SELECT LAST_INSERT_ID();";
+
+            listId = bd.selection(req, 1, ref nbRangee);
+
+            id = Int32.Parse(listId[0][0]);
+
+            return id;
+        }
     }
 }

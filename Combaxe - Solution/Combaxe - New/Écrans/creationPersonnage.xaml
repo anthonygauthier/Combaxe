@@ -20,7 +20,7 @@
 
         <!-- StackPanel pour le label de création de personnage-->
         <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Vertical">
-            <Label Foreground="White" HorizontalAlignment="Center" Content="Création de personnage" FontFamily="Motorwerk" FontSize="44" Margin="10,0" Width="497"/>
+            <Label Foreground="White" HorizontalAlignment="Center" Content="CrEation de personnage" FontFamily="Motorwerk" FontSize="44" Margin="10,0" Width="497"/>
         </StackPanel>
 
         <!--StackPanel pour le nom du personnage et sa profesion-->
@@ -130,7 +130,7 @@
 
         <!--Boutons pour créer et quitter-->
         <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right">
-            <Button Name="btnRetour" Content="Retour" MinWidth="100" MaxHeight="50" Margin="0,0,5,0"></Button>
+            <Button Name="btnRetour" Content="Retour" MinWidth="100" MaxHeight="50" Margin="0,0,5,0" Click="btnRetour_Click"></Button>
             <Button Name="btnCreerPerso" Content="Créer personnage" MaxHeight="50" Margin="0,0,13,0" Click="btnCreerPerso_Click"></Button>
         </StackPanel>
         

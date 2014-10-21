@@ -30,7 +30,7 @@
             </Grid.ColumnDefinitions>
             <!--Label pour nom de personnages et niveau-->
             <Label Name="lblNomPerso1" Grid.Column="0" Margin="5,2,0,0" MaxHeight="45" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1">Nom personnage</Label>
-            <Label Name="lblNiveau1" Grid.Column="1" Margin="0,2,0,0" MaxHeight="45" HorizontalAlignment="Stretch" Background="White" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="1">Niveau</Label>
+            <Label Name="lblNiveau1" Grid.Column="1" Margin="0,1,0,0" MaxHeight="45" HorizontalAlignment="Stretch" Background="White" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="1">Niveau</Label>
 
             <!--Barre de points de vie et barre de points d'énergie-->
             <TextBlock Margin="1" MaxHeight="30" TextAlignment="Center" Name="txtbPointDeVie1" Background="Green" Text="Barre de points de vie" Grid.Row="1" Grid.Column="1"></TextBlock>
@@ -91,7 +91,7 @@
             </Grid.ColumnDefinitions>
             <!--Label pour nom de personnages et niveau-->
             <Label Name="lblNomPerso2" Grid.Column="0" Margin="5,2,0,0" MaxHeight="45" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1">Nom personnage</Label>
-            <Label Name="lblNiveau2" Grid.Column="1" Margin="0,2,0,0" MaxHeight="45" HorizontalAlignment="Stretch" Background="White" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="1">Niveau</Label>
+            <Label Name="lblNiveau2" Grid.Column="1" Margin="0,1,0,0" MaxHeight="45" HorizontalAlignment="Stretch" Background="White" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="1">Niveau</Label>
 
             <!--Barre de points de vie et barre de points d'énergie-->
             <TextBlock Margin="1" MaxHeight="30" TextAlignment="Center" Name="txtbPointDeVie2" Background="Green" Text="Barre de points de vie" Grid.Row="1" Grid.Column="1"></TextBlock>
@@ -152,7 +152,7 @@
             </Grid.ColumnDefinitions>
             <!--Label pour nom de personnages et niveau-->
             <Label Name="lblNomPerso3" Grid.Column="0" Margin="5,2,0,0" MaxHeight="45" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1">Nom personnage</Label>
-            <Label Name="lblNiveau3" Grid.Column="1" Margin="0,2,0,0" MaxHeight="45" HorizontalAlignment="Stretch" Background="White" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="1">Niveau</Label>
+            <Label Name="lblNiveau3" Grid.Column="1" Margin="0,1,0,0" MaxHeight="45" HorizontalAlignment="Stretch" Background="White" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="1">Niveau</Label>
 
             <!--Barre de points de vie et barre de points d'énergie-->
             <TextBlock Margin="1" MaxHeight="30" TextAlignment="Center" Name="txtbPointDeVie3" Background="Green" Text="Barre de points de vie" Grid.Row="1" Grid.Column="1"></TextBlock>
@@ -201,7 +201,7 @@
 
         <!--Stackpanel boutons choix-->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="4" Margin="10,5,10,5">
-            <Button Name="btnCreerPerso" Content="Créer personnage" MinWidth="108" MaxHeight="50"></Button>
+            <Button Name="btnCreerPerso" Content="Créer personnage" MinWidth="108" MaxHeight="50" Click="btnCreerPerso_Click"></Button>
             <Button Name="btnRetour" Content="Retour" MaxHeight="50" MinWidth="108" Margin="5,0,0,0"></Button>
         </StackPanel>
     </Grid>
