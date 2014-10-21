@@ -34,10 +34,6 @@ namespace Combaxe___New.écrans
         //Lorsque la page s'initialise, on initie une connexion à la BD - Anthony Gauthier 09/10/2014
         BdService bdCombaxe = new BdService();
 
-        //On créer une variable idProfessionPourCreation qui sauvegarde le idProfession de celle que le joueur a choisi
-        int idProfessionPourCreation = 0;
-
-
         //----------------------------------MÉTHODES---------------------------------
         //Méthode qui va chercher la description de la profession dans la BD et la retourne
         private string selectionDescription(string nom)
@@ -106,7 +102,7 @@ namespace Combaxe___New.écrans
             txtEnergie.Text = caracteristiquesGuer[4][0];
             enableBtnMoins();
             enableBtnPlus();
-            idProfessionPourCreation = selectionIdProfession(btnGuerrier.Content.ToString());
+            VarGlobales.idProfessionCreation = selectionIdProfession(btnGuerrier.Content.ToString());
         }
 
         //Méthode lorsque le bouton Paladin est cliqué
@@ -463,7 +459,7 @@ namespace Combaxe___New.écrans
                 idStatistique = bdCombaxe.lastInsertId();
 
                 //On insert le personnage
-                string reqInsertPerso = "INSERT INTO Personnages (idProfession, idInventaire, idJoueur, idStatistique, nom, niveau, experience, image) VALUES ("+idProfessionPourCreation+"," + idInventaire + "," + VarGlobales.Joueur.idJoueur + "," + idStatistique + ",'" + txtbNom.Text + "',1,0,null)";
+                string reqInsertPerso = "INSERT INTO Personnages (idProfession, idInventaire, idJoueur, idStatistique, nom, niveau, experience, image) VALUES ("+VarGlobales.idProfessionCreation+"," + idInventaire + "," + VarGlobales.Joueur.idJoueur + "," + idStatistique + ",'" + txtbNom.Text + "',1,0,null)";
                 bdCombaxe.Insertion(reqInsertPerso);
 
                 MessageBox.Show("Personnage créer avec succès!", "Création de personnage", MessageBoxButton.OK, MessageBoxImage.Exclamation);

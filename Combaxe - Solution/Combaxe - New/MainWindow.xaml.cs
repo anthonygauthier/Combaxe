@@ -77,10 +77,6 @@ namespace Combaxe___New
                         this.Close();
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Vous n'êtes pas connecté.");
-                }
             }
 
         }
@@ -96,7 +92,7 @@ namespace Combaxe___New
         {
             List<string>[] tabJoueur;
 
-            tabJoueur = selectionCompte();
+            tabJoueur = selectionJoueur();
 
             //Si la requête n'a rien retourné, l'utilisateur n'a pas de compte - Anthony Gauthier 09/10/2014
             if (tabJoueur[0][0].Length == 0)
@@ -118,7 +114,7 @@ namespace Combaxe___New
         private bool verificationPersonnage()
         {
             List<string>[] unJoueur;
-            unJoueur = selectionCompte();
+            unJoueur = selectionJoueur();
 
             string selPerso = "SELECT * FROM personnages WHERE idJoueur = "+unJoueur[0][0]+";";
 
@@ -140,7 +136,7 @@ namespace Combaxe___New
         }
 
         //Méthode qui retourne les informations du compte du joueur (id, nom, mdp)
-        private List<string>[] selectionCompte()
+        private List<string>[] selectionJoueur()
         {
             string selConnexion = "SELECT * FROM joueurs WHERE pseudonyme = '" + txtbNomUsager.Text + "' AND motDePasse = '" + pwdbMdp.Password + "';";
             List<string>[] unJoueur;

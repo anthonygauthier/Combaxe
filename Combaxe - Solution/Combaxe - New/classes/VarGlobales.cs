@@ -25,6 +25,7 @@ namespace Combaxe___New.classes
             }
         }
 
+
         //Variable qui sauvegarde le idProfession à travers le programme
         public static int idProfessionCreation
         {

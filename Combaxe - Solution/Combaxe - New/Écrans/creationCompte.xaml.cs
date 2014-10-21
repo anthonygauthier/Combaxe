@@ -44,7 +44,7 @@ namespace Combaxe___New
                 string reqInsert = "INSERT INTO Joueurs (pseudonyme,motDePasse) VALUES ('"+txtbNomUsager.Text+"','"+pwdboxMdp.Password.ToUpper()+"')";
                 bdCombaxe.Insertion(reqInsert);
                 MessageBox.Show("Compte créer avec succès!", "Création de compte", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                var connexion = new creationPersonnage();
+                var connexion = new MainWindow();
                 connexion.Show();
                 this.Close();
                 
