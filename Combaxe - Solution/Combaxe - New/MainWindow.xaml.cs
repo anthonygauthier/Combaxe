@@ -79,7 +79,7 @@ namespace Combaxe___New
                 }
                 else
                 {
-                
+                    MessageBox.Show("Vous n'êtes pas connecté.");
                 }
             }
 
@@ -134,11 +134,10 @@ namespace Combaxe___New
             //S'il en a, on retourne true - Anthony Gauthier 09/10/2014
             else
             {
+                VarGlobales.aPersonnage = true;
                 return true;
             }
-
-            
-        } 
+        }
 
         //Méthode qui retourne les informations du compte du joueur (id, nom, mdp)
         private List<string>[] selectionCompte()

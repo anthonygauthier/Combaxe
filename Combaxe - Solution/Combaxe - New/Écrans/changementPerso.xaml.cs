@@ -31,6 +31,7 @@ namespace Combaxe___New.écrans
         //Lorsque la page s'initialise, on initie une connexion à la BD
         BdService bdCombaxe = new BdService();
 
+<<<<<<< HEAD
         private void SelectionnerPersonnages()
         {
             // on va chercher les personnages pour un joueur
@@ -39,6 +40,18 @@ namespace Combaxe___New.écrans
             bdCombaxe.selection(reqSelect, 7, ref nbLigne);
             
         }
+=======
+        private void btnCreerPerso_Click(object sender, RoutedEventArgs e)
+        {
+            var creationPerso = new creationPersonnage();
+            creationPerso.Show();
+            this.Close();
+        }
+
+        // on va chercher les personnages pour un joueur
+        //VarGlobales
+
+>>>>>>> origin/master
         // on affiche les personnages dans leur section appropriée
         // on peut choisir le personnage et aller au menu principal
 
