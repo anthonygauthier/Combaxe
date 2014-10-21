@@ -26,13 +26,19 @@ namespace Combaxe___New.écrans
         public changementPerso()
         {
             InitializeComponent();
+            SelectionnerPersonnages();
         }
         //Lorsque la page s'initialise, on initie une connexion à la BD
         BdService bdCombaxe = new BdService();
 
-        // on va chercher les personnages pour un joueur
-        //VarGlobales
-
+        private void SelectionnerPersonnages()
+        {
+            // on va chercher les personnages pour un joueur
+            string reqSelect = "SELECT idProfession, idInventaire, idStatistique, nom, niveau, experience, image FROM Personnages WHERE idJoueur = '"+VarGlobales.Joueur.idJoueur+"';";
+            int nbLigne = 0;
+            bdCombaxe.selection(reqSelect, 7, ref nbLigne);
+            
+        }
         // on affiche les personnages dans leur section appropriée
         // on peut choisir le personnage et aller au menu principal
 
