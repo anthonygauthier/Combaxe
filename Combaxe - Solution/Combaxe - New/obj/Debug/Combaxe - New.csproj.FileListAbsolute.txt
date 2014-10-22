@@ -93,3 +93,22 @@ K:\ancien\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe___New.Prope
 K:\ancien\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe - New.csproj.GenerateResource.Cache
 K:\ancien\Combaxe\Combaxe - Solution\Combaxe - New\bin\Debug\Combaxe - New.exe
 K:\ancien\Combaxe\Combaxe - Solution\Combaxe - New\bin\Debug\Combaxe - New.pdb
+K:\Combaxe\Combaxe - Solution\Combaxe - New\bin\Debug\Combaxe - New.exe.config
+K:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe - New.exe
+K:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe - New.pdb
+K:\Combaxe\Combaxe - Solution\Combaxe - New\bin\Debug\Combaxe - New.exe
+K:\Combaxe\Combaxe - Solution\Combaxe - New\bin\Debug\Combaxe - New.pdb
+K:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe - New.csprojResolveAssemblyReference.cache
+K:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\écrans\changementPerso.baml
+K:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\écrans\creationCompte.baml
+K:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\MainWindow.baml
+K:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\écrans\creationPersonnage.baml
+K:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\écrans\changementPerso.g.cs
+K:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\écrans\creationCompte.g.cs
+K:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\MainWindow.g.cs
+K:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\écrans\creationPersonnage.g.cs
+K:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\App.g.cs
+K:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe - New_MarkupCompile.cache
+K:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe - New.g.resources
+K:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe___New.Properties.Resources.resources
+K:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe - New.csproj.GenerateResource.Cache

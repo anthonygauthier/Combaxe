@@ -9,6 +9,7 @@ namespace Combaxe___New.classes
     class VarGlobales
     {
         static Joueur _Joueur;
+        static Personnage _Personnage;
         static int _idProfessionCreation;
         static bool _aPersonnage;
 
@@ -25,6 +26,18 @@ namespace Combaxe___New.classes
             }
         }
 
+        //Variable qui sauvegarde le personnage utilisé
+        public static Personnage Personnage
+        {
+            get
+            {
+                return _Personnage;
+            }
+            set
+            {
+                _Personnage = value;
+            }
+        }
 
         //Variable qui sauvegarde le idProfession à travers le programme
         public static int idProfessionCreation

@@ -55,6 +55,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="classes\services\BdService.cs" />
+    <Compile Include="classes\services\PersonnageService.cs" />
     <Compile Include="classes\VarGlobales.cs" />
     <Compile Include="écrans\changementPerso.xaml.cs">
       <DependentUpon>changementPerso.xaml</DependentUpon>

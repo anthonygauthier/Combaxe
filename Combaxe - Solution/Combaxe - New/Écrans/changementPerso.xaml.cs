@@ -15,6 +15,7 @@ using Combaxe___New.classes;
 using Combaxe___New.écrans;
 using MiniBD;
 using System.Text.RegularExpressions;
+using Combaxe___New.classes.services;
 
 namespace Combaxe___New.écrans
 {
@@ -35,9 +36,16 @@ namespace Combaxe___New.écrans
         private void SelectionnerPersonnages()
         {
             // on va chercher les personnages pour un joueur
-            string reqSelect = "SELECT idPersonnage, nom, niveau, image FROM Personnages WHERE idJoueur = '"+VarGlobales.Joueur.idJoueur+"';";
-            int nbLigne = 0;
-            List<string>[] lstPerso = bdCombaxe.selection(reqSelect, 4, ref nbLigne);
+            PersonnageService personnageService = new PersonnageService();
+
+            /* on va chercher tous les personnages du joueur */
+            List<string>[] lstPerso = personnageService.RetrieveInfoPerso();
+            /* pour les caractéristiques du personnage */
+            List<string>[] lstCaracteristiques = personnageService.RetrieveCaracteristiques(lstPerso);
+            /* on vérifie combien il a de personnage */
+            int nbLigne = lstPerso.Count();
+
+            /* Si aucun */
             if(nbLigne == 0)
             {
                 var creationPerso = new creationPersonnage();
@@ -47,30 +55,28 @@ namespace Combaxe___New.écrans
             else // on affiche les personnages dans leur section appropriée
             { 
                 if(nbLigne == 1){
-                    /*string reqSelectPerso = "SELECT nom, niveau, image FROM Personnages WHERE idJoueur = '" +lstPerso[0][1]+ "';";
-                    int nbLignePerso = 0;
-                    List<string>[] lstPerso0 = bdCombaxe.selection(reqSelectPerso, , ref nbLigne);*/
-                    lblNomPerso1.Content = lstPerso[0][3];
-                    lblNiveau1.Content = lstPerso[0][4];
+                    lblNomPerso1.Content = lstPerso[0][1];
+                    lblNiveau1.Content = lstPerso[0][2];
                     btnChoisir2.IsEnabled = false;
                     btnChoisir3.IsEnabled = false;
                 }
                 if (nbLigne == 2)
                 {
-                    lblNomPerso1.Content = lstPerso[0][3];
-                    lblNiveau1.Content = lstPerso[0][4];
-                    lblNomPerso2.Content = lstPerso[1][3];
-                    lblNiveau2.Content = lstPerso[1][4];
+                    lblNomPerso1.Content = lstPerso[0][1];
+                    lblNiveau1.Content = lstPerso[0][2];
+                    lblNomPerso2.Content = lstPerso[1][1];
+                    lblNiveau2.Content = lstPerso[1][2];
                     btnChoisir3.IsEnabled = false;
                 }
                 if(nbLigne == 3)
                 {
-                    lblNomPerso1.Content = lstPerso[0][3];
-                    lblNiveau1.Content = lstPerso[0][4];
-                    lblNomPerso2.Content = lstPerso[1][3];
-                    lblNiveau2.Content = lstPerso[1][4];
-                    lblNomPerso3.Content = lstPerso[2][3];
-                    lblNiveau3.Content = lstPerso[2][4];
+                    //lblDefense1.Content = lstCaracteristiques[0][3];
+                    lblNomPerso1.Content = lstPerso[0][1];
+                    lblNiveau1.Content = lstPerso[0][2];
+                    lblNomPerso2.Content = lstPerso[1][1];
+                    lblNiveau2.Content = lstPerso[1][2];
+                    lblNomPerso3.Content = lstPerso[2][1];
+                    lblNiveau3.Content = lstPerso[2][2];
                     btnCreerPerso.IsEnabled = false;
                 }
             } // on peut choisir le personnage et aller au menu principal
