@@ -64,6 +64,9 @@
     <Compile Include="écrans\creationPersonnage.xaml.cs">
       <DependentUpon>creationPersonnage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="écrans\menuPrincipal.xaml.cs">
+      <DependentUpon>menuPrincipal.xaml</DependentUpon>
+    </Compile>
     <Page Include="écrans\changementPerso.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -101,6 +104,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="écrans\creationPersonnage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="écrans\menuPrincipal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

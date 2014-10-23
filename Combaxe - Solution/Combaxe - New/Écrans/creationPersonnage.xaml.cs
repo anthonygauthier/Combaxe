@@ -33,6 +33,7 @@ namespace Combaxe___New.écrans
         }
         //Lorsque la page s'initialise, on initie une connexion à la BD - Anthony Gauthier 09/10/2014
         PersonnageService personnageService = new PersonnageService();
+        ProfessionService professionService = new ProfessionService();
         int profession = 0;
 
         //----------------------------------MÉTHODES---------------------------------
@@ -52,7 +53,7 @@ namespace Combaxe___New.écrans
             List<string>[] caracteristiquesGuer = personnageService.RetrieveCaracteristiqueBase(btnGuerrier.Content.ToString());
 
             //Change la description
-            txtbDescriptionProf.Text = personnageService.selectionDescription(btnGuerrier.Content.ToString());
+            txtbDescriptionProf.Text = professionService.selectionDescription(btnGuerrier.Content.ToString());
 
             //Change les caractéristiques pour les caractéristiques proposées pour paladin
             txtForce.Text = caracteristiquesGuer[0][0];
@@ -60,7 +61,7 @@ namespace Combaxe___New.écrans
             txtVie.Text = caracteristiquesGuer[2][0];
             txtVitesse.Text = caracteristiquesGuer[3][0];
             txtEnergie.Text = caracteristiquesGuer[4][0];
-            profession = personnageService.RetrieveIdProfession(btnGuerrier.Content.ToString());
+            profession = professionService.RetrieveIdProfession(btnGuerrier.Content.ToString());
             enableBtnMoins();
             enableBtnPlus();
         }
@@ -72,7 +73,7 @@ namespace Combaxe___New.écrans
             List<string>[] caracteristiquesPal = personnageService.RetrieveCaracteristiqueBase(btnPaladin.Content.ToString());
 
             //Change la description
-            txtbDescriptionProf.Text = personnageService.selectionDescription(btnPaladin.Content.ToString());
+            txtbDescriptionProf.Text = professionService.selectionDescription(btnPaladin.Content.ToString());
 
             //Change les caractéristiques pour les caractéristiques proposées pour paladin
             txtForce.Text = caracteristiquesPal[0][0];
@@ -80,7 +81,7 @@ namespace Combaxe___New.écrans
             txtVie.Text = caracteristiquesPal[2][0];
             txtVitesse.Text = caracteristiquesPal[3][0];
             txtEnergie.Text = caracteristiquesPal[4][0];
-            profession = personnageService.RetrieveIdProfession(btnGuerrier.Content.ToString());
+            profession = professionService.RetrieveIdProfession(btnGuerrier.Content.ToString());
             enableBtnMoins();
             enableBtnPlus();
         }
@@ -92,7 +93,7 @@ namespace Combaxe___New.écrans
             List<string>[] caracteristiquesMagi = personnageService.RetrieveCaracteristiqueBase(btnMagicien.Content.ToString());
 
             //Change la description
-            txtbDescriptionProf.Text = personnageService.selectionDescription(btnMagicien.Content.ToString());
+            txtbDescriptionProf.Text = professionService.selectionDescription(btnMagicien.Content.ToString());
 
             //Change les caractéristiques pour les caractéristiques proposées pour magicien
             txtForce.Text = caracteristiquesMagi[0][0];
@@ -100,7 +101,7 @@ namespace Combaxe___New.écrans
             txtVie.Text = caracteristiquesMagi[2][0];
             txtVitesse.Text = caracteristiquesMagi[3][0];
             txtEnergie.Text = caracteristiquesMagi[4][0];
-            profession = personnageService.RetrieveIdProfession(btnGuerrier.Content.ToString());
+            profession = professionService.RetrieveIdProfession(btnGuerrier.Content.ToString());
             enableBtnMoins();
             enableBtnPlus();
         }

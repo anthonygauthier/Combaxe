@@ -84,6 +84,24 @@ namespace MiniBD
             }
         }
 
+        //-----------MISE À JOUR--------------
+        public void maj(string maj)
+        {
+            try
+            {
+                if (Ouvrir())
+                {
+                    MySqlCommand cmd = new MySqlCommand(maj, connexion);
+                    cmd.ExecuteNonQuery();
+                    Fermer();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Erreur lors de la mise à jour");
+            }
+        }
+
         //-----------SÉLECTION--------------
         public List<string>[] selection(string sel, int nbChamp, ref int nbRange)
         {
