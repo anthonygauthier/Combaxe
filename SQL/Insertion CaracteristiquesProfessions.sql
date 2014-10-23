@@ -32,7 +32,7 @@ VALUES
 (
 	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse')
 ,	(SELECT idProfession FROM Professions WHERE nom='Guerrier')
-,	2
+,	3
 );
 
 INSERT INTO CaracteristiquesProfessions
