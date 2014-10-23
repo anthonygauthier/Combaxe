@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Combaxe___New.classes.services;
 using Combaxe___New.écrans;
 
@@ -57,9 +58,11 @@ namespace Combaxe___New.classes
         /// </summary>
         public void Supprimer()
         { 
+            /* FAIT PAR Tommy Gingas */
             //on appel le service qui va supprimer le personnage
             PersonnageService personnageService = new PersonnageService();
             personnageService.desactivePersonnage(this.IdPersonnage);
+            MessageBox.Show("Votre personnage "+this.Nom+" a bien été supprimé", "Suppression de personnage", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             // on vide la variable actuelle
             this.IdPersonnage = 0;
             this.Nom = "";
@@ -68,8 +71,6 @@ namespace Combaxe___New.classes
             this.ImageUrl = "";
             this.ListeCaracteristique = null;
             // si c'est le personnage utilisé on retourne à choisir personnage
-            
-            return;
         }
 
         /// <summary>

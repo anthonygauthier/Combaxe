@@ -116,7 +116,7 @@ namespace Combaxe___New.classes.services
             List<string>[] unJoueur;
             unJoueur = joueurService.RetrieveInfoJoueur(nom, mdp);
 
-            string selPerso = "SELECT * FROM personnages WHERE idJoueur = " + unJoueur[0][0] + ";";
+            string selPerso = "SELECT * FROM personnages WHERE idJoueur = " + unJoueur[0][0] + " AND estActif = TRUE;";
 
             List<string>[] persosDuJoueur;
             int nombreRange = 0;
@@ -205,7 +205,7 @@ namespace Combaxe___New.classes.services
 
         public void desactivePersonnage(int id)
         {
-            string requeteUpdate = "UPDATE Personnage SET estActif = FALSE WHERE idPersonnage = '"+id+"';";
+            string requeteUpdate = "UPDATE Personnages SET estActif = FALSE WHERE idPersonnage = '"+id+"';";
 
             bdCombaxe.maj(requeteUpdate);
         }
