@@ -8,24 +8,44 @@ namespace Combaxe___New.classes
 {
     public class Personnage
     {
-        private int idPersonnage;
-        private string nom;
-        private int niveau;
-        private int experience;
-        private string imageUrl;
-        private List<Caracteristique> listeCaracteristique;
+        private int _idPersonnage;
+        private string _nom;
+        private int _niveau;
+        private int _experience;
+        private string _imageUrl;
+        private List<Caracteristique> _listeCaracteristique;
+
+        public string nom
+        {
+            get { return _nom; }
+            set { _nom = value; }
+        }
+
+        public int niveau
+        {
+            get { return _niveau; }
+            set { _niveau = value; }
+        }
+
+        public string imageUrl
+        {
+            get { return _imageUrl; }
+            set { _imageUrl = value; }
+        }
+
+
 
         /// <summary>
         /// Constructeur de base - Anthony Gauthier 02/10/2014
         /// </summary>
         public Personnage()
         {
-            idPersonnage = 0;
-            nom = "";
-            niveau = 0;
-            experience = 0;
-            imageUrl = "";
-            listeCaracteristique = null;
+            _idPersonnage = 0;
+            _nom = "";
+            _niveau = 0;
+            _experience = 0;
+            _imageUrl = "";
+            _listeCaracteristique = null;
         }
 
         /// <summary>
@@ -39,12 +59,12 @@ namespace Combaxe___New.classes
         /// <param name="lstCar">list de caractéristiques du personnage</param>
         public Personnage(int id, string n, int niv, int xp, string image, List<Caracteristique> lstCar)
         {
-            idPersonnage = id;
-            nom = n;
-            niveau = niv;
-            experience = xp;
-            imageUrl = image;
-            listeCaracteristique = lstCar;
+            _idPersonnage = id;
+            _nom = n;
+            _niveau = niv;
+            _experience = xp;
+            _imageUrl = image;
+            _listeCaracteristique = lstCar;
         }
 
         /// <summary>

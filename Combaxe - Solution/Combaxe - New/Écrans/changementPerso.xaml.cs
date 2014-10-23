@@ -39,9 +39,11 @@ namespace Combaxe___New.écrans
             PersonnageService personnageService = new PersonnageService();
 
             /* on va chercher tous les personnages du joueur */
-            List<string>[] lstPerso = personnageService.RetrieveInfoPerso();
+            List<Personnage> lstPerso = personnageService.RetrieveInfoPerso();
             /* pour les caractéristiques du personnage */
-            List<string>[] lstCaracteristiques = personnageService.RetrieveCaracteristiques(lstPerso);
+
+            //List<string>[] lstCaracteristiques = personnageService.RetrieveCaracteristiques(lstPerso);
+           
             /* on vérifie combien il a de personnage */
             int nbLigne = lstPerso.Count();
 
@@ -55,28 +57,28 @@ namespace Combaxe___New.écrans
             else // on affiche les personnages dans leur section appropriée
             { 
                 if(nbLigne == 1){
-                    lblNomPerso1.Content = lstPerso[0][1];
-                    lblNiveau1.Content = lstPerso[0][2];
+                    lblNomPerso1.Content = lstPerso[0].nom;
+                    lblNiveau1.Content = lstPerso[0].niveau;
                     btnChoisir2.IsEnabled = false;
                     btnChoisir3.IsEnabled = false;
                 }
                 if (nbLigne == 2)
                 {
-                    lblNomPerso1.Content = lstPerso[0][1];
-                    lblNiveau1.Content = lstPerso[0][2];
-                    lblNomPerso2.Content = lstPerso[1][1];
-                    lblNiveau2.Content = lstPerso[1][2];
+                    lblNomPerso1.Content = lstPerso[0].nom;
+                    lblNiveau1.Content = lstPerso[0].niveau;
+                    lblNomPerso2.Content = lstPerso[1].nom;
+                    lblNiveau2.Content = lstPerso[1].niveau;
                     btnChoisir3.IsEnabled = false;
                 }
                 if(nbLigne == 3)
                 {
                     //lblDefense1.Content = lstCaracteristiques[0][3];
-                    lblNomPerso1.Content = lstPerso[0][1];
-                    lblNiveau1.Content = lstPerso[0][2];
-                    lblNomPerso2.Content = lstPerso[1][1];
-                    lblNiveau2.Content = lstPerso[1][2];
-                    lblNomPerso3.Content = lstPerso[2][1];
-                    lblNiveau3.Content = lstPerso[2][2];
+                    lblNomPerso1.Content = lstPerso[0].nom;
+                    lblNiveau1.Content = lstPerso[0].niveau;
+                    lblNomPerso2.Content = lstPerso[1].nom;
+                    lblNiveau2.Content = lstPerso[1].niveau;
+                    lblNomPerso3.Content = lstPerso[2].nom;
+                    lblNiveau3.Content = lstPerso[2].niveau;
                     btnCreerPerso.IsEnabled = false;
                 }
             } // on peut choisir le personnage et aller au menu principal
