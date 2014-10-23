@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Combaxe___New.classes;
 using Combaxe___New.écrans;
-using MiniBD;
+using Combaxe___New.classes.services;
 
 namespace Combaxe___New
 {
@@ -28,13 +28,19 @@ namespace Combaxe___New
             InitializeComponent();
         }
         //Lorsque la page s'initialise, on initie une connexion à la BD - Anthony Gauthier 09/10/2014
-        BdService bdCombaxe = new BdService();
+        JoueurService joueurService = new JoueurService();
 
         //Méthode pour se rendre à l'écran de création de compte - Anthony Gauthier 09/10/2014
         private void btnCreerCompte_Click(object sender, RoutedEventArgs e)
         {
             var creationCompte = new creationCompte();
             creationCompte.Show();
+            this.Close();
+        }
+
+        //Méthode pour quitter le jeu - Anthony Gauthier 09/10/2014
+        private void btnQuitter_Click(object sender, RoutedEventArgs e)
+        {
             this.Close();
         }
 
@@ -60,7 +66,7 @@ namespace Combaxe___New
                 if (joueurConnecte == true)
                 {
                     bool joueurAPersonnage;
-                    joueurAPersonnage = verificationPersonnage();
+                    joueurAPersonnage = joueurService.verificationPersonnage(txtbNomUsager.Text, pwdbMdp.Password);
 
                     //Si le joueur a des personnages, on affiche l'écran de changement de personnages - Anthony Gauthier 09/10/2014
                     if (joueurAPersonnage == true)
@@ -81,18 +87,12 @@ namespace Combaxe___New
 
         }
 
-        //Méthode pour quitter le jeu - Anthony Gauthier 09/10/2014
-        private void btnQuitter_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
         //Méthode pour se connecter - Anthony Gauthier 09/10/2014
         private bool connexionCombaxe()
         {
             List<string>[] tabJoueur;
 
-            tabJoueur = selectionJoueur();
+            tabJoueur = joueurService.RetrieveInfoJoueur(txtbNomUsager.Text, pwdbMdp.Password);
 
             //Si la requête n'a rien retourné, l'utilisateur n'a pas de compte - Anthony Gauthier 09/10/2014
             if (tabJoueur[0][0].Length == 0)
@@ -108,44 +108,5 @@ namespace Combaxe___New
                 return true;
             }
         }
-
-
-        //Méthode pour vérifier si l'utilisateur a des personnages - Anthony Gauthier 09/10/2014
-        private bool verificationPersonnage()
-        {
-            List<string>[] unJoueur;
-            unJoueur = selectionJoueur();
-
-            string selPerso = "SELECT * FROM personnages WHERE idJoueur = "+unJoueur[0][0]+";";
-
-            List<string>[] persosDuJoueur;
-            int nombreRange = 0;
-            persosDuJoueur = bdCombaxe.selection(selPerso, 9, ref nombreRange);
-
-            //Si le joueur n'a pas de personnages, on retourne false - Anthony Gauthier 09/10/2014
-            if(persosDuJoueur[0][0].Length == 0)
-            {
-                return false;
-            }
-            //S'il en a, on retourne true - Anthony Gauthier 09/10/2014
-            else
-            {
-                VarGlobales.aPersonnage = true;
-                return true;
-            }
-        }
-
-        //Méthode qui retourne les informations du compte du joueur (id, nom, mdp)
-        private List<string>[] selectionJoueur()
-        {
-            string selConnexion = "SELECT * FROM joueurs WHERE pseudonyme = '" + txtbNomUsager.Text + "' AND motDePasse = '" + pwdbMdp.Password + "';";
-            List<string>[] unJoueur;
-
-            int nombreRange = 0;
-            unJoueur = bdCombaxe.selection(selConnexion, 3, ref nombreRange);
-
-            return unJoueur;
-        }
-
     }
 }
