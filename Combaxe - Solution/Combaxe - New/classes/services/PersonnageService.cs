@@ -12,11 +12,11 @@ namespace Combaxe___New.classes.services
         // on ouvre la connection
         BdService bdCombaxe = new BdService();
         /// <summary>
-        /// Pour récupérer toutes les données des personnages d'un joueur
+        /// Pour récupérer toutes les données des personnages d'un joueur, Tommy Gingras
         /// </summary>
         /// <returns>Liste de toutes les données des personnages</returns>
         public List<Personnage> RetrieveInfoPerso(){
-            string reqSelect = "SELECT idPersonnage, nom, niveau, experience, image FROM Personnages WHERE idJoueur = '"+VarGlobales.Joueur.idJoueur+"';";
+            string reqSelect = "SELECT idPersonnage, nom, niveau, experience, image FROM Personnages WHERE estActif = TRUE AND idJoueur = '" + VarGlobales.Joueur.idJoueur + "';";
             int nbLigne = 0;
             List<string>[] lstPerso = bdCombaxe.selection(reqSelect, 5, ref nbLigne);
 
@@ -44,7 +44,7 @@ namespace Combaxe___New.classes.services
         }
 
         /// <summary>
-        /// Récupère toutes les caractéristiques d'un personnage
+        /// Récupère toutes les caractéristiques d'un personnage, Tommy Gingras
         /// </summary>
         /// <param name="idPersonnage">le id du personnage</param>
         /// <returns>retourne sous forme d'objet caractéristique</returns>
@@ -76,13 +76,13 @@ namespace Combaxe___New.classes.services
         }
 
         /// <summary>
-        /// On veut sélectionner un personnage selon son ID
+        /// On veut sélectionner un personnage selon son ID, Tommy Gingras
         /// </summary>
         /// <param name="id">le id du personnage désirée</param>
         /// <returns>on retourne un objet de type personnage</returns>
         public Personnage selectionUnPersonnage(int id)
         {            
-            string reqSelect = "SELECT idPersonnage, nom, niveau, experience, image FROM Personnages WHERE idJoueur = '" + VarGlobales.Joueur.idJoueur + "' AND idPersonnage = '"+id+"';";
+            string reqSelect = "SELECT idPersonnage, nom, niveau, experience, image FROM Personnages WHERE estActif = TRUE AND idJoueur = '" + VarGlobales.Joueur.idJoueur + "' AND idPersonnage = '"+id+"';";
             int nbLigne = 0;
             List<string>[] lstPerso = bdCombaxe.selection(reqSelect, 5, ref nbLigne);
             List<Caracteristique> lstCaracteristique = new List<Caracteristique>();
@@ -135,21 +135,6 @@ namespace Combaxe___New.classes.services
             }
         }
 
-        //Méthode qui va chercher la description de la profession dans la BD et la retourne
-        public string selectionDescription(string nom)
-        {
-            string description = string.Empty;
-            string requete = "SELECT description FROM professions WHERE idProfession = (SELECT idProfession FROM professions WHERE nom = '" + nom + "');";
-            List<string>[] maDescription;
-            int nombreRange = 0;
-
-            maDescription = bdCombaxe.selection(requete, 1, ref nombreRange);
-
-            description = maDescription[0][0];
-
-            return description;
-        }
-
         //Méthode qui va chercher les caractéristiques de base de chaque profession
         public List<string>[] RetrieveCaracteristiqueBase(string nom)
         {
@@ -160,21 +145,6 @@ namespace Combaxe___New.classes.services
             mesCaracteristiques = bdCombaxe.selection(requete, 1, ref nombreRange);
 
             return mesCaracteristiques;
-        }
-
-        //Méthode qui va chercher le idProfession
-        public int RetrieveIdProfession(string nom)
-        {
-            string requete = "SELECT idProfession FROM Professions WHERE idProfession = (SELECT idProfession FROM professions WHERE nom = '" + nom + "');";
-            List<string>[] lstId;
-            int nombreRange = 0;
-            int id = 0;
-
-            lstId = bdCombaxe.selection(requete, 1, ref nombreRange);
-
-            id = Int32.Parse(lstId[0][0]);
-
-            return id;
         }
 
         //Méthode qui va créer le personnage
@@ -231,6 +201,13 @@ namespace Combaxe___New.classes.services
             { 
                 return false;
             }
+        }
+
+        public void desactivePersonnage(int id)
+        {
+            string requeteUpdate = "UPDATE Personnage SET estActif = FALSE WHERE idPersonnage = '"+id+"';";
+
+            bdCombaxe.maj(requeteUpdate);
         }
     }
 }
