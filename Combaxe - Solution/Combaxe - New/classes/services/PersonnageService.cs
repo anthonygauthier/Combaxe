@@ -59,8 +59,8 @@ namespace Combaxe___New.classes.services
              *  un tableau de tableau */
             
             List<string>[] lstCaracteristiques = null;
-            
-            string reqSelect = "SELECT p.idPersonnage, c.idCaracteristique, c.nom, cp.valeur FROM Personnages p INNER JOIN Caracteristiques c ON c.idCaracteristique = cp.idCaracteristique INNER JOIN CaracteristiquesPersonnages cp ON cp.idCaracteristique =  c.idCaracteristique WHERE p.idPersonnage = '" + idPersonnage + "'";
+
+            string reqSelect = "SELECT p.idPersonnage, c.idCaracteristique, c.nom, cp.valeur FROM Personnages p INNER JOIN CaracteristiquesPersonnages cp ON cp.idPersonnage =  p.idPersonnage INNER JOIN Caracteristiques c ON c.idCaracteristique = cp.idCaracteristique WHERE p.idPersonnage = '" + idPersonnage + "'";
             int nbLigne = 0;
             lstCaracteristiques = bdCombaxe.selection(reqSelect, 4, ref nbLigne);
             return lstCaracteristiques;
