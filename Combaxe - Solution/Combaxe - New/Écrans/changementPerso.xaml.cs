@@ -24,6 +24,8 @@ namespace Combaxe___New.écrans
     /// </summary>
     public partial class changementPerso : Window
     {
+        List<Personnage> lstPerso;
+
         public changementPerso()
         {
             InitializeComponent();
@@ -39,8 +41,8 @@ namespace Combaxe___New.écrans
             PersonnageService personnageService = new PersonnageService();
 
             /* on va chercher tous les personnages du joueur */
-            List<Personnage> lstPerso = personnageService.RetrieveInfoPerso();
-           
+            lstPerso = personnageService.RetrieveInfoPerso();
+
             /* on vérifie combien il a de personnage */
             int nbLigne = lstPerso.Count();
 
@@ -61,6 +63,8 @@ namespace Combaxe___New.écrans
                     lblNbrForce1.Content = lstPerso[0].ListeCaracteristique[0].Valeur;
                     lblNbrVie1.Content = lstPerso[0].ListeCaracteristique[1].Valeur;
                     lblNbrVitesse1.Content = lstPerso[0].ListeCaracteristique[2].Valeur;
+                    txtbPointDenergie1.Text = Convert.ToInt32((lstPerso[0].ListeCaracteristique[4].Valeur * 10) / 3.1416).ToString();
+                    txtbPointDeVie1.Text = Convert.ToInt32((lstPerso[0].ListeCaracteristique[1].Valeur * 20) / 3.1416).ToString();
                     lblNomPerso1.Content = lstPerso[0].Nom;
                     lblNiveau1.Content = lstPerso[0].Niveau;
                     btnChoisir2.IsEnabled = false;
@@ -73,6 +77,8 @@ namespace Combaxe___New.écrans
                     lblNbrForce2.Content = lstPerso[1].ListeCaracteristique[0].Valeur;
                     lblNbrVie2.Content = lstPerso[1].ListeCaracteristique[1].Valeur;
                     lblNbrVitesse2.Content = lstPerso[1].ListeCaracteristique[2].Valeur;
+                    txtbPointDenergie2.Text = Convert.ToInt32((lstPerso[1].ListeCaracteristique[4].Valeur * 10) / 3.1416).ToString();
+                    txtbPointDeVie2.Text = Convert.ToInt32((lstPerso[1].ListeCaracteristique[1].Valeur * 20) / 3.1416).ToString();
                     lblNomPerso2.Content = lstPerso[1].Nom;
                     lblNiveau2.Content = lstPerso[1].Niveau;
                     btnChoisir2.IsEnabled = true;
@@ -84,6 +90,8 @@ namespace Combaxe___New.écrans
                     lblNbrForce3.Content = lstPerso[2].ListeCaracteristique[0].Valeur;
                     lblNbrVie3.Content = lstPerso[2].ListeCaracteristique[1].Valeur;
                     lblNbrVitesse3.Content = lstPerso[2].ListeCaracteristique[2].Valeur;
+                    txtbPointDenergie3.Text = Convert.ToInt32((lstPerso[2].ListeCaracteristique[4].Valeur * 10) / 3.1416).ToString();
+                    txtbPointDeVie3.Text = Convert.ToInt32((lstPerso[2].ListeCaracteristique[1].Valeur * 20) / 3.1416).ToString();
                     lblNomPerso3.Content = lstPerso[2].Nom;
                     lblNiveau3.Content = lstPerso[2].Niveau;
                     btnChoisir3.IsEnabled = true;
@@ -114,24 +122,24 @@ namespace Combaxe___New.écrans
         {
             // on va chercher un personnage
             PersonnageService personnageService = new PersonnageService();
-            VarGlobales.Personnage = personnageService.selectionUnPersonnage(1);
-            MessageBox.Show("Personnage 1 Choisit!", "Choix", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            VarGlobales.Personnage = personnageService.selectionUnPersonnage(lstPerso[0].IdPersonnage);
+            MessageBox.Show("Personnage 1 Choisi!", "Choix", MessageBoxButton.OK, MessageBoxImage.Exclamation);
         }
 
         private void btnChoisir2_Click(object sender, RoutedEventArgs e)
         {
             // on va chercher un personnage
             PersonnageService personnageService = new PersonnageService();
-            VarGlobales.Personnage = personnageService.selectionUnPersonnage(2);
-            MessageBox.Show("Personnage 2 Choisit!", "Choix", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            VarGlobales.Personnage = personnageService.selectionUnPersonnage(lstPerso[1].IdPersonnage);
+            MessageBox.Show("Personnage 2 Choisi!", "Choix", MessageBoxButton.OK, MessageBoxImage.Exclamation);
         }
 
         private void btnChoisir3_Click(object sender, RoutedEventArgs e)
         {
             // on va chercher un personnage
             PersonnageService personnageService = new PersonnageService();
-            VarGlobales.Personnage = personnageService.selectionUnPersonnage(3);
-            MessageBox.Show("Personnage 3 Choisit!", "Choix", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            VarGlobales.Personnage = personnageService.selectionUnPersonnage(lstPerso[2].IdPersonnage);
+            MessageBox.Show("Personnage 3 Choisi!", "Choix", MessageBoxButton.OK, MessageBoxImage.Exclamation);
         }
 
 
