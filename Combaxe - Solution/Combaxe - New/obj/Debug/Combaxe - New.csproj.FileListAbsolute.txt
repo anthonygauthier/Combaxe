@@ -111,3 +111,6 @@ K:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe - New_MarkupCompil
 K:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe - New.g.resources
 K:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe___New.Properties.Resources.resources
 K:\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe - New.csproj.GenerateResource.Cache
+D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe - New.csprojResolveAssemblyReference.cache
+D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\écrans\menuPrincipal.baml
+D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\écrans\menuPrincipal.g.cs
