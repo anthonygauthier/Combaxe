@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Combaxe___New.classes;
 using Combaxe___New.écrans;
-using MiniBD;
+using Combaxe___New.classes.services;
 using System.Text.RegularExpressions;
 
 namespace Combaxe___New.écrans
@@ -32,50 +32,10 @@ namespace Combaxe___New.écrans
             disableBtnPlus();
         }
         //Lorsque la page s'initialise, on initie une connexion à la BD - Anthony Gauthier 09/10/2014
-        BdService bdCombaxe = new BdService();
+        PersonnageService personnageService = new PersonnageService();
+        int profession = 0;
 
         //----------------------------------MÉTHODES---------------------------------
-        //Méthode qui va chercher la description de la profession dans la BD et la retourne
-        private string selectionDescription(string nom)
-        {
-            string description = string.Empty;
-            string requete = "SELECT description FROM professions WHERE idProfession = (SELECT idProfession FROM professions WHERE nom = '" + nom + "');";
-            List<string>[] maDescription;
-            int nombreRange = 0;
-
-            maDescription = bdCombaxe.selection(requete, 1, ref nombreRange);
-
-            description = maDescription[0][0];
-
-            return description;
-        }
-
-        //Méthode qui va chercher les caractéristiques de base de chaque profession
-        private List<string>[] selectionCaracteristiqueBase(string nom)
-        {
-            string requete = "SELECT valeur FROM caracteristiquesprofessions WHERE idProfession = (SELECT idProfession FROM professions WHERE nom = '" + nom + "');";
-            List<string>[] mesCaracteristiques;
-            int nombreRange = 0;
-
-            mesCaracteristiques = bdCombaxe.selection(requete, 1, ref nombreRange);
-
-            return mesCaracteristiques;
-        }
-
-        //Méthode qui va chercher le idProfession
-        private int selectionIdProfession(string nom)
-        {
-            string requete = "SELECT idProfession FROM Professions WHERE idProfession = (SELECT idProfession FROM professions WHERE nom = '" + nom + "');";
-            List<string>[] lstId;
-            int nombreRange = 0;
-            int id = 0;
-
-            lstId = bdCombaxe.selection(requete, 1, ref nombreRange);
-
-            id = Int32.Parse(lstId[0][0]);
-
-            return id;
-        }
 
         //Méthode qui vide le TextBox du nom de personnage lorsque celle-ci a le focus
         private void txtbNom_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
@@ -89,10 +49,10 @@ namespace Combaxe___New.écrans
         private void btnGuerrier_Click(object sender, RoutedEventArgs e)
         {
             //Va chercher les caractéristiques de bases du guerrier
-            List<string>[] caracteristiquesGuer = selectionCaracteristiqueBase(btnGuerrier.Content.ToString());
+            List<string>[] caracteristiquesGuer = personnageService.RetrieveCaracteristiqueBase(btnGuerrier.Content.ToString());
 
             //Change la description
-            txtbDescriptionProf.Text = selectionDescription(btnGuerrier.Content.ToString());
+            txtbDescriptionProf.Text = personnageService.selectionDescription(btnGuerrier.Content.ToString());
 
             //Change les caractéristiques pour les caractéristiques proposées pour paladin
             txtForce.Text = caracteristiquesGuer[0][0];
@@ -100,19 +60,19 @@ namespace Combaxe___New.écrans
             txtVie.Text = caracteristiquesGuer[2][0];
             txtVitesse.Text = caracteristiquesGuer[3][0];
             txtEnergie.Text = caracteristiquesGuer[4][0];
+            profession = personnageService.RetrieveIdProfession(btnGuerrier.Content.ToString());
             enableBtnMoins();
             enableBtnPlus();
-            VarGlobales.idProfessionCreation = selectionIdProfession(btnGuerrier.Content.ToString());
         }
 
         //Méthode lorsque le bouton Paladin est cliqué
         private void btnPaladin_Click(object sender, RoutedEventArgs e)
         {
             //Va chercher les caractéristiques de bases du paladin
-            List<string>[] caracteristiquesPal = selectionCaracteristiqueBase(btnPaladin.Content.ToString());
+            List<string>[] caracteristiquesPal = personnageService.RetrieveCaracteristiqueBase(btnPaladin.Content.ToString());
 
             //Change la description
-            txtbDescriptionProf.Text = selectionDescription(btnPaladin.Content.ToString());
+            txtbDescriptionProf.Text = personnageService.selectionDescription(btnPaladin.Content.ToString());
 
             //Change les caractéristiques pour les caractéristiques proposées pour paladin
             txtForce.Text = caracteristiquesPal[0][0];
@@ -120,7 +80,7 @@ namespace Combaxe___New.écrans
             txtVie.Text = caracteristiquesPal[2][0];
             txtVitesse.Text = caracteristiquesPal[3][0];
             txtEnergie.Text = caracteristiquesPal[4][0];
-            VarGlobales.idProfessionCreation = selectionIdProfession(btnGuerrier.Content.ToString());
+            profession = personnageService.RetrieveIdProfession(btnGuerrier.Content.ToString());
             enableBtnMoins();
             enableBtnPlus();
         }
@@ -129,10 +89,10 @@ namespace Combaxe___New.écrans
         private void btnMagicien_Click(object sender, RoutedEventArgs e)
         {
             //Va chercher les caractéristiques de bases du magicien
-            List<string>[] caracteristiquesMagi = selectionCaracteristiqueBase(btnMagicien.Content.ToString());
+            List<string>[] caracteristiquesMagi = personnageService.RetrieveCaracteristiqueBase(btnMagicien.Content.ToString());
 
             //Change la description
-            txtbDescriptionProf.Text = selectionDescription(btnMagicien.Content.ToString());
+            txtbDescriptionProf.Text = personnageService.selectionDescription(btnMagicien.Content.ToString());
 
             //Change les caractéristiques pour les caractéristiques proposées pour magicien
             txtForce.Text = caracteristiquesMagi[0][0];
@@ -140,7 +100,7 @@ namespace Combaxe___New.écrans
             txtVie.Text = caracteristiquesMagi[2][0];
             txtVitesse.Text = caracteristiquesMagi[3][0];
             txtEnergie.Text = caracteristiquesMagi[4][0];
-            VarGlobales.idProfessionCreation = selectionIdProfession(btnGuerrier.Content.ToString());
+            profession = personnageService.RetrieveIdProfession(btnGuerrier.Content.ToString());
             enableBtnMoins();
             enableBtnPlus();
         }
@@ -446,25 +406,31 @@ namespace Combaxe___New.écrans
         {
             if (verificationChamps())
             {
-                string reqInsertInventaire = "INSERT INTO Inventaires (argent) VALUES (0);";
-                string reqInsertStatistiques = "INSERT INTO Statistiques (tempsDeJeu, nombreDeCombat, victoire, defaite, dommageTotal, moyenneDommage, nombreAttaque) VALUES (0,0,0,0,0,0,0);";
-   
-                int idInventaire = 0;
-                int idStatistique = 0;
-
-                //On insert l'inventaire et on sauvegarde le id
-                bdCombaxe.Insertion(reqInsertInventaire);
-                idInventaire = bdCombaxe.lastInsertId();
-
-                //On insert les statistiques et on sauvegarde le id
-                bdCombaxe.Insertion(reqInsertStatistiques);
-                idStatistique = bdCombaxe.lastInsertId();
-
-                //On insert le personnage
-                string reqInsertPerso = "INSERT INTO Personnages (idProfession, idInventaire, idJoueur, idStatistique, nom, niveau, experience, image) VALUES ("+VarGlobales.idProfessionCreation+"," + idInventaire + "," + VarGlobales.Joueur.idJoueur + "," + idStatistique + ",'" + txtbNom.Text + "',1,0,null)";
-                bdCombaxe.Insertion(reqInsertPerso);
-
+                personnageService.CreerPersonnage(Int32.Parse(txtForce.Text), Int32.Parse(txtDefense.Text), Int32.Parse(txtVie.Text), Int32.Parse(txtEnergie.Text), Int32.Parse(txtVitesse.Text), profession, txtbNom.Text);
                 MessageBox.Show("Personnage créer avec succès!", "Création de personnage", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                var choisirPerso = new changementPerso();
+                choisirPerso.Show();
+                this.Close();
+            }
+        }
+
+        //Méthode qui effectue le comportement du bouton retour
+        private void btnRetour_Click(object sender, RoutedEventArgs e)
+        {
+            //Si le joueur a des personnages, on le retourne à l'écran de choix du personnage
+            if (VarGlobales.aPersonnage)
+            {
+                var choixPerso = new changementPerso();
+                choixPerso.Show();
+                this.Close();
+            }
+            //Sinon, on retourne à l'écran de connexion et on le déconnecte
+            else
+            {
+                VarGlobales.Joueur.Deconnexion();
+                var connexion = new MainWindow();
+                connexion.Show();
+                this.Close();
             }
         }
 
@@ -473,13 +439,6 @@ namespace Combaxe___New.écrans
         {
             Regex rgx = new Regex("^[a-zA-Z]+$", RegexOptions.IgnoreCase);
             Match match = rgx.Match(txtbNom.Text);
-
-            string requeteNomPerso = "SELECT nom FROM Personnages WHERE nom = '" + txtbNom.Text + "';";
-
-            List<string>[] listNom;
-            int nombreRange = 0;
-
-            listNom = bdCombaxe.selection(requeteNomPerso, 1, ref nombreRange);
 
             //Si l'utilisateur n'a pas entré de nom de personnage
             if (txtbNom.Text == "" || txtbNom.Text == " ")
@@ -512,7 +471,7 @@ namespace Combaxe___New.écrans
                 MessageBox.Show("Vous devez choisir une profession!", "Erreur lors de la création du personnage", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
-            else if (listNom[0][0].Length != 0)
+            else if (personnageService.RetrieveExistancePersonnage(txtbNom.Text))
             {
                 MessageBox.Show("Le nom de personnage que vous avez choisi existe déjà.", "Erreur lors de la création du personnage", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
@@ -520,26 +479,6 @@ namespace Combaxe___New.écrans
             else
             {
                 return true;
-            }
-        }
-
-        //Méthode qui effectue le comportement du bouton retour
-        private void btnRetour_Click(object sender, RoutedEventArgs e)
-        {
-            //Si le joueur a des personnages, on le retourne à l'écran de choix du personnage
-            if(VarGlobales.aPersonnage)
-            {
-                var choixPerso = new changementPerso();
-                choixPerso.Show();
-                this.Close();
-            }
-            //Sinon, on retourne à l'écran de connexion et on le déconnecte
-            else
-            { 
-                VarGlobales.Joueur.Deconnexion();
-                var connexion = new MainWindow();
-                connexion.Show();
-                this.Close();
             }
         }
     }
