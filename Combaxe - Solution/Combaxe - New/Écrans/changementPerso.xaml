@@ -73,7 +73,7 @@
                 <!--Troisième colonne de caractéristiques-->
                 <Label Name="lblVitesse1" Content="Vitesse:" VerticalAlignment="Center" Grid.Column="2" Margin="0,0,0,-5"></Label>
                 <Label Name="lblNbrVitesse1" Content="0" VerticalAlignment="Center" Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,0,-5"></Label>
-                <Button Name="btnChoisir1" Grid.Row="1" Grid.Column="2" Content="Choisir" MaxHeight="50" Margin="5,0,5,0"></Button>
+                <Button Name="btnChoisir1" Grid.Row="1" Grid.Column="2" Content="Choisir" MaxHeight="50" Margin="5,0,5,0" Click="btnChoisir1_Click"></Button>
             </Grid>
         </Grid>
 
@@ -134,7 +134,7 @@
                 <!--Troisième colonne de caractéristiques-->
                 <Label Name="lblVitesse2" Content="Vitesse:" VerticalAlignment="Center" Grid.Column="2" Margin="0,0,0,-5"></Label>
                 <Label Name="lblNbrVitesse2" Content="0" VerticalAlignment="Center" Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,0,-5"></Label>
-                <Button Name="btnChoisir2" Grid.Row="1" Grid.Column="2" Content="Choisir" MaxHeight="50" Margin="5,0,5,0"></Button>
+                <Button Name="btnChoisir2" Grid.Row="1" Grid.Column="2" Content="Choisir" MaxHeight="50" Margin="5,0,5,0" Height="19" VerticalAlignment="Top" Click="btnChoisir2_Click"></Button>
             </Grid>
         </Grid>
 
@@ -195,14 +195,14 @@
                 <!--Troisième colonne de caractéristiques-->
                 <Label Name="lblVitesse3" Content="Vitesse:" VerticalAlignment="Center" Grid.Column="2" Margin="0,0,0,-5"></Label>
                 <Label Name="lblNbrVitesse3" Content="0" VerticalAlignment="Center" Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,0,-5"></Label>
-                <Button Name="btnChoisir3" Grid.Row="1" Grid.Column="2" Content="Choisir" MaxHeight="50" Margin="5,0,5,0"></Button>
+                <Button Name="btnChoisir3" Grid.Row="1" Grid.Column="2" Content="Choisir" MaxHeight="50" Margin="5,0,5,0" Click="btnChoisir3_Click"/>
             </Grid>
         </Grid>
 
         <!--Stackpanel boutons choix-->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="4" Margin="10,5,10,5">
             <Button Name="btnCreerPerso" Content="Créer personnage" MinWidth="108" MaxHeight="50" Click="btnCreerPerso_Click"></Button>
-            <Button Name="btnRetour" Content="Retour" MaxHeight="50" MinWidth="108" Margin="5,0,0,0"></Button>
+            <Button Name="btnRetour" Content="Retour" MaxHeight="50" MinWidth="108" Margin="5,0,0,0" Height="29" VerticalAlignment="Bottom" Click="btnRetour_Click"></Button>
         </StackPanel>
     </Grid>
 </Window>

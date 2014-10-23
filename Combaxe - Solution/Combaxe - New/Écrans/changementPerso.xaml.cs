@@ -40,9 +40,6 @@ namespace Combaxe___New.écrans
 
             /* on va chercher tous les personnages du joueur */
             List<Personnage> lstPerso = personnageService.RetrieveInfoPerso();
-            /* pour les caractéristiques du personnage */
-
-            //List<string>[] lstCaracteristiques = personnageService.RetrieveCaracteristiques(lstPerso);
            
             /* on vérifie combien il a de personnage */
             int nbLigne = lstPerso.Count();
@@ -57,26 +54,39 @@ namespace Combaxe___New.écrans
             else // on affiche les personnages dans leur section appropriée
             { 
                 if(nbLigne >= 1){
-                    lblNomPerso1.Content = lstPerso[0].nom;
-                    lblNiveau1.Content = lstPerso[0].niveau;
+                    /* affiche caractéristiques */
+                   
+                    lblNbrEDefense1.Content = lstPerso[0].ListeCaracteristique[3].Valeur;
+                    lblNbrEnergie1.Content = lstPerso[0].ListeCaracteristique[4].Valeur;
+                    lblNbrForce1.Content = lstPerso[0].ListeCaracteristique[0].Valeur;
+                    lblNbrVie1.Content = lstPerso[0].ListeCaracteristique[1].Valeur;
+                    lblNbrVitesse1.Content = lstPerso[0].ListeCaracteristique[2].Valeur;
+                    lblNomPerso1.Content = lstPerso[0].Nom;
+                    lblNiveau1.Content = lstPerso[0].Niveau;
                     btnChoisir2.IsEnabled = false;
                     btnChoisir3.IsEnabled = false;
                 }
-                if (nbLigne == 2)
+                if (nbLigne >= 2)
                 {
-                    lblNomPerso2.Content = lstPerso[1].nom;
-                    lblNiveau2.Content = lstPerso[1].niveau;
+                    lblNbrEDefense2.Content = lstPerso[1].ListeCaracteristique[3].Valeur;
+                    lblNbrEnergie2.Content = lstPerso[1].ListeCaracteristique[4].Valeur;
+                    lblNbrForce2.Content = lstPerso[1].ListeCaracteristique[0].Valeur;
+                    lblNbrVie2.Content = lstPerso[1].ListeCaracteristique[1].Valeur;
+                    lblNbrVitesse2.Content = lstPerso[1].ListeCaracteristique[2].Valeur;
+                    lblNomPerso2.Content = lstPerso[1].Nom;
+                    lblNiveau2.Content = lstPerso[1].Niveau;
                     btnChoisir2.IsEnabled = true;
                 }
-                if(nbLigne == 3)
+                if(nbLigne >= 3)
                 {
-                    //lblDefense1.Content = lstCaracteristiques[0][3];
-                    lblNomPerso1.Content = lstPerso[0].nom;
-                    lblNiveau1.Content = lstPerso[0].niveau;
-                    lblNomPerso2.Content = lstPerso[1].nom;
-                    lblNiveau2.Content = lstPerso[1].niveau;
-                    lblNomPerso3.Content = lstPerso[2].nom;
-                    lblNiveau3.Content = lstPerso[2].niveau;
+                    lblNbrEDefense3.Content = lstPerso[2].ListeCaracteristique[3].Valeur;
+                    lblNbrEnergie3.Content = lstPerso[2].ListeCaracteristique[4].Valeur;
+                    lblNbrForce3.Content = lstPerso[2].ListeCaracteristique[0].Valeur;
+                    lblNbrVie3.Content = lstPerso[2].ListeCaracteristique[1].Valeur;
+                    lblNbrVitesse3.Content = lstPerso[2].ListeCaracteristique[2].Valeur;
+                    lblNomPerso3.Content = lstPerso[2].Nom;
+                    lblNiveau3.Content = lstPerso[2].Niveau;
+                    btnChoisir3.IsEnabled = true;
                     btnCreerPerso.IsEnabled = false;
                 }
             } // on peut choisir le personnage et aller au menu principal
@@ -89,5 +99,41 @@ namespace Combaxe___New.écrans
             creationPerso.Show();
             this.Close();
         }
+
+        private void btnRetour_Click(object sender, RoutedEventArgs e)
+        {
+            VarGlobales.Joueur.Deconnexion();
+            if(VarGlobales.Personnage != null)
+                VarGlobales.Personnage.Deconnexion();
+            var connexion = new MainWindow();
+            connexion.Show();
+            this.Close();
+        }
+
+        private void btnChoisir1_Click(object sender, RoutedEventArgs e)
+        {
+            // on va chercher un personnage
+            PersonnageService personnageService = new PersonnageService();
+            VarGlobales.Personnage = personnageService.selectionUnPersonnage(1);
+            MessageBox.Show("Personnage 1 Choisit!", "Choix", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+        }
+
+        private void btnChoisir2_Click(object sender, RoutedEventArgs e)
+        {
+            // on va chercher un personnage
+            PersonnageService personnageService = new PersonnageService();
+            VarGlobales.Personnage = personnageService.selectionUnPersonnage(2);
+            MessageBox.Show("Personnage 2 Choisit!", "Choix", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+        }
+
+        private void btnChoisir3_Click(object sender, RoutedEventArgs e)
+        {
+            // on va chercher un personnage
+            PersonnageService personnageService = new PersonnageService();
+            VarGlobales.Personnage = personnageService.selectionUnPersonnage(3);
+            MessageBox.Show("Personnage 3 Choisit!", "Choix", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+        }
+
+
     }
 }

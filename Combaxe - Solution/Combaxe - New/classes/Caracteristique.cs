@@ -12,38 +12,25 @@ namespace Combaxe___New.classes
         Defense, 
         Vie, 
         Energie, 
-        Vitesse, 
-        Rien
+        Vitesse
     }
 
     public class Caracteristique
     {
     
-        public int idCaracterstique { get; set; }
-        public int valeur { get; set; }
-        public string nom { get; set; }
+        public int IdCaracterstique { get; set; }
+        public int Valeur { get; set; }
+        public string Nom { get; set; }
         public Caracteristiques CaracteristiqueEnum { get;set;}
-
-        /*private enum cara { force, defense, vie, energie, vitesse, rien };
-        private cara uneCaracteristique { get; set; }*/
 
         /// <summary>
         /// Constructeur de base - Anthony Gauthier 02/10/2014
         /// </summary>
         public Caracteristique()
         { 
-            idCaracterstique = 0;
-            valeur = 0;
-            nom = "";
-            
-
-            if (this.nom == "Force")
-            {
-                CaracteristiqueEnum  =Caracteristiques.Force;
-            }
-            /*uneCaracteristique = cara.rien;*/
-
-            
+            IdCaracterstique = 0;
+            Valeur = 0;
+            Nom = "";   
         }
 
         /// <summary>
@@ -53,12 +40,30 @@ namespace Combaxe___New.classes
         /// <param name="val">valeur de la caractéristique</param>
         /// <param name="n">nom de la caractéristique</param>
         /// <param name="car">sert à simplifier et repéré plus facilement laquelle caractéristique est traité</param>
-        public Caracteristique(int id, int val, string n/*, cara car*/)
+        public Caracteristique(int id, int val, string nom)
         { 
-            idCaracterstique = id;
-            valeur = val;
-            nom = n;
-            /*uneCaracteristique = car;*/
+            IdCaracterstique = id;
+            Valeur = val;
+            Nom = nom;
+            /* Pour l'enum */
+            switch (this.Nom)
+            {
+                case "Force":
+                    CaracteristiqueEnum = Caracteristiques.Force;
+                    break;
+                case "Vie":
+                    CaracteristiqueEnum = Caracteristiques.Vie;
+                    break;
+                case "Défense":
+                    CaracteristiqueEnum = Caracteristiques.Defense;
+                    break;
+                case "Énergie":
+                    CaracteristiqueEnum = Caracteristiques.Energie;
+                    break;
+                case "Vitesse":
+                    CaracteristiqueEnum = Caracteristiques.Vitesse;
+                    break;
+            }   
         }
     }
 }

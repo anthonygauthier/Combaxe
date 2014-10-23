@@ -8,36 +8,12 @@ namespace Combaxe___New.classes
 {
     public class Personnage
     {
-        private int _idPersonnage;
-        private string _nom;
-        private int _niveau;
-        private int _experience;
-        private string _imageUrl;
-        private List<Caracteristique> _listeCaracteristique;        
-
-        public string nom
-        {
-            get { return _nom; }
-            set { _nom = value; }
-        }
-
-        public int niveau
-        {
-            get { return _niveau; }
-            set { _niveau = value; }
-        }
-
-        public string imageUrl
-        {
-            get { return _imageUrl; }
-            set { _imageUrl = value; }
-        }
-
-        public int idPersonnage
-        {
-            get { return _idPersonnage; }
-            set { _idPersonnage = value; }
-        }
+        public int IdPersonnage { get; set; }
+        public string Nom { get; set; }
+        public int Niveau { get; set; }
+        public int Experience { get; set; }
+        public string ImageUrl { get; set; }
+        public List<Caracteristique> ListeCaracteristique { get; set; }
 
 
 
@@ -46,12 +22,12 @@ namespace Combaxe___New.classes
         /// </summary>
         public Personnage()
         {
-            _idPersonnage = 0;
-            _nom = "";
-            _niveau = 0;
-            _experience = 0;
-            _imageUrl = "";
-            _listeCaracteristique = null;
+            IdPersonnage = 0;
+            Nom = "";
+            Niveau = 0;
+            Experience = 0;
+            ImageUrl = "";
+            ListeCaracteristique = null;
         }
 
         /// <summary>
@@ -66,12 +42,12 @@ namespace Combaxe___New.classes
         public Personnage(int id, string n, int niv, int xp, string image, List<Caracteristique> lstCar)
         {
 
-            _idPersonnage = id;
-            _nom = n;
-            _niveau = niv;
-            _experience = xp;
-            _imageUrl = image;
-            _listeCaracteristique = lstCar;
+            IdPersonnage = id;
+            Nom = n;
+            Niveau = niv;
+            Experience = xp;
+            ImageUrl = image;
+            ListeCaracteristique = lstCar;
         }
 
         /// <summary>
@@ -113,6 +89,16 @@ namespace Combaxe___New.classes
         public void Desequiper()
         { 
             return;
+        }
+
+        public void Deconnexion()
+        {
+            this.IdPersonnage = 0;
+            this.Nom = "";
+            this.Niveau = 0;
+            this.Experience = 0;
+            this.ImageUrl = "";
+            this.ListeCaracteristique = null;
         }
     }
 }
