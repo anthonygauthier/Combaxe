@@ -8,6 +8,7 @@ namespace Combaxe___New.classes
 {
     public class Joueur
     {
+        public int IdJoueur { get; set; }
         private int _idJoueur;
         private string _pseudo;
 
