@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Combaxe___New.classes.services;
 
 namespace Combaxe___New
 {
@@ -27,8 +28,6 @@ namespace Combaxe___New
             InitializeComponent();
         }
 
-        BdService bdCombaxe = new BdService();
-
         private void btnRetour_Click(object sender, RoutedEventArgs e)
         {
             var connexion = new MainWindow();
@@ -41,8 +40,8 @@ namespace Combaxe___New
         {
             if(verificationChamps())
             {
-                string reqInsert = "INSERT INTO Joueurs (pseudonyme,motDePasse) VALUES ('"+txtbNomUsager.Text+"','"+pwdboxMdp.Password.ToUpper()+"')";
-                bdCombaxe.Insertion(reqInsert);
+                JoueurService joueurService = new JoueurService();
+                joueurService.CreerJoueur(txtbNomUsager.Text,pwdboxMdp.Password);
                 MessageBox.Show("Compte créer avec succès!", "Création de compte", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 var connexion = new MainWindow();
                 connexion.Show();
@@ -54,6 +53,7 @@ namespace Combaxe___New
         //Méthode qui vérifie si les champs entrés pour la création de compte sont valide - William Themens 19/10/2014
         private bool verificationChamps()
         {
+            JoueurService joueurService = new JoueurService();
             Regex alphanumerique = new Regex("^[a-zA-Z0-9]*$");
 
             txtbNomUsager.BorderBrush = new SolidColorBrush(Colors.Black);
@@ -89,7 +89,7 @@ namespace Combaxe___New
                 return false;
             }
 
-            else if(!usagerDisponible(bdCombaxe))
+            else if (joueurService.usagerDisponible(txtbNomUsager.Text))
             {
                 MessageBox.Show("L'usager désiré existe déjà", "Erreur lors de la création de compte", MessageBoxButton.OK, MessageBoxImage.Error);
                 txtbNomUsager.BorderBrush = new SolidColorBrush(Colors.Red);
@@ -137,25 +137,6 @@ namespace Combaxe___New
             /* FIN DES VALIDATIONS DU MOT DE PASSE */
             
             return true;
-        }
-
-        //Méthode qui vérifie dans la base de donnée si le nom d'usager du compte est déjà existant - William Themens 19/10/2014
-        private bool usagerDisponible(BdService bdCombaxe)
-        {
-            string selUsager = "SELECT pseudonyme FROM Joueurs WHERE pseudonyme='" + txtbNomUsager.Text+"';";
-            int r = 0;
-
-            List<string>[] retourSel = bdCombaxe.selection(selUsager, 1, ref r);
-
-            if(retourSel[0][0]=="")
-            {
-                return true;
-            }
-
-            else
-            {
-                return false;
-            }
         }
     }
 }

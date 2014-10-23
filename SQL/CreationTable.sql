@@ -99,6 +99,7 @@ CREATE TABLE IF NOT EXISTS Personnages
 ,	niveau INT NOT NULL DEFAULT 1
 ,	experience INT NOT NULL DEFAULT 0
 ,	image VARCHAR(255)
+,	estActif BOOL NOT NULL DEFAULT TRUE
 );
 
 CREATE TABLE IF NOT EXISTS CaracteristiquesProfessions
