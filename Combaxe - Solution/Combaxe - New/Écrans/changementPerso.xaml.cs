@@ -56,7 +56,7 @@ namespace Combaxe___New.écrans
             }
             else // on affiche les personnages dans leur section appropriée
             { 
-                if(nbLigne == 1){
+                if(nbLigne >= 1){
                     lblNomPerso1.Content = lstPerso[0].nom;
                     lblNiveau1.Content = lstPerso[0].niveau;
                     btnChoisir2.IsEnabled = false;
@@ -64,11 +64,9 @@ namespace Combaxe___New.écrans
                 }
                 if (nbLigne == 2)
                 {
-                    lblNomPerso1.Content = lstPerso[0].nom;
-                    lblNiveau1.Content = lstPerso[0].niveau;
                     lblNomPerso2.Content = lstPerso[1].nom;
                     lblNiveau2.Content = lstPerso[1].niveau;
-                    btnChoisir3.IsEnabled = false;
+                    btnChoisir2.IsEnabled = true;
                 }
                 if(nbLigne == 3)
                 {

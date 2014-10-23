@@ -7,7 +7,7 @@ using MiniBD;
 
 namespace Combaxe___New.classes.services
 {
-    class PersonnageService
+    public class PersonnageService
     {
         // on ouvre la connection
         private BdService bdCombaxe = new BdService();
@@ -35,7 +35,7 @@ namespace Combaxe___New.classes.services
                             for(int y = 0; y < lstStringCaract.Count(); y++){
                                 if (lstStringCaract.Count() == 5)
                                 {
-                                    Caracteristique caract = new Caracteristique(Convert.ToInt32(lstStringCaract[i][0]), Convert.ToInt32(lstStringCaract[i][1]), lstStringCaract[i][2]);
+                                    Caracteristique caract = new Caracteristique(Convert.ToInt32(lstStringCaract[y][0]), Convert.ToInt32(lstStringCaract[y][1]), lstStringCaract[y][2]);
                                     lstCar.Add(caract);
                                 }
                                 else
@@ -60,9 +60,9 @@ namespace Combaxe___New.classes.services
             
             List<string>[] lstCaracteristiques = null;
 
-            string reqSelect = "SELECT p.idPersonnage, c.idCaracteristique, c.nom, cp.valeur FROM Personnages p INNER JOIN CaracteristiquesPersonnages cp ON cp.idPersonnage =  p.idPersonnage INNER JOIN Caracteristiques c ON c.idCaracteristique = cp.idCaracteristique WHERE p.idPersonnage = '" + idPersonnage + "'";
+            string reqSelect = "SELECT c.idCaracteristique, c.nom, cp.valeur FROM Personnages p INNER JOIN CaracteristiquesPersonnages cp ON cp.idPersonnage =  p.idPersonnage INNER JOIN Caracteristiques c ON c.idCaracteristique = cp.idCaracteristique WHERE p.idPersonnage = '" + idPersonnage + "'";
             int nbLigne = 0;
-            lstCaracteristiques = bdCombaxe.selection(reqSelect, 4, ref nbLigne);
+            lstCaracteristiques = bdCombaxe.selection(reqSelect, 3, ref nbLigne);
             return lstCaracteristiques;
         }
     }

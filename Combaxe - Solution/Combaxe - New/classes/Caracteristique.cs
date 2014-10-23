@@ -6,11 +6,24 @@ using System.Threading.Tasks;
 
 namespace Combaxe___New.classes
 {
+    public enum Caracteristiques
+    {
+        Force,
+        Defense, 
+        Vie, 
+        Energie, 
+        Vitesse, 
+        Rien
+    }
+
     public class Caracteristique
     {
-        private int idCaracterstique { get; set; }
-        private int valeur { get; set; }
-        private string nom { get; set; }
+    
+        public int idCaracterstique { get; set; }
+        public int valeur { get; set; }
+        public string nom { get; set; }
+        public Caracteristiques CaracteristiqueEnum { get;set;}
+
         /*private enum cara { force, defense, vie, energie, vitesse, rien };
         private cara uneCaracteristique { get; set; }*/
 
@@ -22,7 +35,15 @@ namespace Combaxe___New.classes
             idCaracterstique = 0;
             valeur = 0;
             nom = "";
+            
+
+            if (this.nom == "Force")
+            {
+                CaracteristiqueEnum  =Caracteristiques.Force;
+            }
             /*uneCaracteristique = cara.rien;*/
+
+            
         }
 
         /// <summary>

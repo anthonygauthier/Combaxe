@@ -13,7 +13,7 @@ namespace Combaxe___New.classes
         private int _niveau;
         private int _experience;
         private string _imageUrl;
-        private List<Caracteristique> _listeCaracteristique;
+        private List<Caracteristique> _listeCaracteristique;        
 
         public string nom
         {
@@ -65,6 +65,7 @@ namespace Combaxe___New.classes
         /// <param name="lstCar">list de caractéristiques du personnage</param>
         public Personnage(int id, string n, int niv, int xp, string image, List<Caracteristique> lstCar)
         {
+
             _idPersonnage = id;
             _nom = n;
             _niveau = niv;
@@ -78,6 +79,7 @@ namespace Combaxe___New.classes
         /// </summary>
         public void Supprimer()
         { 
+            // à faire tommy
             return;
         }
 
