@@ -8,7 +8,7 @@ using MySql.Data.MySqlClient;
 
 namespace MiniBD
 {
-    class BdService
+    public class BdService
     {
         private string serveur = "420.cstj.qc.ca";
         private string BD = "5a5_a14_combaxe";

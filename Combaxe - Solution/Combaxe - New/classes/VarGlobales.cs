@@ -10,7 +10,6 @@ namespace Combaxe___New.classes
     {
         static Joueur _Joueur;
         static Personnage _Personnage;
-        static int _idProfessionCreation;
         static bool _aPersonnage;
 
         //Variable qui sauvegarde le joueur à travers le programme (lorsqu'il est connecté)
@@ -36,19 +35,6 @@ namespace Combaxe___New.classes
             set
             {
                 _Personnage = value;
-            }
-        }
-
-        //Variable qui sauvegarde le idProfession à travers le programme
-        public static int idProfessionCreation
-        {
-            get
-            {
-                return _idProfessionCreation;
-            }
-            set
-            {
-                _idProfessionCreation = value;
             }
         }
 

@@ -65,8 +65,11 @@ namespace Combaxe___New
 
                 if (joueurConnecte == true)
                 {
+                    //On fait appel au service du personnage
+                    PersonnageService personnageService = new PersonnageService();
                     bool joueurAPersonnage;
-                    joueurAPersonnage = joueurService.verificationPersonnage(txtbNomUsager.Text, pwdbMdp.Password);
+
+                    joueurAPersonnage = personnageService.VerificationPersonnage(txtbNomUsager.Text, pwdbMdp.Password);
 
                     //Si le joueur a des personnages, on affiche l'écran de changement de personnages - Anthony Gauthier 09/10/2014
                     if (joueurAPersonnage == true)

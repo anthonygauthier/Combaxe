@@ -1,5 +1,4 @@
 D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\bin\Debug\Combaxe - New.exe.config
-D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\Combaxe - New.csprojResolveAssemblyReference.cache
 D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\écrans\creationCompte.baml
 D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\MainWindow.baml
 D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\écrans\creationPersonnage.baml

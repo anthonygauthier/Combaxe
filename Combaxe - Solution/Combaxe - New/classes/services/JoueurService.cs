@@ -22,30 +22,5 @@ namespace Combaxe___New.classes.services
 
             return unJoueur;
         }
-        //-------CHANGER DANS PERSONNAGE SERVICE
-        //Méthode pour vérifier si l'utilisateur a des personnages - Anthony Gauthier 09/10/2014
-        public bool verificationPersonnage(string nom, string mdp)
-        {
-            List<string>[] unJoueur;
-            unJoueur = RetrieveInfoJoueur(nom, mdp);
-
-            string selPerso = "SELECT * FROM personnages WHERE idJoueur = " + unJoueur[0][0] + ";";
-
-            List<string>[] persosDuJoueur;
-            int nombreRange = 0;
-            persosDuJoueur = bdCombaxe.selection(selPerso, 9, ref nombreRange);
-
-            //Si le joueur n'a pas de personnages, on retourne false - Anthony Gauthier 09/10/2014
-            if (persosDuJoueur[0][0].Length == 0)
-            {
-                return false;
-            }
-            //S'il en a, on retourne true - Anthony Gauthier 09/10/2014
-            else
-            {
-                VarGlobales.aPersonnage = true;
-                return true;
-            }
-        }
     }
 }
