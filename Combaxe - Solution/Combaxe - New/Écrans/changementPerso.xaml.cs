@@ -123,7 +123,7 @@ namespace Combaxe___New.écrans
             // on va chercher un personnage
             PersonnageService personnageService = new PersonnageService();
             VarGlobales.Personnage = personnageService.selectionUnPersonnage(lstPerso[0].IdPersonnage);
-            MessageBox.Show("Personnage 1 Choisi!", "Choix", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            changerFenetre();
         }
 
         private void btnChoisir2_Click(object sender, RoutedEventArgs e)
@@ -131,7 +131,7 @@ namespace Combaxe___New.écrans
             // on va chercher un personnage
             PersonnageService personnageService = new PersonnageService();
             VarGlobales.Personnage = personnageService.selectionUnPersonnage(lstPerso[1].IdPersonnage);
-            MessageBox.Show("Personnage 2 Choisi!", "Choix", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            changerFenetre();
         }
 
         private void btnChoisir3_Click(object sender, RoutedEventArgs e)
@@ -139,9 +139,15 @@ namespace Combaxe___New.écrans
             // on va chercher un personnage
             PersonnageService personnageService = new PersonnageService();
             VarGlobales.Personnage = personnageService.selectionUnPersonnage(lstPerso[2].IdPersonnage);
-            MessageBox.Show("Personnage 3 Choisi!", "Choix", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            changerFenetre();
         }
 
+        private void changerFenetre()
+        { 
+            var menuPrincipal = new menuPrincipal();
+            menuPrincipal.Show();
+            this.Close();
+        }
 
     }
 }

@@ -57,6 +57,7 @@
     <Compile Include="classes\services\BdService.cs" />
     <Compile Include="classes\services\JoueurService.cs" />
     <Compile Include="classes\services\PersonnageService.cs" />
+    <Compile Include="classes\services\ProfessionService.cs" />
     <Compile Include="classes\VarGlobales.cs" />
     <Compile Include="écrans\changementPerso.xaml.cs">
       <DependentUpon>changementPerso.xaml</DependentUpon>
