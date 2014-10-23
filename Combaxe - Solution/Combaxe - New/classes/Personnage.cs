@@ -33,6 +33,12 @@ namespace Combaxe___New.classes
             set { _imageUrl = value; }
         }
 
+        public int idPersonnage
+        {
+            get { return _idPersonnage; }
+            set { _idPersonnage = value; }
+        }
+
 
 
         /// <summary>
