@@ -17,6 +17,7 @@ namespace Combaxe___New.classes
         public int Experience { get; set; }
         public string ImageUrl { get; set; }
         public List<Caracteristique> ListeCaracteristique { get; set; }
+        public Profession profession;
 
 
 
@@ -31,6 +32,7 @@ namespace Combaxe___New.classes
             Experience = 0;
             ImageUrl = "";
             ListeCaracteristique = null;
+            profession = null;
         }
 
         /// <summary>
@@ -42,7 +44,7 @@ namespace Combaxe___New.classes
         /// <param name="xp">expérience du personnage</param>
         /// <param name="image">url de l'image du personnage</param>
         /// <param name="lstCar">list de caractéristiques du personnage</param>
-        public Personnage(int id, string n, int niv, int xp, string image, List<Caracteristique> lstCar)
+        public Personnage(int id, string n, int niv, int xp, string image, List<Caracteristique> lstCar, Profession prof)
         {
 
             IdPersonnage = id;
@@ -51,6 +53,7 @@ namespace Combaxe___New.classes
             Experience = xp;
             ImageUrl = image;
             ListeCaracteristique = lstCar;
+            profession = prof;
         }
 
         /// <summary>
@@ -70,6 +73,7 @@ namespace Combaxe___New.classes
             this.Experience = 0;
             this.ImageUrl = "";
             this.ListeCaracteristique = null;
+            this.profession = null;
             // si c'est le personnage utilisé on retourne à choisir personnage
         }
 

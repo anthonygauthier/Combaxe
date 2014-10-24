@@ -37,7 +37,7 @@
             <TextBlock Margin="1" MaxHeight="30" TextAlignment="Center" Name="txtbPointDenergie1" Background="#3399FF" Text="Barre de points d'énergie" Grid.Row="2" Grid.Column="1"></TextBlock>
 
             <!--Image du personnage-->
-            <Image Name="imgPerso1" Margin="3" Grid.Row="0" Grid.RowSpan="3" Grid.Column="2"></Image>
+            <Image Name="imgPerso1" Margin="3" Grid.Row="0" Grid.RowSpan="3" Grid.Column="2" Source="../images/paladin.png"></Image>
             <Border BorderBrush="Black" BorderThickness="1,1,1,1" Margin="1" Grid.Row="0" Grid.RowSpan="3" Grid.Column="2"></Border>
             <!--Grid pour caractéristiques-->
             <Grid Grid.Row="1" Grid.RowSpan="2">
@@ -98,7 +98,7 @@
             <TextBlock Margin="1" MaxHeight="30" TextAlignment="Center" Name="txtbPointDenergie2" Background="#3399FF" Text="Barre de points d'énergie" Grid.Row="2" Grid.Column="1"></TextBlock>
 
             <!--Image du personnage-->
-            <Image Name="imgPerso2" Margin="3" Grid.Row="0" Grid.RowSpan="3" Grid.Column="2"></Image>
+            <Image Name="imgPerso2" Margin="3" Grid.Row="0" Grid.RowSpan="3" Grid.Column="2" Source="../images/paladin.png"></Image>
             <Border BorderBrush="Black" BorderThickness="1,1,1,1" Margin="1" Grid.Row="0" Grid.RowSpan="3" Grid.Column="2"></Border>
             <!--Grid pour caractéristiques-->
             <Grid Grid.Row="1" Grid.RowSpan="2">
@@ -159,7 +159,7 @@
             <TextBlock Margin="1" MaxHeight="30" TextAlignment="Center" Name="txtbPointDenergie3" Background="#3399FF" Text="Barre de points d'énergie" Grid.Row="2" Grid.Column="1"></TextBlock>
 
             <!--Image du personnage-->
-            <Image Name="imgPerso3" Margin="3" Grid.Row="0" Grid.RowSpan="3" Grid.Column="2"></Image>
+            <Image Name="imgPerso3" Margin="3" Grid.Row="0" Grid.RowSpan="3" Grid.Column="2" Source="../images/paladin.png"></Image>
             <Border BorderBrush="Black" BorderThickness="1,1,1,1" Margin="1" Grid.Row="0" Grid.RowSpan="3" Grid.Column="2"></Border>
             <!--Grid pour caractéristiques-->
             <Grid Grid.Row="1" Grid.RowSpan="2">

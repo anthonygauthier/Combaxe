@@ -11,26 +11,28 @@ namespace Combaxe___New.classes.services
     {
         // on ouvre la connection
         BdService bdCombaxe = new BdService();
+        ProfessionService professionService = new ProfessionService();
         /// <summary>
         /// Pour récupérer toutes les données des personnages d'un joueur, Tommy Gingras
         /// </summary>
         /// <returns>Liste de toutes les données des personnages</returns>
         public List<Personnage> RetrieveInfoPerso(){
-            string reqSelect = "SELECT idPersonnage, nom, niveau, experience, image FROM Personnages WHERE estActif = TRUE AND idJoueur = '" + VarGlobales.Joueur.idJoueur + "';";
+            string reqSelect = "SELECT idPersonnage, nom, niveau, experience, image, idProfession FROM Personnages WHERE estActif = TRUE AND idJoueur = '" + VarGlobales.Joueur.idJoueur + "';";
             int nbLigne = 0;
-            List<string>[] lstPerso = bdCombaxe.selection(reqSelect, 5, ref nbLigne);
+            List<string>[] lstPerso = bdCombaxe.selection(reqSelect, 6, ref nbLigne);
 
             if(nbLigne != 0){
                 List<Personnage> lstPersonnage = new List<Personnage>();
                 List<Caracteristique> lstCar = new List<Caracteristique>();
-
+                Profession prof;
                 if(lstPerso.Count() != 0){
                     for (int i = 0; i < lstPerso.Count(); i++) 
                     {
                             /* aller chercher leurs caractéristiques */
                             lstCar = RetrieveCaracteristiques(Convert.ToInt32(lstPerso[i][0]));
-                            
-                            Personnage perso = new Personnage(Convert.ToInt32(lstPerso[i][0]), lstPerso[i][1], Convert.ToInt32(lstPerso[i][2]), Convert.ToInt32(lstPerso[i][3]), lstPerso[i][4], lstCar);
+                            prof = professionService.RetrieveIdProfessionAvecId(Convert.ToInt32(lstPerso[i][5]));
+
+                            Personnage perso = new Personnage(Convert.ToInt32(lstPerso[i][0]), lstPerso[i][1], Convert.ToInt32(lstPerso[i][2]), Convert.ToInt32(lstPerso[i][3]), lstPerso[i][4], lstCar, prof);
                             lstPersonnage.Add(perso);
                             lstCar = new List<Caracteristique>();
                      }
@@ -82,11 +84,11 @@ namespace Combaxe___New.classes.services
         /// <returns>on retourne un objet de type personnage</returns>
         public Personnage selectionUnPersonnage(int id)
         {            
-            string reqSelect = "SELECT idPersonnage, nom, niveau, experience, image FROM Personnages WHERE estActif = TRUE AND idJoueur = '" + VarGlobales.Joueur.idJoueur + "' AND idPersonnage = '"+id+"';";
+            string reqSelect = "SELECT idPersonnage, nom, niveau, experience, image, idProfession FROM Personnages WHERE estActif = TRUE AND idJoueur = '" + VarGlobales.Joueur.idJoueur + "' AND idPersonnage = '"+id+"';";
             int nbLigne = 0;
-            List<string>[] lstPerso = bdCombaxe.selection(reqSelect, 5, ref nbLigne);
+            List<string>[] lstPerso = bdCombaxe.selection(reqSelect, 6, ref nbLigne);
             List<Caracteristique> lstCaracteristique = new List<Caracteristique>();
-
+            Profession prof;
             if (nbLigne != 0)
             {
                 Personnage perso = null;
@@ -96,8 +98,8 @@ namespace Combaxe___New.classes.services
                 {
                     /* aller chercher leurs caractéristiques */
                     lstCar = RetrieveCaracteristiques(Convert.ToInt32(lstPerso[0][0]));
-
-                    perso = new Personnage(Convert.ToInt32(lstPerso[0][0]), lstPerso[0][1], Convert.ToInt32(lstPerso[0][2]), Convert.ToInt32(lstPerso[0][3]), lstPerso[0][4], lstCar);
+                    prof = professionService.RetrieveIdProfessionAvecId(Convert.ToInt32(lstPerso[0][5]));
+                    perso = new Personnage(Convert.ToInt32(lstPerso[0][0]), lstPerso[0][1], Convert.ToInt32(lstPerso[0][2]), Convert.ToInt32(lstPerso[0][3]), lstPerso[0][4], lstCar, prof);
                    
                 }
                 
