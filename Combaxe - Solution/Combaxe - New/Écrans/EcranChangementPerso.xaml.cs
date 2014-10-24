@@ -73,15 +73,10 @@ namespace Combaxe___New.écrans
                         lblNbrForce1.Content = lstPerso[0].ListeCaracteristique[0].Valeur;
                         lblNbrVie1.Content = lstPerso[0].ListeCaracteristique[1].Valeur;
                         lblNbrVitesse1.Content = lstPerso[0].ListeCaracteristique[2].Valeur;
-<<<<<<< HEAD:Combaxe - Solution/Combaxe - New/Écrans/EcranChangementPerso.xaml.cs
-                        txtbPointDenergie1.Text = "Énergie: " + Convert.ToInt32((lstPerso[0].ListeCaracteristique[4].Valeur * 10) / 3.1416).ToString();
-                        txtbPointDeVie1.Text = "Vie: " + Convert.ToInt32((lstPerso[0].ListeCaracteristique[1].Valeur * 20) / 3.1416).ToString();
-=======
-                        txtbPointDenergie1.Text = Convert.ToInt32((lstPerso[0].ListeCaracteristique[4].Valeur * 10) / 3.1416).ToString();
-                        txtbPointDeVie1.Text = Convert.ToInt32((lstPerso[0].ListeCaracteristique[1].Valeur * 20) / 3.1416).ToString();
+                        txtbPointDenergie1.Text = "Énergie: " + Convert.ToInt32((lstPerso[0].ListeCaracteristique[3].Valeur * 10) / 3.1416).ToString();
+                        txtbPointDeVie1.Text = "Vie: " + Convert.ToInt32((lstPerso[0].ListeCaracteristique[2].Valeur * 20) / 3.1416).ToString();
                         /* l'image du personnage */
                         this.imgPerso1.Source = lstPerso[0].profession.Image; // le lien va être achanger
->>>>>>> 629586cbb3e5ab3e2895f6baf590fdcd1625028b:Combaxe - Solution/Combaxe - New/Écrans/changementPerso.xaml.cs
                         lblNomPerso1.Content = lstPerso[0].Nom;
                         lblNiveau1.Content = "Niveau: "+lstPerso[0].Niveau; //Ajout de "Niveau: " Anthony Gauthier 23/10/2014
                         btnChoisir2.IsEnabled = false;
@@ -94,14 +89,9 @@ namespace Combaxe___New.écrans
                         lblNbrForce2.Content = lstPerso[1].ListeCaracteristique[0].Valeur;
                         lblNbrVie2.Content = lstPerso[1].ListeCaracteristique[1].Valeur;
                         lblNbrVitesse2.Content = lstPerso[1].ListeCaracteristique[2].Valeur;
-<<<<<<< HEAD:Combaxe - Solution/Combaxe - New/Écrans/EcranChangementPerso.xaml.cs
-                        txtbPointDenergie2.Text = "Énergie: " + Convert.ToInt32((lstPerso[1].ListeCaracteristique[4].Valeur * 10) / 3.1416).ToString();
-                        txtbPointDeVie2.Text = "Vie: " + Convert.ToInt32((lstPerso[1].ListeCaracteristique[1].Valeur * 20) / 3.1416).ToString();
-=======
-                        txtbPointDenergie2.Text = Convert.ToInt32((lstPerso[1].ListeCaracteristique[4].Valeur * 10) / 3.1416).ToString();
-                        txtbPointDeVie2.Text = Convert.ToInt32((lstPerso[1].ListeCaracteristique[1].Valeur * 20) / 3.1416).ToString();
+                        txtbPointDenergie2.Text = "Énergie: " + Convert.ToInt32((lstPerso[1].ListeCaracteristique[3].Valeur * 10) / 3.1416).ToString();
+                        txtbPointDeVie2.Text = "Vie: " + Convert.ToInt32((lstPerso[1].ListeCaracteristique[2].Valeur * 20) / 3.1416).ToString();
                         this.imgPerso2.Source = lstPerso[1].profession.Image; // le lien va être achanger
->>>>>>> 629586cbb3e5ab3e2895f6baf590fdcd1625028b:Combaxe - Solution/Combaxe - New/Écrans/changementPerso.xaml.cs
                         lblNomPerso2.Content = lstPerso[1].Nom;
                         lblNiveau2.Content = "Niveau: " + lstPerso[1].Niveau; //Ajout de "Niveau: " Anthony Gauthier 23/10/2014
                         btnChoisir2.IsEnabled = true;
@@ -113,14 +103,9 @@ namespace Combaxe___New.écrans
                         lblNbrForce3.Content = lstPerso[2].ListeCaracteristique[0].Valeur;
                         lblNbrVie3.Content = lstPerso[2].ListeCaracteristique[1].Valeur;
                         lblNbrVitesse3.Content = lstPerso[2].ListeCaracteristique[2].Valeur;
-<<<<<<< HEAD:Combaxe - Solution/Combaxe - New/Écrans/EcranChangementPerso.xaml.cs
-                        txtbPointDenergie3.Text = "Énergie: " + Convert.ToInt32((lstPerso[2].ListeCaracteristique[4].Valeur * 10) / 3.1416).ToString();
-                        txtbPointDeVie3.Text = "Vie: " + Convert.ToInt32((lstPerso[2].ListeCaracteristique[1].Valeur * 20) / 3.1416).ToString();
-=======
-                        txtbPointDenergie3.Text = Convert.ToInt32((lstPerso[2].ListeCaracteristique[4].Valeur * 10) / 3.1416).ToString();
-                        txtbPointDeVie3.Text = Convert.ToInt32((lstPerso[2].ListeCaracteristique[1].Valeur * 20) / 3.1416).ToString();
+                        txtbPointDenergie3.Text = "Énergie: " + Convert.ToInt32((lstPerso[2].ListeCaracteristique[3].Valeur * 10) / 3.1416).ToString();
+                        txtbPointDeVie3.Text = "Vie: " + Convert.ToInt32((lstPerso[2].ListeCaracteristique[2].Valeur * 20) / 3.1416).ToString();
                         this.imgPerso3.Source = lstPerso[2].profession.Image; // le lien va être achanger
->>>>>>> 629586cbb3e5ab3e2895f6baf590fdcd1625028b:Combaxe - Solution/Combaxe - New/Écrans/changementPerso.xaml.cs
                         lblNomPerso3.Content = lstPerso[2].Nom;
                         lblNiveau3.Content = "Niveau: " + lstPerso[2].Niveau; //Ajout de "Niveau: " Anthony Gauthier 23/10/2014
                         btnChoisir3.IsEnabled = true;

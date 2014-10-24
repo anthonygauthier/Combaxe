@@ -81,7 +81,7 @@ namespace Combaxe___New.écrans
             txtVie.Text = caracteristiquesPal[2][0];
             txtVitesse.Text = caracteristiquesPal[3][0];
             txtEnergie.Text = caracteristiquesPal[4][0];
-            profession = professionService.RetrieveIdProfession(btnGuerrier.Content.ToString());
+            profession = professionService.RetrieveIdProfession(btnPaladin.Content.ToString());
             enableBtnMoins();
             enableBtnPlus();
         }
@@ -101,7 +101,7 @@ namespace Combaxe___New.écrans
             txtVie.Text = caracteristiquesMagi[2][0];
             txtVitesse.Text = caracteristiquesMagi[3][0];
             txtEnergie.Text = caracteristiquesMagi[4][0];
-            profession = professionService.RetrieveIdProfession(btnGuerrier.Content.ToString());
+            profession = professionService.RetrieveIdProfession(btnMagicien.Content.ToString());
             enableBtnMoins();
             enableBtnPlus();
         }

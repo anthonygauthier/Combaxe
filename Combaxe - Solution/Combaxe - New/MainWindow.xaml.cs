@@ -100,7 +100,7 @@ namespace Combaxe___New
             //Si la requête n'a rien retourné, l'utilisateur n'a pas de compte - Anthony Gauthier 09/10/2014
             if (tabJoueur[0][0].Length == 0)
             {
-                MessageBox.Show("ERREUR: Votre combinaison de nom d'usager et de mot de passe n'est pas valide.");
+                MessageBox.Show("Votre combinaison de nom d'usager et de mot de passe n'est pas valide.", "Erreur lors de la connexion", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
             //Sinon, l'utilisateur est connecté - Anthony Gauthier 09/10/2014
