@@ -73,8 +73,14 @@
     <Compile Include="écrans\EcranCombat.xaml.cs">
       <DependentUpon>EcranCombat.xaml</DependentUpon>
     </Compile>
+    <Compile Include="écrans\EcranInventaireMagasin.xaml.cs">
+      <DependentUpon>EcranInventaireMagasin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="écrans\EcranMenuPrincipal.xaml.cs">
       <DependentUpon>EcranMenuPrincipal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="écrans\EcranStatistiques.xaml.cs">
+      <DependentUpon>EcranStatistiques.xaml</DependentUpon>
     </Compile>
     <Page Include="écrans\EcranChangementPerso.xaml">
       <SubType>Designer</SubType>
@@ -120,7 +126,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="écrans\EcranInventaireMagasin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="écrans\EcranMenuPrincipal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="écrans\EcranStatistiques.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

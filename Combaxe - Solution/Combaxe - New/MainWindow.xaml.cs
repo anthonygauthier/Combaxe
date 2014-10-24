@@ -29,6 +29,7 @@ namespace Combaxe___New
         }
         //Lorsque la page s'initialise, on initie une connexion à la BD - Anthony Gauthier 09/10/2014
         JoueurService joueurService = new JoueurService();
+        
 
         //Méthode pour se rendre à l'écran de création de compte - Anthony Gauthier 09/10/2014
         private void btnCreerCompte_Click(object sender, RoutedEventArgs e)
@@ -47,19 +48,56 @@ namespace Combaxe___New
         //Méthode du bouton pour se connecter - Anthony Gauthier 09/10/2014
         private void btnConnexion_Click(object sender, RoutedEventArgs e)
         {
+            btnConnexionActive();
+        }
+
+        //Méthode qui effectue la connexion lorsque "Enter" est pressé 24/10/2014
+        private void btnConnexion_KeyUp_1(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                btnConnexionActive();
+                e.Handled = true;
+            }
+        }
+
+        //Méthode pour se connecter - Anthony Gauthier 09/10/2014
+        private bool connexionCombaxe()
+        {
+            List<string>[] tabJoueur;
+
+            tabJoueur = joueurService.RetrieveInfoJoueur(txtbNomUsager.Text, pwdbMdp.Password);
+
+            //Si la requête n'a rien retourné, l'utilisateur n'a pas de compte - Anthony Gauthier 09/10/2014
+            if (tabJoueur[0][0].Length == 0)
+            {
+                MessageBox.Show("Votre combinaison de nom d'usager et de mot de passe n'est pas valide.", "Erreur lors de la connexion", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            //Sinon, l'utilisateur est connecté - Anthony Gauthier 09/10/2014
+            else
+            {
+                int id = Int32.Parse(tabJoueur[0][0]);
+                VarGlobales.Joueur = new Joueur(id, tabJoueur[0][1]);
+                return true;
+            }
+        }
+
+        private void btnConnexionActive()
+        {
             //Si l'utilisateur ne fourni pas de nom d'usager - Anthony Gauthier 09/10/2014
-            if(txtbNomUsager.Text.Length == 0)
+            if (txtbNomUsager.Text.Length == 0)
             {
                 MessageBox.Show("Vous devez fournir un nom d'usager", "Erreur lors de la connexion", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             //Si l'utilisateur ne fourni pas de mot de passe - Anthony Gauthier 09/10/2014
             else if (pwdbMdp.Password.Length == 0)
             {
-                MessageBox.Show("Vous devez fournir un mot de passe", "Erreur lors de la connexion", MessageBoxButton.OK, MessageBoxImage.Error); 
+                MessageBox.Show("Vous devez fournir un mot de passe", "Erreur lors de la connexion", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             //Sinon, on se connecte à la BD et on effectue la requête - Anthony Gauthier 09/10/2014
-            else 
-            { 
+            else
+            {
                 bool joueurConnecte;
                 joueurConnecte = connexionCombaxe();
 
@@ -86,29 +124,6 @@ namespace Combaxe___New
                         this.Close();
                     }
                 }
-            }
-
-        }
-
-        //Méthode pour se connecter - Anthony Gauthier 09/10/2014
-        private bool connexionCombaxe()
-        {
-            List<string>[] tabJoueur;
-
-            tabJoueur = joueurService.RetrieveInfoJoueur(txtbNomUsager.Text, pwdbMdp.Password);
-
-            //Si la requête n'a rien retourné, l'utilisateur n'a pas de compte - Anthony Gauthier 09/10/2014
-            if (tabJoueur[0][0].Length == 0)
-            {
-                MessageBox.Show("Votre combinaison de nom d'usager et de mot de passe n'est pas valide.", "Erreur lors de la connexion", MessageBoxButton.OK, MessageBoxImage.Error);
-                return false;
-            }
-            //Sinon, l'utilisateur est connecté - Anthony Gauthier 09/10/2014
-            else
-            {
-                int id = Int32.Parse(tabJoueur[0][0]);
-                VarGlobales.Joueur = new Joueur(id, tabJoueur[0][1]);
-                return true;
             }
         }
     }

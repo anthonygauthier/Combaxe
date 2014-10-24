@@ -20,7 +20,7 @@
 
         <!-- StackPanel pour le label de création de personnage-->
         <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Vertical">
-            <Label Foreground="White" HorizontalAlignment="Center" Content="Creation de personnage" FontFamily="Motorwerk" FontSize="44" Margin="10,0" Width="497"/>
+            <Label Foreground="White" HorizontalAlignment="Center" Content="Creation de personnage" FontFamily="Motorwerk" FontSize="44" Margin="10,0"/>
         </StackPanel>
 
         <!--StackPanel pour le nom du personnage et sa profesion-->

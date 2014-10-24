@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Combaxe___New.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Combaxe - Connexion" MinHeight="350" MinWidth="525" Height="350" Width="525" WindowStartupLocation="CenterScreen">
+        Title="Combaxe - Connexion" MinHeight="350" MinWidth="525" Height="350" Width="525" WindowStartupLocation="CenterScreen" KeyUp="btnConnexion_KeyUp_1">
     <Window.Background>
         <ImageBrush ImageSource="./Images/background.png"></ImageBrush>
     </Window.Background>

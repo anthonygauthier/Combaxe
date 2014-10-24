@@ -1,0 +1,276 @@
+﻿<Window x:Class="Combaxe___New.écrans.EcranInventaireMagasin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Combaxe - Inventaire et magasin" MinHeight="350" MinWidth="525" Height="400" Width="570" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush ImageSource="../images/background.png"></ImageBrush>
+    </Window.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="44*"></RowDefinition>
+            <RowDefinition Height="85*"></RowDefinition>
+            <RowDefinition Height="29*"></RowDefinition>
+            <RowDefinition Height="182*"></RowDefinition>
+            <RowDefinition Height="30*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <!-- StackPanel pour le label de l'inventaire et du magasin-->
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="134,0" Width="294">
+            <Label Foreground="White" Content="Inventaire et Magasin" FontFamily="Motorwerk" FontSize="30"/>
+        </StackPanel>
+
+        <!--Grid pour le magasin-->
+        <Grid Background="White" Name="GridMagasin" Grid.Row="1" Grid.ColumnSpan="3" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <!--Rangée 1 du magasin-->
+            <Border Grid.Row="0" Grid.Column="0" BorderBrush="Black" BorderThickness="1">
+                <Image Name="mag1Row1" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="1">
+                <Image Name="mag2Row1" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                <Image Name="mag3Row1" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="3" BorderBrush="Black" BorderThickness="1">
+                <Image Name="mag4Row1" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="4" BorderBrush="Black" BorderThickness="1">
+                <Image Name="mag5Row1" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="5" BorderBrush="Black" BorderThickness="1">
+                <Image Name="mag6Row1" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="6" BorderBrush="Black" BorderThickness="1">
+                <Image Name="mag7Row1" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="7" BorderBrush="Black" BorderThickness="1">
+                <Image Name="mag8Row1" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="8" BorderBrush="Black" BorderThickness="1">
+                <Image Name="mag9Row1" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="9" BorderBrush="Black" BorderThickness="1">
+                <Image Name="mag10Row1" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+
+            <!--Rangée 2 du magasin-->
+            <Border Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="1">
+                <Image Name="mag1Row2" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="1">
+                <Image Name="mag2Row2" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                <Image Name="mag3Row2" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="3" BorderBrush="Black" BorderThickness="1">
+                <Image Name="mag4Row2" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="4" BorderBrush="Black" BorderThickness="1">
+                <Image Name="mag5Row2" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="5" BorderBrush="Black" BorderThickness="1">
+                <Image Name="mag6Row2" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="6" BorderBrush="Black" BorderThickness="1">
+                <Image Name="mag7Row2" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="7" BorderBrush="Black" BorderThickness="1">
+                <Image Name="mag8Row2" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="8" BorderBrush="Black" BorderThickness="1">
+                <Image Name="mag9Row2" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="9" BorderBrush="Black" BorderThickness="1">
+                <Image Name="mag10Row2" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+        </Grid>
+        
+        <!--Grid pour l'inventaire-->
+        <Grid Name="GridInventaire" Grid.Row="3" Background="White" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <!--Rangée 1 de l'inventaire-->
+            <Border BorderThickness="1" BorderBrush="Black">
+                <Image Name="inv1Row1" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            <Border BorderThickness="1" Grid.Column="1" BorderBrush="Black">
+                <Image Name="inv2Row1" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            <Border BorderThickness="1" Grid.Column="2" BorderBrush="Black">
+                <Image Name="inv3Row1" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            <Border BorderThickness="1" Grid.Column="3" BorderBrush="Black">
+                <Image Name="inv4Row1" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+
+            <!--Rangée 2 de l'inventaire-->
+            <Border BorderThickness="1" Grid.Row="1" Grid.Column="0" BorderBrush="Black">
+                <Image Name="inv1Row2" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            <Border BorderThickness="1" Grid.Row="1" Grid.Column="1" BorderBrush="Black">
+                <Image Name="inv2Row2" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            <Border BorderThickness="1" Grid.Row="1" Grid.Column="2" BorderBrush="Black">
+                <Image Name="inv3Row2" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            <Border BorderThickness="1" Grid.Row="1" Grid.Column="3" BorderBrush="Black">
+                <Image Name="inv4Row2" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+
+            <!--Rangée 3 de l'inventaire-->
+            <Border BorderThickness="1" Grid.Row="2" Grid.Column="0" BorderBrush="Black">
+                <Image Name="inv1Row3" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            <Border BorderThickness="1" Grid.Row="2" Grid.Column="1" BorderBrush="Black">
+                <Image Name="inv2Row3" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            <Border BorderThickness="1" Grid.Row="2" Grid.Column="2" BorderBrush="Black">
+                <Image Name="inv3Row3" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            <Border BorderThickness="1" Grid.Row="2" Grid.Column="3" BorderBrush="Black">
+                <Image Name="inv4Row3" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+
+            <!--Rangée 4 de l'inventaire-->
+            <Border BorderThickness="1" Grid.Row="3" Grid.Column="0" BorderBrush="Black">
+                <Image Name="inv1Row4" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            <Border BorderThickness="1" Grid.Row="3" Grid.Column="1" BorderBrush="Black">
+                <Image Name="inv2Row4" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            <Border BorderThickness="1" Grid.Row="3" Grid.Column="2" BorderBrush="Black">
+                <Image Name="inv3Row4" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            <Border BorderThickness="1" Grid.Row="3" Grid.Column="3" BorderBrush="Black">
+                <Image Name="inv4Row4" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+        </Grid>
+        
+        <!--Partie entre magasin et info perso/inventaire, etc. (titre de grid, or, etc.)-->
+        <Grid Grid.Row="2" VerticalAlignment="Bottom" Height="26">
+            <Label HorizontalAlignment="Left"  Content="Inventaire" Foreground="White"></Label>
+            <StackPanel Margin="0,0,7,0" HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal">
+                <Label Content="Or: " Foreground="White"></Label>
+                <TextBox MinWidth="70" MaxHeight="24" IsEnabled="False"></TextBox>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="1" VerticalAlignment="Bottom" Height="26">
+            <Label Content="Équipement vêtu" Foreground="White"></Label>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="2" VerticalAlignment="Bottom" Height="26">
+            <Label Content="Caractéristiques" Foreground="White"></Label>
+        </Grid>
+
+        <!--Grid pour l'équipement équipé-->
+        <Grid Name="GridEquiper" Grid.Row="3" Grid.Column="1" Margin="5" Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="1.65*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <Border Grid.Row="0" Grid.Column="0" BorderBrush="Black" BorderThickness="1" Margin="2"></Border>
+            <Border Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="2"></Border>
+            <Border Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="2"></Border>
+            <Border Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="1" Margin="2"></Border>
+            <Border Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="1" Margin="2"></Border>
+            
+            <!--Grid pour bottes et pantalons-->
+            <Grid Grid.Row="2" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Row="0" Grid.Column="0" BorderBrush="Black" BorderThickness="1" Margin="2"></Border>
+                <Border Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="2"></Border>
+            </Grid>
+            
+        </Grid>
+        
+        <!--Grid pour les caractéristiques-->
+        <Grid Name="GridCaracteristiques" Grid.Row="3" Grid.Column="2" Margin="5" Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100*"></RowDefinition>
+                <RowDefinition Height="15*"></RowDefinition>
+                <RowDefinition Height="15*"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <!--Grid pour niveau et profession-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                
+                <!--Première colonne-->
+                <TextBlock Grid.Row="1" TextWrapping="Wrap" Text="Force:" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Grid.Row="2" TextWrapping="Wrap" Text="Énergie:" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Grid.Row="3" TextWrapping="Wrap" Text="Vie:" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Grid.Row="4" TextWrapping="Wrap" Text="Vitesse:" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Grid.Row="5" TextWrapping="Wrap" Text="Défense:" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
+                
+                <!--Deuxième colonne-->
+                <TextBox  Name="txtbForce" Margin="2,0,0,0" Grid.Column="1" Grid.Row="1" IsEnabled="False" MinWidth="65" MaxHeight="30" HorizontalAlignment="Left"></TextBox>
+                <TextBox  Name="txtbEnergie" Margin="2,0,0,0" Grid.Column="1" Grid.Row="2" IsEnabled="False" MinWidth="65" MaxHeight="30" HorizontalAlignment="Left"></TextBox>
+                <TextBox  Name="txtbVie" Margin="2,0,0,0" Grid.Column="1" Grid.Row="3" IsEnabled="False" MinWidth="65" MaxHeight="30" HorizontalAlignment="Left"></TextBox>
+                <TextBox  Name="txtbVitesse" Margin="2,0,0,0" Grid.Column="1" Grid.Row="4" IsEnabled="False" MinWidth="65" MaxHeight="30" HorizontalAlignment="Left"></TextBox>
+                <TextBox  Name="txtbDefense" Margin="2,0,0,0" Grid.Column="1" Grid.Row="5" IsEnabled="False" MinWidth="65" MaxHeight="30" HorizontalAlignment="Left"></TextBox>
+            </Grid>
+            
+            <!--Barre de points de vie et barre de points d'énergie-->
+            <TextBox Name="txtbBarreVie" BorderBrush="Black" BorderThickness="1" Foreground="White" Text="Test" TextAlignment="Center" Grid.Row="1" Background="Green" Margin="5,0,5,0" MaxHeight="38" MaxWidth="300"></TextBox>
+            <TextBox Name="txtbBarreEnergie" BorderBrush="Black" BorderThickness="1" Foreground="White" Text="Test" TextAlignment="Center" Grid.Row="2" Background="Blue" Margin="5,0,5,0" MaxHeight="38" MaxWidth="300"></TextBox>
+        </Grid>  
+        <!--Bouton pour retourner au menu principal-->
+        <Button Name="btnRetour" Click="btnRetour_Click_1" Content="Retour" Grid.Row="4" Grid.Column="2" MinWidth="100" MaxHeight="50" Margin="0,0,5,0" HorizontalAlignment="Right" Width="100"></Button>
+    </Grid>
+</Window>

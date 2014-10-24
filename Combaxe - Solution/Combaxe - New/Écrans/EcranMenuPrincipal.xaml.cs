@@ -96,5 +96,19 @@ namespace Combaxe___New.écrans
             this.Close();
             VarGlobales.Joueur.Deconnexion();
         }
+
+        private void btnInventaire_Click_1(object sender, RoutedEventArgs e)
+        {
+            var ecranInventaireMagasin = new EcranInventaireMagasin();
+            ecranInventaireMagasin.Show();
+            this.Close();
+        }
+
+        private void btnStatistiques_Click_1(object sender, RoutedEventArgs e)
+        {
+            var ecranStats = new EcranStatistiques();
+            ecranStats.Show();
+            this.Close();
+        }
     }
 }

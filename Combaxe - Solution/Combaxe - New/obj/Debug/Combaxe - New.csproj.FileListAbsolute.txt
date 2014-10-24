@@ -120,3 +120,7 @@ D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\écrans\EcranCreat
 D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\écrans\EcranCreationPersonnage.g.cs
 D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\écrans\EcranCombat.g.cs
 D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\écrans\EcranMenuPrincipal.g.cs
+C:\Users\Anthony\Desktop\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\écrans\EcranInventaireMagasin.baml
+C:\Users\Anthony\Desktop\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\écrans\EcranStatistiques.baml
+C:\Users\Anthony\Desktop\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\écrans\EcranInventaireMagasin.g.cs
+C:\Users\Anthony\Desktop\Combaxe\Combaxe - Solution\Combaxe - New\obj\Debug\écrans\EcranStatistiques.g.cs
