@@ -25,16 +25,15 @@ namespace Combaxe___New.écrans
     public partial class changementPerso : Window
     {
         List<Personnage> lstPerso;
+        //Lorsque la page s'initialise, on initie une connexion à la BD
+        BdService bdCombaxe = new BdService();
 
         public changementPerso()
         {
             InitializeComponent();
             SelectionnerPersonnages();
         }
-        //Lorsque la page s'initialise, on initie une connexion à la BD
-        BdService bdCombaxe = new BdService();
-
-
+     
         private void SelectionnerPersonnages()
         {
             // on va chercher les personnages pour un joueur
@@ -46,9 +45,9 @@ namespace Combaxe___New.écrans
             /* on vérifie combien il a de personnage */
             if(lstPerso == null)
             {
-                var CreationPerso = new creationPersonnage();
-                CreationPerso.Show();
-                this.Close();
+                var creationPerso = new creationPersonnage();
+                creationPerso.Show();
+                this.Close(); 
             }
             else 
             { 
@@ -57,6 +56,9 @@ namespace Combaxe___New.écrans
                 /* Si aucun */
                 if(nbLigne == 0)
                 {
+                    btnChoisir1.IsEnabled = false;
+                    btnChoisir2.IsEnabled = false;
+                    btnChoisir3.IsEnabled = false;
                     var creationPerso = new creationPersonnage();
                     creationPerso.Show();
                     this.Close();

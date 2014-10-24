@@ -12,7 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Combaxe___New.classes;
+using MiniBD;
+using System.Text.RegularExpressions;
 using Combaxe___New.écrans;
+using Combaxe___New.classes.services;
 
 namespace Combaxe___New.écrans
 {
@@ -37,7 +40,21 @@ namespace Combaxe___New.écrans
         private void btnSupprimerPerso_Click_1(object sender, RoutedEventArgs e)
         {
             VarGlobales.Personnage.Supprimer();
-            var pageChangementPerso = new changementPerso();
+            /* on vérifie si il reste de joueurs */
+            PersonnageService personnageService = new PersonnageService();
+            List<Personnage> personnages = personnageService.RetrieveInfoPerso();
+            if (personnages == null)
+            {
+                var creationPerso = new creationPersonnage();
+                creationPerso.Show();
+                this.Close();
+            }
+            else
+            {
+                var pageChangementPerso = new changementPerso();
+                pageChangementPerso.Show();
+                this.Close();
+            }
         }
     }
 }
