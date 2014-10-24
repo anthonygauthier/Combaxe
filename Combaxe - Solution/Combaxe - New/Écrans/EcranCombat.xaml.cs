@@ -34,7 +34,6 @@ namespace Combaxe___New.écrans
             this.Close();
         }
 
-<<<<<<< HEAD
         private void btnChoisirActions_Click(object sender, RoutedEventArgs e)
         {
             //On affiche les quatres buotons d'actions
@@ -54,8 +53,6 @@ namespace Combaxe___New.écrans
                 btnAction4.Visibility = Visibility.Hidden;
             }
         }
-=======
 
->>>>>>> parent of 7284d3b... Revert "continuation modification pour les images"
     }
 }
