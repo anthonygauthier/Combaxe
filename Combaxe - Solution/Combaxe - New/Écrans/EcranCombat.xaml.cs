@@ -23,7 +23,9 @@ namespace Combaxe___New.écrans
         public EcranCombat()
         {
             InitializeComponent();
-            //imgPerso.Source = 
+            chargerEnnemis();
+            chargerPersonnage();
+            
         }
 
         //Méthode du bouton pour fuir un combat
@@ -52,6 +54,38 @@ namespace Combaxe___New.écrans
                 btnAction3.Visibility = Visibility.Hidden;
                 btnAction4.Visibility = Visibility.Hidden;
             }
+        }
+
+        /// <summary>
+        /// pour charger les informations du personnage du joueur, tommy gingras
+        /// </summary>
+        private void chargerPersonnage() 
+        {
+
+            /* infos */
+            /*lblNbrEDefense1.Content = lstPerso[0].ListeCaracteristique[3].Valeur;
+                        lblNbrEnergie1.Content = lstPerso[0].ListeCaracteristique[4].Valeur;
+                        lblNbrForce1.Content = lstPerso[0].ListeCaracteristique[0].Valeur;
+                        lblNbrVie1.Content = lstPerso[0].ListeCaracteristique[1].Valeur;
+                        lblNbrVitesse1.Content = lstPerso[0].ListeCaracteristique[2].Valeur;
+                        txtbPointDenergie1.Text = "Énergie: " + Convert.ToInt32((lstPerso[0].ListeCaracteristique[3].Valeur * 10) / 3.1416).ToString();
+                        txtbPointDeVie1.Text = "Vie: " + Convert.ToInt32((lstPerso[0].ListeCaracteristique[2].Valeur * 20) / 3.1416).ToString();*/
+            // liens pour afficher les images des combatants, tommy gingras
+            imgPerso.Source = VarGlobales.Personnage.Image;
+            lblEnergiePerso.Content = Convert.ToInt32((VarGlobales.Personnage.ListeCaracteristique[3].Valeur * 10) / 3.1416).ToString();
+            lblExperiencePerso.Content = VarGlobales.Personnage.Experience;
+            lblNiveauPerso.Content = VarGlobales.Personnage.Niveau;
+            lblNomPerso.Content = VarGlobales.Personnage.Nom;
+            lblViePerso.Content = Convert.ToInt32((VarGlobales.Personnage.ListeCaracteristique[2].Valeur * 20) / 3.1416).ToString();
+        }
+
+        /// <summary>
+        /// pour charger les infos de l'ennemi, Tommy Gingras
+        /// </summary>
+        private void chargerEnnemis()
+        {
+            // l'image de l'ennemi, tommy gingras
+            imgEnnemi.Source = new BitmapImage(new Uri(@"../images/ennemis.png", UriKind.RelativeOrAbsolute)); // le lien doit être changer 
         }
 
     }

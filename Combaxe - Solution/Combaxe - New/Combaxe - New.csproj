@@ -55,6 +55,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="classes\services\BdService.cs" />
+    <Compile Include="classes\services\CompetenceService.cs" />
+    <Compile Include="classes\services\EnnemiService.cs" />
     <Compile Include="classes\services\JoueurService.cs" />
     <Compile Include="classes\services\PersonnageService.cs" />
     <Compile Include="classes\services\ProfessionService.cs" />
