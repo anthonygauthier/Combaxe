@@ -52,8 +52,7 @@ namespace Combaxe___New.classes
             Nom = n;
             Niveau = niv;
             Experience = xp;
-            // pour le moment le lien est sa profession
-            Image = prof.Image;/*new BitmapImage(new Uri(lien, UriKind.RelativeOrAbsolute));*/ // fait par tommy gingras
+            Image = new BitmapImage(new Uri(lien, UriKind.RelativeOrAbsolute)); // fait par tommy gingras
             ListeCaracteristique = lstCar;
             profession = prof;
         }
