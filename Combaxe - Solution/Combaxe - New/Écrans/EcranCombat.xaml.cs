@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Combaxe___New.classes;
 
 namespace Combaxe___New.écrans
 {
@@ -22,6 +23,7 @@ namespace Combaxe___New.écrans
         public EcranCombat()
         {
             InitializeComponent();
+            //imgPerso.Source = 
         }
 
         //Méthode du bouton pour fuir un combat
@@ -31,5 +33,7 @@ namespace Combaxe___New.écrans
             EcranMenuPrincipal.Show();
             this.Close();
         }
+
+
     }
 }
