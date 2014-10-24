@@ -25,7 +25,7 @@ namespace Combaxe___New.classes
             }
         }
 
-        //Variable qui sauvegarde le personnage utilisé, tommy gingras
+        //Variable qui sauvegarde le personnage utilisé
         public static Personnage Personnage
         {
             get

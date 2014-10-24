@@ -64,7 +64,6 @@ namespace Combaxe___New.écrans
             profession = professionService.RetrieveIdProfession(btnGuerrier.Content.ToString());
             enableBtnMoins();
             enableBtnPlus();
-            imagePersonnage.Source = new BitmapImage(new Uri(@"../images/guerrier.png", UriKind.RelativeOrAbsolute));
         }
 
         //Méthode lorsque le bouton Paladin est cliqué
@@ -85,7 +84,6 @@ namespace Combaxe___New.écrans
             profession = professionService.RetrieveIdProfession(btnPaladin.Content.ToString());
             enableBtnMoins();
             enableBtnPlus();
-            imagePersonnage.Source = new BitmapImage(new Uri(@"../images/paladin.png", UriKind.RelativeOrAbsolute));
         }
 
         //Méthode lorsque le bouton Magicien est cliqué
@@ -106,7 +104,6 @@ namespace Combaxe___New.écrans
             profession = professionService.RetrieveIdProfession(btnMagicien.Content.ToString());
             enableBtnMoins();
             enableBtnPlus();
-            imagePersonnage.Source = new BitmapImage(new Uri(@"../images/magicien.png", UriKind.RelativeOrAbsolute));
         }
 
         //Méthode pour disable les boutons moins de caractéristiques
