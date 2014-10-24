@@ -55,11 +55,19 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="classes\services\BdService.cs" />
+<<<<<<< HEAD
     <Compile Include="classes\services\CompetenceService.cs" />
     <Compile Include="classes\services\EnnemiService.cs" />
+=======
+    <Compile Include="classes\services\CaracteristiqueService.cs" />
+    <Compile Include="classes\services\CompetenceService.cs" />
+    <Compile Include="classes\services\EnnemiService.cs" />
+    <Compile Include="classes\services\InventaireService.cs" />
+>>>>>>> origin/master
     <Compile Include="classes\services\JoueurService.cs" />
     <Compile Include="classes\services\PersonnageService.cs" />
     <Compile Include="classes\services\ProfessionService.cs" />
+    <Compile Include="classes\services\StatistiqueService.cs" />
     <Compile Include="classes\VarGlobales.cs" />
     <Compile Include="écrans\EcranChangementPerso.xaml.cs">
       <DependentUpon>EcranChangementPerso.xaml</DependentUpon>
