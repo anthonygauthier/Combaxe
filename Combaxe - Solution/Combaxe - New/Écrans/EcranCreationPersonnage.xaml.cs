@@ -34,6 +34,7 @@ namespace Combaxe___New.écrans
         //Lorsque la page s'initialise, on initie une connexion à la BD - Anthony Gauthier 09/10/2014
         PersonnageService personnageService = new PersonnageService();
         ProfessionService professionService = new ProfessionService();
+        CaracteristiqueService caracteristiqueService = new CaracteristiqueService();
         int profession = 0;
 
         //----------------------------------MÉTHODES---------------------------------
@@ -50,7 +51,7 @@ namespace Combaxe___New.écrans
         private void btnGuerrier_Click(object sender, RoutedEventArgs e)
         {
             //Va chercher les caractéristiques de bases du guerrier
-            List<string>[] caracteristiquesGuer = personnageService.RetrieveCaracteristiqueBase(btnGuerrier.Content.ToString());
+            List<string>[] caracteristiquesGuer = caracteristiqueService.RetrieveCaracteristiqueBase(btnGuerrier.Content.ToString());
 
             //Change la description
             txtbDescriptionProf.Text = professionService.selectionDescription(btnGuerrier.Content.ToString());
@@ -71,7 +72,7 @@ namespace Combaxe___New.écrans
         private void btnPaladin_Click(object sender, RoutedEventArgs e)
         {
             //Va chercher les caractéristiques de bases du paladin
-            List<string>[] caracteristiquesPal = personnageService.RetrieveCaracteristiqueBase(btnPaladin.Content.ToString());
+            List<string>[] caracteristiquesPal = caracteristiqueService.RetrieveCaracteristiqueBase(btnPaladin.Content.ToString());
 
             //Change la description
             txtbDescriptionProf.Text = professionService.selectionDescription(btnPaladin.Content.ToString());
@@ -92,7 +93,7 @@ namespace Combaxe___New.écrans
         private void btnMagicien_Click(object sender, RoutedEventArgs e)
         {
             //Va chercher les caractéristiques de bases du magicien
-            List<string>[] caracteristiquesMagi = personnageService.RetrieveCaracteristiqueBase(btnMagicien.Content.ToString());
+            List<string>[] caracteristiquesMagi = caracteristiqueService.RetrieveCaracteristiqueBase(btnMagicien.Content.ToString());
 
             //Change la description
             txtbDescriptionProf.Text = professionService.selectionDescription(btnMagicien.Content.ToString());

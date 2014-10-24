@@ -137,34 +137,23 @@ namespace Combaxe___New.classes.services
             }
         }
 
-        //Méthode qui va chercher les caractéristiques de base de chaque profession
-        public List<string>[] RetrieveCaracteristiqueBase(string nom)
-        {
-            string requete = "SELECT valeur FROM caracteristiquesprofessions WHERE idProfession = (SELECT idProfession FROM professions WHERE nom = '" + nom + "');";
-            List<string>[] mesCaracteristiques;
-            int nombreRange = 0;
-
-            mesCaracteristiques = bdCombaxe.selection(requete, 1, ref nombreRange);
-
-            return mesCaracteristiques;
-        }
-
-        //Méthode qui va créer le personnage
+        //Méthode qui va créer le personnage - Anthony Gauthier 2014-10-24
         public void CreerPersonnage(int valForce, int valDefense, int valVie, int valEnergie, int valVitesse, int idProfession, string nomPerso)
         {
-            string reqInsertInventaire = "INSERT INTO Inventaires (argent) VALUES (0);";
-            string reqInsertStatistiques = "INSERT INTO Statistiques (tempsDeJeu, nombreDeCombat, victoire, defaite, dommageTotal, moyenneDommage, nombreAttaque) VALUES (0,0,0,0,0,0,0);";
+            InventaireService inventaireService = new InventaireService();
+            StatistiqueService statistiqueService = new StatistiqueService();
+            CaracteristiqueService caracteristiqueService = new CaracteristiqueService();
    
             int idInventaire = 0;
             int idStatistique = 0;
             int idPersonnage = 0;
 
             //On insert l'inventaire et on sauvegarde le id
-            bdCombaxe.Insertion(reqInsertInventaire);
+            inventaireService.InsertionInventaire();
             idInventaire = bdCombaxe.lastInsertId();
 
             //On insert les statistiques et on sauvegarde le id
-            bdCombaxe.Insertion(reqInsertStatistiques);
+            statistiqueService.InsertionStatistiques();
             idStatistique = bdCombaxe.lastInsertId();
 
             //On insert le personnage
@@ -172,19 +161,14 @@ namespace Combaxe___New.classes.services
             bdCombaxe.Insertion(reqInsertPerso);
             idPersonnage = bdCombaxe.lastInsertId();
 
-            InsertCaracteristique("Force", idPersonnage, valForce);
-            InsertCaracteristique("Vitesse", idPersonnage, valVitesse);
-            InsertCaracteristique("Vie", idPersonnage, valVie);
-            InsertCaracteristique("Énergie", idPersonnage, valEnergie);
-            InsertCaracteristique("Défense", idPersonnage, valDefense);
+            caracteristiqueService.InsertCaracteristique("Force", idPersonnage, valForce);
+            caracteristiqueService.InsertCaracteristique("Vitesse", idPersonnage, valVitesse);
+            caracteristiqueService.InsertCaracteristique("Vie", idPersonnage, valVie);
+            caracteristiqueService.InsertCaracteristique("Énergie", idPersonnage, valEnergie);
+            caracteristiqueService.InsertCaracteristique("Défense", idPersonnage, valDefense);
         }
 
-        public void InsertCaracteristique(string nomCaracteristique, int idPersonnage, int valeur)
-        { 
-            string requeteInsert = "INSERT INTO CaracteristiquesPersonnages (idCaracteristique, idPersonnage, valeur) VALUES ((SELECT idCaracteristique FROM Caracteristiques WHERE nom = '"+nomCaracteristique+"'),"+idPersonnage+","+valeur+")";
-            bdCombaxe.Insertion(requeteInsert);
-        }
-
+        //Méthode qui va retourner si le personnage existe ou non (pour la création de personnage) - Anthony Gauthier 2014-10-24
         public bool RetrieveExistancePersonnage(string nomPersonnage)
         {
             string requeteNomPerso = "SELECT nom FROM Personnages WHERE nom = '" + nomPersonnage + "';";
