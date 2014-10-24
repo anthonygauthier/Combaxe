@@ -33,7 +33,7 @@ namespace Combaxe___New
         //Méthode pour se rendre à l'écran de création de compte - Anthony Gauthier 09/10/2014
         private void btnCreerCompte_Click(object sender, RoutedEventArgs e)
         {
-            var creationCompte = new creationCompte();
+            var creationCompte = new EcranCreationCompte();
             creationCompte.Show();
             this.Close();
         }
@@ -49,13 +49,13 @@ namespace Combaxe___New
         {
             //Si l'utilisateur ne fourni pas de nom d'usager - Anthony Gauthier 09/10/2014
             if(txtbNomUsager.Text.Length == 0)
-            { 
-                MessageBox.Show("ERREUR: Vous devez fournir un nom d'usager");
+            {
+                MessageBox.Show("Vous devez fournir un nom d'usager", "Erreur lors de la connexion", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             //Si l'utilisateur ne fourni pas de mot de passe - Anthony Gauthier 09/10/2014
             else if (pwdbMdp.Password.Length == 0)
             {
-               MessageBox.Show("ERREUR: Vous devez fournir un mot de passe"); 
+                MessageBox.Show("Vous devez fournir un mot de passe", "Erreur lors de la connexion", MessageBoxButton.OK, MessageBoxImage.Error); 
             }
             //Sinon, on se connecte à la BD et on effectue la requête - Anthony Gauthier 09/10/2014
             else 
@@ -74,14 +74,14 @@ namespace Combaxe___New
                     //Si le joueur a des personnages, on affiche l'écran de changement de personnages - Anthony Gauthier 09/10/2014
                     if (joueurAPersonnage == true)
                     {
-                        var choixPerso = new changementPerso();
+                        var choixPerso = new EcranChangementPerso();
                         choixPerso.Show();
                         this.Close();
                     }
                     //Sinon, on l'amène à la page de création de personnage - Anthony Gauthier 09/10/2014
                     else
                     {
-                        var creationPerso = new creationPersonnage();
+                        var creationPerso = new EcranCreationPersonnage();
                         creationPerso.Show();
                         this.Close();
                     }

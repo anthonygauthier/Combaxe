@@ -1,4 +1,4 @@
-﻿<Window x:Class="Combaxe___New.écrans.creationPersonnage"
+﻿<Window x:Class="Combaxe___New.écrans.EcranCreationPersonnage"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Combaxe - Création de personnage" MinHeight="350" MinWidth="525" Height="350" Width="525" WindowStartupLocation="CenterScreen">
@@ -20,7 +20,7 @@
 
         <!-- StackPanel pour le label de création de personnage-->
         <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Vertical">
-            <Label Foreground="White" HorizontalAlignment="Center" Content="CrEation de personnage" FontFamily="Motorwerk" FontSize="44" Margin="10,0" Width="497"/>
+            <Label Foreground="White" HorizontalAlignment="Center" Content="Creation de personnage" FontFamily="Motorwerk" FontSize="44" Margin="10,0" Width="497"/>
         </StackPanel>
 
         <!--StackPanel pour le nom du personnage et sa profesion-->

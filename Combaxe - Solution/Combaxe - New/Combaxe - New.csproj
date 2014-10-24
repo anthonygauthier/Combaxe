@@ -59,20 +59,23 @@
     <Compile Include="classes\services\PersonnageService.cs" />
     <Compile Include="classes\services\ProfessionService.cs" />
     <Compile Include="classes\VarGlobales.cs" />
-    <Compile Include="écrans\changementPerso.xaml.cs">
-      <DependentUpon>changementPerso.xaml</DependentUpon>
+    <Compile Include="écrans\EcranChangementPerso.xaml.cs">
+      <DependentUpon>EcranChangementPerso.xaml</DependentUpon>
     </Compile>
-    <Compile Include="écrans\creationPersonnage.xaml.cs">
-      <DependentUpon>creationPersonnage.xaml</DependentUpon>
+    <Compile Include="écrans\EcranCreationPersonnage.xaml.cs">
+      <DependentUpon>EcranCreationPersonnage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="écrans\menuPrincipal.xaml.cs">
-      <DependentUpon>menuPrincipal.xaml</DependentUpon>
+    <Compile Include="écrans\EcranCombat.xaml.cs">
+      <DependentUpon>EcranCombat.xaml</DependentUpon>
     </Compile>
-    <Page Include="écrans\changementPerso.xaml">
+    <Compile Include="écrans\EcranMenuPrincipal.xaml.cs">
+      <DependentUpon>EcranMenuPrincipal.xaml</DependentUpon>
+    </Compile>
+    <Page Include="écrans\EcranChangementPerso.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="écrans\creationCompte.xaml">
+    <Page Include="écrans\EcranCreationCompte.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -97,18 +100,22 @@
     <Compile Include="classes\Personnage.cs" />
     <Compile Include="classes\abstraites\Profession.cs" />
     <Compile Include="classes\Statistique.cs" />
-    <Compile Include="écrans\creationCompte.xaml.cs">
-      <DependentUpon>creationCompte.xaml</DependentUpon>
+    <Compile Include="écrans\EcranCreationCompte.xaml.cs">
+      <DependentUpon>EcranCreationCompte.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="écrans\creationPersonnage.xaml">
+    <Page Include="écrans\EcranCreationPersonnage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="écrans\menuPrincipal.xaml">
+    <Page Include="écrans\EcranCombat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="écrans\EcranMenuPrincipal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -142,6 +149,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\fuir.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

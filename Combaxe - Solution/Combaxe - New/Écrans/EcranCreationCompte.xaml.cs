@@ -21,9 +21,9 @@ namespace Combaxe___New
     /// <summary>
     /// Logique d'interaction pour creationCompte.xaml
     /// </summary>
-    public partial class creationCompte : Window
+    public partial class EcranCreationCompte : Window
     {
-        public creationCompte()
+        public EcranCreationCompte()
         {
             InitializeComponent();
         }

@@ -1,0 +1,158 @@
+﻿<Window x:Class="Combaxe___New.écrans.EcranCombat"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Combaxe - Combat" MinHeight="350" MinWidth="525" Height="350" Width="525" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush ImageSource="../images/background.png"></ImageBrush>
+    </Window.Background>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <!--Partie du personnage-->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="6*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <!--Nom, niveau-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                
+                <Border Background="White" CornerRadius="5" Margin="5,3,5,0" HorizontalAlignment="Stretch" Grid.Column="0">
+                    <Label Name="lblNiveauPerso" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                </Border>
+                <Border Background="White" CornerRadius="5" Margin="0,3,5,0" HorizontalAlignment="Stretch" Grid.Column="1">
+                    <Label Name="lblNomPerso" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                </Border>
+            </Grid>
+            
+            <!--Image personnage-->
+            <Border Background="White" Grid.Row="1" Margin="5" CornerRadius="5">
+                <Image Name="imgPerso" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+            
+            <!--Barre de points de vie-->
+            <Border  Grid.Row="2" MaxHeight="50" Background="Green" BorderBrush="Black" BorderThickness="1" Margin="5">
+                <Label Name="lblViePerso" Foreground="White"></Label>
+            </Border>
+            
+            <!--Barre de points d'énergie-->
+            <Border Grid.Row="3" MaxHeight="50" Background="Blue" BorderBrush="Black" BorderThickness="1" Margin="5">
+                <Label Name="lblEnergiePerso" Foreground="White"></Label>
+            </Border>
+            
+            <!--Bouton fuir-->
+            <Grid Grid.Row="4">
+                <Grid.Resources>
+                    <ImageBrush x:Key="imageFuir" ImageSource="../images/fuir.png" Stretch="Uniform"></ImageBrush>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Name="btnFuir" Background="{StaticResource imageFuir}" Click="btnFuir_Click" Grid.Column="1" Margin="5,5,5,5" ToolTip="Fuire le combat (Attention, l'ennemi vous attaquera une dernière fois)"></Button>
+            </Grid>
+        </Grid>
+        
+        <!--Partie du milieu (actions, journal de combat, etc.)-->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="4*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <!--Horloge de jeu-->
+            <Border CornerRadius="5,5,5,5" HorizontalAlignment="Stretch" Margin="0,3,0,3" MinWidth="50" MaxWidth="100" MaxHeight="70" Background="White">
+                <Label Name="lblHorloge" HorizontalAlignment="Center"></Label>
+            </Border>
+            
+            <!--Journal de combat-->
+            <TextBox  Name="txtbJournalCombat" Grid.Row="1" Margin="5" TextWrapping="Wrap" AcceptsReturn="True"></TextBox>
+            
+            <!--Boutons d'actions-->
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                
+                <Button Name="btnChoisirActions" Content="Actions" Margin="2" MaxWidth="160"></Button>
+                <Button Name="btnItems" Content="Items" Grid.Column="1" Margin="2" MaxWidth="160"></Button>
+            </Grid>
+            
+            <!--Actions-->
+            <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                
+                <Button Name="btnAction1" Margin="2" MaxHeight="120"></Button>
+                <Button Name="btnAction2" Grid.Column="1" Margin="2" MaxHeight="120"></Button>
+                <Button Name="btnAction3" Grid.Column="2" Margin="2" MaxHeight="120"></Button>
+                <Button Name="btnAction4" Grid.Column="3" Margin="2" MaxHeight="120"></Button>
+            </Grid>
+            
+            <!--Barre d'expérience-->
+            <Border Grid.Row="4" MaxHeight="50" Background="Purple" BorderBrush="Black" BorderThickness="1" Margin="5">
+                <Label Name="lblExperiencePerso" Foreground="White"></Label>
+            </Border>
+        </Grid>
+        
+        <!--Partie de l'ennemi-->
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="6*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <!--Nom, niveau-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Border Background="White" CornerRadius="5" Margin="5,3,5,0" HorizontalAlignment="Stretch" Grid.Column="1">
+                    <Label Name="lblNiveauEnnemi" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                </Border>
+                <Border Background="White" CornerRadius="5" Margin="0,3,5,0" HorizontalAlignment="Stretch" Grid.Column="0">
+                    <Label Name="lblNomEnnemi" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                </Border>
+            </Grid>
+
+            <!--Image personnage-->
+            <Border Background="White" Grid.Row="1" Margin="5" CornerRadius="5">
+                <Image Name="imgEnnemi" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+            </Border>
+
+            <!--Barre de points de vie-->
+            <Border  Grid.Row="2" MaxHeight="50" Background="Green" BorderBrush="Black" BorderThickness="1" Margin="5">
+                <Label Name="lblVieEnnemi" Foreground="White"></Label>
+            </Border>
+
+            <!--Barre de points d'énergie-->
+            <Border Grid.Row="3" MaxHeight="50" Background="Blue" BorderBrush="Black" BorderThickness="1" Margin="5">
+                <Label Name="lblEnergieEnnemi" Foreground="White"></Label>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

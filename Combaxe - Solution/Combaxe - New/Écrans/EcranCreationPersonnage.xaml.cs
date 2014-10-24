@@ -21,9 +21,9 @@ namespace Combaxe___New.écrans
     /// <summary>
     /// Logique d'interaction pour creationPersonnage.xaml
     /// </summary>
-    public partial class creationPersonnage : Window
+    public partial class EcranCreationPersonnage : Window
     {
-        public creationPersonnage()
+        public EcranCreationPersonnage()
         {
             InitializeComponent();
 
@@ -409,7 +409,7 @@ namespace Combaxe___New.écrans
             {
                 personnageService.CreerPersonnage(Int32.Parse(txtForce.Text), Int32.Parse(txtDefense.Text), Int32.Parse(txtVie.Text), Int32.Parse(txtEnergie.Text), Int32.Parse(txtVitesse.Text), profession, txtbNom.Text);
                 MessageBox.Show("Personnage créer avec succès!", "Création de personnage", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                var choisirPerso = new changementPerso();
+                var choisirPerso = new EcranChangementPerso();
                 choisirPerso.Show();
                 this.Close();
             }
@@ -421,7 +421,7 @@ namespace Combaxe___New.écrans
             //Si le joueur a des personnages, on le retourne à l'écran de choix du personnage
             if (VarGlobales.aPersonnage)
             {
-                var choixPerso = new changementPerso();
+                var choixPerso = new EcranChangementPerso();
                 choixPerso.Show();
                 this.Close();
             }
