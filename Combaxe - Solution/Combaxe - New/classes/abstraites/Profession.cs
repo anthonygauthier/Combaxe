@@ -3,25 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace Combaxe___New.classes
 {
-    public abstract class Profession
+    public class Profession
     {
-        private int idProfession;
-        private string nom;
-        private string imageUrl;
-        private string description;
+        public int IdProfession { get; set; }
+        public string Nom { get; set; }
+        public BitmapImage Image { get; set; }
+        public string Description { get; set; }
 
         /// <summary>
         /// Constructeur de base - Anthony Gauthier 02/10/2014
         /// </summary>
         public Profession()
         {
-            idProfession = 0;
-            nom = "";
-            imageUrl = "";
-            description = "";
+            IdProfession = 0;
+            Nom = "";
+            Image = null;
+            Description = "";
         }
 
 
@@ -34,10 +35,10 @@ namespace Combaxe___New.classes
         /// <param name="desc">description de la profession</param>
         public Profession(int id, string n, string image, string desc)
         {
-            idProfession = id;
-            nom = n;
-            imageUrl = image; 
-            description = desc;
+            IdProfession = id;
+            Nom = n;
+            Image = new BitmapImage(new Uri(image, UriKind.RelativeOrAbsolute));
+            Description = desc;
         }
 
         /// <summary>

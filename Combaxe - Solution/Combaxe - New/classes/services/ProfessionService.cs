@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MiniBD;
+using Combaxe___New.classes;
 
 namespace Combaxe___New.classes.services
 {
@@ -40,6 +41,27 @@ namespace Combaxe___New.classes.services
             id = Int32.Parse(lstId[0][0]);
 
             return id;
+        }
+        /// <summary>
+        /// Retourne un objet profession selon l'id passé, Tommy Gingras
+        /// </summary>
+        /// <param name="id"> le id de la profession</param>
+        /// <returns>une profession</returns>
+        public Profession RetrieveIdProfessionAvecId(int id)
+        {
+            List<string>[] lstProf = null;
+            Profession profession = null;
+            string requete = "SELECT idProfession, nom, image, description FROM professions WHERE idProfession = '" + id + "';";
+            int nombreRange = 0;
+
+            lstProf = bdCombaxe.selection(requete, 4, ref nombreRange);
+
+            if (lstProf.Count() == 1)
+            {
+                profession = new Profession(Convert.ToInt32(lstProf[0][0]), lstProf[0][1], lstProf[0][2], lstProf[0][3]);
+            }
+
+            return profession;
         }
     }
 }
