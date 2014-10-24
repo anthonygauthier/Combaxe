@@ -78,5 +78,23 @@ namespace Combaxe___New.écrans
             EcranCombat.Show();
             this.Close();
         }
+
+        //Méthode pour afficher l'écran de changement de personnage
+        private void btnChangerPerso_Click(object sender, RoutedEventArgs e)
+        {
+            var EcranChangementPerso = new EcranChangementPerso();
+            EcranChangementPerso.Show();
+            VarGlobales.EstConnecte = true;
+            this.Close();
+        }
+
+        //Méthode pour se déconnecter
+        private void btnDeconnexion_Click(object sender, RoutedEventArgs e)
+        {
+            var connexion = new MainWindow();
+            connexion.Show();
+            this.Close();
+            VarGlobales.Joueur.Deconnexion();
+        }
     }
 }

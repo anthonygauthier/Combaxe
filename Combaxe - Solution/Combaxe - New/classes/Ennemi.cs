@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Combaxe___New.classes.services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,7 @@ namespace Combaxe___New.classes
         /// </summary>
         public Ennemi()
         {
+            ennemiAleatoire();
             idEnnemi = 0;
             imageUrl = "";
             niveau = 0;
@@ -59,6 +61,16 @@ namespace Combaxe___New.classes
         public int butinDonne()
         { 
             return 0;
+        }
+
+        public void ennemiAleatoire()
+        {
+            Random aleatoire = new Random();
+            int idEnnemiAleatoire = aleatoire.Next(7, 30);
+            List<string>[] ennemi;
+
+            EnnemiService ennemiService = new EnnemiService();
+            ennemi = ennemiService.RetrieveInfoEnnemi(idEnnemiAleatoire);
         }
     }
 }
