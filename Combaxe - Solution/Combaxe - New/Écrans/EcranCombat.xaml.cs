@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Combaxe___New.classes;
 
 namespace Combaxe___New.écrans
 {
@@ -22,6 +23,7 @@ namespace Combaxe___New.écrans
         public EcranCombat()
         {
             InitializeComponent();
+            //imgPerso.Source = 
         }
 
         //Méthode du bouton pour fuir un combat
@@ -32,6 +34,7 @@ namespace Combaxe___New.écrans
             this.Close();
         }
 
+<<<<<<< HEAD
         private void btnChoisirActions_Click(object sender, RoutedEventArgs e)
         {
             //On affiche les quatres buotons d'actions
@@ -51,5 +54,8 @@ namespace Combaxe___New.écrans
                 btnAction4.Visibility = Visibility.Hidden;
             }
         }
+=======
+
+>>>>>>> parent of 7284d3b... Revert "continuation modification pour les images"
     }
 }
