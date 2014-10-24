@@ -31,5 +31,25 @@ namespace Combaxe___New.écrans
             EcranMenuPrincipal.Show();
             this.Close();
         }
+
+        private void btnChoisirActions_Click(object sender, RoutedEventArgs e)
+        {
+            //On affiche les quatres buotons d'actions
+            btnAction1.Visibility = Visibility.Visible;
+            btnAction2.Visibility = Visibility.Visible;
+            btnAction3.Visibility = Visibility.Visible;
+            btnAction4.Visibility = Visibility.Visible;
+        }
+
+        private void btnItems_Click(object sender, RoutedEventArgs e)
+        {
+            btnAction1.Visibility = Visibility.Visible;
+            btnAction2.Visibility = Visibility.Visible;
+            if(btnAction3.Visibility == Visibility.Visible)
+            {
+                btnAction3.Visibility = Visibility.Hidden;
+                btnAction4.Visibility = Visibility.Hidden;
+            }
+        }
     }
 }

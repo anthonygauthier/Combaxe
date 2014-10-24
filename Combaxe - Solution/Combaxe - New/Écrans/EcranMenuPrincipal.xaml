@@ -30,8 +30,8 @@
         <Button Name="btnInventaire" Grid.Row="2" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Inventaire et magasin" HorizontalAlignment="Stretch" Grid.ColumnSpan="4"></Button>
         <Button Name="btnStatistiques" Grid.Row="3" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5" Content="Statistiques" HorizontalAlignment="Stretch" Grid.ColumnSpan="4"></Button>
         <Button Name="btnSupprimerPerso" Grid.Row="5" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Supprimer ce personnage" HorizontalAlignment="Stretch" Grid.ColumnSpan="4" Click="btnSupprimerPerso_Click_1"></Button>
-        <Button Name="btnChangerPerso" Grid.Row="6" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Changer de personnage" HorizontalAlignment="Stretch" Grid.ColumnSpan="4"></Button>
-        <Button Name="btnDeconnexion" Grid.Row="7" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Déconnexion" HorizontalAlignment="Stretch" Grid.ColumnSpan="4"></Button>
+        <Button Name="btnChangerPerso" Grid.Row="6" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Changer de personnage" HorizontalAlignment="Stretch" Grid.ColumnSpan="4" Click="btnChangerPerso_Click"></Button>
+        <Button Name="btnDeconnexion" Grid.Row="7" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Déconnexion" HorizontalAlignment="Stretch" Grid.ColumnSpan="4" Click="btnDeconnexion_Click"></Button>
         
         <!--Boutons cachés-->
         <Button Name="btnCampagne" Grid.Row="1" Grid.Column="1" Visibility="Hidden" HorizontalAlignment="Right" MinWidth="175"   MaxWidth="175" Content="Campagne"  MaxHeight="50" Margin="0,5,0,5" Click="btnCampagne_Click_1"></Button>

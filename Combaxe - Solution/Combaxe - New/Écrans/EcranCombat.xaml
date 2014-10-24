@@ -89,8 +89,8 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 
-                <Button Name="btnChoisirActions" Content="Actions" Margin="2" MaxWidth="160"></Button>
-                <Button Name="btnItems" Content="Items" Grid.Column="1" Margin="2" MaxWidth="160"></Button>
+                <Button Name="btnChoisirActions" Content="Actions" Margin="2" MaxWidth="160" Click="btnChoisirActions_Click"></Button>
+                <Button Name="btnItems" Content="Items" Grid.Column="1" Margin="2" MaxWidth="160" Click="btnItems_Click"></Button>
             </Grid>
             
             <!--Actions-->
@@ -101,11 +101,11 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                
-                <Button Name="btnAction1" Margin="2" MaxHeight="120"></Button>
-                <Button Name="btnAction2" Grid.Column="1" Margin="2" MaxHeight="120"></Button>
-                <Button Name="btnAction3" Grid.Column="2" Margin="2" MaxHeight="120"></Button>
-                <Button Name="btnAction4" Grid.Column="3" Margin="2" MaxHeight="120"></Button>
+
+                <Button Name="btnAction1" Visibility="Hidden" Margin="2" MaxHeight="120"></Button>
+                <Button Name="btnAction2" Visibility="Hidden" Grid.Column="1" Margin="2" MaxHeight="120"></Button>
+                <Button Name="btnAction3" Visibility="Hidden" Grid.Column="2" Margin="2" MaxHeight="120"></Button>
+                <Button Name="btnAction4" Visibility="Hidden" Grid.Column="3" Margin="2" MaxHeight="120"></Button>
             </Grid>
             
             <!--Barre d'expérience-->

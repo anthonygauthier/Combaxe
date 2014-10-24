@@ -115,6 +115,7 @@ namespace Combaxe___New.écrans
             }
         }
 
+        //Méthode pour le bouton "Créer personnage"
         private void btnCreerPerso_Click(object sender, RoutedEventArgs e)
         {
             var creationPerso = new EcranCreationPersonnage();
@@ -122,16 +123,28 @@ namespace Combaxe___New.écrans
             this.Close();
         }
 
+        //Méthode pour le bouton retour
         private void btnRetour_Click(object sender, RoutedEventArgs e)
         {
-            VarGlobales.Joueur.Deconnexion();
-            if(VarGlobales.Personnage != null)
-                VarGlobales.Personnage.Deconnexion();
-            var connexion = new MainWindow();
-            connexion.Show();
-            this.Close();
+            if(!VarGlobales.EstConnecte)
+            {
+                VarGlobales.Joueur.Deconnexion();
+                if(VarGlobales.Personnage != null)
+                    VarGlobales.Personnage.Deconnexion();
+                var connexion = new MainWindow();
+                connexion.Show();
+                this.Close();
+            }
+            else
+            {
+                var EcranMenuPrincipal = new EcranMenuPrincipal();
+                EcranMenuPrincipal.Show();
+                VarGlobales.EstConnecte = false;
+                this.Close();
+            }
         }
 
+        //Méthode pour le bouton choisir du personnage #1
         private void btnChoisir1_Click(object sender, RoutedEventArgs e)
         {
             // on va chercher un personnage
@@ -140,6 +153,7 @@ namespace Combaxe___New.écrans
             changerFenetre();
         }
 
+        //Méthode pour le bouton choisir du personnage #2
         private void btnChoisir2_Click(object sender, RoutedEventArgs e)
         {
             // on va chercher un personnage
@@ -148,6 +162,7 @@ namespace Combaxe___New.écrans
             changerFenetre();
         }
 
+        //Méthode pour le bouton choisir du personnage #3
         private void btnChoisir3_Click(object sender, RoutedEventArgs e)
         {
             // on va chercher un personnage
@@ -156,6 +171,7 @@ namespace Combaxe___New.écrans
             changerFenetre();
         }
 
+        //Méthode pour amener l'utilisateur au Menu Principal
         private void changerFenetre()
         { 
             var menuPrincipal = new EcranMenuPrincipal();
