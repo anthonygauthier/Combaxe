@@ -230,6 +230,10 @@
         
         <!--Grid pour les caractéristiques-->
         <Grid Name="GridCaracteristiques" Grid.Row="3" Grid.Column="2" Margin="5" Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="55*"/>
+                <ColumnDefinition Width="122*"/>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="100*"></RowDefinition>
                 <RowDefinition Height="15*"></RowDefinition>
@@ -237,13 +241,13 @@
             </Grid.RowDefinitions>
             
             <!--Grid pour niveau et profession-->
-            <Grid>
+            <Grid Grid.ColumnSpan="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="1.25*"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
@@ -252,6 +256,15 @@
                 </Grid.RowDefinitions>
                 
                 <!--Première colonne-->
+                <Grid HorizontalAlignment="Right">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Right" VerticalAlignment="Center" Text="Niveau: "></TextBlock>
+                    <TextBox Name="txtbNiveau" Grid.Column="1" IsEnabled="False" Margin="0,0,0,2" MinHeight="20" MinWidth="40" HorizontalAlignment="Left" MaxHeight="30"></TextBox>
+                </Grid>
+                <TextBlock Name="txtbProfession" Margin="5,0,0,0" HorizontalAlignment="Left" Grid.Column="1" Text="Profession" VerticalAlignment="Center"></TextBlock>
                 <TextBlock Grid.Row="1" TextWrapping="Wrap" Text="Force:" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
                 <TextBlock Grid.Row="2" TextWrapping="Wrap" Text="Énergie:" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
                 <TextBlock Grid.Row="3" TextWrapping="Wrap" Text="Vie:" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
@@ -267,8 +280,8 @@
             </Grid>
             
             <!--Barre de points de vie et barre de points d'énergie-->
-            <TextBox Name="txtbBarreVie" BorderBrush="Black" BorderThickness="1" Foreground="White" Text="Test" TextAlignment="Center" Grid.Row="1" Background="Green" Margin="5,0,5,0" MaxHeight="38" MaxWidth="300"></TextBox>
-            <TextBox Name="txtbBarreEnergie" BorderBrush="Black" BorderThickness="1" Foreground="White" Text="Test" TextAlignment="Center" Grid.Row="2" Background="Blue" Margin="5,0,5,0" MaxHeight="38" MaxWidth="300"></TextBox>
+            <TextBox Name="txtbBarreVie" BorderBrush="Black" BorderThickness="1" Foreground="White" Text="Test" TextAlignment="Center" Grid.Row="1" Background="Green" Margin="5,0,5,0" MaxHeight="38" MaxWidth="300" Grid.ColumnSpan="2"></TextBox>
+            <TextBox Name="txtbBarreEnergie" BorderBrush="Black" BorderThickness="1" Foreground="White" Text="Test" TextAlignment="Center" Grid.Row="2" Background="Blue" Margin="5,0,5,0" MaxHeight="38" MaxWidth="300" Grid.ColumnSpan="2"></TextBox>
         </Grid>  
         <!--Bouton pour retourner au menu principal-->
         <Button Name="btnRetour" Click="btnRetour_Click_1" Content="Retour" Grid.Row="4" Grid.Column="2" MinWidth="100" MaxHeight="50" Margin="0,0,5,0" HorizontalAlignment="Right" Width="100"></Button>
