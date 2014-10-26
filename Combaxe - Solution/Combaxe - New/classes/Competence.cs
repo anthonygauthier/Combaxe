@@ -8,30 +8,31 @@ namespace Combaxe___New.classes
 {
     public class Competence
     {
-        private int idCompetence;
-        private string nom;
-        private int degatMin;
-        private int degatMax;
-        private int energieUtilise;
-        private int tempsRecarge;
-        private int tempsEffet;
-        private string description;
-        private string imageURL;
+        public int IdCompetence { get; set; }
+        public string Nom { get; set; }
+        public int ValeurMin { get; set; }
+        public int ValeurMax { get; set; }
+        public int EnergieUtilise { get; set; }
+        public int TempsRecarge { get; set; }
+        public string Description { get; set; }
+        public string ImageURL { get; set; }
+        public string NomTypeCompetence { get; set; }
+        public Effet Effet { get; set; }
 
         /// <summary>
         /// Constructeur de base - Anthony Gauthier 02/10/2014
         /// </summary>
         public Competence()
         {
-            idCompetence = 0;
-            nom = "";
-            degatMin = 0;
-            degatMax = 0;
-            energieUtilise = 0;
-            tempsRecarge = 0;
-            tempsEffet = 0;
-            description = "";
-            imageURL = "";
+            IdCompetence = 0;
+            Nom = "";
+            ValeurMin = 0;
+            ValeurMax = 0;
+            EnergieUtilise = 0;
+            TempsRecarge = 0;
+            Description = "";
+            ImageURL = "";
+            NomTypeCompetence = "";
         }
 
         /// <summary>
@@ -46,17 +47,17 @@ namespace Combaxe___New.classes
         /// <param name="effet">temps de l'effet de la compétence</param>
         /// <param name="desc">description de la compétence</param>
         /// <param name="url">url de l'image de la compétence</param>
-        public Competence(int id, string n, int dmgMin, int dmgMax, int energie, int cooldown, int effet, string desc, string url)
+        public Competence(int id, string n, int dmgMin, int dmgMax, int energie, int cooldown, string desc, string url, string tCompetence)
         {
-            idCompetence = id;
-            nom = n;
-            degatMin = dmgMin;
-            degatMax = dmgMax;
-            energieUtilise = energie;
-            tempsRecarge = cooldown;
-            tempsEffet = effet;
-            description = desc;
-            imageURL = url;
+            IdCompetence = id;
+            Nom = n;
+            ValeurMin = dmgMin;
+            ValeurMax = dmgMax;
+            EnergieUtilise = energie;
+            TempsRecarge = cooldown;
+            Description = desc;
+            ImageURL = url;
+            NomTypeCompetence = tCompetence;
         }
     }
 }

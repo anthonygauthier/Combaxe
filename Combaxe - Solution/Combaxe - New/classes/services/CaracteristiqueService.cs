@@ -29,5 +29,50 @@ namespace Combaxe___New.classes.services
             string requeteInsert = "INSERT INTO CaracteristiquesPersonnages (idCaracteristique, idPersonnage, valeur) VALUES ((SELECT idCaracteristique FROM Caracteristiques WHERE nom = '" + nomCaracteristique + "')," + idPersonnage + "," + valeur + ")";
             bdCombaxe.Insertion(requeteInsert);
         }
+
+        /// <summary>
+        /// Méthode qui va chercher les caractéristiques de base de chaque profession - William Themens
+        /// </summary>
+        /// <param name="idEnnemi">Permet de savoir les caractéristiques de quel ennemi qui est désirées</param>
+        /// <returns></returns>
+        public List<Caracteristique> RetrieveCaracteristiqueEnnemi(string idEnnemi)
+        {
+            idEnnemi = "7";
+            List<Caracteristique> mesCaracteristiques = new List<Caracteristique>();
+            Caracteristique caracteristique;
+            string nom = "";
+
+            for (int i = 0; i < 5; i++)
+            {
+                switch (i)
+                {
+                    case 0:
+                        nom = Caracteristiques.Force.ToString();
+                        break;
+                    case 1:
+                        nom = Caracteristiques.Vie.ToString();
+                        break;
+                    case 2:
+                        nom = Caracteristiques.Defense.ToString();
+                        break;
+                    case 3:
+                        nom = Caracteristiques.Energie.ToString();
+                        break;
+                    case 4:
+                        nom = Caracteristiques.Vitesse.ToString();
+                        break;
+                }
+
+                string requete = "SELECT idCaracteristique, valeur FROM CaracteristiquesEnnemis WHERE idEnnemi = '" + idEnnemi + "' AND idCaracteristique = (SELECT idCaracteristique FROM Caracteristiques WHERE nom = '" + nom + "' );";
+                List<string>[] uneCaracteristique;
+                int nombreRange = 0;
+
+                uneCaracteristique = bdCombaxe.selection(requete, 2, ref nombreRange);
+
+                caracteristique = new Caracteristique(Convert.ToInt32(uneCaracteristique[0][0]), Convert.ToInt32(uneCaracteristique[0][1]), nom);
+                mesCaracteristiques.Add(caracteristique);
+            }
+            return mesCaracteristiques;
+        }
     }
 }
