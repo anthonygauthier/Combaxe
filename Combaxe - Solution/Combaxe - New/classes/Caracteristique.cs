@@ -42,6 +42,7 @@ namespace Combaxe___New.classes
         /// <param name="car">sert à simplifier et repéré plus facilement laquelle caractéristique est traité</param>
         public Caracteristique(int id, int val, string nom)
         { 
+            /* Tommy Gingras */
             IdCaracterstique = id;
             Valeur = val;
             Nom = nom;

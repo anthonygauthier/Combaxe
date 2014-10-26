@@ -23,7 +23,8 @@ namespace Combaxe___New.écrans
         public EcranCombat()
         {
             InitializeComponent();
-            //imgPerso.Source = 
+            chargerEnnemi();
+            chargerPersonnage();
         }
 
         //Méthode du bouton pour fuir un combat
@@ -52,6 +53,19 @@ namespace Combaxe___New.écrans
                 btnAction3.Visibility = Visibility.Hidden;
                 btnAction4.Visibility = Visibility.Hidden;
             }
+        }
+
+        private void chargerPersonnage()
+        {
+            this.imgPerso.Source = VarGlobales.Personnage.profession.Image; // le lien va être à changer
+            lblNomPerso.Content = VarGlobales.Personnage.Nom;
+            lblNiveauPerso.Content = VarGlobales.Personnage.Niveau;
+            lblViePerso.Content = Convert.ToInt32((VarGlobales.Personnage.ListeCaracteristique[2].Valeur * 20) / 3.1416).ToString();
+            lblEnergiePerso.Content = Convert.ToInt32((VarGlobales.Personnage.ListeCaracteristique[3].Valeur * 10) / 3.1416).ToString();
+        }
+
+        private void chargerEnnemi()
+        {
         }
 
     }

@@ -76,7 +76,7 @@ namespace Combaxe___New.écrans
                         txtbPointDenergie1.Text = "Énergie: " + Convert.ToInt32((lstPerso[0].ListeCaracteristique[3].Valeur * 10) / 3.1416).ToString();
                         txtbPointDeVie1.Text = "Vie: " + Convert.ToInt32((lstPerso[0].ListeCaracteristique[2].Valeur * 20) / 3.1416).ToString();
                         /* l'image du personnage */
-                        this.imgPerso1.Source = lstPerso[0].profession.Image; // le lien va être achanger
+                        this.imgPerso1.Source = lstPerso[0].profession.Image; // le lien va être à changer
                         lblNomPerso1.Content = lstPerso[0].Nom;
                         lblNiveau1.Content = "Niveau: "+lstPerso[0].Niveau; //Ajout de "Niveau: " Anthony Gauthier 23/10/2014
                         btnChoisir2.IsEnabled = false;
