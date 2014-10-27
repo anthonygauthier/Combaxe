@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Combaxe___New.classes;
+using Combaxe___New.classes.services;
 
 namespace Combaxe___New.écrans
 {
@@ -62,10 +63,14 @@ namespace Combaxe___New.écrans
             lblNiveauPerso.Content = VarGlobales.Personnage.Niveau;
             lblViePerso.Content = Convert.ToInt32((VarGlobales.Personnage.ListeCaracteristique[2].Valeur * 20) / 3.1416).ToString();
             lblEnergiePerso.Content = Convert.ToInt32((VarGlobales.Personnage.ListeCaracteristique[3].Valeur * 10) / 3.1416).ToString();
+
+            CompetenceService competenceService = new CompetenceService();
+            VarGlobales.Personnage.ListeCompetence = competenceService.RetrieveCompetenceUnPersonnage();
         }
 
         private void chargerEnnemi()
         {
+            
         }
 
     }

@@ -18,8 +18,8 @@ namespace Combaxe___New.classes
         public int Experience { get; set; }
         public BitmapImage Image { get; set; }
         public List<Caracteristique> ListeCaracteristique { get; set; }
-        public Profession profession;
-
+        public Profession profession { get; set; }
+        public List<Competence> ListeCompetence { get; set; }
 
 
         /// <summary>
@@ -34,6 +34,7 @@ namespace Combaxe___New.classes
             Image = null;
             ListeCaracteristique = null;
             profession = null;
+            ListeCompetence = null;
         }
 
         /// <summary>
@@ -45,7 +46,7 @@ namespace Combaxe___New.classes
         /// <param name="xp">expérience du personnage</param>
         /// <param name="lien">url de l'image du personnage</param>
         /// <param name="lstCar">list de caractéristiques du personnage</param>
-        public Personnage(int id, string n, int niv, int xp, string lien, List<Caracteristique> lstCar, Profession prof)
+        public Personnage(int id, string n, int niv, int xp, string lien, List<Caracteristique> lstCar, Profession prof, List<Competence> lstComp)
         {
 
             IdPersonnage = id;
@@ -55,6 +56,7 @@ namespace Combaxe___New.classes
             Image = new BitmapImage(new Uri(lien, UriKind.RelativeOrAbsolute)); // fait par tommy gingras
             ListeCaracteristique = lstCar;
             profession = prof;
+            ListeCompetence = lstComp;
         }
 
         /// <summary>

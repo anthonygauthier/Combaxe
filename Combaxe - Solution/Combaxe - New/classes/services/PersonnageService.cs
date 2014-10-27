@@ -32,7 +32,7 @@ namespace Combaxe___New.classes.services
                             lstCar = RetrieveCaracteristiques(Convert.ToInt32(lstPerso[i][0]));
                             prof = professionService.RetrieveIdProfessionAvecId(Convert.ToInt32(lstPerso[i][5]));
 
-                            Personnage perso = new Personnage(Convert.ToInt32(lstPerso[i][0]), lstPerso[i][1], Convert.ToInt32(lstPerso[i][2]), Convert.ToInt32(lstPerso[i][3]), lstPerso[i][4], lstCar, prof);
+                            Personnage perso = new Personnage(Convert.ToInt32(lstPerso[i][0]), lstPerso[i][1], Convert.ToInt32(lstPerso[i][2]), Convert.ToInt32(lstPerso[i][3]), lstPerso[i][4], lstCar, prof, null);
                             lstPersonnage.Add(perso);
                             lstCar = new List<Caracteristique>();
                      }
@@ -100,7 +100,7 @@ namespace Combaxe___New.classes.services
                     /* aller chercher leurs caractéristiques */
                     lstCar = RetrieveCaracteristiques(Convert.ToInt32(lstPerso[0][0]));
                     prof = professionService.RetrieveIdProfessionAvecId(Convert.ToInt32(lstPerso[0][5]));
-                    perso = new Personnage(Convert.ToInt32(lstPerso[0][0]), lstPerso[0][1], Convert.ToInt32(lstPerso[0][2]), Convert.ToInt32(lstPerso[0][3]), lstPerso[0][4], lstCar, prof);
+                    perso = new Personnage(Convert.ToInt32(lstPerso[0][0]), lstPerso[0][1], Convert.ToInt32(lstPerso[0][2]), Convert.ToInt32(lstPerso[0][3]), lstPerso[0][4], lstCar, prof, null);
                    
                 }
                 

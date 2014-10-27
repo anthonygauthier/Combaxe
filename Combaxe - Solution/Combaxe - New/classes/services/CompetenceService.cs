@@ -36,6 +36,24 @@ namespace Combaxe___New.classes.services
             Competence competence = new Competence(Convert.ToInt32(idCompetence), uneCompetence[0][2], Convert.ToInt32(uneCompetence[0][3]), Convert.ToInt32(uneCompetence[0][4]),
                                                                 Convert.ToInt32(uneCompetence[0][5]), Convert.ToInt32(uneCompetence[0][6]), uneCompetence[0][7], uneCompetence[0][8],
                                                                 uneCompetence[0][9]);
+            return competence;
+        }
+
+        /// <summary>
+        /// Pour récupérer les compétences d'un personnage, tommy gingras
+        /// </summary>
+        /// <param name="idPersonnage">Permet de récupérer les infos pour un personnage</param>
+        /// <returns>retourne une liste de ses compétences</returns>
+        public List<Competence> RetrieveCompetenceUnPersonnage()
+        {
+            List<Competence> competence = null;
+
+            string selConnexion = "SELECT idProfession, idCompetence FROM CompetencesProfessions WHERE idProfession = '" + VarGlobales.Personnage.profession.IdProfession + "';";
+            List<string>[] uneCompetence;
+
+            int nombreRange = 0;
+            uneCompetence = bdCombaxe.selection(selConnexion, 2, ref nombreRange);
+
 
             return competence;
         }
