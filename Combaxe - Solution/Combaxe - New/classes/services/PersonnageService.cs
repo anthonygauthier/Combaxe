@@ -17,7 +17,7 @@ namespace Combaxe___New.classes.services
         /// </summary>
         /// <returns>Liste de toutes les données des personnages</returns>
         public List<Personnage> RetrieveInfoPerso(){
-            string reqSelect = "SELECT idPersonnage, nom, niveau, experience, image, idProfession FROM Personnages WHERE estActif = TRUE AND idJoueur = '" + VarGlobales.Joueur.idJoueur + "';";
+            string reqSelect = ecrireSelect("estActif = TRUE AND idJoueur = '" + VarGlobales.Joueur.idJoueur+"'", "idPersonnage, nom, niveau, experience, image, idProfession");
             int nbLigne = 0;
             List<string>[] lstPerso = bdCombaxe.selection(reqSelect, 6, ref nbLigne);
 
@@ -83,8 +83,9 @@ namespace Combaxe___New.classes.services
         /// <param name="id">le id du personnage désirée</param>
         /// <returns>on retourne un objet de type personnage</returns>
         public Personnage selectionUnPersonnage(int id)
-        {            
-            string reqSelect = "SELECT idPersonnage, nom, niveau, experience, image, idProfession FROM Personnages WHERE estActif = TRUE AND idJoueur = '" + VarGlobales.Joueur.idJoueur + "' AND idPersonnage = '"+id+"';";
+        {
+
+            string reqSelect = ecrireSelect("estActif = TRUE AND idJoueur = '" + VarGlobales.Joueur.idJoueur + "' AND idPersonnage = '" + id + "'", "idPersonnage, nom, niveau, experience, image, idProfession");
             int nbLigne = 0;
             List<string>[] lstPerso = bdCombaxe.selection(reqSelect, 6, ref nbLigne);
             List<Caracteristique> lstCaracteristique = new List<Caracteristique>();
@@ -189,11 +190,35 @@ namespace Combaxe___New.classes.services
             }
         }
 
+        /// <summary>
+        /// Pour "supprimer" un personnage, tommy gingras
+        /// </summary>
+        /// <param name="id">on passe le ID du personnage</param>
         public void desactivePersonnage(int id)
         {
             string requeteUpdate = "UPDATE Personnages SET estActif = FALSE WHERE idPersonnage = '"+id+"';";
 
             bdCombaxe.maj(requeteUpdate);
+        }
+
+        /// <summary>
+        /// Pour éviter les répétitions pour mes select, tommy gingras
+        /// </summary>
+        /// <param name="where">le champs where de la requete</param>
+        /// <param name="champs">les champs qu'on veut résupérer dans la table</param>
+        /// <returns>retourne la requete en string</returns>
+        public string ecrireSelect(string where, string champs)
+        {
+            string select = "";
+            if (where.Length != 0 && champs.Length != 0)
+            {
+                select = "SELECT " + champs + " FROM Personnages WHERE " + where + ";";
+            }
+            else
+            {
+                return select;
+            }
+            return select;
         }
     }
 }

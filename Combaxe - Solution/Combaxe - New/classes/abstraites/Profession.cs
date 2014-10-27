@@ -7,7 +7,7 @@ using System.Windows.Media.Imaging;
 
 namespace Combaxe___New.classes
 {
-    public class Profession
+    public abstract class Profession
     {
         public int IdProfession { get; set; }
         public string Nom { get; set; }

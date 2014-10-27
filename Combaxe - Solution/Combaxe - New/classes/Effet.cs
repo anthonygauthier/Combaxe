@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Combaxe___New.classes
 {
-    class Effet
+    public class Effet
     {
     }
 }

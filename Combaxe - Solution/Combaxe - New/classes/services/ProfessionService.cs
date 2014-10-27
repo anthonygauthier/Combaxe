@@ -58,7 +58,19 @@ namespace Combaxe___New.classes.services
 
             if (lstProf.Count() == 1)
             {
-                profession = new Profession(Convert.ToInt32(lstProf[0][0]), lstProf[0][1], lstProf[0][2], lstProf[0][3]);
+                if (lstProf[0][1] == "Guerrier")
+                {
+                    profession = new Guerrier(Convert.ToInt32(lstProf[0][0]), lstProf[0][1], lstProf[0][2], lstProf[0][3], null); // null pour le moment pas encore rendu la !
+                }
+                else if (lstProf[0][1] == "Magicien")
+                {
+                    profession = new Magicien(Convert.ToInt32(lstProf[0][0]), lstProf[0][1], lstProf[0][2], lstProf[0][3], null); // null pour le moment pas encore rendu la !
+                }
+                else if (lstProf[0][1] == "Paladin")
+                {
+                    profession = new Paladin(Convert.ToInt32(lstProf[0][0]), lstProf[0][1], lstProf[0][2], lstProf[0][3], null); // null pour le moment pas encore rendu la !
+                }
+                
             }
 
             return profession;
