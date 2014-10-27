@@ -271,14 +271,14 @@ VALUES
 );
 /* FIN CARACTERISTIQUE BOSS */
 
-/* DÉBUT CARACTÉRISTIQUE ENNEMIS */
+/* DÉBUT CARACTÉRISTIQUE ENNEMIS A-H */
 INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
 	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ange déchu')
-,	67
+,	5
 );
 
 INSERT INTO CaracteristiquesEnnemis
@@ -287,7 +287,7 @@ VALUES
 (
 	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ange déchu')
-,	82
+,	5
 );
 
 INSERT INTO CaracteristiquesEnnemis
@@ -296,7 +296,7 @@ VALUES
 (
 	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ange déchu')
-,	72
+,	5
 );
 
 INSERT INTO CaracteristiquesEnnemis
@@ -305,7 +305,7 @@ VALUES
 (
 	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ange déchu')
-,	61
+,	5
 );
 
 INSERT INTO CaracteristiquesEnnemis
@@ -314,5 +314,1045 @@ VALUES
 (
 	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ange déchu')
-,	59
+,	5
 );
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Bandit')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Bandit')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Bandit')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Bandit')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Bandit')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Centaure')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Centaure')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Centaure')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Centaure')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Centaure')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Dragon')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Dragon')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Dragon')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Dragon')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Dragon')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Elfe')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Elfe')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Elfe')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Elfe')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Elfe')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Farfadet')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Farfadet')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Farfadet')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Farfadet')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Farfadet')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Gorgone')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Gorgone')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Gorgone')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Gorgone')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Gorgone')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Hydre')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Hydre')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Hydre')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Hydre')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Hydre')
+,	5
+);
+/* FIN CARACTÉRISTIQUE ENNEMIS A-H */
+
+/* DÉBUT CARACTÉRISTIQUE ENNEMIS I-P */
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Iguane démoniaque')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Iguane démoniaque')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Iguane démoniaque')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Iguane démoniaque')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Iguane démoniaque')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Jaguar géant')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Jaguar géant')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Jaguar géant')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Jaguar géant')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Jaguar géant')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Kraken')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Kraken')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Kraken')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Kraken')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Kraken')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Licorne')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Licorne')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Licorne')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Licorne')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Licorne')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Minotaure')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Minotaure')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Minotaure')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Minotaure')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Minotaure')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Nécromancien')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Nécromancien')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Nécromancien')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Nécromancien')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Nécromancien')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ogre')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ogre')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ogre')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ogre')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ogre')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ptérodactyle')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ptérodactyle')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ptérodactyle')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ptérodactyle')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ptérodactyle')
+,	5
+);
+/* FIN CARACTÉRISTIQUE ENNEMIS I-P */
+
+/* DÉBUT CARACTÉRISTIQUE ENNEMIS Q-Z */
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Rhinocéros sauvage')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Rhinocéros sauvage')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Rhinocéros sauvage')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Rhinocéros sauvage')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Rhinocéros sauvage')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Satyre')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Satyre')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Satyre')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Satyre')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Satyre')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Troll')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Troll')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Troll')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Troll')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Troll')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ubuntu')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ubuntu')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ubuntu')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ubuntu')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ubuntu')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Vampire')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Vampire')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Vampire')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Vampire')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Vampire')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Worg')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Worg')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Worg')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Worg')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Worg')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Yéti')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Yéti')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Yéti')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Yéti')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Yéti')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Zombie')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Zombie')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Zombie')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Zombie')
+,	5
+);
+
+INSERT INTO CaracteristiquesEnnemis
+(idCaracteristique, idEnnemi, valeur)
+VALUES
+(
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+,	(SELECT idEnnemi FROM Ennemis WHERE nom='Zombie')
+,	5
+);
+/* FIN CARACTÉRISTIQUE ENNEMIS Q-Z */

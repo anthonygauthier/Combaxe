@@ -17,7 +17,7 @@ namespace Combaxe___New.classes
         public string Description { get; set; }
         public string ImageURL { get; set; }
         public string NomTypeCompetence { get; set; }
-        public Effet Effet { get; set; }
+        //public Effet Effet { get; set; }
 
         /// <summary>
         /// Constructeur de base - Anthony Gauthier 02/10/2014

@@ -70,7 +70,16 @@ namespace Combaxe___New.écrans
 
         private void chargerEnnemi()
         {
+<<<<<<< HEAD
             
+=======
+            Ennemi ennemi = new Ennemi();
+            ennemi.ennemiAleatoire();
+            lblNomEnnemi.Content = VarGlobales.Ennemi.Nom;
+            lblNiveauEnnemi.Content = VarGlobales.Ennemi.Niveau;
+            lblVieEnnemi.Content = Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[1].Valeur * 20) / 3.1416).ToString();
+            lblEnergieEnnemi.Content = Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[3].Valeur * 10) / 3.1416).ToString();
+>>>>>>> origin/master
         }
 
     }

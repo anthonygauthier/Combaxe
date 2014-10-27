@@ -37,7 +37,6 @@ namespace Combaxe___New.classes.services
         /// <returns></returns>
         public List<Caracteristique> RetrieveCaracteristiqueEnnemi(string idEnnemi)
         {
-            idEnnemi = "7";
             List<Caracteristique> mesCaracteristiques = new List<Caracteristique>();
             Caracteristique caracteristique;
             string nom = "";
