@@ -61,7 +61,7 @@ namespace Combaxe___New.classes.services
             List<string>[] tousEnnemi;
 
             int nombreRange = 0;
-            tousEnnemi = bdCombaxe.selection(selConnexion, 5, ref nombreRange);
+            tousEnnemi = bdCombaxe.selection(selConnexion, 1, ref nombreRange);
 
             return tousEnnemi;
         }

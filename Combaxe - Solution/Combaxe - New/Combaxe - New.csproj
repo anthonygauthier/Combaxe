@@ -65,6 +65,7 @@
     <Compile Include="classes\services\ProfessionService.cs" />
     <Compile Include="classes\services\StatistiqueService.cs" />
     <Compile Include="classes\VarGlobales.cs" />
+    <Compile Include="classes\Effet.cs" />
     <Compile Include="écrans\EcranChangementPerso.xaml.cs">
       <DependentUpon>EcranChangementPerso.xaml</DependentUpon>
     </Compile>

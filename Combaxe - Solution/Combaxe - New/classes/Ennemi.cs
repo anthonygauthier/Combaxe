@@ -10,24 +10,24 @@ namespace Combaxe___New.classes
 {
     public class Ennemi
     {
-        public int idEnnemi { get; set; }
-        public string imageUrl { get; set; }
-        public int niveau { get; set; }
-        public string nom { get; set; }
-        public List<Caracteristique> listeCaracteristique { get; set; }
-        public List<Competence> listeCompetence { get; set; }
+        public int IdEnnemi { get; set; }
+        public string ImageUrl { get; set; }
+        public int Niveau { get; set; }
+        public string Nom { get; set; }
+        public List<Caracteristique> ListeCaracteristique { get; set; }
+        public List<Competence> ListeCompetence { get; set; }
 
         /// <summary>
         /// Constructeur de base - Anthony Gauthier 02/10/2014
         /// </summary>
         public Ennemi()
         {
-            idEnnemi = 0;
-            imageUrl = "";
-            niveau = 0;
-            nom = "";
-            listeCaracteristique = null;
-            listeCompetence = null;
+            IdEnnemi = 0;
+            ImageUrl = "";
+            Niveau = 0;
+            Nom = "";
+            ListeCaracteristique = null;
+            ListeCompetence = null;
         }
 
         /// <summary>
@@ -40,12 +40,12 @@ namespace Combaxe___New.classes
         /// <param name="lstCar">list des caractéristiques de l'ennemi</param>
         public Ennemi(int id, int niv, string url, string n, List<Caracteristique> lstCar, List<Competence> lstComp)
         {
-            idEnnemi = id;
-            niveau = niv;
-            imageUrl = url;
-            nom = n;
-            listeCaracteristique = lstCar;
-            listeCompetence = lstComp;
+            IdEnnemi = id;
+            Niveau = niv;
+            ImageUrl = url;
+            Nom = n;
+            ListeCaracteristique = lstCar;
+            ListeCompetence = lstComp;
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace Combaxe___New.classes
         /// Fonction qui choisi un ennemi aléatoirement - William Themens
         /// </summary>
         /// <returns></returns>
-        public Ennemi ennemiAleatoire()
+        public void ennemiAleatoire()
         {
             EnnemiService ennemiService = new EnnemiService();
             List<string>[] tousEnnemi;
@@ -82,14 +82,7 @@ namespace Combaxe___New.classes
             Ennemi ennemi;
             ennemi = ennemiService.RetrieveInfoEnnemi(tousEnnemi[idEnnemiAleatoire][0]);
 
-            return ennemi;
-        }
-
-        public void AfficherEnnemi()
-        {
-            Ennemi ennemi;
-            ennemi = ennemiAleatoire();
-
+            VarGlobales.Ennemi = ennemi;
         }
     }
 }
