@@ -36,6 +36,8 @@ namespace Combaxe___New.écrans
         DispatcherTimer horloge;
         TimeSpan temps;
 
+        bool boutonClique = false;
+
         //Méthode du bouton pour fuir un combat - Anthony Gauthier 23/10/2014
         private void btnFuir_Click(object sender, RoutedEventArgs e)
         {
@@ -63,12 +65,12 @@ namespace Combaxe___New.écrans
         private void btnItems_Click(object sender, RoutedEventArgs e)
         {
             btnAction2.Visibility = Visibility.Visible;
-<<<<<<< HEAD
+
             btnAction1.Content = "";
             btnAction2.Content = "";
-=======
+
             btnAction3.Visibility = Visibility.Visible;
->>>>>>> origin/master
+
             if(btnAction3.Visibility == Visibility.Visible)
             {
                 btnAction1.Visibility = Visibility.Hidden;
@@ -76,26 +78,26 @@ namespace Combaxe___New.écrans
             }
         }
 
-<<<<<<< HEAD
+
         private void btnAction1_Click(object sender, RoutedEventArgs e)
         {
-            
+            boutonClique = true;
         }
 
         private void btnAction2_Click(object sender, RoutedEventArgs e)
         {
-            
+            boutonClique = true;
         }
 
         private void btnAction3_Click(object sender, RoutedEventArgs e)
         {
-            
+            boutonClique = true;
         }
 
         private void btnAction4_Click(object sender, RoutedEventArgs e)
         {
-            
-=======
+            boutonClique = true;
+        }
         //Chronomètre de combat - Anthony Gauthier 28/10/2014
         private void chronometreCombat()
         {   
@@ -126,6 +128,14 @@ namespace Combaxe___New.écrans
                     {
                         pbHorloge.Foreground = Brushes.Red;
                     }
+                    //Si un bouton d'action a été cliqué, on réinitialise l'horloge et la progress bar
+                    else if(boutonClique)
+                    { 
+                        horloge.Stop();
+                        temps = TimeSpan.FromSeconds(30);
+                        pbHorloge.Value = temps.TotalSeconds;
+                        txtbHorloge.Text = temps.ToString("%s");
+                    }
 
                     //On ajoute (enlève) le temps à l'horloge puis on modifie la valeur de la progress bar
                     temps = temps.Add(TimeSpan.FromSeconds(-1));
@@ -134,7 +144,6 @@ namespace Combaxe___New.écrans
             }, Application.Current.Dispatcher);
 
             horloge.Start();  
->>>>>>> origin/master
         }
 
         private void chargerPersonnage()
