@@ -43,12 +43,12 @@
             
             <!--Barre de points de vie-->
             <Border  Grid.Row="2" MaxHeight="50" Background="Green" BorderBrush="Black" BorderThickness="1" Margin="5">
-                <Label Name="lblViePerso" Foreground="White"></Label>
+                <Label Name="lblViePerso" Margin="0,0,0,-3" HorizontalAlignment="Center" Foreground="White"></Label>
             </Border>
             
             <!--Barre de points d'énergie-->
             <Border Grid.Row="3" MaxHeight="50" Background="Blue" BorderBrush="Black" BorderThickness="1" Margin="5">
-                <Label Name="lblEnergiePerso" Foreground="White"></Label>
+                <Label Name="lblEnergiePerso" Margin="0,0,0,-3" HorizontalAlignment="Center" Foreground="White"></Label>
             </Border>
             
             <!--Bouton fuir-->
@@ -110,7 +110,7 @@
             
             <!--Barre d'expérience-->
             <Border Grid.Row="4" MaxHeight="50" Background="Purple" BorderBrush="Black" BorderThickness="1" Margin="5">
-                <Label Name="lblExperiencePerso" Foreground="White"></Label>
+                <Label Name="lblExperiencePerso" Margin="0,0,0,-3" HorizontalAlignment="Center" Foreground="White"></Label>
             </Border>
         </Grid>
         
@@ -127,15 +127,15 @@
             <!--Nom, niveau-->
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <Border Background="White" CornerRadius="5" Margin="5,3,5,0" HorizontalAlignment="Stretch" Grid.Column="1">
-                    <Label Name="lblNiveauEnnemi" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
-                </Border>
-                <Border Background="White" CornerRadius="5" Margin="0,3,5,0" HorizontalAlignment="Stretch" Grid.Column="0">
+                <Border Background="White" CornerRadius="5" Margin="5,3,5,0"  HorizontalAlignment="Stretch" Grid.Column="0">
                     <Label Name="lblNomEnnemi" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                </Border>
+                <Border Background="White" CornerRadius="5" Margin="0,3,5,0" HorizontalAlignment="Stretch" Grid.Column="1">
+                    <Label Name="lblNiveauEnnemi" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
                 </Border>
             </Grid>
 
@@ -146,12 +146,12 @@
 
             <!--Barre de points de vie-->
             <Border  Grid.Row="2" MaxHeight="50" Background="Green" BorderBrush="Black" BorderThickness="1" Margin="5">
-                <Label Name="lblVieEnnemi" Foreground="White"></Label>
+                <Label Name="lblVieEnnemi" HorizontalAlignment="Center" Margin="0,0,0,-3" Foreground="White"></Label>
             </Border>
 
             <!--Barre de points d'énergie-->
             <Border Grid.Row="3" MaxHeight="50" Background="Blue" BorderBrush="Black" BorderThickness="1" Margin="5">
-                <Label Name="lblEnergieEnnemi" Foreground="White"></Label>
+                <Label Margin="0,0,0,-3" Name="lblEnergieEnnemi" HorizontalAlignment="Center" Foreground="White"></Label>
             </Border>
         </Grid>
     </Grid>
