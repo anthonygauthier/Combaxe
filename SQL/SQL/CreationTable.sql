@@ -277,3 +277,4 @@ FOREIGN KEY (idCaracteristique) REFERENCES Caracteristiques(idCaracteristique);
 ALTER TABLE CaracteristiquesProfessions
 ADD CONSTRAINT CaracteristiquesProfessions_Professions_FK
 FOREIGN KEY (idProfession) REFERENCES Professions(idProfession);
+

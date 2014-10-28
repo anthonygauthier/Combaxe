@@ -101,3 +101,4 @@ VALUES
 ,	(SELECT idCompetence FROM Competences WHERE nom='Décharge électrique')
 );
 /* FIN COMPÉTENCESMagicien */
+

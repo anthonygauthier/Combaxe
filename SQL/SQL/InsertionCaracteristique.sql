@@ -32,3 +32,4 @@ VALUES
 (
 	'Énergie'
 );
+

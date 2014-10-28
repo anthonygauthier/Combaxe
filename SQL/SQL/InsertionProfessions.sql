@@ -27,3 +27,4 @@ VALUES
 	à enfoncer son sur sur ceux-ci. Endurci par les combats au corps à corps, le guerrier est résistant et physiquement
 	très fort.'
 );
+

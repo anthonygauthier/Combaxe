@@ -651,3 +651,4 @@ VALUES
 ,	4
 );
 /* FIN MAGIQUE */
+

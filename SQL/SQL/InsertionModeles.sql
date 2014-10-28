@@ -61,3 +61,4 @@ VALUES
 	'Pantalon'
 ,	FALSE
 );
+

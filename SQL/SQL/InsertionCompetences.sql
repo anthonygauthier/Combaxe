@@ -725,3 +725,4 @@ VALUES
 ,	4
 ,	'Devient fou et veut voir son ennemi ensanglanté. '
 );
+

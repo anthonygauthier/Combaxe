@@ -649,3 +649,4 @@ VALUES
 ,	(SELECT idCompetence FROM Competences WHERE nom='Empoisonnement')
 );
 /* FIN COMPÉTENCES ENNEMI Q-Z*/
+

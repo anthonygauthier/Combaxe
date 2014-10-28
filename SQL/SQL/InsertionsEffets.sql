@@ -77,3 +77,4 @@ VALUES
 ,	'La cible reçoit des dégâts par tour'
 ,	3
 );
+
