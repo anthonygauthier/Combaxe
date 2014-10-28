@@ -1,4 +1,4 @@
-/* DÉBUT CUIR/TISSU */
+﻿/* DÉBUT CUIR/TISSU */
 	INSERT INTO EquipementsModeles
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES

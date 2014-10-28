@@ -1,4 +1,4 @@
-/*DÉBUT PRATIQUE*/
+﻿/*DÉBUT PRATIQUE*/
 	INSERT INTO EquipementsModeles
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES

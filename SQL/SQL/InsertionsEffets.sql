@@ -1,4 +1,4 @@
-INSERT INTO Effets
+﻿INSERT INTO Effets
 (nom, description, tempsEffets)
 VALUES
 (

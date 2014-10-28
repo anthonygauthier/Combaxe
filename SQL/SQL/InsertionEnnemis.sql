@@ -1,4 +1,4 @@
-/* DÉBUT DES BOSS */
+﻿/* DÉBUT DES BOSS */
 
 INSERT INTO Ennemis
 (nom, niveau, boss)

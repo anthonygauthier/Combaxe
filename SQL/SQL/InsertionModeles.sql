@@ -1,4 +1,4 @@
-INSERT INTO Modeles
+﻿INSERT INTO Modeles
 (nom, deuxMains)
 VALUES
 (

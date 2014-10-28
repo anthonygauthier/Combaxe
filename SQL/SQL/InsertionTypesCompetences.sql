@@ -1,4 +1,4 @@
-INSERT INTO TypesCompetences
+﻿INSERT INTO TypesCompetences
 (nom)
 VALUES
 (

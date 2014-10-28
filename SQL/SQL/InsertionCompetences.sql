@@ -1,4 +1,4 @@
-INSERT INTO Competences
+﻿INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (

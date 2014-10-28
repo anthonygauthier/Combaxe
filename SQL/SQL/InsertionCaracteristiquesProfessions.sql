@@ -1,4 +1,4 @@
-/* DÉBUT CARACTERISTIQUE GUERRIER */
+﻿/* DÉBUT CARACTERISTIQUE GUERRIER */
 INSERT INTO CaracteristiquesProfessions
 (idCaracteristique, idProfession, valeur)
 VALUES

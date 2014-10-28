@@ -1,4 +1,4 @@
-/* DÉBUT CUIR/TISSU */
+﻿/* DÉBUT CUIR/TISSU */
 INSERT INTO CaracteristiquesEquipementsModeles
 (idCaracteristique, idEquipementModele, valeur)
 VALUES

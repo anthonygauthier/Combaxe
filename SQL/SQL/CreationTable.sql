@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS CompetencesProfessions;
+ï»¿DROP TABLE IF EXISTS CompetencesProfessions;
 DROP TABLE IF EXISTS CompetencesEnnemis;
 DROP TABLE IF EXISTS Competences;
 DROP TABLE IF EXISTS TypesCompetences;
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS Caracteristiques
 (
 	idCaracteristique INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
 ,	nom VARCHAR(31) NOT NULL UNIQUE
-/*,	valeur INT NOT NULL DEFAULT 0 DOIT ÊTRE ENLEVÉ */
+/*,	valeur INT NOT NULL DEFAULT 0 DOIT ÃŠTRE ENLEVÃ‰ */
 );
 
 CREATE TABLE IF NOT EXISTS Statistiques

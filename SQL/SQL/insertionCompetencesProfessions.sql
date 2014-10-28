@@ -1,4 +1,4 @@
-
+﻿
 /* COMPÉTENCES Guerrier */
 INSERT INTO CompetencesProfessions
 (idProfession, idCompetence)

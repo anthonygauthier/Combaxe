@@ -1,4 +1,4 @@
-/* COMPÉTENCES AZAZEL */
+﻿/* COMPÉTENCES AZAZEL */
 INSERT INTO CompetencesEnnemis
 (idEnnemi, idCompetence)
 VALUES

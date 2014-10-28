@@ -1,4 +1,4 @@
-/* DÉBUT CARACTERISTIQUE BOSS */
+﻿/* DÉBUT CARACTERISTIQUE BOSS */
 INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
