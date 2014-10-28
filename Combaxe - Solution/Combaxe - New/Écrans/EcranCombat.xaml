@@ -102,10 +102,10 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <Button Name="btnAction1" Visibility="Hidden" Margin="2" MaxHeight="120"></Button>
-                <Button Name="btnAction2" Visibility="Hidden" Grid.Column="1" Margin="2" MaxHeight="120"></Button>
-                <Button Name="btnAction3" Visibility="Hidden" Grid.Column="2" Margin="2" MaxHeight="120"></Button>
-                <Button Name="btnAction4" Visibility="Hidden" Grid.Column="3" Margin="2" MaxHeight="120"></Button>
+                <Button Name="btnAction1" Visibility="Hidden" Margin="2" MaxHeight="120" Click="btnAction1_Click"></Button>
+                <Button Name="btnAction2" Visibility="Hidden" Grid.Column="1" Margin="2" MaxHeight="120" Click="btnAction2_Click"></Button>
+                <Button Name="btnAction3" Visibility="Hidden" Grid.Column="2" Margin="2" MaxHeight="120" Click="btnAction3_Click"></Button>
+                <Button Name="btnAction4" Visibility="Hidden" Grid.Column="3" Margin="2" MaxHeight="120" Click="btnAction4_Click"></Button>
             </Grid>
             
             <!--Barre d'expérience-->

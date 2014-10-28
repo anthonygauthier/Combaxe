@@ -16,7 +16,7 @@ INSERT INTO TypesCompetences
 (nom)
 VALUES
 (
-	'Defensif'
+	'Defensive'
 );
 
 INSERT INTO TypesCompetences
