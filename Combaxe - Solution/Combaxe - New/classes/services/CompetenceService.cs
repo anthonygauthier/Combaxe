@@ -44,18 +44,44 @@ namespace Combaxe___New.classes.services
         /// </summary>
         /// <param name="idPersonnage">Permet de récupérer les infos pour un personnage</param>
         /// <returns>retourne une liste de ses compétences</returns>
-        public List<Competence> RetrieveCompetenceUnPersonnage()
+        public List<Competence> RetrieveCompetenceUnPersonnage(int id)
         {
-            List<Competence> competence = null;
-
-            string selConnexion = "SELECT idProfession, idCompetence FROM CompetencesProfessions WHERE idProfession = '" + VarGlobales.Personnage.profession.IdProfession + "';";
-            List<string>[] uneCompetence;
+            List<Competence> ListCompetences = new List<Competence>();
+            Competence competence = null;
+            /* On va chercher toutes les compétences pour la profession du personnage */
+            string selConnexion = "SELECT idProfession, idCompetence FROM CompetencesProfessions WHERE idProfession = '" + id + "';";
+            List<string>[] lstCompetences;
 
             int nombreRange = 0;
-            uneCompetence = bdCombaxe.selection(selConnexion, 2, ref nombreRange);
+            lstCompetences = bdCombaxe.selection(selConnexion, 2, ref nombreRange);
+
+            /* on va chercher une compétence avec ses détails pour le personnage */
+
+            for (int i = 0; i < lstCompetences.Count(); i++)
+            {
+                competence = RetrieveInfoCompetence(lstCompetences[i][1]);
+                if(competence != null)
+                {
+                    ListCompetences.Add(competence);
+                }
+            }
 
 
-            return competence;
+            return ListCompetences;
+        }
+
+        /// <summary>
+        /// Retourne tous les types disponibles
+        /// </summary>
+        /// <returns>retourne les types existants</returns>
+        public List<string> RetrieveListeTypeCompetence()
+        {
+            List<string> listeTypes = new List<string>();
+            string requeteTypeCompetences = "SELECT nom FROM TypesCompetences";
+
+            List<string>[] lstType;
+
+            return listeTypes;
         }
     }
 }

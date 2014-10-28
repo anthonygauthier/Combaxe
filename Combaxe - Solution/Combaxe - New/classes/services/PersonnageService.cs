@@ -12,6 +12,8 @@ namespace Combaxe___New.classes.services
         // on ouvre la connection
         BdService bdCombaxe = new BdService();
         ProfessionService professionService = new ProfessionService();
+        CompetenceService competenceService = new CompetenceService();
+
         /// <summary>
         /// Pour récupérer toutes les données des personnages d'un joueur, Tommy Gingras
         /// </summary>
@@ -25,13 +27,14 @@ namespace Combaxe___New.classes.services
                 List<Personnage> lstPersonnage = new List<Personnage>();
                 List<Caracteristique> lstCar = new List<Caracteristique>();
                 Profession prof;
+                
                 if(lstPerso.Count() != 0){
                     for (int i = 0; i < lstPerso.Count(); i++) 
                     {
                             /* aller chercher leurs caractéristiques */
                             lstCar = RetrieveCaracteristiques(Convert.ToInt32(lstPerso[i][0]));
                             prof = professionService.RetrieveIdProfessionAvecId(Convert.ToInt32(lstPerso[i][5]));
-
+                            
                             Personnage perso = new Personnage(Convert.ToInt32(lstPerso[i][0]), lstPerso[i][1], Convert.ToInt32(lstPerso[i][2]), Convert.ToInt32(lstPerso[i][3]), lstPerso[i][4], lstCar, prof, null);
                             lstPersonnage.Add(perso);
                             lstCar = new List<Caracteristique>();
@@ -90,6 +93,8 @@ namespace Combaxe___New.classes.services
             List<string>[] lstPerso = bdCombaxe.selection(reqSelect, 6, ref nbLigne);
             List<Caracteristique> lstCaracteristique = new List<Caracteristique>();
             Profession prof;
+            List<Competence> lstComp = new List<Competence>();
+
             if (nbLigne != 0)
             {
                 Personnage perso = null;
@@ -100,8 +105,8 @@ namespace Combaxe___New.classes.services
                     /* aller chercher leurs caractéristiques */
                     lstCar = RetrieveCaracteristiques(Convert.ToInt32(lstPerso[0][0]));
                     prof = professionService.RetrieveIdProfessionAvecId(Convert.ToInt32(lstPerso[0][5]));
-                    perso = new Personnage(Convert.ToInt32(lstPerso[0][0]), lstPerso[0][1], Convert.ToInt32(lstPerso[0][2]), Convert.ToInt32(lstPerso[0][3]), lstPerso[0][4], lstCar, prof, null);
-                   
+                    lstComp = competenceService.RetrieveCompetenceUnPersonnage(prof.IdProfession);
+                    perso = new Personnage(Convert.ToInt32(lstPerso[0][0]), lstPerso[0][1], Convert.ToInt32(lstPerso[0][2]), Convert.ToInt32(lstPerso[0][3]), lstPerso[0][4], lstCar, prof, lstComp);                   
                 }
                 
                 return perso;
