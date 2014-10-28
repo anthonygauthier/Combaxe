@@ -75,9 +75,9 @@
             </Grid.RowDefinitions>
             
             <!--Horloge de jeu-->
-            <Border CornerRadius="5,5,5,5" HorizontalAlignment="Stretch" Margin="0,3,0,3" MinWidth="50" MaxWidth="100" MaxHeight="70" Background="White">
-                <Label Name="lblHorloge" HorizontalAlignment="Center"></Label>
-            </Border>
+
+            <TextBlock Name="txtbHorloge" VerticalAlignment="Center" Panel.ZIndex="1" HorizontalAlignment="Center"></TextBlock>
+            <ProgressBar Margin="5" Name="pbHorloge"></ProgressBar>
             
             <!--Journal de combat-->
             <TextBox  Name="txtbJournalCombat" Grid.Row="1" Margin="5" TextWrapping="Wrap" AcceptsReturn="True"></TextBox>

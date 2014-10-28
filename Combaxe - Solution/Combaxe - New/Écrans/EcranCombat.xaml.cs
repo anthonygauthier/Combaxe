@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using Combaxe___New.classes;
 using Combaxe___New.classes.services;
 
@@ -26,9 +27,14 @@ namespace Combaxe___New.écrans
             InitializeComponent();
             chargerEnnemi();
             chargerPersonnage();
+            chronometreCombat();
         }
 
-        //Méthode du bouton pour fuir un combat
+        //On déclare les variables nécéssaires à l'horloge
+        DispatcherTimer horloge;
+        TimeSpan temps;
+
+        //Méthode du bouton pour fuir un combat - Anthony Gauthier 23/10/2014
         private void btnFuir_Click(object sender, RoutedEventArgs e)
         {
             var EcranMenuPrincipal = new EcranMenuPrincipal();
@@ -36,6 +42,7 @@ namespace Combaxe___New.écrans
             this.Close();
         }
 
+        //Méthode qui affiche tous les actions lorsque le bouton Action est cliqué - Anthony Gauthier 23/10/2014
         private void btnChoisirActions_Click(object sender, RoutedEventArgs e)
         {
             //On affiche les quatres buotons d'actions
@@ -45,15 +52,56 @@ namespace Combaxe___New.écrans
             btnAction4.Visibility = Visibility.Visible;
         }
 
+        //Méthode qui affiche les boutons items lorsque le bouton Items est cliqué - Anthony Gauthier 23/10/2014
         private void btnItems_Click(object sender, RoutedEventArgs e)
         {
-            btnAction1.Visibility = Visibility.Visible;
             btnAction2.Visibility = Visibility.Visible;
+            btnAction3.Visibility = Visibility.Visible;
             if(btnAction3.Visibility == Visibility.Visible)
             {
-                btnAction3.Visibility = Visibility.Hidden;
+                btnAction1.Visibility = Visibility.Hidden;
                 btnAction4.Visibility = Visibility.Hidden;
             }
+        }
+
+        //Chronomètre de combat - Anthony Gauthier 28/10/2014
+        private void chronometreCombat()
+        {   
+            //On initialise le temps de l'horloge et la progress bar
+            temps = TimeSpan.FromSeconds(30);
+            pbHorloge.Maximum = temps.TotalSeconds;
+            pbHorloge.Value = pbHorloge.Maximum;
+            
+
+            horloge = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            {
+                txtbHorloge.Text = temps.ToString("%s"); //%s spécifie que nous ne voulons que les secondes qui s'affichent
+
+                //Si l'horloge atteint "0", on le stop
+                if (temps == TimeSpan.Zero)
+                { 
+                    horloge.Stop();
+                }
+                //Sinon, on ajoute du temps à l'horloge
+                else
+                {
+                    //Dépendemment du nombre de secondes qui sont affiché à l'horloge, la couleur de la progress bar change
+                    if(temps == TimeSpan.FromSeconds(15))
+                    {
+                        pbHorloge.Foreground = Brushes.Yellow;
+                    }
+                    else if (temps == TimeSpan.FromSeconds(7))
+                    {
+                        pbHorloge.Foreground = Brushes.Red;
+                    }
+
+                    //On ajoute (enlève) le temps à l'horloge puis on modifie la valeur de la progress bar
+                    temps = temps.Add(TimeSpan.FromSeconds(-1));
+                    pbHorloge.Value = temps.TotalSeconds;
+                }
+            }, Application.Current.Dispatcher);
+
+            horloge.Start();  
         }
 
         private void chargerPersonnage()
