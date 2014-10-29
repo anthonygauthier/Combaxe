@@ -2,27 +2,27 @@
 (nom)
 VALUES
 (
-	'Magique'
+    'Magique'
 );
 
 INSERT INTO TypesCompetences
 (nom)
 VALUES
 (
-	'Physique'
+    'Physique'
 );
 
 INSERT INTO TypesCompetences
 (nom)
 VALUES
 (
-	'Defensive'
+    'Defensive'
 );
 
 INSERT INTO TypesCompetences
 (nom)
 VALUES
 (
-	'Support'
+    'Support'
 );
 

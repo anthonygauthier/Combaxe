@@ -2,34 +2,34 @@
 (nom)
 VALUES
 (
-	'Force'
+    'Force'
 );
 
 INSERT INTO Caracteristiques
 (nom)
 VALUES
 (
-	'Vie'
+    'Vie'
 );
 
 INSERT INTO Caracteristiques
 (nom)
 VALUES
 (
-	'Vitesse'
+    'Vitesse'
 );
 
 INSERT INTO Caracteristiques
 (nom)
 VALUES
 (
-	'Défense'
+    'Défense'
 );
 
 INSERT INTO Caracteristiques
 (nom)
 VALUES
 (
-	'Énergie'
+    'Énergie'
 );
 

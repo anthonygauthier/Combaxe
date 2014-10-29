@@ -2,7 +2,7 @@
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	NULL
 ,	'Attaque physique'
 ,	2
@@ -16,7 +16,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
 ,	NULL
 ,	'Rayon horrifiant'
 ,	7
@@ -30,7 +30,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
 ,	(SELECT idEffet FROM Effets WHERE nom='Peur')
 ,	'Hurlement de terreur'
 ,	10
@@ -44,7 +44,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
 ,	NULL
 ,	'Coup mental'
 ,	20
@@ -58,7 +58,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	NULL
 ,	'Lancer de l\'épée'
 ,	8
@@ -72,7 +72,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	(SELECT idEffet FROM Effets WHERE nom='Saignement')
 ,	'Torture physique'
 ,	17
@@ -86,7 +86,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	NULL
 ,	'Tuerie'
 ,	20
@@ -100,7 +100,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Defensive')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Defensive')
 ,	(SELECT idEffet FROM Effets WHERE nom='Protection')
 ,	'Bouclier des éléments'
 ,	30
@@ -114,7 +114,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Support')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Support')
 ,	NULL
 ,	'Guérison chamanistique'
 ,	45
@@ -128,7 +128,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	NULL
 ,	'Attaque des éléments'
 ,	24
@@ -142,7 +142,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
 ,	NULL
 ,	'Attaque squelettique'
 ,	20
@@ -156,7 +156,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
 ,	NULL
 ,	'Tempête de morts'
 ,	25
@@ -170,7 +170,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
 ,	(SELECT idEffet FROM Effets WHERE nom='Brulure')
 ,	'Feu démoniaque'
 ,	38
@@ -184,7 +184,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	(SELECT idEffet FROM Effets WHERE nom='Saignement')
 ,	'Coup de griffe'
 ,	12
@@ -198,7 +198,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	NULL
 ,	'Morsure endiablée'
 ,	18
@@ -212,7 +212,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	NULL
 ,	'Furie animale'
 ,	27
@@ -226,7 +226,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
 ,	NULL
 ,	'Coup demoniaque'
 ,	14
@@ -240,7 +240,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Support')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Support')
 ,	NULL
 ,	'Rituel de guérison'
 ,	32
@@ -254,7 +254,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	NULL
 ,	'Coup des dieux corrompus'
 ,	29
@@ -268,7 +268,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
 ,	NULL
 ,	'Boule de feu'
 ,	5
@@ -282,7 +282,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Defensive')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Defensive')
 ,	(SELECT idEffet FROM Effets WHERE nom='Protection')
 ,	'Armure Arcanique'
 ,	6
@@ -296,7 +296,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
 ,	NULL
 ,	'Décharge électrique'
 ,	16
@@ -310,7 +310,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
 ,	NULL
 ,	'Coup divin'
 ,	4
@@ -324,7 +324,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Support')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Support')
 ,	NULL
 ,	'Prière de guérison'
 ,	7
@@ -338,7 +338,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	NULL
 ,	'Marteau des dieux'
 ,	14
@@ -352,7 +352,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Defensive')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Defensive')
 ,	(SELECT idEffet FROM Effets WHERE nom='Protection')
 ,	'Peau d\'acier'
 ,	4
@@ -366,7 +366,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	NULL
 ,	'Attaque précise'
 ,	12
@@ -380,7 +380,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	NULL
 ,	'Vision de sang'
 ,	15
@@ -394,7 +394,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
 ,	'Tir gelé'
 ,	15
@@ -408,7 +408,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	NULL
 ,	'Tir explosif'
 ,	15
@@ -422,7 +422,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	NULL
 ,	'Empoisonnement'
 ,	15
@@ -436,7 +436,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	NULL
 ,	'Tir rapide'
 ,	15
@@ -450,7 +450,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Defensive')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Defensive')
 ,	(SELECT idEffet FROM Effets WHERE nom='Protection')
 ,	'Gardien'
 ,	15
@@ -464,7 +464,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
 ,	NULL
 ,	'Souffle de feu'
 ,	15
@@ -478,7 +478,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	(SELECT idEffet FROM Effets WHERE nom='Rapidité accru')
 ,	'Mouvement agile'
 ,	15
@@ -492,7 +492,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	(SELECT idEffet FROM Effets WHERE nom='Immobile')
 ,	'Pétrification'
 ,	15
@@ -506,7 +506,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Support')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Support')
 ,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
 ,	'Régénération'
 ,	15
@@ -520,7 +520,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
 ,	'Invisibilité'
 ,	15
@@ -534,7 +534,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
 ,	'Attaque rapide'
 ,	15
@@ -548,7 +548,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
 ,	'Rafale de tentacules'
 ,	15
@@ -562,7 +562,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
 ,	'Invocation des morts'
 ,	15
@@ -576,7 +576,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
 ,	'Tremblement de terre'
 ,	15
@@ -590,7 +590,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
 ,	'Cri strident'
 ,	15
@@ -604,7 +604,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
 ,	'Coup ailé'
 ,	15
@@ -618,7 +618,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
 ,	'Piétinement'
 ,	15
@@ -632,7 +632,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
 ,	'Mélodie enchantée'
 ,	15
@@ -646,7 +646,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
 ,	'Coup foudroyant'
 ,	15
@@ -660,7 +660,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
 ,	'Confusion'
 ,	15
@@ -674,7 +674,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
 ,	'Instabilité'
 ,	15
@@ -688,7 +688,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
 ,	'Morsure'
 ,	15
@@ -702,7 +702,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
 ,	'Coup féroce'
 ,	15
@@ -716,7 +716,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
+    (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Physique')
 ,	(SELECT idEffet FROM Effets WHERE nom='Glacé')
 ,	'Coup de corne'
 ,	15

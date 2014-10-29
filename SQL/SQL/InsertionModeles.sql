@@ -2,7 +2,7 @@
 (nom, deuxMains)
 VALUES
 (
-	'Arme à une main'
+    'Arme à une main'
 ,	FALSE
 );
 
@@ -10,7 +10,7 @@ INSERT INTO Modeles
 (nom, deuxMains)
 VALUES
 (
-	'Arme à deux mains'
+    'Arme à deux mains'
 ,	TRUE
 );
 
@@ -18,7 +18,7 @@ INSERT INTO Modeles
 (nom, deuxMains)
 VALUES
 (
-	'Bouclier'
+    'Bouclier'
 ,	FALSE
 );
 
@@ -26,7 +26,7 @@ INSERT INTO Modeles
 (nom, deuxMains)
 VALUES
 (
-	'Casque'
+    'Casque'
 ,	FALSE
 );
 
@@ -34,7 +34,7 @@ INSERT INTO Modeles
 (nom, deuxMains)
 VALUES
 (
-	'Épaulette'
+    'Épaulette'
 ,	FALSE
 );
 
@@ -42,7 +42,7 @@ INSERT INTO Modeles
 (nom, deuxMains)
 VALUES
 (
-	'Plastron'
+    'Plastron'
 ,	FALSE
 );
 
@@ -50,7 +50,7 @@ INSERT INTO Modeles
 (nom, deuxMains)
 VALUES
 (
-	'Bottes'
+    'Bottes'
 ,	FALSE
 );
 
@@ -58,7 +58,7 @@ INSERT INTO Modeles
 (nom, deuxMains)
 VALUES
 (
-	'Pantalon'
+    'Pantalon'
 ,	FALSE
 );
 
