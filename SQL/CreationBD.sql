@@ -276,7 +276,9 @@ FOREIGN KEY (idCaracteristique) REFERENCES Caracteristiques(idCaracteristique);
 
 ALTER TABLE CaracteristiquesProfessions
 ADD CONSTRAINT CaracteristiquesProfessions_Professions_FK
-FOREIGN KEY (idProfession) REFERENCES Professions(idProfession);/* DÉBUT DES BOSS */
+FOREIGN KEY (idProfession) REFERENCES Professions(idProfession);
+
+﻿/* DÉBUT DES BOSS */
 
 INSERT INTO Ennemis
 (nom, niveau, boss)
@@ -549,11 +551,13 @@ VALUES
 ,	1
 ,	FALSE
 );
-/* FIN ENNEMI COMMUN */INSERT INTO Modeles
+/* FIN ENNEMI COMMUN */
+
+﻿INSERT INTO Modeles
 (nom, deuxMains)
 VALUES
 (
-	'Arme Ã  une main'
+	'Arme à une main'
 ,	FALSE
 );
 
@@ -561,7 +565,7 @@ INSERT INTO Modeles
 (nom, deuxMains)
 VALUES
 (
-	'Arme Ã  deux mains'
+	'Arme à deux mains'
 ,	TRUE
 );
 
@@ -611,7 +615,9 @@ VALUES
 (
 	'Pantalon'
 ,	FALSE
-);INSERT INTO Caracteristiques
+);
+
+﻿INSERT INTO Caracteristiques
 (nom)
 VALUES
 (
@@ -644,7 +650,9 @@ INSERT INTO Caracteristiques
 VALUES
 (
 	'Énergie'
-);INSERT INTO Professions
+);
+
+﻿INSERT INTO Professions
 (nom, description)
 VALUES
 (
@@ -672,7 +680,9 @@ VALUES
 ,	'Le guerrier est une brute ne se fiant qu\'à sa force pour abattre ses ennemis, il n\'hésite pas une seconde
 	à enfoncer son sur sur ceux-ci. Endurci par les combats au corps à corps, le guerrier est résistant et physiquement
 	très fort.'
-);/* DÉBUT CARACTERISTIQUE GUERRIER */
+);
+
+﻿/* DÉBUT CARACTERISTIQUE GUERRIER */
 INSERT INTO CaracteristiquesProfessions
 (idCaracteristique, idProfession, valeur)
 VALUES
@@ -814,7 +824,9 @@ VALUES
 ,	(SELECT idProfession FROM Professions WHERE nom='Magicien')
 ,	8
 );
-/* FIN CARACTERISTIQUE MAGICIEN *//* DÉBUT CARACTERISTIQUE BOSS */
+/* FIN CARACTERISTIQUE MAGICIEN */
+
+﻿/* DÉBUT CARACTERISTIQUE BOSS */
 INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
@@ -846,7 +858,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Azazel')
 ,	13
 );
@@ -856,7 +868,7 @@ INSERT INTO CaracteristiquesEnnemis
 VALUES
 (
 
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Azazel')
 ,	16
 );
@@ -892,7 +904,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Moguarnoch')
 ,	25
 );
@@ -901,7 +913,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Moguarnoch')
 ,	12
 );
@@ -937,7 +949,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Zakuta')
 ,	42
 );
@@ -946,7 +958,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Zakuta')
 ,	31
 );
@@ -982,7 +994,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ful\'kitak')
 ,	53
 );
@@ -991,7 +1003,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ful\'kitak')
 ,	31
 );
@@ -1009,7 +1021,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Harfanghei')
 ,	39
 );
@@ -1036,7 +1048,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Harfanghei')
 ,	20
 );
@@ -1054,7 +1066,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Arkanok')
 ,	82
 );
@@ -1081,7 +1093,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Arkanok')
 ,	59
 );
@@ -1101,7 +1113,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ange déchu')
 ,	5
 );
@@ -1128,7 +1140,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ange déchu')
 ,	5
 );
@@ -1146,7 +1158,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Bandit')
 ,	5
 );
@@ -1173,7 +1185,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Bandit')
 ,	5
 );
@@ -1191,7 +1203,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Centaure')
 ,	5
 );
@@ -1218,7 +1230,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Centaure')
 ,	5
 );
@@ -1236,7 +1248,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Dragon')
 ,	5
 );
@@ -1263,7 +1275,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Dragon')
 ,	5
 );
@@ -1281,7 +1293,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Elfe')
 ,	5
 );
@@ -1308,7 +1320,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Elfe')
 ,	5
 );
@@ -1326,7 +1338,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Farfadet')
 ,	5
 );
@@ -1353,7 +1365,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Farfadet')
 ,	5
 );
@@ -1371,7 +1383,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Gorgone')
 ,	5
 );
@@ -1398,7 +1410,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Gorgone')
 ,	5
 );
@@ -1416,7 +1428,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Hydre')
 ,	5
 );
@@ -1443,7 +1455,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Hydre')
 ,	5
 );
@@ -1463,7 +1475,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Iguane démoniaque')
 ,	5
 );
@@ -1490,7 +1502,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Iguane démoniaque')
 ,	5
 );
@@ -1508,7 +1520,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Jaguar géant')
 ,	5
 );
@@ -1535,7 +1547,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Jaguar géant')
 ,	5
 );
@@ -1553,7 +1565,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Kraken')
 ,	5
 );
@@ -1580,7 +1592,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Kraken')
 ,	5
 );
@@ -1598,7 +1610,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Licorne')
 ,	5
 );
@@ -1625,7 +1637,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Licorne')
 ,	5
 );
@@ -1643,7 +1655,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Minotaure')
 ,	5
 );
@@ -1670,7 +1682,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Minotaure')
 ,	5
 );
@@ -1688,7 +1700,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Nécromancien')
 ,	5
 );
@@ -1715,7 +1727,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Nécromancien')
 ,	5
 );
@@ -1733,7 +1745,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ogre')
 ,	5
 );
@@ -1760,7 +1772,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ogre')
 ,	5
 );
@@ -1778,7 +1790,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ptérodactyle')
 ,	5
 );
@@ -1805,7 +1817,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ptérodactyle')
 ,	5
 );
@@ -1825,7 +1837,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Rhinocéros sauvage')
 ,	5
 );
@@ -1852,7 +1864,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Rhinocéros sauvage')
 ,	5
 );
@@ -1870,7 +1882,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Satyre')
 ,	5
 );
@@ -1897,7 +1909,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Satyre')
 ,	5
 );
@@ -1915,7 +1927,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Troll')
 ,	5
 );
@@ -1942,7 +1954,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Troll')
 ,	5
 );
@@ -1960,7 +1972,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ubuntu')
 ,	5
 );
@@ -1987,7 +1999,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Ubuntu')
 ,	5
 );
@@ -2005,7 +2017,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Vampire')
 ,	5
 );
@@ -2032,7 +2044,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Vampire')
 ,	5
 );
@@ -2050,7 +2062,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Worg')
 ,	5
 );
@@ -2077,7 +2089,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Worg')
 ,	5
 );
@@ -2095,7 +2107,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Yéti')
 ,	5
 );
@@ -2122,7 +2134,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Yéti')
 ,	5
 );
@@ -2140,7 +2152,7 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Defense')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Zombie')
 ,	5
 );
@@ -2167,16 +2179,18 @@ INSERT INTO CaracteristiquesEnnemis
 (idCaracteristique, idEnnemi, valeur)
 VALUES
 (
-	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Energie')
+	(SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
 ,	(SELECT idEnnemi FROM Ennemis WHERE nom='Zombie')
 ,	5
 );
-/* FIN CARACTÉRISTIQUE ENNEMIS Q-Z *//*DÉBUT PRATIQUE*/
+/* FIN CARACTÉRISTIQUE ENNEMIS Q-Z */
+
+﻿/*DÉBUT PRATIQUE*/
 	INSERT INTO EquipementsModeles
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Épée de pratique'
 	,	7.07
 	,	2
@@ -2187,7 +2201,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Bâton de pratique'
 	,	7.07
 	,	2
@@ -2198,7 +2212,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Marteau de pratique'
 	,	4.71
 	,	1
@@ -2222,7 +2236,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Épée rouillée'
 	,	134.30
 	,	3
@@ -2233,7 +2247,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Bâton rouillé'
 	,	134.30
 	,	3
@@ -2244,7 +2258,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Marteau rouillé'
 	,	89.54
 	,	2
@@ -2266,7 +2280,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Dague rouillée'
 	,	89.54
 	,	2
@@ -2277,7 +2291,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Baguette rouillée'
 	,	89.54
 	,	2
@@ -2288,7 +2302,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Hache rouillée'
 	,	134.30
 	,	3
@@ -2299,7 +2313,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Lance rouillée'
 	,	134.30
 	,	3
@@ -2312,7 +2326,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Épée magique'
 	,	311.02
 	,	4
@@ -2323,7 +2337,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Bâton magique'
 	,	311.02
 	,	4
@@ -2334,7 +2348,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Marteau magique'
 	,	207.35
 	,	2
@@ -2356,7 +2370,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Dague magique'
 	,	207.35
 	,	2
@@ -2367,7 +2381,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Baguette magique'
 	,	207.35
 	,	2
@@ -2378,7 +2392,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Hache magique'
 	,	311.02
 	,	4
@@ -2389,7 +2403,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Lance magique'
 	,	311.02
 	,	4
@@ -2402,7 +2416,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Épée élémentale'
 	,	1032.02
 	,	6
@@ -2413,7 +2427,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Bâton élémental'
 	,	1032.02
 	,	6
@@ -2424,7 +2438,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Marteau élémental'
 	,	688.01
 	,	3
@@ -2446,7 +2460,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Dague élémentale'
 	,	688.01
 	,	3
@@ -2457,7 +2471,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Baguette élémentale'
 	,	688.01
 	,	3
@@ -2468,7 +2482,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Hache élémentale'
 	,	1032.02
 	,	6
@@ -2479,7 +2493,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Lance élémentale'
 	,	1032.02
 	,	6
@@ -2492,7 +2506,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Épée de bronze'
 	,	1632.84
 	,	7
@@ -2503,7 +2517,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Bâton de bronze'
 	,	1632.84
 	,	7
@@ -2514,7 +2528,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Marteau de bronze'
 	,	1088.56
 	,	4
@@ -2536,7 +2550,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Dague de bronze'
 	,	1088.56
 	,	4
@@ -2547,7 +2561,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Baguette de bronze'
 	,	1088.56
 	,	4
@@ -2558,7 +2572,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Hache de bronze'
 	,	1632.84
 	,	7
@@ -2569,7 +2583,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Lance de bronze'
 	,	1632.84
 	,	7
@@ -2582,7 +2596,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Épée de fer'
 	,	3456.54
 	,	9
@@ -2593,7 +2607,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Bâton de fer'
 	,	3456.54
 	,	9
@@ -2604,7 +2618,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Marteau de fer'
 	,	2304.36
 	,	5
@@ -2626,7 +2640,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Dague de fer'
 	,	2304.36
 	,	5
@@ -2637,7 +2651,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Baguette de fer'
 	,	2304.36
 	,	5
@@ -2648,7 +2662,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Hache de fer'
 	,	3456.54
 	,	9
@@ -2659,7 +2673,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Lance de fer'
 	,	3456.54
 	,	9
@@ -2672,7 +2686,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Épée enchantée'
 	,	4735.96
 	,	10
@@ -2683,7 +2697,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Bâton enchanté'
 	,	4735.96
 	,	10
@@ -2694,7 +2708,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Marteau enchanté'
 	,	3157.30
 	,	5
@@ -2716,7 +2730,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Dague enchantée'
 	,	3157.30
 	,	5
@@ -2727,7 +2741,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Baguette enchantée'
 	,	3157.30
 	,	5
@@ -2738,7 +2752,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Hache enchantée'
 	,	4735.96
 	,	10
@@ -2749,7 +2763,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Lance enchantée'
 	,	4735.96
 	,	10
@@ -2762,7 +2776,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Épée maudite'
 	,	8171.30
 	,	12
@@ -2773,7 +2787,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Bâton maudit'
 	,	8171.30
 	,	12
@@ -2784,7 +2798,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Marteau maudit'
 	,	5447.53
 	,	6
@@ -2806,7 +2820,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Dague maudite'
 	,	5447.53
 	,	6
@@ -2817,7 +2831,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Baguette maudite'
 	,	5447.53
 	,	6
@@ -2828,7 +2842,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Hache maudite'
 	,	8171.30
 	,	12
@@ -2839,7 +2853,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Lance maudite'
 	,	8171.30
 	,	12
@@ -2852,7 +2866,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Épée sacrée'
 	,	10383.77
 	,	13
@@ -2863,7 +2877,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Bâton sacré'
 	,	10383.77
 	,	13
@@ -2874,7 +2888,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Marteau sacré'
 	,	6922.52
 	,	7
@@ -2896,7 +2910,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Dague sacrée'
 	,	6922.52
 	,	7
@@ -2907,7 +2921,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Baguette sacrée'
 	,	6922.52
 	,	7
@@ -2918,7 +2932,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Hache sacrée'
 	,	10383.77
 	,	13
@@ -2929,7 +2943,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Lance sacrée'
 	,	10383.77
 	,	13
@@ -2942,7 +2956,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Épée de crystal'
 	,	15939.69
 	,	15
@@ -2953,7 +2967,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Bâton de crystal'
 	,	15939.69
 	,	15
@@ -2964,7 +2978,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Marteau de crystal'
 	,	10626.46
 	,	8
@@ -2986,7 +3000,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Dague de crystal'
 	,	10626.46
 	,	8
@@ -2997,7 +3011,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Baguette de crystal'
 	,	10626.46
 	,	8
@@ -3008,7 +3022,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Hache de crystal'
 	,	15939.69
 	,	15
@@ -3019,7 +3033,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Lance de crystal'
 	,	15939.69
 	,	15
@@ -3027,13 +3041,13 @@ VALUES
 	);
 /* FIN CRYSTAL*/
 
-/*DÉBUT HÉROÃQUE*/
+/*DÉBUT HÉROÏQUE*/
 	INSERT INTO EquipementsModeles
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
-	,	'Épée héroÃ¯que'
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
+	,	'Épée héroïque'
 	,	19339.70
 	,	16
 	,	32
@@ -3043,8 +3057,8 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
-	,	'Bâton héroÃ¯que'
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
+	,	'Bâton héroïque'
 	,	19339.70
 	,	16
 	,	32
@@ -3054,8 +3068,8 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
-	,	'Marteau héroÃ¯que'
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
+	,	'Marteau héroïque'
 	,	12893.13
 	,	8
 	,	24
@@ -3066,7 +3080,7 @@ VALUES
 	VALUES
 	(
 		(SELECT idModele FROM Modeles WHERE nom='Bouclier')
-	,	'Bouclier héroÃ¯que'
+	,	'Bouclier héroïque'
 	,	12893.13
 	,	0
 	,	0
@@ -3076,8 +3090,8 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
-	,	'Dague héroÃ¯que'
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
+	,	'Dague héroïque'
 	,	12893.13
 	,	8
 	,	24
@@ -3087,8 +3101,8 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
-	,	'Baguette héroÃ¯que'
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
+	,	'Baguette héroïque'
 	,	12893.13
 	,	8
 	,	24
@@ -3098,8 +3112,8 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
-	,	'Hache héroÃ¯que'
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
+	,	'Hache héroïque'
 	,	19339.70
 	,	16
 	,	32
@@ -3109,20 +3123,20 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
-	,	'Lance héroÃ¯que'
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
+	,	'Lance héroïque'
 	,	19339.70
 	,	16
 	,	32
 	);
-/* FIN HÉROÃQUE */
+/* FIN HÉROÏQUE */
 
 /*DÉBUT LÉGENDAIRE*/
 	INSERT INTO EquipementsModeles
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Épée légendaire'
 	,	23192.08
 	,	17
@@ -3133,7 +3147,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Bâton légendaire'
 	,	23192.08
 	,	17
@@ -3144,7 +3158,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Marteau légendaire'
 	,	15461.38
 	,	9
@@ -3166,7 +3180,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Dague légendaire'
 	,	15461.38
 	,	9
@@ -3177,7 +3191,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Baguette légendaire'
 	,	15461.38
 	,	9
@@ -3188,7 +3202,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Hache légendaire'
 	,	23192.08
 	,	17
@@ -3199,7 +3213,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Lance légendaire'
 	,	23192.08
 	,	17
@@ -3212,7 +3226,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Épée de diamant'
 	,	32367.12
 	,	19
@@ -3223,7 +3237,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Bâton de diamant'
 	,	32367.12
 	,	19
@@ -3234,7 +3248,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Marteau de diamant'
 	,	21578.08
 	,	10
@@ -3256,7 +3270,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Dague de diamant'
 	,	21578.08
 	,	10
@@ -3267,7 +3281,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Baguette de diamant'
 	,	21578.08
 	,	10
@@ -3278,7 +3292,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Hache de diamant'
 	,	32367.12
 	,	19
@@ -3289,7 +3303,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Lance de diamant'
 	,	32367.12
 	,	19
@@ -3302,7 +3316,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Épée céleste'
 	,	37746.32
 	,	20
@@ -3313,7 +3327,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Bâton céleste'
 	,	37746.32
 	,	20
@@ -3324,7 +3338,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Marteau céleste'
 	,	25164.22
 	,	10
@@ -3346,7 +3360,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Dague céleste'
 	,	25164.22
 	,	10
@@ -3357,7 +3371,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  une main')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à une main')
 	,	'Baguette céleste'
 	,	25164.22
 	,	10
@@ -3368,7 +3382,7 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Hache céleste'
 	,	37746.32
 	,	20
@@ -3379,13 +3393,15 @@ VALUES
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
-		(SELECT idModele FROM Modeles WHERE nom='Arme Ã  deux mains')
+		(SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
 	,	'Lance céleste'
 	,	37746.32
 	,	20
 	,	40
 	);
-/* FIN CÉLESTE *//* DÉBUT CUIR/TISSU */
+/* FIN CÉLESTE */
+
+﻿/* DÉBUT CUIR/TISSU */
 	INSERT INTO EquipementsModeles
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
@@ -4505,13 +4521,13 @@ VALUES
 	);
 /* FIN OR */
 
-/* DÉBUT HÉROÃQUE */
+/* DÉBUT HÉROÏQUE */
 	INSERT INTO EquipementsModeles
 	(idModele, nom, prix, degatMin, degatMax)
 	VALUES
 	(
 		(SELECT idModele FROM Modeles WHERE nom='Plastron')
-	,	'Plastron héroÃ¯que'
+	,	'Plastron héroïque'
 	,	19339.70
 	,	0
 	,	0
@@ -4522,7 +4538,7 @@ VALUES
 	VALUES
 	(
 		(SELECT idModele FROM Modeles WHERE nom='Plastron')
-	,	'Robe héroÃ¯que'
+	,	'Robe héroïque'
 	,	19339.70
 	,	0
 	,	0
@@ -4533,7 +4549,7 @@ VALUES
 	VALUES
 	(
 		(SELECT idModele FROM Modeles WHERE nom='Pantalon')
-	,	'Pantalon héroÃ¯que'
+	,	'Pantalon héroïque'
 	,	19339.70
 	,	0
 	,	0
@@ -4544,7 +4560,7 @@ VALUES
 	VALUES
 	(
 		(SELECT idModele FROM Modeles WHERE nom='Pantalon')
-	,	'Leggings héroÃ¯ques'
+	,	'Leggings héroïques'
 	,	19339.70
 	,	0
 	,	0
@@ -4555,7 +4571,7 @@ VALUES
 	VALUES
 	(
 		(SELECT idModele FROM Modeles WHERE nom='Épaulette')
-	,	'Épaulettes héroÃ¯ques'
+	,	'Épaulettes héroïques'
 	,	12893.13
 	,	0
 	,	0
@@ -4566,7 +4582,7 @@ VALUES
 	VALUES
 	(
 		(SELECT idModele FROM Modeles WHERE nom='Épaulette')
-	,	'Épaulières héroÃ¯ques'
+	,	'Épaulières héroïques'
 	,	12893.13
 	,	0
 	,	0
@@ -4577,7 +4593,7 @@ VALUES
 	VALUES
 	(
 		(SELECT idModele FROM Modeles WHERE nom='Casque')
-	,	'Casque héroÃ¯que'
+	,	'Casque héroïque'
 	,	12893.13
 	,	0
 	,	0
@@ -4588,7 +4604,7 @@ VALUES
 	VALUES
 	(
 		(SELECT idModele FROM Modeles WHERE nom='Casque')
-	,	'Couronne héroÃ¯que'
+	,	'Couronne héroïque'
 	,	12893.13
 	,	0
 	,	0
@@ -4599,7 +4615,7 @@ VALUES
 	VALUES
 	(
 		(SELECT idModele FROM Modeles WHERE nom='Bottes')
-	,	'Bottes héroÃ¯ques'
+	,	'Bottes héroïques'
 	,	12893.13
 	,	0
 	,	0
@@ -4610,12 +4626,12 @@ VALUES
 	VALUES
 	(
 		(SELECT idModele FROM Modeles WHERE nom='Bottes')
-	,	'Souliers héroÃ¯ques'
+	,	'Souliers héroïques'
 	,	12893.13
 	,	0
 	,	0
 	);
-/* FIN HÉROÃQUE */
+/* FIN HÉROÏQUE */
 
 /* DÉBUT LÉGENDAIRE */
 	INSERT INTO EquipementsModeles
@@ -4951,7 +4967,9 @@ VALUES
 	,	0
 	,	0
 	);
-/* FIN CÉLESTE *//* DÉBUT CUIR/TISSU */
+/* FIN CÉLESTE */
+
+﻿/* DÉBUT CUIR/TISSU */
 INSERT INTO CaracteristiquesEquipementsModeles
 (idCaracteristique, idEquipementModele, valeur)
 VALUES
@@ -5603,7 +5621,9 @@ VALUES
 ,	(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers magiques')
 ,	4
 );
-/* FIN MAGIQUE */INSERT INTO CaracteristiquesEquipementsModeles
+/* FIN MAGIQUE */
+
+﻿INSERT INTO CaracteristiquesEquipementsModeles
 (idCaracteristique, idEquipementModele, valeur)
 VALUES
 (	
@@ -5969,7 +5989,9 @@ VALUES
 );
 
 /* FIN MAGIQUE */
-INSERT INTO Effets
+
+
+﻿INSERT INTO Effets
 (nom, description, tempsEffets)
 VALUES
 (
@@ -5982,7 +6004,7 @@ INSERT INTO Effets
 VALUES
 (
 	'Saignement'
-,	'La cible reÃ§oit des dégâts par tour'
+,	'La cible reçoit des dégâts par tour'
 ,	2
 );
 
@@ -5991,7 +6013,7 @@ INSERT INTO Effets
 VALUES
 (
 	'Brulure'
-,	'La cible reÃ§oit des dégâts de feu par tour'
+,	'La cible reçoit des dégâts de feu par tour'
 ,	3
 );
 
@@ -6045,9 +6067,11 @@ INSERT INTO Effets
 VALUES
 (
 	'Empoisonné'
-,	'La cible reÃ§oit des dégâts par tour'
+,	'La cible reçoit des dégâts par tour'
 ,	3
-);INSERT INTO TypesCompetences
+);
+
+﻿INSERT INTO TypesCompetences
 (nom)
 VALUES
 (
@@ -6065,7 +6089,7 @@ INSERT INTO TypesCompetences
 (nom)
 VALUES
 (
-	'Defensif'
+	'Defensive'
 );
 
 INSERT INTO TypesCompetences
@@ -6073,7 +6097,9 @@ INSERT INTO TypesCompetences
 VALUES
 (
 	'Support'
-);INSERT INTO Competences
+);
+
+﻿INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
@@ -6140,7 +6166,7 @@ VALUES
 ,	12
 ,	6
 ,	2
-,	'Lance une épée qui afflige de lourd dégât Ã  l\'ennemi. '
+,	'Lance une épée qui afflige de lourd dégât à l\'ennemi. '
 );
 
 INSERT INTO Competences
@@ -6175,14 +6201,14 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Defensif')
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Defensive')
 ,	(SELECT idEffet FROM Effets WHERE nom='Protection')
 ,	'Bouclier des éléments'
 ,	30
 ,	35
 ,	14
 ,	3
-,	CONCAT('Absorbe les dégâts reÃ§ut dans ce bouclier résistant. ',(SELECT description FROM Effets WHERE nom='Protection'),' pendant ',(SELECT tempsEffets FROM Effets WHERE nom='Protection') ,' tour.')
+,	CONCAT('Absorbe les dégâts reçut dans ce bouclier résistant. ',(SELECT description FROM Effets WHERE nom='Protection'),' pendant ',(SELECT tempsEffets FROM Effets WHERE nom='Protection') ,' tour.')
 );
 
 INSERT INTO Competences
@@ -6233,7 +6259,7 @@ VALUES
 (
 	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Magique')
 ,	NULL
-,	'TempÃªte de morts'
+,	'Tempête de morts'
 ,	25
 ,	30
 ,	30
@@ -6252,7 +6278,7 @@ VALUES
 ,	45
 ,	36
 ,	4
-,	CONCAT('Attaque l\'ennemi avec le feu brÃ»lant des enfers. ',(SELECT description FROM Effets WHERE nom='Brulure'),' pendant ',(SELECT tempsEffets FROM Effets WHERE nom='Brulure') ,' tour.')
+,	CONCAT('Attaque l\'ennemi avec le feu brûlant des enfers. ',(SELECT description FROM Effets WHERE nom='Brulure'),' pendant ',(SELECT tempsEffets FROM Effets WHERE nom='Brulure') ,' tour.')
 );
 
 INSERT INTO Competences
@@ -6322,7 +6348,7 @@ VALUES
 ,	47
 ,	19
 ,	3
-,	'Guérit la cible grâce Ã  la puissance des ténèbres. '
+,	'Guérit la cible grâce à la puissance des ténèbres. '
 );
 
 INSERT INTO Competences
@@ -6350,14 +6376,14 @@ VALUES
 ,	10
 ,	4
 ,	2
-,	'Lance une boule de feu Ã  l\'ennemi. '
+,	'Lance une boule de feu à l\'ennemi. '
 );
 
 INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Defensif')
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Defensive')
 ,	(SELECT idEffet FROM Effets WHERE nom='Protection')
 ,	'Armure Arcanique'
 ,	6
@@ -6378,7 +6404,7 @@ VALUES
 ,	25
 ,	25
 ,	4
-,	'Lance une boule de feu Ã  l\'ennemi. '
+,	'Lance une boule de feu à l\'ennemi. '
 );
 
 INSERT INTO Competences
@@ -6427,7 +6453,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Defensif')
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Defensive')
 ,	(SELECT idEffet FROM Effets WHERE nom='Protection')
 ,	'Peau d\'acier'
 ,	4
@@ -6448,7 +6474,7 @@ VALUES
 ,	16
 ,	5
 ,	3
-,	'Concentre son attaque sur un mÃªme point précis. '
+,	'Concentre son attaque sur un même point précis. '
 );
 
 INSERT INTO Competences
@@ -6525,7 +6551,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Defensif')
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Defensive')
 ,	(SELECT idEffet FROM Effets WHERE nom='Protection')
 ,	'Gardien'
 ,	15
@@ -6799,7 +6825,9 @@ VALUES
 ,	12
 ,	4
 ,	'Devient fou et veut voir son ennemi ensanglanté. '
-);/* COMPÉTENCES AZAZEL */
+);
+
+﻿/* COMPÉTENCES AZAZEL */
 INSERT INTO CompetencesEnnemis
 (idEnnemi, idCompetence)
 VALUES
@@ -6931,7 +6959,7 @@ INSERT INTO CompetencesEnnemis
 VALUES
 (
 	(SELECT idEnnemi FROM Ennemis WHERE nom='Ful\'kitak')
-,	(SELECT idCompetence FROM Competences WHERE nom='TempÃªte de morts')
+,	(SELECT idCompetence FROM Competences WHERE nom='Tempête de morts')
 );
 /* FIN COMPÉTENCES Ful'kitak */
 
@@ -7450,6 +7478,8 @@ VALUES
 ,	(SELECT idCompetence FROM Competences WHERE nom='Empoisonnement')
 );
 /* FIN COMPÉTENCES ENNEMI Q-Z*/
+
+
 /* COMPÉTENCES Guerrier */
 INSERT INTO CompetencesProfessions
 (idProfession, idCompetence)
