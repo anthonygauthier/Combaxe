@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Combaxe___New.classes
 {
-    public enum Caracteristiques
+    public enum Caracteristiques : int
     {
         Force,
         Defense, 

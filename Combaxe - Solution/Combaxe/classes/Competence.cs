@@ -6,6 +6,15 @@ using System.Threading.Tasks;
 
 namespace Combaxe___New.classes
 {
+
+    public enum Competences
+    {
+        Physique,
+        Magique,
+        Defensive,
+        Support
+    }
+
     public class Competence
     {
         public int IdCompetence { get; set; }
