@@ -32,5 +32,13 @@ namespace Combaxe___New.classes.abstraites
             ListeCaracteristique = lstCar;
             ListeCompetence = lstComp;
         }
+
+        public void perteDeVie(int point, bool personnage)
+        {
+            if(personnage == true)
+            {
+
+            }
+        }
     }
 }

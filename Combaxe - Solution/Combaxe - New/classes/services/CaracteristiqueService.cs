@@ -45,19 +45,19 @@ namespace Combaxe___New.classes.services
             {
                 switch (i)
                 {
-                    case 0:
+                    case (int)Caracteristiques.Force:
                         nom = Caracteristiques.Force.ToString();
                         break;
-                    case 1:
-                        nom = Caracteristiques.Vie.ToString();
-                        break;
-                    case 2:
+                    case (int)Caracteristiques.Defense:
                         nom = Caracteristiques.Defense.ToString();
                         break;
-                    case 3:
+                    case (int)Caracteristiques.Vie:
+                        nom = Caracteristiques.Vie.ToString();
+                        break;
+                    case (int)Caracteristiques.Energie:
                         nom = Caracteristiques.Energie.ToString();
                         break;
-                    case 4:
+                    case (int)Caracteristiques.Vitesse:
                         nom = Caracteristiques.Vitesse.ToString();
                         break;
                 }
