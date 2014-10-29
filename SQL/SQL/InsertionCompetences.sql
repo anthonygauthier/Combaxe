@@ -415,7 +415,7 @@ VALUES
 ,22
 ,12
 ,4
-,'Devient fou et veut voir son ennemi ensanglanté. '
+,'Projectile doté de poudre à canon explosive. '
 );
 
 INSERT INTO Competences
@@ -429,7 +429,7 @@ VALUES
 ,22
 ,12
 ,4
-,'Devient fou et veut voir son ennemi ensanglanté. '
+,'Coup qui empoisonne instantanemment son adversaire pour des dégâts immédiat. '
 );
 
 INSERT INTO Competences
@@ -443,7 +443,7 @@ VALUES
 ,22
 ,12
 ,4
-,'Devient fou et veut voir son ennemi ensanglanté. '
+,'Tir des projectiles très rapidement envers son adversaire. '
 );
 
 INSERT INTO Competences
@@ -471,7 +471,7 @@ VALUES
 ,22
 ,12
 ,4
-,'Devient fou et veut voir son ennemi ensanglanté. '
+,'Envoie des flammes vers son adversaire. '
 );
 
 INSERT INTO Competences
@@ -485,7 +485,7 @@ VALUES
 ,22
 ,12
 ,4
-,'Devient fou et veut voir son ennemi ensanglanté. '
+,'Bouge avec dextérité pour atteindre son adversaire avec peu de chance de raté. '
 );
 
 INSERT INTO Competences
@@ -499,7 +499,7 @@ VALUES
 ,22
 ,12
 ,4
-,'Devient fou et veut voir son ennemi ensanglanté. '
+,'Faire peur à son ennemi lui infligeant des dégâts et le fige. '
 );
 
 INSERT INTO Competences
@@ -513,7 +513,7 @@ VALUES
 ,22
 ,12
 ,4
-,'Devient fou et veut voir son ennemi ensanglanté. '
+,'Se redonne des points de vie. '
 );
 
 INSERT INTO Competences
@@ -527,7 +527,7 @@ VALUES
 ,22
 ,12
 ,4
-,'Devient fou et veut voir son ennemi ensanglanté. '
+,'Devient invisible et absorbe des dégâts pendant X tours. '
 );
 
 INSERT INTO Competences
@@ -541,7 +541,7 @@ VALUES
 ,22
 ,12
 ,4
-,'Devient fou et veut voir son ennemi ensanglanté. '
+,'Attaque son adversaire rapidement avec des coups remplis de force. '
 );
 
 INSERT INTO Competences
@@ -555,7 +555,7 @@ VALUES
 ,22
 ,12
 ,4
-,'Devient fou et veut voir son ennemi ensanglanté. '
+,'Attaque son ennemi rapidement avec des coups de tentacules. '
 );
 
 INSERT INTO Competences
@@ -569,7 +569,7 @@ VALUES
 ,22
 ,12
 ,4
-,'Devient fou et veut voir son ennemi ensanglanté. '
+,'Invoque un mort attaquant l'\adversaire, le mort retourne d'\où il vient après le tour. '
 );
 
 INSERT INTO Competences
@@ -583,7 +583,7 @@ VALUES
 ,22
 ,12
 ,4
-,'Devient fou et veut voir son ennemi ensanglanté. '
+,'Créer un tremblement de terre. '
 );
 
 INSERT INTO Competences
@@ -597,7 +597,7 @@ VALUES
 ,22
 ,12
 ,4
-,'Devient fou et veut voir son ennemi ensanglanté. '
+,'Cri de manière déstabilisante. '
 );
 
 INSERT INTO Competences
@@ -611,7 +611,7 @@ VALUES
 ,22
 ,12
 ,4
-,'Devient fou et veut voir son ennemi ensanglanté. '
+,'Donne un coup d'\aile à son adversaire. '
 );
 
 INSERT INTO Competences
@@ -625,7 +625,7 @@ VALUES
 ,22
 ,12
 ,4
-,'Devient fou et veut voir son ennemi ensanglanté. '
+,'Fonce vers son adversaire et le piétine. '
 );
 
 INSERT INTO Competences
@@ -639,7 +639,7 @@ VALUES
 ,22
 ,12
 ,4
-,'Devient fou et veut voir son ennemi ensanglanté. '
+,'Joue une mélodie qui est accompagné d'\un sort maléfique. '
 );
 
 INSERT INTO Competences
@@ -653,7 +653,7 @@ VALUES
 ,22
 ,12
 ,4
-,'Devient fou et veut voir son ennemi ensanglanté. '
+,'Inflige un coup enchanté par la foudre à son adversaire. '
 );
 
 INSERT INTO Competences
@@ -667,7 +667,7 @@ VALUES
 ,22
 ,12
 ,4
-,'Devient fou et veut voir son ennemi ensanglanté. '
+,'Jette un sort à son adversaire le plongeant dans la confusion pour X tours. '
 );
 
 INSERT INTO Competences
@@ -681,7 +681,7 @@ VALUES
 ,22
 ,12
 ,4
-,'Devient fou et veut voir son ennemi ensanglanté. '
+,'Donne un coup précis à son adversaire, le rendant instable pour X tours. '
 );
 
 INSERT INTO Competences
@@ -695,7 +695,7 @@ VALUES
 ,22
 ,12
 ,4
-,'Devient fou et veut voir son ennemi ensanglanté. '
+,'Fonce vers son adversaire et le mord. '
 );
 
 INSERT INTO Competences
@@ -709,7 +709,7 @@ VALUES
 ,22
 ,12
 ,4
-,'Devient fou et veut voir son ennemi ensanglanté. '
+,'Attaque son adversaire d'\un coup quasiment animal.'
 );
 
 INSERT INTO Competences
@@ -723,6 +723,6 @@ VALUES
 ,22
 ,12
 ,4
-,'Devient fou et veut voir son ennemi ensanglanté. '
+,'Attaque son adversaire avec ses cornes. '
 );
 
