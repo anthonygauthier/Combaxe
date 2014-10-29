@@ -100,7 +100,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Defensif')
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Defensive')
 ,	(SELECT idEffet FROM Effets WHERE nom='Protection')
 ,	'Bouclier des éléments'
 ,	30
@@ -282,7 +282,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Defensif')
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Defensive')
 ,	(SELECT idEffet FROM Effets WHERE nom='Protection')
 ,	'Armure Arcanique'
 ,	6
@@ -352,7 +352,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Defensif')
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Defensive')
 ,	(SELECT idEffet FROM Effets WHERE nom='Protection')
 ,	'Peau d\'acier'
 ,	4
@@ -450,7 +450,7 @@ INSERT INTO Competences
 (idTypeCompetence, idEffet, nom, valeurMin, valeurMax, energieUtilise, tempsRecharge, description)
 VALUES
 (
-	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Defensif')
+	(SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Defensive')
 ,	(SELECT idEffet FROM Effets WHERE nom='Protection')
 ,	'Gardien'
 ,	15
