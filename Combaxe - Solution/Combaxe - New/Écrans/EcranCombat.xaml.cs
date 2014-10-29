@@ -58,7 +58,7 @@ namespace Combaxe___New.écrans
             btnAction2.Content = VarGlobales.Personnage.ListeCompetence[1].Nom;
             btnAction3.Content = VarGlobales.Personnage.ListeCompetence[2].Nom;
             btnAction4.Content = VarGlobales.Personnage.ListeCompetence[3].Nom;
-            btnAction1.ToolTip = null;
+            btnAction1.ToolTip = afficherTooltip(0);
         }
 
         //Méthode qui affiche les boutons items lorsque le bouton Items est cliqué - Anthony Gauthier 23/10/2014
@@ -66,8 +66,8 @@ namespace Combaxe___New.écrans
         {
             btnAction2.Visibility = Visibility.Visible;
 
-            btnAction1.Content = "";
             btnAction2.Content = "";
+            btnAction3.Content = "";
 
             btnAction3.Visibility = Visibility.Visible;
 
@@ -180,9 +180,8 @@ namespace Combaxe___New.écrans
         /// </summary>
         /// <param name="pointMin">la valeur minimum</param>
         /// <param name="pointMax">la valeur maximum</param>
-        /// <param name="idType">le type pour le calcul des dégâts selon magique ou physique</param>
         /// <returns>les points</returns>
-        private int calculValeur(int pointMin, int pointMax, int idType)
+        private int calculValeur(int pointMin, int pointMax, string nomTypeCompetence)
         {
             int valeur = 0;
             //on fait le random entre le min et le max
@@ -197,19 +196,27 @@ namespace Combaxe___New.écrans
         /// <summary>
         /// pour afficher le tooltip pour une compétence
         /// </summary>
-        private void afficherTooltip(int num)
+        private ToolTip afficherTooltip(int num)
         {
             CompetenceService competenceService = new CompetenceService();
             ToolTip toolTip = new ToolTip();
-            toolTip.Content = VarGlobales.Personnage.ListeCompetence[0].Nom + "\nType : " + VarGlobales.Personnage.ListeCompetence[0].NomTypeCompetence;
-            //switch pour le type d'attaque
-            competenceService.RetrieveListeTypeCompetence();
+            toolTip.Content = VarGlobales.Personnage.ListeCompetence[num].Nom + "\nType : " + VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence;
+            //if pour le type d'attaque
+            //List<string> typesAttaque = competenceService.RetrieveListeTypeCompetence();
             // requête bd pour définir les types de competence
-            
+            if (VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence == Competences.Physique.ToString())
+            { // Attaque physique
+                // Min dégât + 31.416%/2.2 * points de caractéristique de force
+                // Max dégât + 31.416%/2.2 * des points de caractéristique de force
+                int val = calculValeur(VarGlobales.Personnage.ListeCompetence[num].ValeurMin, VarGlobales.Personnage.ListeCompetence[num].ValeurMax, Competences.Physique.ToString()); // champs pas optimisé
+                toolTip.Content += "\nDégât : " + VarGlobales.Personnage.ListeCompetence[num].ValeurMin + " - " + VarGlobales.Personnage.ListeCompetence[num].ValeurMax;
+
+            }
 
             // on fait calcul valeur 
             // on attribut le bon texte pour le tooltip
             // on retourne la valeur
+            return toolTip;
         }
     }
 }

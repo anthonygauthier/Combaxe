@@ -81,7 +81,20 @@ namespace Combaxe___New.classes.services
 
             List<string>[] lstType;
 
-            return listeTypes;
+            int nombreRange = 0;
+            lstType = bdCombaxe.selection(requeteTypeCompetences, 1, ref nombreRange);
+
+            if (lstType.Count() != 0)
+            {
+                for (int i = 0; i < lstType.Count(); i++)
+                {
+                    listeTypes.Add(lstType[i][0]);
+                }
+                return listeTypes;
+            }
+            else
+                return null;
+            
         }
     }
 }
