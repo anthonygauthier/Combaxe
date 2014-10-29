@@ -7,34 +7,25 @@ using System.Windows;
 using Combaxe___New.classes.services;
 using Combaxe___New.écrans;
 using System.Windows.Media.Imaging;
+using Combaxe___New.classes.abstraites;
 
 namespace Combaxe___New.classes
 {
-    public class Personnage
+    public class Personnage : Unite
     {
         public int IdPersonnage { get; set; }
-        public string Nom { get; set; }
-        public int Niveau { get; set; }
         public int Experience { get; set; }
-        public BitmapImage Image { get; set; }
-        public List<Caracteristique> ListeCaracteristique { get; set; }
         public Profession profession { get; set; }
-        public List<Competence> ListeCompetence { get; set; }
 
 
         /// <summary>
         /// Constructeur de base - Anthony Gauthier 02/10/2014
         /// </summary>
-        public Personnage()
+        public Personnage() : base()
         {
             IdPersonnage = 0;
-            Nom = "";
-            Niveau = 0;
             Experience = 0;
-            Image = null;
-            ListeCaracteristique = null;
             profession = null;
-            ListeCompetence = null;
         }
 
         /// <summary>
@@ -47,16 +38,12 @@ namespace Combaxe___New.classes
         /// <param name="lien">url de l'image du personnage</param>
         /// <param name="lstCar">list de caractéristiques du personnage</param>
         public Personnage(int id, string n, int niv, int xp, string lien, List<Caracteristique> lstCar, Profession prof, List<Competence> lstComp)
+            : base(n,niv,lien,lstCar,lstComp)
         {
 
             IdPersonnage = id;
-            Nom = n;
-            Niveau = niv;
             Experience = xp;
-            Image = new BitmapImage(new Uri(lien, UriKind.RelativeOrAbsolute)); // fait par tommy gingras
-            ListeCaracteristique = lstCar;
             profession = prof;
-            ListeCompetence = lstComp;
         }
 
         /// <summary>

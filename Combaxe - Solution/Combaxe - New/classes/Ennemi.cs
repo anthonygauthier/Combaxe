@@ -5,29 +5,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Combaxe___New.écrans;
+using Combaxe___New.classes.abstraites;
 
 namespace Combaxe___New.classes
 {
-    public class Ennemi
+    public class Ennemi : Unite
     {
         public int IdEnnemi { get; set; }
-        public string ImageUrl { get; set; }
-        public int Niveau { get; set; }
-        public string Nom { get; set; }
-        public List<Caracteristique> ListeCaracteristique { get; set; }
-        public List<Competence> ListeCompetence { get; set; }
 
         /// <summary>
         /// Constructeur de base - Anthony Gauthier 02/10/2014
         /// </summary>
-        public Ennemi()
+        public Ennemi() : base()
         {
             IdEnnemi = 0;
-            ImageUrl = "";
-            Niveau = 0;
-            Nom = "";
-            ListeCaracteristique = null;
-            ListeCompetence = null;
         }
 
         /// <summary>
@@ -38,14 +29,10 @@ namespace Combaxe___New.classes
         /// <param name="url">url de l'image</param>
         /// <param name="n">nom de l'ennemi</param>
         /// <param name="lstCar">list des caractéristiques de l'ennemi</param>
-        public Ennemi(int id, int niv, string url, string n, List<Caracteristique> lstCar, List<Competence> lstComp)
+        public Ennemi(int id, int niv, string lien, string n, List<Caracteristique> lstCar, List<Competence> lstComp)
+            : base(n, niv, lien, lstCar, lstComp)
         {
             IdEnnemi = id;
-            Niveau = niv;
-            ImageUrl = url;
-            Nom = n;
-            ListeCaracteristique = lstCar;
-            ListeCompetence = lstComp;
         }
 
         /// <summary>
