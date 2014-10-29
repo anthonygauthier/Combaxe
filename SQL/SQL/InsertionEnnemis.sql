@@ -12,8 +12,8 @@ INSERT INTO Ennemis
 VALUES
 (
     'Moguarnoch'
-,	6
-,	TRUE
+,   6
+,TRUE
 );
 
 INSERT INTO Ennemis
@@ -21,8 +21,8 @@ INSERT INTO Ennemis
 VALUES
 (
     'Zakuta'
-,	9
-,	TRUE
+,9
+,TRUE
 );
 
 INSERT INTO Ennemis
@@ -30,8 +30,8 @@ INSERT INTO Ennemis
 VALUES
 (
     'Ful\'kitak'
-,	12
-,	TRUE
+,12
+,TRUE
 );
 
 INSERT INTO Ennemis
@@ -39,8 +39,8 @@ INSERT INTO Ennemis
 VALUES
 (
     'Harfanghei'
-,	15
-,	TRUE
+,15
+,TRUE
 );
 
 INSERT INTO Ennemis
@@ -48,8 +48,8 @@ INSERT INTO Ennemis
 VALUES
 (
     'Arkanok'
-,	18
-,	TRUE
+,18
+,TRUE
 );
 /* FIN DES BOSS*/
 
@@ -59,8 +59,8 @@ INSERT INTO Ennemis
 VALUES
 (
     'Ange déchu'
-,	1
-,	FALSE
+,1
+,FALSE
 );
 
 INSERT INTO Ennemis
@@ -68,8 +68,8 @@ INSERT INTO Ennemis
 VALUES
 (
     'Bandit'
-,	1
-,	FALSE
+,1
+,FALSE
 );
 
 INSERT INTO Ennemis
@@ -77,8 +77,8 @@ INSERT INTO Ennemis
 VALUES
 (
     'Centaure'
-,	1
-,	FALSE
+,1
+,FALSE
 );
 
 INSERT INTO Ennemis
@@ -86,8 +86,8 @@ INSERT INTO Ennemis
 VALUES
 (
     'Dragon'
-,	1
-,	FALSE
+,1
+,FALSE
 );
 
 INSERT INTO Ennemis
@@ -95,8 +95,8 @@ INSERT INTO Ennemis
 VALUES
 (
     'Elfe'
-,	1
-,	FALSE
+,1
+,FALSE
 );
 
 INSERT INTO Ennemis
@@ -104,8 +104,8 @@ INSERT INTO Ennemis
 VALUES
 (
     'Farfadet'
-,	1
-,	FALSE
+,1
+,FALSE
 );
 
 INSERT INTO Ennemis
@@ -113,8 +113,8 @@ INSERT INTO Ennemis
 VALUES
 (
     'Gorgone'
-,	1
-,	FALSE
+,1
+,FALSE
 );
 
 INSERT INTO Ennemis
@@ -122,8 +122,8 @@ INSERT INTO Ennemis
 VALUES
 (
     'Hydre'
-,	1
-,	FALSE
+,1
+,FALSE
 );
 
 INSERT INTO Ennemis
@@ -131,8 +131,8 @@ INSERT INTO Ennemis
 VALUES
 (
     'Iguane démoniaque'
-,	1
-,	FALSE
+,1
+,FALSE
 );
 
 INSERT INTO Ennemis
@@ -140,8 +140,8 @@ INSERT INTO Ennemis
 VALUES
 (
     'Jaguar géant'
-,	1
-,	FALSE
+,1
+,FALSE
 );
 
 INSERT INTO Ennemis
@@ -149,8 +149,8 @@ INSERT INTO Ennemis
 VALUES
 (
     'Kraken'
-,	1
-,	FALSE
+,1
+,FALSE
 );
 
 INSERT INTO Ennemis
@@ -158,8 +158,8 @@ INSERT INTO Ennemis
 VALUES
 (
     'Licorne'
-,	1
-,	FALSE
+,1
+,FALSE
 );
 
 INSERT INTO Ennemis
@@ -167,8 +167,8 @@ INSERT INTO Ennemis
 VALUES
 (
     'Minotaure'
-,	1
-,	FALSE
+,1
+,FALSE
 );
 
 INSERT INTO Ennemis
@@ -176,8 +176,8 @@ INSERT INTO Ennemis
 VALUES
 (
     'Nécromancien'
-,	1
-,	FALSE
+,1
+,FALSE
 );
 
 INSERT INTO Ennemis
@@ -185,8 +185,8 @@ INSERT INTO Ennemis
 VALUES
 (
     'Ogre'
-,	1
-,	FALSE
+,1
+,FALSE
 );
 
 INSERT INTO Ennemis
@@ -194,80 +194,80 @@ INSERT INTO Ennemis
 VALUES
 (
     'Ptérodactyle'
-,	1
-,	FALSE
+,1
+,FALSE
 );
 
 INSERT INTO Ennemis
 (nom, niveau, boss)
 VALUES
 (
-    'Rhinocéros sauvage'
-,	1
-,	FALSE
+   'Rhinocéros sauvage'
+,1
+,FALSE
 );
 
 INSERT INTO Ennemis
 (nom, niveau, boss)
 VALUES
 (
-    'Satyre'
-,	1
-,	FALSE
+'Satyre'
+,1
+,FALSE
 );
 
 INSERT INTO Ennemis
 (nom, niveau, boss)
 VALUES
 (
-    'Troll'
-,	1
-,	FALSE
+'Troll'
+,1
+,FALSE
 );
 
 INSERT INTO Ennemis
 (nom, niveau, boss)
 VALUES
 (
-    'Ubuntu'
-,	1
-,	FALSE
+'Ubuntu'
+,1
+,FALSE
 );
 
 INSERT INTO Ennemis
 (nom, niveau, boss)
 VALUES
 (
-    'Vampire'
-,	1
-,	FALSE
+'Vampire'
+,1
+,FALSE
 );
 
 INSERT INTO Ennemis
 (nom, niveau, boss)
 VALUES
 (
-    'Worg'
-,	1
-,	FALSE
+'Worg'
+,1
+,FALSE
 );
 
 INSERT INTO Ennemis
 (nom, niveau, boss)
 VALUES
 (
-    'Yéti'
-,	1
-,	FALSE
+'Yéti'
+,1
+,FALSE
 );
 
 INSERT INTO Ennemis
 (nom, niveau, boss)
 VALUES
 (
-    'Zombie'
-,	1
-,	FALSE
+'Zombie'
+,1
+,FALSE
 );
 /* FIN ENNEMI COMMUN */
 

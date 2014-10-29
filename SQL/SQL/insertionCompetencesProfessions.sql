@@ -5,7 +5,7 @@ INSERT INTO CompetencesProfessions
 VALUES
 (
     (SELECT idProfession FROM Professions WHERE nom='Guerrier')
-,	(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
+,(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
 );
 
 INSERT INTO CompetencesProfessions
@@ -13,7 +13,7 @@ INSERT INTO CompetencesProfessions
 VALUES
 (
     (SELECT idProfession FROM Professions WHERE nom='Guerrier')
-,	(SELECT idCompetence FROM Competences WHERE nom='Peau d\'acier')
+,(SELECT idCompetence FROM Competences WHERE nom='Peau d\'acier')
 );
 
 INSERT INTO CompetencesProfessions
@@ -21,7 +21,7 @@ INSERT INTO CompetencesProfessions
 VALUES
 (
     (SELECT idProfession FROM Professions WHERE nom='Guerrier')
-,	(SELECT idCompetence FROM Competences WHERE nom='Attaque précise')
+,(SELECT idCompetence FROM Competences WHERE nom='Attaque précise')
 );
 
 INSERT INTO CompetencesProfessions
@@ -29,7 +29,7 @@ INSERT INTO CompetencesProfessions
 VALUES
 (
     (SELECT idProfession FROM Professions WHERE nom='Guerrier')
-,	(SELECT idCompetence FROM Competences WHERE nom='Vision de sang')
+,(SELECT idCompetence FROM Competences WHERE nom='Vision de sang')
 );
 
 /* FIN COMPÉTENCES Guerrier */
@@ -40,7 +40,7 @@ INSERT INTO CompetencesProfessions
 VALUES
 (
     (SELECT idProfession FROM Professions WHERE nom='Paladin')
-,	(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
+,(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
 );
 
 INSERT INTO CompetencesProfessions
@@ -48,7 +48,7 @@ INSERT INTO CompetencesProfessions
 VALUES
 (
     (SELECT idProfession FROM Professions WHERE nom='Paladin')
-,	(SELECT idCompetence FROM Competences WHERE nom='Coup divin')
+,(SELECT idCompetence FROM Competences WHERE nom='Coup divin')
 );
 
 INSERT INTO CompetencesProfessions
@@ -56,7 +56,7 @@ INSERT INTO CompetencesProfessions
 VALUES
 (
     (SELECT idProfession FROM Professions WHERE nom='Paladin')
-,	(SELECT idCompetence FROM Competences WHERE nom='Prière de guérison')
+,(SELECT idCompetence FROM Competences WHERE nom='Prière de guérison')
 );
 
 INSERT INTO CompetencesProfessions
@@ -64,7 +64,7 @@ INSERT INTO CompetencesProfessions
 VALUES
 (
     (SELECT idProfession FROM Professions WHERE nom='Paladin')
-,	(SELECT idCompetence FROM Competences WHERE nom='Marteau des dieux')
+,(SELECT idCompetence FROM Competences WHERE nom='Marteau des dieux')
 );
 /* FIN COMPÉTENCES Paladin */
 
@@ -74,7 +74,7 @@ INSERT INTO CompetencesProfessions
 VALUES
 (
     (SELECT idProfession FROM Professions WHERE nom='Magicien')
-,	(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
+,(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
 );
 
 INSERT INTO CompetencesProfessions
@@ -82,7 +82,7 @@ INSERT INTO CompetencesProfessions
 VALUES
 (
     (SELECT idProfession FROM Professions WHERE nom='Magicien')
-,	(SELECT idCompetence FROM Competences WHERE nom='Boule de feu')
+,(SELECT idCompetence FROM Competences WHERE nom='Boule de feu')
 );
 
 INSERT INTO CompetencesProfessions
@@ -90,7 +90,7 @@ INSERT INTO CompetencesProfessions
 VALUES
 (
     (SELECT idProfession FROM Professions WHERE nom='Magicien')
-,	(SELECT idCompetence FROM Competences WHERE nom='Armure arcanique')
+,(SELECT idCompetence FROM Competences WHERE nom='Armure arcanique')
 );
 
 INSERT INTO CompetencesProfessions
@@ -98,7 +98,7 @@ INSERT INTO CompetencesProfessions
 VALUES
 (
     (SELECT idProfession FROM Professions WHERE nom='Magicien')
-,	(SELECT idCompetence FROM Competences WHERE nom='Décharge électrique')
+,(SELECT idCompetence FROM Competences WHERE nom='Décharge électrique')
 );
 /* FIN COMPÉTENCESMagicien */
 

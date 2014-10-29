@@ -3,7 +3,7 @@
 VALUES
 (
     'Arme à une main'
-,	FALSE
+,FALSE
 );
 
 INSERT INTO Modeles
@@ -11,7 +11,7 @@ INSERT INTO Modeles
 VALUES
 (
     'Arme à deux mains'
-,	TRUE
+,TRUE
 );
 
 INSERT INTO Modeles
@@ -19,7 +19,7 @@ INSERT INTO Modeles
 VALUES
 (
     'Bouclier'
-,	FALSE
+,FALSE
 );
 
 INSERT INTO Modeles
@@ -27,7 +27,7 @@ INSERT INTO Modeles
 VALUES
 (
     'Casque'
-,	FALSE
+,FALSE
 );
 
 INSERT INTO Modeles
@@ -35,7 +35,7 @@ INSERT INTO Modeles
 VALUES
 (
     'Épaulette'
-,	FALSE
+,FALSE
 );
 
 INSERT INTO Modeles
@@ -43,7 +43,7 @@ INSERT INTO Modeles
 VALUES
 (
     'Plastron'
-,	FALSE
+,FALSE
 );
 
 INSERT INTO Modeles
@@ -51,7 +51,7 @@ INSERT INTO Modeles
 VALUES
 (
     'Bottes'
-,	FALSE
+,FALSE
 );
 
 INSERT INTO Modeles
@@ -59,6 +59,6 @@ INSERT INTO Modeles
 VALUES
 (
     'Pantalon'
-,	FALSE
+,FALSE
 );
 
