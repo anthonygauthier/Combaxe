@@ -54,6 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="classes\abstraites\Unite.cs" />
     <Compile Include="classes\services\BdService.cs" />
     <Compile Include="classes\services\CaracteristiqueService.cs" />
     <Compile Include="classes\services\CompetenceService.cs" />
