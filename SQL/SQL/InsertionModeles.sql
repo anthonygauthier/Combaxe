@@ -1,63 +1,64 @@
-INSERT INTO Modeles
+﻿INSERT INTO Modeles
 (nom, deuxMains)
 VALUES
 (
-	'Arme à une main'
-,	FALSE
+    'Arme à une main'
+,FALSE
 );
 
 INSERT INTO Modeles
 (nom, deuxMains)
 VALUES
 (
-	'Arme à deux mains'
-,	TRUE
+    'Arme à deux mains'
+,TRUE
 );
 
 INSERT INTO Modeles
 (nom, deuxMains)
 VALUES
 (
-	'Bouclier'
-,	FALSE
+    'Bouclier'
+,FALSE
 );
 
 INSERT INTO Modeles
 (nom, deuxMains)
 VALUES
 (
-	'Casque'
-,	FALSE
+    'Casque'
+,FALSE
 );
 
 INSERT INTO Modeles
 (nom, deuxMains)
 VALUES
 (
-	'Épaulette'
-,	FALSE
+    'Épaulette'
+,FALSE
 );
 
 INSERT INTO Modeles
 (nom, deuxMains)
 VALUES
 (
-	'Plastron'
-,	FALSE
+    'Plastron'
+,FALSE
 );
 
 INSERT INTO Modeles
 (nom, deuxMains)
 VALUES
 (
-	'Bottes'
-,	FALSE
+    'Bottes'
+,FALSE
 );
 
 INSERT INTO Modeles
 (nom, deuxMains)
 VALUES
 (
-	'Pantalon'
-,	FALSE
+    'Pantalon'
+,FALSE
 );
+

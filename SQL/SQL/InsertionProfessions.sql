@@ -1,29 +1,30 @@
-INSERT INTO Professions
+ï»¿INSERT INTO Professions
 (nom, description)
 VALUES
 (
-	'Paladin'
-,	'Le paladin est un guerrier croyant en les dieux. Il ne se bat que s\'il en sent le besoin.
-	Durant les combats, il les implore pour avoir leur aide pour le guérrir ou simplement enchanter ses
-	attaques.'
+    'Paladin'
+,'Le paladin est un guerrier croyant en les dieux. Il ne se bat que s\'il en sent le besoin.
+    Durant les combats, il les implore pour avoir leur aide pour le guÃ©rrir ou simplement enchanter ses
+    attaques.'
 );
 
 INSERT INTO Professions
 (nom, description)
 VALUES
 (
-	'Magicien'
-,	'Le magicien étudie différent type de magie, mais exclut la magie noire. Il contrôle les arcanes,
-	le feu et l\'électricité. Il se sert de sorts pour attaquer son ennemi, mais aussi pour se protéger. Les sorts
-	du magicien sont très puissant et efficaces, cependant, le magicien n\'est pas aussi solide physiquement qu\'un guerrier.'
+    'Magicien'
+,'Le magicien Ã©tudie diffÃ©rent type de magie, mais exclut la magie noire. Il contrÃ´le les arcanes,
+    le feu et l\'Ã©lectricitÃ©. Il se sert de sorts pour attaquer son ennemi, mais aussi pour se protÃ©ger. Les sorts
+    du magicien sont trÃ¨s puissant et efficaces, cependant, le magicien n\'est pas aussi solide physiquement qu\'un guerrier.'
 );
 
 INSERT INTO Professions
 (nom, description)
 VALUES
 (
-	'Guerrier'
-,	'Le guerrier est une brute ne se fiant qu\'à sa force pour abattre ses ennemis, il n\'hésite pas une seconde
-	à enfoncer son sur sur ceux-ci. Endurci par les combats au corps à corps, le guerrier est résistant et physiquement
-	très fort.'
+    'Guerrier'
+,'Le guerrier est une brute ne se fiant qu\'Ã  sa force pour abattre ses ennemis, il n\'hÃ©site pas une seconde
+    Ã  enfoncer son sur sur ceux-ci. Endurci par les combats au corps Ã  corps, le guerrier est rÃ©sistant et physiquement
+    trÃ¨s fort.'
 );
+

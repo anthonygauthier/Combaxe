@@ -113,8 +113,8 @@ namespace Combaxe___New.écrans
 
                 //Si l'horloge atteint "0", on le stop
                 if (temps == TimeSpan.Zero)
-                { 
-                    horloge.Stop();
+                {
+                    ReinitialisationHorloge();
                 }
                 //Sinon, on ajoute du temps à l'horloge
                 else
@@ -128,22 +128,30 @@ namespace Combaxe___New.écrans
                     {
                         pbHorloge.Foreground = Brushes.Red;
                     }
-                    //Si un bouton d'action a été cliqué, on réinitialise l'horloge et la progress bar
-                    else if(boutonClique)
-                    { 
-                        horloge.Stop();
-                        temps = TimeSpan.FromSeconds(30);
-                        pbHorloge.Value = temps.TotalSeconds;
-                        txtbHorloge.Text = temps.ToString("%s");
-                    }
-
+                    
                     //On ajoute (enlève) le temps à l'horloge puis on modifie la valeur de la progress bar
                     temps = temps.Add(TimeSpan.FromSeconds(-1));
                     pbHorloge.Value = temps.TotalSeconds;
+
+                    //Si un bouton d'action a été cliqué, on réinitialise l'horloge et la progress bar
+                    if (boutonClique)
+                    {
+                        ReinitialisationHorloge();
+                    }
                 }
             }, Application.Current.Dispatcher);
 
             horloge.Start();  
+        }
+
+        //Méthode qui réinitialise l'holorge - Anthony Gauthier 28/10/2014
+        private void ReinitialisationHorloge()
+        {
+            horloge.Stop();
+            temps = TimeSpan.FromSeconds(30);
+            pbHorloge.Foreground = Brushes.Green;
+            pbHorloge.Value = pbHorloge.Maximum;
+            txtbHorloge.Text = temps.ToString("%s");
         }
 
         private void chargerPersonnage()
