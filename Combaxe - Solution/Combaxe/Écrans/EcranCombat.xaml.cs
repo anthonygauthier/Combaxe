@@ -94,13 +94,10 @@ namespace Combaxe___New.écrans
 
         private void btnAction1_Click(object sender, RoutedEventArgs e)
         {
-<<<<<<< HEAD
             //Tommy gingras
             boutonClique = true;
             actionBouton(0); 
-=======
             boutonClique = true;
->>>>>>> origin/master
         }
 
         private void btnAction2_Click(object sender, RoutedEventArgs e)
@@ -196,11 +193,8 @@ namespace Combaxe___New.écrans
         }
 
         /// <summary>
-<<<<<<< HEAD
         /// Pour mettre les infos d'un ennemi
-=======
         /// Fonction qui charge un nouvel ennemi - William Themens
->>>>>>> origin/master
         /// </summary>
         private void chargerEnnemi()
         {
