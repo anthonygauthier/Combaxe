@@ -27,9 +27,12 @@ namespace Combaxe___New.écrans
         public EcranCombat()
         {
             InitializeComponent();
+            tempsRecharge = new List<int>();
             chargerEnnemi();
             chargerPersonnage();
+            combat = new Combat(VarGlobales.Personnage, VarGlobales.Ennemi);
             chronometreCombat();
+            txtbJournalCombat.IsReadOnly = true;
         }
 
         //On déclare les variables nécéssaires à l'horloge
@@ -38,6 +41,12 @@ namespace Combaxe___New.écrans
 
         bool boutonClique = false;
 
+        // pour utliser les méthodes de combat, tommy gingras
+        Combat combat;
+        int nbTour = 0;
+        List<int> tempsRecharge = null;
+        
+                
         //Méthode du bouton pour fuir un combat - Anthony Gauthier 23/10/2014
         private void btnFuir_Click(object sender, RoutedEventArgs e)
         {
@@ -54,6 +63,7 @@ namespace Combaxe___New.écrans
             btnAction2.Visibility = Visibility.Visible;
             btnAction3.Visibility = Visibility.Visible;
             btnAction4.Visibility = Visibility.Visible;
+            //tommy gingras
             btnAction1.Content = VarGlobales.Personnage.ListeCompetence[0].Nom;
             btnAction2.Content = VarGlobales.Personnage.ListeCompetence[1].Nom;
             btnAction3.Content = VarGlobales.Personnage.ListeCompetence[2].Nom;
@@ -86,36 +96,30 @@ namespace Combaxe___New.écrans
 
         private void btnAction1_Click(object sender, RoutedEventArgs e)
         {
-            //boutonClique = true;
-            //// on va chercher la bonne compétence la 1
-            //// on vérifie que l'énergie n'est pas manquante
-            //bool estUtilisable = VerifierEnergieRestante(VarGlobales.Personnage.ListeCompetence[0].EnergieUtilise, Combat.EnergiePersonnage);
-            //if (estUtilisable)
-            //{
-            //   // on calcul la valeur qui est effectué
-            //    bool estCritique = false;
-            //    int valeur = calculValeurCompetence(VarGlobales.Personnage.ListeCompetence[0].ValeurMin, VarGlobales.Personnage.ListeCompetence[0].ValeurMax, true, estCritique); 
-            //   // on vérifie quel est le type de compétence
-
-            //   // on applique la bonne action pour la cible
-            //   // on vérifie que le joueur ou l'ennemi est encore en vie
-            //   // mettre à jour l'interface
-            //}
+            //Tommy gingras
+            boutonClique = true;
+            actionBouton(0); 
         }
 
         private void btnAction2_Click(object sender, RoutedEventArgs e)
         {
             boutonClique = true;
+            //tommy gingras
+            actionBouton(1); 
         }
 
         private void btnAction3_Click(object sender, RoutedEventArgs e)
         {
             boutonClique = true;
+            //tommy gingras
+            actionBouton(2); 
         }
 
         private void btnAction4_Click(object sender, RoutedEventArgs e)
         {
             boutonClique = true;
+            //tommy gingras
+            actionBouton(3); 
         }
         //Chronomètre de combat - Anthony Gauthier 28/10/2014
         private void chronometreCombat()
@@ -173,30 +177,40 @@ namespace Combaxe___New.écrans
             txtbHorloge.Text = temps.ToString("%s");
         }
 
+        /// <summary>
+        /// pour mettre les infos d'un personnage, tommy gingras
+        /// </summary>
         private void chargerPersonnage()
         {
             this.imgPerso.Source = VarGlobales.Personnage.Image;
             lblNomPerso.Content = VarGlobales.Personnage.Nom;
             lblNiveauPerso.Content = VarGlobales.Personnage.Niveau;
-            lblViePerso.Content = Convert.ToInt32((VarGlobales.Personnage.ListeCaracteristique[2].Valeur * 20) / 3.1416).ToString();
-            lblEnergiePerso.Content = Convert.ToInt32((VarGlobales.Personnage.ListeCaracteristique[3].Valeur * 10) / 3.1416).ToString();
-
-           
+            lblViePerso.Content = Convert.ToInt32((VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20) / 3.1416).ToString();
+            lblEnergiePerso.Content = Convert.ToInt32((VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * 10) / 3.1416).ToString();
+            tempsRecharge.Add(0);
+            tempsRecharge.Add(0);
+            tempsRecharge.Add(0);
+            tempsRecharge.Add(0);
         }
 
+        /// <summary>
+        /// Pour mettre les infos d'un ennemi
+        /// </summary>
         private void chargerEnnemi()
         {
             Ennemi ennemi = new Ennemi();
             ennemi.ennemiAleatoire();
             lblNomEnnemi.Content = VarGlobales.Ennemi.Nom;
             lblNiveauEnnemi.Content = VarGlobales.Ennemi.Niveau;
-            lblVieEnnemi.Content = Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[1].Valeur * 20) / 3.1416).ToString();
-            lblEnergieEnnemi.Content = Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[3].Valeur * 10) / 3.1416).ToString();
+            lblVieEnnemi.Content = Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20) / 3.1416).ToString();
+            lblEnergieEnnemi.Content = Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * 10) / 3.1416).ToString();
         }
 
         /// <summary>
-        /// pour afficher le tooltip pour une compétence
+        /// pour afficher le tooltip pour une compétence, tommy gingras
         /// </summary>
+        /// <param name="num">le numéro du bouton</param>
+        /// <returns>un objet de type tooltip</returns>
         private ToolTip afficherTooltip(int num)
         {
             CompetenceService competenceService = new CompetenceService();
@@ -206,20 +220,39 @@ namespace Combaxe___New.écrans
             //if pour le type d'attaque
             //List<string> typesAttaque = competenceService.RetrieveListeTypeCompetence();
             // requête bd pour définir les types de competence
+            toolTip.Content += afficherDetailsTooltip(num);
+            toolTip.Content += "\nCoût d'énergie : " + VarGlobales.Personnage.ListeCompetence[num].EnergieUtilise;
+            toolTip.Content += "\nTemps de recharge : " + VarGlobales.Personnage.ListeCompetence[num].TempsRecarge;
+
+            // on fait calcul valeur 
+            // on attribut le bon texte pour le tooltip
+            // on retourne la valeur
+            return toolTip;
+        }
+
+        /// <summary>
+        /// Pour afficher les détails d'un bouton, tommy gingras
+        /// </summary>
+        /// <param name="num">le numéro du bouton</param>
+        /// <returns>la description</returns>
+        private string afficherDetailsTooltip(int num)
+        {
+            string content = "";
+            
             if (VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence == Competences.Physique.ToString())
             { // Attaque physique
                 // Min dégât + 31.416%/2.2 * points de caractéristique de force
                 // Max dégât + 31.416%/2.2 * des points de caractéristique de force
                 int valeurMin = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMin + VarGlobales.Personnage.ListeCompetence[num].ValeurMin * 0.31416 / 2.2 * VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur);
                 int valeurMax = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMax + VarGlobales.Personnage.ListeCompetence[num].ValeurMax * 0.31416 / 2.2 * VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur);
-                toolTip.Content += "\nDégât : " + valeurMin + " - " + valeurMax;
+                content = "\nDégât : " + valeurMin + " - " + valeurMax;
             }
             else if (VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence == Competences.Defensive.ToString())
             { // Defense
                 // point de défense *1.5/3.1416
                 int valeurMin = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMin + VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * 1.5 / 3.1416);
                 int valeurMax = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMax + VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * 1.5 / 3.1416);
-                toolTip.Content += "\nRésistance au dégât : " + valeurMin + " - " + valeurMax;                
+                content = "\nRésistance au dégât : " + valeurMin + " - " + valeurMax;
             }
             else if (VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence == Competences.Magique.ToString())
             { // Magique
@@ -228,23 +261,137 @@ namespace Combaxe___New.écrans
 
                 int valeurMin = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMin + VarGlobales.Personnage.ListeCompetence[num].ValeurMin * 0.31416 / 2.2 * VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur);
                 int valeurMax = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMax + VarGlobales.Personnage.ListeCompetence[num].ValeurMax * 0.31416 / 2.2 * VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur);
-                toolTip.Content += "\nDégât : " + valeurMin + " - " + valeurMax;
+                content = "\nDégât : " + valeurMin + " - " + valeurMax;
             }
             else if (VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence == Competences.Support.ToString())
             { // support
                 //((point de caractéristique de vie)*20)/3.1416
                 int valeurMin = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMin + VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20 / 3.1416);
                 int valeurMax = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMax + VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20 / 3.1416);
-                toolTip.Content += "\nRégénération : " + valeurMin + " - " + valeurMax;
+                content = "\nRégénération : " + valeurMin + " - " + valeurMax;
             }
+            return content;
+        }
 
-            toolTip.Content += "\nCoût d'énergie : " + VarGlobales.Personnage.ListeCompetence[num].EnergieUtilise;
-            toolTip.Content += "\nTemps de recharge : " + VarGlobales.Personnage.ListeCompetence[num].TempsRecarge;
+        /// <summary>
+        /// pour mettre à jour la vie et l'énergie
+        /// </summary>
+        private void majInterface()
+        {
+            lblEnergieEnnemi.Content = combat.EnergieEnnemi;
+            lblEnergiePerso.Content = combat.EnergiePersonnage;
+            lblVieEnnemi.Content = combat.VieEnnemi;
+            lblViePerso.Content = combat.ViePersonnage;
+            nbTour++;
+            tempsRecharge[0] = 0;
+            if (tempsRecharge[1] > 0)
+            {
+                btnAction2.IsEnabled = false;
+                btnAction2.Content = VarGlobales.Personnage.ListeCompetence[1].Nom + "\n(" + tempsRecharge[1] + ")";
+                tempsRecharge[1] -= 1;
+            }
+            else
+            {
+                btnAction2.IsEnabled = true;
+                btnAction2.Content = VarGlobales.Personnage.ListeCompetence[1].Nom;
+            }
+            if (tempsRecharge[2] > 0)
+            {
+                btnAction3.IsEnabled = false;
+                btnAction3.Content = VarGlobales.Personnage.ListeCompetence[2].Nom + "\n(" + tempsRecharge[2] + ")";
+                tempsRecharge[2] -= 1;
+            }
+            else
+            {
+                btnAction3.IsEnabled = true;
+                btnAction3.Content = VarGlobales.Personnage.ListeCompetence[2].Nom;
+            }
+            if (tempsRecharge[3] > 0)
+            {
+                btnAction4.IsEnabled = false;
+                btnAction4.Content = VarGlobales.Personnage.ListeCompetence[3].Nom + "\n(" + tempsRecharge[3] + ")";
+                tempsRecharge[3] -= 1;
+            }
+            else
+            {
+                btnAction4.IsEnabled = true;
+                btnAction4.Content = VarGlobales.Personnage.ListeCompetence[3].Nom;
+            }
+        }
 
-            // on fait calcul valeur 
-            // on attribut le bon texte pour le tooltip
-            // on retourne la valeur
-            return toolTip;
+        /// <summary>
+        /// Pour effectuer ce que les boutons doivent faire, tommy gingras
+        /// </summary>
+        /// <param name="num">le id du bouton pour les compétences</param>
+        private void actionBouton(int num)
+        {
+            // on va chercher la bonne compétence la 1
+            // on vérifie que l'énergie n'est pas manquante
+            bool estUtilisable = combat.VerifierEnergieRestante(VarGlobales.Personnage.ListeCompetence[num].EnergieUtilise, combat.EnergiePersonnage);
+
+            if (estUtilisable && tempsRecharge[num] == 0)
+            {
+                // on calcul la valeur qui est effectué
+                tempsRecharge[num] = VarGlobales.Personnage.ListeCompetence[num].TempsRecarge;
+                bool estCritique = false;
+                int valMin = VarGlobales.Personnage.ListeCompetence[num].ValeurMin;
+                int valMax = VarGlobales.Personnage.ListeCompetence[num].ValeurMax;
+                bool cibleEnnemi = true;
+                bool esquive = false;
+
+                // on applique la bonne action pour la cible
+                combat.cibleValeur(num, ref cibleEnnemi, ref valMin, ref valMax);
+
+                int valeur = combat.CalculValeurCompetence(valMin, valMax, true, ref estCritique);
+                if (cibleEnnemi)
+                {
+                    combat.CalculDegatSubi(ref valeur, false, ref esquive);
+                    if (!esquive)
+                    {
+                        combat.VieEnnemi -= valeur;
+                        combat.EnergiePersonnage -= VarGlobales.Personnage.ListeCompetence[num].EnergieUtilise;
+                        txtbJournalCombat.Text += VarGlobales.Personnage.Nom + " a utilisé " + VarGlobales.Personnage.ListeCompetence[num].Nom + ", ce qui a infligé " + valeur.ToString() + " dégâts.\n";
+                    }
+                }
+                else
+                {
+                    combat.ViePersonnage += valeur;
+                    combat.EnergiePersonnage -= VarGlobales.Personnage.ListeCompetence[num].EnergieUtilise;
+                    txtbJournalCombat.Text += VarGlobales.Personnage.Nom + " a utilisé " + VarGlobales.Personnage.ListeCompetence[num].Nom + ", ce qui le protège de " + valeur.ToString() + ".\n";
+                }
+                // on vérifie quel est le type de compétence
+                majInterface();// mettre à jour l'interface
+                
+                // on vérifie que le joueur ou l'ennemi est encore en vie
+                if (combat.ViePersonnage <= 0)
+                {
+                    txtbJournalCombat.Text += VarGlobales.Personnage.Nom + " a péri " + nbTour + " tours\n";
+                    combat.ViePersonnage = 0;
+                    MessageBox.Show("Combat terminé !\nVous avez perdu !", "Statut", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    var EcranMenuPrincipal = new EcranMenuPrincipal();
+                    EcranMenuPrincipal.Show();
+                    this.Close();
+                }
+                if (combat.VieEnnemi <= 0)
+                {
+                    txtbJournalCombat.Text += VarGlobales.Ennemi.Nom + " a péri ! en " + nbTour +" tours\n";
+                    combat.VieEnnemi = 0;
+                    MessageBox.Show("Combat terminé !\nVous avez gagné !", "Statut", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    var EcranMenuPrincipal = new EcranMenuPrincipal();
+                    EcranMenuPrincipal.Show();
+                    this.Close();
+                }
+                
+                
+            }
+            else
+            {
+                if(!estUtilisable)
+                    txtbJournalCombat.Text += "Vous n'avez pas assez d'énergie !\n";
+                else
+                    txtbJournalCombat.Text += "Vous devez attendre que la compétence se charge !\n";
+            }
+            txtbJournalCombat.ScrollToEnd();
         }
     }
 }
