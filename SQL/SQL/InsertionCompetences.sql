@@ -569,7 +569,7 @@ VALUES
 ,22
 ,12
 ,4
-,'Invoque un mort attaquant l'\adversaire, le mort retourne d'\où il vient après le tour. '
+,'Invoque un mort attaquant l\'adversaire, le mort retourne d\'où il vient après le tour. '
 );
 
 INSERT INTO Competences
@@ -611,7 +611,7 @@ VALUES
 ,22
 ,12
 ,4
-,'Donne un coup d'\aile à son adversaire. '
+,'Donne un coup d\'aile à son adversaire. '
 );
 
 INSERT INTO Competences
@@ -639,7 +639,7 @@ VALUES
 ,22
 ,12
 ,4
-,'Joue une mélodie qui est accompagné d'\un sort maléfique. '
+,'Joue une mélodie qui est accompagné d\'un sort maléfique. '
 );
 
 INSERT INTO Competences
@@ -709,7 +709,7 @@ VALUES
 ,22
 ,12
 ,4
-,'Attaque son adversaire d'\un coup quasiment animal.'
+,'Attaque son adversaire d\'un coup quasiment animal.'
 );
 
 INSERT INTO Competences
