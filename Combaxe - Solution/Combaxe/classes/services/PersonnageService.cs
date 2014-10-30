@@ -20,25 +20,26 @@ namespace Combaxe___New.classes.services
         /// </summary>
         /// <returns>Liste de toutes les données des personnages</returns>
         public List<Personnage> RetrieveInfoPerso(){
-            string reqSelect = ecrireSelect("estActif = TRUE AND idJoueur = '" + VarGlobales.Joueur.idJoueur+"'", "idPersonnage, nom, niveau, experience, image, idProfession");
+            string reqSelect = ecrireSelect("estActif = TRUE AND idJoueur = '" + VarGlobales.Joueur.idJoueur+"'", "idPersonnage, nom, niveau, experience, vie, energie, image, idProfession");
             int nbLigne = 0;
-            List<string>[] lstPerso = bdCombaxe.selection(reqSelect, 6, ref nbLigne);
+            List<string>[] lstPerso = bdCombaxe.selection(reqSelect, 8, ref nbLigne);
 
             if(nbLigne != 0){
                 List<Personnage> lstPersonnage = new List<Personnage>();
                 List<Caracteristique> lstCar = new List<Caracteristique>();
+                CaracteristiqueService caracteristiqueService = new CaracteristiqueService();
                 Profession prof;
                 
                 if(lstPerso.Count() != 0){
                     for (int i = 0; i < lstPerso.Count(); i++) 
                     {
-                            /* aller chercher leurs caractéristiques */
-                            lstCar = RetrieveCaracteristiques(Convert.ToInt32(lstPerso[i][0]));
-                            prof = professionService.RetrieveIdProfessionAvecId(Convert.ToInt32(lstPerso[i][5]));
+                        /* aller chercher leurs caractéristiques */
+                        lstCar = caracteristiqueService.RetrieveCaracteristique(lstPerso[i][0], true);
+                        prof = professionService.RetrieveIdProfessionAvecId(Convert.ToInt32(lstPerso[i][7]));
                             
-                            Personnage perso = new Personnage(Convert.ToInt32(lstPerso[i][0]), lstPerso[i][1], Convert.ToInt32(lstPerso[i][2]), Convert.ToInt32(lstPerso[i][3]), lstPerso[i][4], lstCar, prof, null);
-                            lstPersonnage.Add(perso);
-                            lstCar = new List<Caracteristique>();
+                        Personnage perso = new Personnage(Convert.ToInt32(lstPerso[i][0]), lstPerso[i][1], Convert.ToInt32(lstPerso[i][2]), Convert.ToInt32(lstPerso[i][3]), Convert.ToInt32(lstPerso[i][4]), Convert.ToInt32(lstPerso[i][5]), lstPerso[i][6], lstCar, prof, null);
+                        lstPersonnage.Add(perso);
+                        lstCar = new List<Caracteristique>();
                      }
                 }
                 return lstPersonnage;
@@ -50,38 +51,6 @@ namespace Combaxe___New.classes.services
         }
 
         /// <summary>
-        /// Récupère toutes les caractéristiques d'un personnage, Tommy Gingras
-        /// </summary>
-        /// <param name="idPersonnage">le id du personnage</param>
-        /// <returns>retourne sous forme d'objet caractéristique</returns>
-        public List<Caracteristique> RetrieveCaracteristiques(int idPersonnage)
-        {
-            /* pour chaque personnage qui existe je veux ajouter ses caractéristiques
-             */
-            List<string>[] lstCaracteristiques = null;
-            List<Caracteristique> lstCar = new List<Caracteristique>();
-
-            string reqSelect = "SELECT c.idCaracteristique, c.nom, cp.valeur FROM Personnages p INNER JOIN CaracteristiquesPersonnages cp ON cp.idPersonnage =  p.idPersonnage INNER JOIN Caracteristiques c ON c.idCaracteristique = cp.idCaracteristique WHERE p.idPersonnage = '" + idPersonnage + "'";
-            int nbLigne = 0;
-            lstCaracteristiques = bdCombaxe.selection(reqSelect, 3, ref nbLigne);
-
-            for (int y = 0; y < lstCaracteristiques.Count(); y++)
-            {
-                /* on doit aller faire le lien des caractéristiques pour chaque personnages donc un autre for du meme genre */
-                if (lstCaracteristiques.Count() == 5)
-                {
-                    Caracteristique caract = new Caracteristique(Convert.ToInt32(lstCaracteristiques[y][0]), Convert.ToInt32(lstCaracteristiques[y][2]), lstCaracteristiques[y][1]);
-                    lstCar.Add(caract);
-                }
-                else
-                {
-                    return null;
-                }
-            }
-            return lstCar;
-        }
-
-        /// <summary>
         /// On veut sélectionner un personnage selon son ID, Tommy Gingras
         /// </summary>
         /// <param name="id">le id du personnage désirée</param>
@@ -89,9 +58,9 @@ namespace Combaxe___New.classes.services
         public Personnage selectionUnPersonnage(int id)
         {
 
-            string reqSelect = ecrireSelect("estActif = TRUE AND idJoueur = '" + VarGlobales.Joueur.idJoueur + "' AND idPersonnage = '" + id + "'", "idPersonnage, nom, niveau, experience, image, idProfession");
+            string reqSelect = ecrireSelect("estActif = TRUE AND idJoueur = '" + VarGlobales.Joueur.idJoueur + "' AND idPersonnage = '" + id + "'", "idPersonnage, nom, niveau, experience, vie, energie, image, idProfession");
             int nbLigne = 0;
-            List<string>[] lstPerso = bdCombaxe.selection(reqSelect, 6, ref nbLigne);
+            List<string>[] lstPerso = bdCombaxe.selection(reqSelect, 8, ref nbLigne);
             List<Caracteristique> lstCaracteristique = new List<Caracteristique>();
             Profession prof;
             List<Competence> lstComp = new List<Competence>();
@@ -100,14 +69,16 @@ namespace Combaxe___New.classes.services
             {
                 Personnage perso = null;
                 List<Caracteristique> lstCar = new List<Caracteristique>();
+                CaracteristiqueService caracteristiqueService = new CaracteristiqueService();
 
                 if (lstPerso.Count() != 0)
                 {
                     /* aller chercher leurs caractéristiques */
-                    lstCar = RetrieveCaracteristiques(Convert.ToInt32(lstPerso[0][0]));
-                    prof = professionService.RetrieveIdProfessionAvecId(Convert.ToInt32(lstPerso[0][5]));
+
+                    lstCar = caracteristiqueService.RetrieveCaracteristique(lstPerso[0][0], true);
+                    prof = professionService.RetrieveIdProfessionAvecId(Convert.ToInt32(lstPerso[0][7]));
                     lstComp = competenceService.RetrieveCompetenceUnPersonnage(prof.IdProfession);
-                    perso = new Personnage(Convert.ToInt32(lstPerso[0][0]), lstPerso[0][1], Convert.ToInt32(lstPerso[0][2]), Convert.ToInt32(lstPerso[0][3]), lstPerso[0][4], lstCar, prof, lstComp);                   
+                    perso = new Personnage(Convert.ToInt32(lstPerso[0][0]), lstPerso[0][1], Convert.ToInt32(lstPerso[0][2]), Convert.ToInt32(lstPerso[0][3]), Convert.ToInt32(lstPerso[0][4]), Convert.ToInt32(lstPerso[0][5]), lstPerso[0][6], lstCar, prof, lstComp);                   
                 }
                 
                 return perso;
@@ -155,6 +126,8 @@ namespace Combaxe___New.classes.services
             int idInventaire = 0;
             int idStatistique = 0;
             int idPersonnage = 0;
+            int viePersonnage = Convert.ToInt32(((valVie)*20)/3.1416);
+            int energiePersonnage = Convert.ToInt32(((valEnergie)*10)/3.1416);
 
             //On insert l'inventaire et on sauvegarde le id
             inventaireService.InsertionInventaire();
@@ -169,15 +142,15 @@ namespace Combaxe___New.classes.services
             string image = Prof.Image.UriSource.OriginalString;
 
             //On insert le personnage
-            string reqInsertPerso = "INSERT INTO Personnages (idProfession, idInventaire, idJoueur, idStatistique, nom, niveau, experience, image) VALUES ("+idProfession+"," + idInventaire + "," + VarGlobales.Joueur.idJoueur + "," + idStatistique + ",'" + nomPerso + "',1,0,'"+image+"')";
+            string reqInsertPerso = "INSERT INTO Personnages (idProfession, idInventaire, idJoueur, idStatistique, nom, niveau, experience, vie, energie, image) VALUES ("+idProfession+"," + idInventaire + "," + VarGlobales.Joueur.idJoueur + "," + idStatistique + ",'" + nomPerso + "',1,0,"+viePersonnage+","+energiePersonnage+",'"+image+"')";
             bdCombaxe.Insertion(reqInsertPerso);
             idPersonnage = bdCombaxe.lastInsertId();
 
-            caracteristiqueService.InsertCaracteristique("Force", idPersonnage, valForce);
-            caracteristiqueService.InsertCaracteristique("Vitesse", idPersonnage, valVitesse);
-            caracteristiqueService.InsertCaracteristique("Vie", idPersonnage, valVie);
-            caracteristiqueService.InsertCaracteristique("Énergie", idPersonnage, valEnergie);
-            caracteristiqueService.InsertCaracteristique("Défense", idPersonnage, valDefense);
+            caracteristiqueService.InsertCaracteristique(Caracteristiques.Force.ToString(), idPersonnage, valForce);
+            caracteristiqueService.InsertCaracteristique(Caracteristiques.Vitesse.ToString(), idPersonnage, valVitesse);
+            caracteristiqueService.InsertCaracteristique(Caracteristiques.Vie.ToString(), idPersonnage, valVie);
+            caracteristiqueService.InsertCaracteristique(Caracteristiques.Energie.ToString(), idPersonnage, valEnergie);
+            caracteristiqueService.InsertCaracteristique(Caracteristiques.Defense.ToString(), idPersonnage, valDefense);
         }
 
         //Méthode qui va retourner si le personnage existe ou non (pour la création de personnage) - Anthony Gauthier 2014-10-24
@@ -230,6 +203,17 @@ namespace Combaxe___New.classes.services
                 return select;
             }
             return select;
+        }
+
+        /// <summary>
+        /// Fonction qui fait la mise à jour de la vie du personnage en BD
+        /// </summary>
+        /// <param name="dmg">Nombre de dégâts infligés au personnage</param>
+        public void DommageDeFuite(int dmg)
+        {
+            string requeteUpdate = "UPDATE Personnages SET vie = vie - "+dmg+" WHERE idPersonnage = '" + VarGlobales.Personnage.IdPersonnage + "';";
+
+            bdCombaxe.maj(requeteUpdate);
         }
     }
 }

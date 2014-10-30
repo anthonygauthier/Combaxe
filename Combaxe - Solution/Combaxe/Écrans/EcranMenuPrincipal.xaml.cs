@@ -16,6 +16,8 @@ using MiniBD;
 using System.Text.RegularExpressions;
 using Combaxe___New.écrans;
 using Combaxe___New.classes.services;
+using System.Windows.Media.Animation;
+using System.Windows.Threading;
 
 namespace Combaxe___New.écrans
 {
@@ -28,9 +30,19 @@ namespace Combaxe___New.écrans
         public EcranMenuPrincipal()
         {
             InitializeComponent();
+
+            //On active le bouton taverne dépendemment de la vie et l'énergie actuelle du personnage
+            if(VarGlobales.Personnage.VerifierVieEnergie())
+            { 
+                btnTaverne.IsEnabled = false;
+            }
+            else
+            {
+                btnTaverne.IsEnabled = true;
+            }
         }
 
-        //Méthode du bouton Combat
+        //Méthode du bouton Combat - Anthony Gauthier 23/10/2014
         private void btnCombat_Click(object sender, RoutedEventArgs e)
         {
             btnCampagne.Visibility = Visibility.Visible;
@@ -38,7 +50,7 @@ namespace Combaxe___New.écrans
             btnCombat.Visibility = Visibility.Hidden;
         }
 
-        //Méthode du bouton Supprimer personnage
+        //Méthode du bouton Supprimer personnage - Anthony Gauthier 23/10/2014
         private void btnSupprimerPerso_Click_1(object sender, RoutedEventArgs e)
         {
             VarGlobales.Personnage.Supprimer();
@@ -59,19 +71,19 @@ namespace Combaxe___New.écrans
             }
         }
 
-        //Méthode du bouton Campagne
+        //Méthode du bouton Campagne - Anthony Gauthier 23/10/2014
         private void btnCampagne_Click_1(object sender, RoutedEventArgs e)
         {
             ouvrirEcranCombat();
         }
 
-        //Méthode du bouton Campagne
+        //Méthode du bouton Partie Rapide - Anthony Gauthier 23/10/2014
         private void btnPartieRapide_Click_1(object sender, RoutedEventArgs e)
         {
             ouvrirEcranCombat();
         }
 
-        //Méthode pour afficher l'écran de combat
+        //Méthode pour afficher l'écran de combat - Anthony Gauthier 23/10/2014
         private void ouvrirEcranCombat()
         {
             var EcranCombat = new EcranCombat();
@@ -79,7 +91,7 @@ namespace Combaxe___New.écrans
             this.Close();
         }
 
-        //Méthode pour afficher l'écran de changement de personnage
+        //Méthode pour afficher l'écran de changement de personnage - Anthony Gauthier 23/10/2014
         private void btnChangerPerso_Click(object sender, RoutedEventArgs e)
         {
             var EcranChangementPerso = new EcranChangementPerso();
@@ -88,7 +100,7 @@ namespace Combaxe___New.écrans
             this.Close();
         }
 
-        //Méthode pour se déconnecter
+        //Méthode pour se déconnecter - Anthony Gauthier 23/10/2014
         private void btnDeconnexion_Click(object sender, RoutedEventArgs e)
         {
             var connexion = new MainWindow();
@@ -97,6 +109,7 @@ namespace Combaxe___New.écrans
             VarGlobales.Joueur.Deconnexion();
         }
 
+        //Méthode pour aller à l'inventaire - Anthony Gauthier 23/10/2014
         private void btnInventaire_Click_1(object sender, RoutedEventArgs e)
         {
             var ecranInventaireMagasin = new EcranInventaireMagasin();
@@ -104,11 +117,52 @@ namespace Combaxe___New.écrans
             this.Close();
         }
 
+        //Méthode pour aller voir les statistiques - Anthony Gauthier 23/10/2014
         private void btnStatistiques_Click_1(object sender, RoutedEventArgs e)
         {
             var ecranStats = new EcranStatistiques();
             ecranStats.Show();
             this.Close();
+        }
+
+        //Méthode pour aller à la taverne - Anthony Gauthier 30/10/2014
+        private void btnTaverne_Click(object sender, RoutedEventArgs e)
+        {
+            var Repos = new EcranRepos();
+            DispatcherTimer horloge;
+            TimeSpan temps;
+            PersonnageService persoService = new PersonnageService();
+
+            persoService.RemiseDeVieEtEnergie();
+
+            //On remet la vie du personnage au maximum
+            VarGlobales.Personnage.Regeneration();
+
+            this.Opacity = 0.5;
+            this.WindowStyle = WindowStyle.None;
+            this.ResizeMode = ResizeMode.NoResize;
+            this.IsEnabled = false;
+            Repos.Show();
+
+            //On initialise le temps de l'horloge et la progress bar
+            temps = TimeSpan.FromSeconds(10);
+            this.ResizeMode = ResizeMode.NoResize;
+
+            horloge = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            {
+                //On ajoute (enlève) le temps à l'horloge puis on modifie la valeur de la progress bar
+                temps = temps.Add(TimeSpan.FromSeconds(-1));
+
+                if (temps == TimeSpan.FromMilliseconds(0))
+                {
+                    this.Opacity = 1;
+                    this.WindowStyle = WindowStyle.SingleBorderWindow;
+                    this.ResizeMode = ResizeMode.CanResize;
+                    this.IsEnabled = true;
+                }
+            }, Application.Current.Dispatcher);
+
+            horloge.Start();  
         }
     }
 }

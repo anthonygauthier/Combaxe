@@ -15,8 +15,11 @@ namespace Combaxe___New.classes
     {
         public int IdPersonnage { get; set; }
         public int Experience { get; set; }
+        public int Vie { get; set; }
+        public int Energie { get; set; }
         public Profession profession { get; set; }
-
+        public int VieMaximale { get; set; }
+        public int EnergieMaximale { get; set; }
 
         /// <summary>
         /// Constructeur de base - Anthony Gauthier 02/10/2014
@@ -26,6 +29,8 @@ namespace Combaxe___New.classes
             IdPersonnage = 0;
             Experience = 0;
             profession = null;
+            Vie = 0;
+            Energie = 0;
         }
 
         /// <summary>
@@ -37,13 +42,17 @@ namespace Combaxe___New.classes
         /// <param name="xp">expérience du personnage</param>
         /// <param name="lien">url de l'image du personnage</param>
         /// <param name="lstCar">list de caractéristiques du personnage</param>
-        public Personnage(int id, string n, int niv, int xp, string lien, List<Caracteristique> lstCar, Profession prof, List<Competence> lstComp)
+        public Personnage(int id, string n, int niv, int xp, int hp, int mana, string lien, List<Caracteristique> lstCar, Profession prof, List<Competence> lstComp)
             : base(n,niv,lien,lstCar,lstComp)
         {
 
             IdPersonnage = id;
             Experience = xp;
+            Vie = hp;
+            Energie = mana;
             profession = prof;
+            VieMaximale = Convert.ToInt32(((lstCar[(int)Caracteristiques.Vie].Valeur)*20)/3.1416);
+            EnergieMaximale = Convert.ToInt32(((lstCar[(int)Caracteristiques.Energie].Valeur) * 10) / 3.1416);
         }
 
         /// <summary>

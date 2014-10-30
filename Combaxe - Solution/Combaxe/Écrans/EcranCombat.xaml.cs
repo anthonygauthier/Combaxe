@@ -50,9 +50,7 @@ namespace Combaxe___New.écrans
         //Méthode du bouton pour fuir un combat - Anthony Gauthier 23/10/2014
         private void btnFuir_Click(object sender, RoutedEventArgs e)
         {
-            var EcranMenuPrincipal = new EcranMenuPrincipal();
-            EcranMenuPrincipal.Show();
-            this.Close();
+            fuiteDuJoueur();
         }
 
         //Méthode qui affiche tous les actions lorsque le bouton Action est cliqué - Anthony Gauthier 23/10/2014
@@ -96,9 +94,13 @@ namespace Combaxe___New.écrans
 
         private void btnAction1_Click(object sender, RoutedEventArgs e)
         {
+<<<<<<< HEAD
             //Tommy gingras
             boutonClique = true;
             actionBouton(0); 
+=======
+            boutonClique = true;
+>>>>>>> origin/master
         }
 
         private void btnAction2_Click(object sender, RoutedEventArgs e)
@@ -194,7 +196,11 @@ namespace Combaxe___New.écrans
         }
 
         /// <summary>
+<<<<<<< HEAD
         /// Pour mettre les infos d'un ennemi
+=======
+        /// Fonction qui charge un nouvel ennemi - William Themens
+>>>>>>> origin/master
         /// </summary>
         private void chargerEnnemi()
         {
@@ -392,6 +398,46 @@ namespace Combaxe___New.écrans
                     txtbJournalCombat.Text += "Vous devez attendre que la compétence se charge !\n";
             }
             txtbJournalCombat.ScrollToEnd();
+        }
+
+        /// <summary>
+        /// Fonction qui se déclanche lorsque le btnFuite est cliqué
+        /// </summary>
+        private void fuiteDuJoueur()
+        { 
+            int vitessePersonnage = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur;
+            int vitesseEnnemi = VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur;
+            horloge.Stop();
+            //Si la vitesse de l'ennemi est plus rapide que celle du joueur, on inflige des dégâts
+            if(vitesseEnnemi >= vitessePersonnage)
+            {
+                PersonnageService personnageService = new PersonnageService();
+
+                int dmgMin = VarGlobales.Ennemi.ListeCompetence[0].ValeurMin;
+                int dmgMax = VarGlobales.Ennemi.ListeCompetence[0].ValeurMax;
+                Random randDmg = new Random();
+                int dommageInflige = randDmg.Next(dmgMin, dmgMax); //On génère le dommage infligé
+
+                personnageService.DommageDeFuite(dommageInflige);
+                
+                if(MessageBox.Show("Vous fuyez le combat, mais le monstre est plus rapide que vous et a eu le temps de vous attaquer une dernière fois pour " + dommageInflige + " de dégâts.", "Fuite", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK)
+                    menuPrincipalFuite();
+            }
+            else
+            {
+                if(MessageBox.Show("Vous êtes plus rapide que l'ennemi et fuyez le combat sans problème","Fuite",MessageBoxButton.OK,MessageBoxImage.Information) == MessageBoxResult.OK)
+                    menuPrincipalFuite();
+            }
+        }
+
+        /// <summary>
+        /// Fonction qui amène le joueur au menu principal suite à une fuite
+        /// </summary>
+        private void menuPrincipalFuite()
+        {
+            var EcranMenuPrincipal = new EcranMenuPrincipal();
+            EcranMenuPrincipal.Show();
+            this.Close();
         }
     }
 }
