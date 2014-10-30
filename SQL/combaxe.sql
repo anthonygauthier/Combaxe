@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 29 Octobre 2014 à 14:57
+-- Généré le :  Jeu 30 Octobre 2014 à 16:05
 -- Version du serveur :  5.6.16
 -- Version de PHP :  5.5.11
 
@@ -484,29 +484,29 @@ INSERT INTO `competences` (`idCompetence`, `idTypeCompetence`, `idEffet`, `nom`,
 (27, 2, NULL, 'Attaque précise', 12, 16, 5, 3, 'Concentre son attaque sur un même point précis. ', NULL),
 (28, 2, NULL, 'Vision de sang', 15, 22, 12, 4, 'Devient fou et veut voir son ennemi ensanglanté. ', NULL),
 (29, 2, 5, 'Tir gelé', 15, 22, 12, 4, 'La peau de la cible se durcit et devient aussi dure que l''acier. L''ennemi est gelé et sa vitesse est baissé de moitié pendant 3 tour.', NULL),
-(30, 2, NULL, 'Tir explosif', 15, 22, 12, 4, 'Devient fou et veut voir son ennemi ensanglanté. ', NULL),
-(31, 2, NULL, 'Empoisonnement', 15, 22, 12, 4, 'Devient fou et veut voir son ennemi ensanglanté. ', NULL),
-(32, 2, NULL, 'Tir rapide', 15, 22, 12, 4, 'Devient fou et veut voir son ennemi ensanglanté. ', NULL),
+(30, 2, NULL, 'Tir explosif', 15, 22, 12, 4, 'Projectile doté de poudre à canon explosive. ', NULL),
+(31, 2, NULL, 'Empoisonnement', 15, 22, 12, 4, 'Coup qui empoisonne instantanemment son adversaire pour des dégâts immédiat. ', NULL),
+(32, 2, NULL, 'Tir rapide', 15, 22, 12, 4, 'Tir des projectiles très rapidement envers son adversaire. ', NULL),
 (33, 3, 4, 'Gardien', 15, 20, 7, 4, 'Bouclier divin pouvant absorber les dégats pendant 3', NULL),
-(34, 1, NULL, 'Souffle de feu', 15, 22, 12, 4, 'Devient fou et veut voir son ennemi ensanglanté. ', NULL),
-(35, 2, 6, 'Mouvement agile', 15, 22, 12, 4, 'Devient fou et veut voir son ennemi ensanglanté. ', NULL),
-(36, 2, 7, 'Pétrification', 15, 22, 12, 4, 'Devient fou et veut voir son ennemi ensanglanté. ', NULL),
-(37, 4, 5, 'Régénération', 15, 22, 12, 4, 'Devient fou et veut voir son ennemi ensanglanté. ', NULL),
-(38, 2, 5, 'Invisibilité', 15, 22, 12, 4, 'Devient fou et veut voir son ennemi ensanglanté. ', NULL),
-(39, 2, 5, 'Attaque rapide', 15, 22, 12, 4, 'Devient fou et veut voir son ennemi ensanglanté. ', NULL),
-(40, 2, 5, 'Rafale de tentacules', 15, 22, 12, 4, 'Devient fou et veut voir son ennemi ensanglanté. ', NULL),
-(41, 2, 5, 'Invocation des morts', 15, 22, 12, 4, 'Devient fou et veut voir son ennemi ensanglanté. ', NULL),
-(42, 2, 5, 'Tremblement de terre', 15, 22, 12, 4, 'Devient fou et veut voir son ennemi ensanglanté. ', NULL),
-(43, 2, 5, 'Cri strident', 15, 22, 12, 4, 'Devient fou et veut voir son ennemi ensanglanté. ', NULL),
-(44, 2, 5, 'Coup ailé', 15, 22, 12, 4, 'Devient fou et veut voir son ennemi ensanglanté. ', NULL),
-(45, 2, 5, 'Piétinement', 15, 22, 12, 4, 'Devient fou et veut voir son ennemi ensanglanté. ', NULL),
-(46, 2, 5, 'Mélodie enchantée', 15, 22, 12, 4, 'Devient fou et veut voir son ennemi ensanglanté. ', NULL),
-(47, 2, 5, 'Coup foudroyant', 15, 22, 12, 4, 'Devient fou et veut voir son ennemi ensanglanté. ', NULL),
-(48, 2, 5, 'Confusion', 15, 22, 12, 4, 'Devient fou et veut voir son ennemi ensanglanté. ', NULL),
-(49, 2, 5, 'Instabilité', 15, 22, 12, 4, 'Devient fou et veut voir son ennemi ensanglanté. ', NULL),
-(50, 2, 5, 'Morsure', 15, 22, 12, 4, 'Devient fou et veut voir son ennemi ensanglanté. ', NULL),
-(51, 2, 5, 'Coup féroce', 15, 22, 12, 4, 'Devient fou et veut voir son ennemi ensanglanté. ', NULL),
-(52, 2, 5, 'Coup de corne', 15, 22, 12, 4, 'Devient fou et veut voir son ennemi ensanglanté. ', NULL);
+(34, 1, NULL, 'Souffle de feu', 15, 22, 12, 4, 'Envoie des flammes vers son adversaire. ', NULL),
+(35, 2, 6, 'Mouvement agile', 15, 22, 12, 4, 'Bouge avec dextérité pour atteindre son adversaire avec peu de chance de raté. ', NULL),
+(36, 2, 7, 'Pétrification', 15, 22, 12, 4, 'Faire peur à son ennemi lui infligeant des dégâts et le fige. ', NULL),
+(37, 4, 5, 'Régénération', 15, 22, 12, 4, 'Se redonne des points de vie. ', NULL),
+(38, 2, 5, 'Invisibilité', 15, 22, 12, 4, 'Devient invisible et absorbe des dégâts pendant X tours. ', NULL),
+(39, 2, 5, 'Attaque rapide', 15, 22, 12, 4, 'Attaque son adversaire rapidement avec des coups remplis de force. ', NULL),
+(40, 2, 5, 'Rafale de tentacules', 15, 22, 12, 4, 'Attaque son ennemi rapidement avec des coups de tentacules. ', NULL),
+(41, 2, 5, 'Invocation des morts', 15, 22, 12, 4, 'Invoque un mort attaquant l''adversaire, le mort retourne d''où il vient après le tour. ', NULL),
+(42, 2, 5, 'Tremblement de terre', 15, 22, 12, 4, 'Créer un tremblement de terre. ', NULL),
+(43, 2, 5, 'Cri strident', 15, 22, 12, 4, 'Cri de manière déstabilisante. ', NULL),
+(44, 2, 5, 'Coup ailé', 15, 22, 12, 4, 'Donne un coup d''aile à son adversaire. ', NULL),
+(45, 2, 5, 'Piétinement', 15, 22, 12, 4, 'Fonce vers son adversaire et le piétine. ', NULL),
+(46, 2, 5, 'Mélodie enchantée', 15, 22, 12, 4, 'Joue une mélodie qui est accompagné d''un sort maléfique. ', NULL),
+(47, 2, 5, 'Coup foudroyant', 15, 22, 12, 4, 'Inflige un coup enchanté par la foudre à son adversaire. ', NULL),
+(48, 2, 5, 'Confusion', 15, 22, 12, 4, 'Jette un sort à son adversaire le plongeant dans la confusion pour X tours. ', NULL),
+(49, 2, 5, 'Instabilité', 15, 22, 12, 4, 'Donne un coup précis à son adversaire, le rendant instable pour X tours. ', NULL),
+(50, 2, 5, 'Morsure', 15, 22, 12, 4, 'Fonce vers son adversaire et le mord. ', NULL),
+(51, 2, 5, 'Coup féroce', 15, 22, 12, 4, 'Attaque son adversaire d''un coup quasiment animal.', NULL),
+(52, 2, 5, 'Coup de corne', 15, 22, 12, 4, 'Attaque son adversaire avec ses cornes. ', NULL);
 
 -- --------------------------------------------------------
 
@@ -1118,6 +1118,8 @@ CREATE TABLE IF NOT EXISTS `personnages` (
   `nom` varchar(21) NOT NULL,
   `niveau` int(11) NOT NULL DEFAULT '1',
   `experience` int(11) NOT NULL DEFAULT '0',
+  `vie` int(11) NOT NULL DEFAULT '0',
+  `energie` int(11) NOT NULL DEFAULT '0',
   `image` varchar(255) DEFAULT NULL,
   `estActif` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`idPersonnage`),
@@ -1149,9 +1151,9 @@ CREATE TABLE IF NOT EXISTS `professions` (
 --
 
 INSERT INTO `professions` (`idProfession`, `nom`, `image`, `description`) VALUES
-(1, 'Paladin', NULL, 'Le paladin est un guerrier croyant en les dieux. Il ne se bat que s''il en sent le besoin.\n    Durant les combats, il les implore pour avoir leur aide pour le guérrir ou simplement enchanter ses\n    attaques.'),
-(2, 'Magicien', NULL, 'Le magicien étudie différent type de magie, mais exclut la magie noire. Il contrôle les arcanes,\n    le feu et l''électricité. Il se sert de sorts pour attaquer son ennemi, mais aussi pour se protéger. Les sorts\n    du magicien sont très puissant et effica'),
-(3, 'Guerrier', NULL, 'Le guerrier est une brute ne se fiant qu''à sa force pour abattre ses ennemis, il n''hésite pas une seconde\n    à enfoncer son sur sur ceux-ci. Endurci par les combats au corps à corps, le guerrier est résistant et physiquement\n    très fort.');
+(1, 'Paladin', '../images/paladin.png', 'Le paladin est un guerrier croyant en les dieux. Il ne se bat que s''il en sent le besoin.\n    Durant les combats, il les implore pour avoir leur aide pour le guérrir ou simplement enchanter ses\n    attaques.'),
+(2, 'Magicien', '../images/magicien.png', 'Le magicien étudie différent type de magie, mais exclut la magie noire. Il contrôle les arcanes,\n    le feu et l''électricité. Il se sert de sorts pour attaquer son ennemi, mais aussi pour se protéger. Les sorts\n    du magicien sont très puissant et effica'),
+(3, 'Guerrier', '../images/guerrier.png', 'Le guerrier est une brute ne se fiant qu''à sa force pour abattre ses ennemis, il n''hésite pas une seconde\n    à enfoncer son sur sur ceux-ci. Endurci par les combats au corps à corps, le guerrier est résistant et physiquement\n    très fort.');
 
 -- --------------------------------------------------------
 
@@ -1217,8 +1219,8 @@ ALTER TABLE `caracteristiquespersonnages`
 -- Contraintes pour la table `caracteristiquesprofessions`
 --
 ALTER TABLE `caracteristiquesprofessions`
-  ADD CONSTRAINT `CaracteristiquesProfessions_Caracteristiques_FK` FOREIGN KEY (`idCaracteristique`) REFERENCES `caracteristiques` (`idCaracteristique`),
-  ADD CONSTRAINT `CaracteristiquesProfessions_Professions_FK` FOREIGN KEY (`idProfession`) REFERENCES `professions` (`idProfession`);
+  ADD CONSTRAINT `CaracteristiquesProfessions_Professions_FK` FOREIGN KEY (`idProfession`) REFERENCES `professions` (`idProfession`),
+  ADD CONSTRAINT `CaracteristiquesProfessions_Caracteristiques_FK` FOREIGN KEY (`idCaracteristique`) REFERENCES `caracteristiques` (`idCaracteristique`);
 
 --
 -- Contraintes pour la table `competences`
@@ -1230,15 +1232,15 @@ ALTER TABLE `competences`
 -- Contraintes pour la table `competencesennemis`
 --
 ALTER TABLE `competencesennemis`
-  ADD CONSTRAINT `CompetencesEnnemis_Competences_FK` FOREIGN KEY (`idCompetence`) REFERENCES `competences` (`idCompetence`),
-  ADD CONSTRAINT `CompetencesEnnemis_Ennemis_FK` FOREIGN KEY (`idEnnemi`) REFERENCES `ennemis` (`idEnnemi`);
+  ADD CONSTRAINT `CompetencesEnnemis_Ennemis_FK` FOREIGN KEY (`idEnnemi`) REFERENCES `ennemis` (`idEnnemi`),
+  ADD CONSTRAINT `CompetencesEnnemis_Competences_FK` FOREIGN KEY (`idCompetence`) REFERENCES `competences` (`idCompetence`);
 
 --
 -- Contraintes pour la table `competencesprofessions`
 --
 ALTER TABLE `competencesprofessions`
-  ADD CONSTRAINT `CompetencesProfessions_Competences_FK` FOREIGN KEY (`idCompetence`) REFERENCES `competences` (`idCompetence`),
-  ADD CONSTRAINT `CompetencesProfessions_Professions_FK` FOREIGN KEY (`idProfession`) REFERENCES `professions` (`idProfession`);
+  ADD CONSTRAINT `CompetencesProfessions_Professions_FK` FOREIGN KEY (`idProfession`) REFERENCES `professions` (`idProfession`),
+  ADD CONSTRAINT `CompetencesProfessions_Competences_FK` FOREIGN KEY (`idCompetence`) REFERENCES `competences` (`idCompetence`);
 
 --
 -- Contraintes pour la table `ennemis`
@@ -1269,10 +1271,10 @@ ALTER TABLE `equipementspersonnages`
 -- Contraintes pour la table `personnages`
 --
 ALTER TABLE `personnages`
+  ADD CONSTRAINT `Personnages_Statistique_FK` FOREIGN KEY (`idStatistique`) REFERENCES `statistiques` (`idStatistique`),
   ADD CONSTRAINT `Personnages_Inventaires_FK` FOREIGN KEY (`idInventaire`) REFERENCES `inventaires` (`idInventaire`),
   ADD CONSTRAINT `Personnages_Joueurs_FK` FOREIGN KEY (`idJoueur`) REFERENCES `joueurs` (`idJoueur`),
-  ADD CONSTRAINT `Personnages_Professions_FK` FOREIGN KEY (`idProfession`) REFERENCES `professions` (`idProfession`),
-  ADD CONSTRAINT `Personnages_Statistique_FK` FOREIGN KEY (`idStatistique`) REFERENCES `statistiques` (`idStatistique`);
+  ADD CONSTRAINT `Personnages_Professions_FK` FOREIGN KEY (`idProfession`) REFERENCES `professions` (`idProfession`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
