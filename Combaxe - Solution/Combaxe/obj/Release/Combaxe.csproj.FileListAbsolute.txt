@@ -76,3 +76,5 @@ D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe\bin\Release\Combaxe.exe
 D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe\bin\Release\Combaxe.pdb
 D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe\obj\Release\Combaxe.exe
 D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe\obj\Release\Combaxe.pdb
+D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe\obj\Release\écrans\EcranRepos.baml
+D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe\obj\Release\écrans\EcranRepos.g.cs

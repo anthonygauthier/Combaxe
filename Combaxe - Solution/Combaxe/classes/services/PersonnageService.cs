@@ -215,5 +215,15 @@ namespace Combaxe___New.classes.services
 
             bdCombaxe.maj(requeteUpdate);
         }
+        
+        /// <summary>
+        /// Remet la vie et l'énergie du personnage au max en BASE DE DONNÉES
+        /// </summary>
+        public void RemiseDeVieEtEnergie()
+        {
+            string requeteUpdate = "UPDATE Personnages SET vie = " + VarGlobales.Personnage.VieMaximale + " , energie = " + VarGlobales.Personnage.EnergieMaximale + " WHERE idPersonnage = '" + VarGlobales.Personnage.IdPersonnage + "';";
+
+            bdCombaxe.maj(requeteUpdate);
+        }
     }
 }

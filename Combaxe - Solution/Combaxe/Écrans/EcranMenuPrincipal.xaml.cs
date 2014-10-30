@@ -32,8 +32,8 @@ namespace Combaxe___New.écrans
             InitializeComponent();
 
             //On active le bouton taverne dépendemment de la vie et l'énergie actuelle du personnage
-            if(VarGlobales.Personnage.VerifierVieEnergie())
-            { 
+            if(!VarGlobales.Personnage.VerifierVieEnergie())
+            {
                 btnTaverne.IsEnabled = false;
             }
             else
@@ -159,6 +159,7 @@ namespace Combaxe___New.écrans
                     this.WindowStyle = WindowStyle.SingleBorderWindow;
                     this.ResizeMode = ResizeMode.CanResize;
                     this.IsEnabled = true;
+                    btnTaverne.IsEnabled = false;
                 }
             }, Application.Current.Dispatcher);
 

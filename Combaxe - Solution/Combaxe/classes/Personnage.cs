@@ -120,5 +120,30 @@ namespace Combaxe___New.classes
             this.Image = null;
             this.ListeCaracteristique = null;
         }
+
+        /// <summary>
+        /// Remet la vie et l'énergie du personnage au maximum
+        /// </summary>
+        public void Regeneration()
+        { 
+            this.Vie = this.VieMaximale;
+            this.Energie = this.EnergieMaximale;
+        }
+
+        /// <summary>
+        /// Fonction qui vérifie si la vie et l'énergie du personnage est à 100%
+        /// </summary>
+        /// <returns>Retourne vrai si la vie et l'énergie est à 100%</returns>
+        public bool VerifierVieEnergie()
+        { 
+            if(this.Vie != this.VieMaximale || this.Energie != this.EnergieMaximale)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
