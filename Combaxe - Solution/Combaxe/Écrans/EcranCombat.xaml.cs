@@ -195,24 +195,6 @@ namespace Combaxe___New.écrans
         }
 
         /// <summary>
-        /// Fonction pour calculer les dégâts/les points d'absortions/points de guérisons
-        /// </summary>
-        /// <param name="pointMin">la valeur minimum</param>
-        /// <param name="pointMax">la valeur maximum</param>
-        /// <returns>les points</returns>
-        private int calculValeur(int pointMin, int pointMax, string nomTypeCompetence)
-        {
-            int valeur = 0;
-            //on fait le random entre le min et le max
-
-            // on attribut le bon texte pour le tooltip
-            // on retourne la valeur
-
-            return valeur;
-
-        }
-
-        /// <summary>
         /// pour afficher le tooltip pour une compétence
         /// </summary>
         private ToolTip afficherTooltip(int num)
