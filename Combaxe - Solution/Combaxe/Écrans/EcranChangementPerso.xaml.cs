@@ -68,13 +68,13 @@ namespace Combaxe___New.écrans
                     if(nbLigne >= 1){
                         /* affiche caractéristiques */
                    
-                        lblNbrEDefense1.Content = lstPerso[0].ListeCaracteristique[3].Valeur;
-                        lblNbrEnergie1.Content = lstPerso[0].ListeCaracteristique[4].Valeur;
-                        lblNbrForce1.Content = lstPerso[0].ListeCaracteristique[0].Valeur;
-                        lblNbrVie1.Content = lstPerso[0].ListeCaracteristique[1].Valeur;
-                        lblNbrVitesse1.Content = lstPerso[0].ListeCaracteristique[2].Valeur;
-                        txtbPointDenergie1.Text = "Énergie: " + Convert.ToInt32((lstPerso[0].ListeCaracteristique[3].Valeur * 10) / 3.1416).ToString();
-                        txtbPointDeVie1.Text = "Vie: " + Convert.ToInt32((lstPerso[0].ListeCaracteristique[2].Valeur * 20) / 3.1416).ToString();
+                        lblNbrEDefense1.Content = lstPerso[0].ListeCaracteristique[(int)Caracteristiques.Defense].Valeur;
+                        lblNbrEnergie1.Content = lstPerso[0].ListeCaracteristique[(int)Caracteristiques.Energie].Valeur;
+                        lblNbrForce1.Content = lstPerso[0].ListeCaracteristique[(int)Caracteristiques.Force].Valeur;
+                        lblNbrVie1.Content = lstPerso[0].ListeCaracteristique[(int)Caracteristiques.Vie].Valeur;
+                        lblNbrVitesse1.Content = lstPerso[0].ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur;
+                        txtbPointDenergie1.Text = "Énergie: " + lstPerso[0].Energie.ToString() + "/" + lstPerso[0].EnergieMaximale;
+                        txtbPointDeVie1.Text = "Vie: " + lstPerso[0].Vie.ToString() + "/" + lstPerso[0].VieMaximale;
                         /* l'image du personnage */
                         this.imgPerso1.Source = lstPerso[0].profession.Image; // le lien va être à changer
                         lblNomPerso1.Content = lstPerso[0].Nom;
@@ -84,13 +84,13 @@ namespace Combaxe___New.écrans
                     }
                     if (nbLigne >= 2)
                     {
-                        lblNbrEDefense2.Content = lstPerso[1].ListeCaracteristique[3].Valeur;
-                        lblNbrEnergie2.Content = lstPerso[1].ListeCaracteristique[4].Valeur;
-                        lblNbrForce2.Content = lstPerso[1].ListeCaracteristique[0].Valeur;
-                        lblNbrVie2.Content = lstPerso[1].ListeCaracteristique[1].Valeur;
-                        lblNbrVitesse2.Content = lstPerso[1].ListeCaracteristique[2].Valeur;
-                        txtbPointDenergie2.Text = "Énergie: " + Convert.ToInt32((lstPerso[1].ListeCaracteristique[3].Valeur * 10) / 3.1416).ToString();
-                        txtbPointDeVie2.Text = "Vie: " + Convert.ToInt32((lstPerso[1].ListeCaracteristique[2].Valeur * 20) / 3.1416).ToString();
+                        lblNbrEDefense2.Content = lstPerso[1].ListeCaracteristique[(int)Caracteristiques.Defense].Valeur;
+                        lblNbrEnergie2.Content = lstPerso[1].ListeCaracteristique[(int)Caracteristiques.Energie].Valeur;
+                        lblNbrForce2.Content = lstPerso[1].ListeCaracteristique[(int)Caracteristiques.Force].Valeur;
+                        lblNbrVie2.Content = lstPerso[1].ListeCaracteristique[(int)Caracteristiques.Vie].Valeur;
+                        lblNbrVitesse2.Content = lstPerso[1].ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur;
+                        txtbPointDenergie2.Text = "Énergie: " + lstPerso[1].Energie.ToString() + "/" + lstPerso[1].EnergieMaximale;
+                        txtbPointDeVie2.Text = "Vie: " + lstPerso[1].Vie.ToString() + "/" + lstPerso[1].VieMaximale;
                         this.imgPerso2.Source = lstPerso[1].profession.Image; // le lien va être achanger
                         lblNomPerso2.Content = lstPerso[1].Nom;
                         lblNiveau2.Content = "Niveau: " + lstPerso[1].Niveau; //Ajout de "Niveau: " Anthony Gauthier 23/10/2014
@@ -98,13 +98,13 @@ namespace Combaxe___New.écrans
                     }
                     if(nbLigne >= 3)
                     {
-                        lblNbrEDefense3.Content = lstPerso[2].ListeCaracteristique[3].Valeur;
-                        lblNbrEnergie3.Content = lstPerso[2].ListeCaracteristique[4].Valeur;
-                        lblNbrForce3.Content = lstPerso[2].ListeCaracteristique[0].Valeur;
-                        lblNbrVie3.Content = lstPerso[2].ListeCaracteristique[1].Valeur;
-                        lblNbrVitesse3.Content = lstPerso[2].ListeCaracteristique[2].Valeur;
-                        txtbPointDenergie3.Text = "Énergie: " + Convert.ToInt32((lstPerso[2].ListeCaracteristique[3].Valeur * 10) / 3.1416).ToString();
-                        txtbPointDeVie3.Text = "Vie: " + Convert.ToInt32((lstPerso[2].ListeCaracteristique[2].Valeur * 20) / 3.1416).ToString();
+                        lblNbrEDefense3.Content = lstPerso[2].ListeCaracteristique[(int)Caracteristiques.Defense].Valeur;
+                        lblNbrEnergie3.Content = lstPerso[2].ListeCaracteristique[(int)Caracteristiques.Energie].Valeur;
+                        lblNbrForce3.Content = lstPerso[2].ListeCaracteristique[(int)Caracteristiques.Force].Valeur;
+                        lblNbrVie3.Content = lstPerso[2].ListeCaracteristique[(int)Caracteristiques.Vie].Valeur;
+                        lblNbrVitesse3.Content = lstPerso[2].ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur;
+                        txtbPointDenergie3.Text = "Énergie: " + lstPerso[2].Energie.ToString() + "/" + lstPerso[2].EnergieMaximale;
+                        txtbPointDeVie3.Text = "Vie: " + lstPerso[2].Vie.ToString() + "/" + lstPerso[2].VieMaximale;
                         this.imgPerso3.Source = lstPerso[2].profession.Image; // le lien va être achanger
                         lblNomPerso3.Content = lstPerso[2].Nom;
                         lblNiveau3.Content = "Niveau: " + lstPerso[2].Niveau; //Ajout de "Niveau: " Anthony Gauthier 23/10/2014
