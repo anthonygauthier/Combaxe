@@ -86,7 +86,21 @@ namespace Combaxe___New.écrans
 
         private void btnAction1_Click(object sender, RoutedEventArgs e)
         {
-            boutonClique = true;
+            //boutonClique = true;
+            //// on va chercher la bonne compétence la 1
+            //// on vérifie que l'énergie n'est pas manquante
+            //bool estUtilisable = VerifierEnergieRestante(VarGlobales.Personnage.ListeCompetence[0].EnergieUtilise, Combat.EnergiePersonnage);
+            //if (estUtilisable)
+            //{
+            //   // on calcul la valeur qui est effectué
+            //    bool estCritique = false;
+            //    int valeur = calculValeurCompetence(VarGlobales.Personnage.ListeCompetence[0].ValeurMin, VarGlobales.Personnage.ListeCompetence[0].ValeurMax, true, estCritique); 
+            //   // on vérifie quel est le type de compétence
+
+            //   // on applique la bonne action pour la cible
+            //   // on vérifie que le joueur ou l'ennemi est encore en vie
+            //   // mettre à jour l'interface
+            //}
         }
 
         private void btnAction2_Click(object sender, RoutedEventArgs e)
