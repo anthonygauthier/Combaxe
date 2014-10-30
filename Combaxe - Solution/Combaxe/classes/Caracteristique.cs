@@ -47,24 +47,16 @@ namespace Combaxe___New.classes
             Valeur = val;
             Nom = nom;
             /* Pour l'enum */
-            switch (this.Nom)
-            {
-                case "Force":
-                    CaracteristiqueEnum = Caracteristiques.Force;
-                    break;
-                case "Vie":
-                    CaracteristiqueEnum = Caracteristiques.Vie;
-                    break;
-                case "Défense":
-                    CaracteristiqueEnum = Caracteristiques.Defense;
-                    break;
-                case "Énergie":
-                    CaracteristiqueEnum = Caracteristiques.Energie;
-                    break;
-                case "Vitesse":
-                    CaracteristiqueEnum = Caracteristiques.Vitesse;
-                    break;
-            }   
+            if(this.Nom == Caracteristiques.Force.ToString())
+                CaracteristiqueEnum = Caracteristiques.Force;
+            else if(this.Nom == Caracteristiques.Vie.ToString())
+                CaracteristiqueEnum = Caracteristiques.Vie;
+            else if(this.Nom == Caracteristiques.Defense.ToString())
+                CaracteristiqueEnum = Caracteristiques.Defense;
+            else if(this.Nom == Caracteristiques.Energie.ToString())
+                CaracteristiqueEnum = Caracteristiques.Energie;
+            else if(this.Nom == Caracteristiques.Vitesse.ToString())
+                CaracteristiqueEnum = Caracteristiques.Vitesse;
         }
     }
 }

@@ -27,7 +27,7 @@ namespace Combaxe___New.classes.services
             //On va chercher les caractéristiques de l'ennemi
             CaracteristiqueService caracteristiqueService = new CaracteristiqueService();
             List<Caracteristique> caracteristiques = new List<Caracteristique>();
-            caracteristiques = caracteristiqueService.RetrieveCaracteristiqueEnnemi(idEnnemi);
+            caracteristiques = caracteristiqueService.RetrieveCaracteristique(idEnnemi,false);
 
             //Selection des idCompetence pour trouver les compétences de l'ennemi
             selConnexion = "SELECT idCompetence FROM competencesEnnemis WHERE idEnnemi = '" + idEnnemi + "';";

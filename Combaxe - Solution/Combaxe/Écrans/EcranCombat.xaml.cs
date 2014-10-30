@@ -184,6 +184,9 @@ namespace Combaxe___New.écrans
            
         }
 
+        /// <summary>
+        /// Fonction qui charge un nouvel ennemi - William Themens
+        /// </summary>
         private void chargerEnnemi()
         {
             Ennemi ennemi = new Ennemi();

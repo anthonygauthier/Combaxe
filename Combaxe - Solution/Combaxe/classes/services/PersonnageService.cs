@@ -27,18 +27,19 @@ namespace Combaxe___New.classes.services
             if(nbLigne != 0){
                 List<Personnage> lstPersonnage = new List<Personnage>();
                 List<Caracteristique> lstCar = new List<Caracteristique>();
+                CaracteristiqueService caracteristiqueService = new CaracteristiqueService();
                 Profession prof;
                 
                 if(lstPerso.Count() != 0){
                     for (int i = 0; i < lstPerso.Count(); i++) 
                     {
-                            /* aller chercher leurs caractéristiques */
-                            lstCar = RetrieveCaracteristiques(Convert.ToInt32(lstPerso[i][0]));
-                            prof = professionService.RetrieveIdProfessionAvecId(Convert.ToInt32(lstPerso[i][5]));
+                        /* aller chercher leurs caractéristiques */
+                        lstCar = caracteristiqueService.RetrieveCaracteristique(lstPerso[i][0], true);
+                        prof = professionService.RetrieveIdProfessionAvecId(Convert.ToInt32(lstPerso[i][5]));
                             
-                            Personnage perso = new Personnage(Convert.ToInt32(lstPerso[i][0]), lstPerso[i][1], Convert.ToInt32(lstPerso[i][2]), Convert.ToInt32(lstPerso[i][3]), lstPerso[i][4], lstCar, prof, null);
-                            lstPersonnage.Add(perso);
-                            lstCar = new List<Caracteristique>();
+                        Personnage perso = new Personnage(Convert.ToInt32(lstPerso[i][0]), lstPerso[i][1], Convert.ToInt32(lstPerso[i][2]), Convert.ToInt32(lstPerso[i][3]), lstPerso[i][4], lstCar, prof, null);
+                        lstPersonnage.Add(perso);
+                        lstCar = new List<Caracteristique>();
                      }
                 }
                 return lstPersonnage;
@@ -47,38 +48,6 @@ namespace Combaxe___New.classes.services
             {
                 return null;
             }
-        }
-
-        /// <summary>
-        /// Récupère toutes les caractéristiques d'un personnage, Tommy Gingras
-        /// </summary>
-        /// <param name="idPersonnage">le id du personnage</param>
-        /// <returns>retourne sous forme d'objet caractéristique</returns>
-        public List<Caracteristique> RetrieveCaracteristiques(int idPersonnage)
-        {
-            /* pour chaque personnage qui existe je veux ajouter ses caractéristiques
-             */
-            List<string>[] lstCaracteristiques = null;
-            List<Caracteristique> lstCar = new List<Caracteristique>();
-
-            string reqSelect = "SELECT c.idCaracteristique, c.nom, cp.valeur FROM Personnages p INNER JOIN CaracteristiquesPersonnages cp ON cp.idPersonnage =  p.idPersonnage INNER JOIN Caracteristiques c ON c.idCaracteristique = cp.idCaracteristique WHERE p.idPersonnage = '" + idPersonnage + "'";
-            int nbLigne = 0;
-            lstCaracteristiques = bdCombaxe.selection(reqSelect, 3, ref nbLigne);
-
-            for (int y = 0; y < lstCaracteristiques.Count(); y++)
-            {
-                /* on doit aller faire le lien des caractéristiques pour chaque personnages donc un autre for du meme genre */
-                if (lstCaracteristiques.Count() == 5)
-                {
-                    Caracteristique caract = new Caracteristique(Convert.ToInt32(lstCaracteristiques[y][0]), Convert.ToInt32(lstCaracteristiques[y][2]), lstCaracteristiques[y][1]);
-                    lstCar.Add(caract);
-                }
-                else
-                {
-                    return null;
-                }
-            }
-            return lstCar;
         }
 
         /// <summary>
@@ -100,11 +69,12 @@ namespace Combaxe___New.classes.services
             {
                 Personnage perso = null;
                 List<Caracteristique> lstCar = new List<Caracteristique>();
+                CaracteristiqueService caracteristiqueService = new CaracteristiqueService();
 
                 if (lstPerso.Count() != 0)
                 {
                     /* aller chercher leurs caractéristiques */
-                    lstCar = RetrieveCaracteristiques(Convert.ToInt32(lstPerso[0][0]));
+                    lstCar = caracteristiqueService.RetrieveCaracteristique(lstPerso[0][0], true);
                     prof = professionService.RetrieveIdProfessionAvecId(Convert.ToInt32(lstPerso[0][5]));
                     lstComp = competenceService.RetrieveCompetenceUnPersonnage(prof.IdProfession);
                     perso = new Personnage(Convert.ToInt32(lstPerso[0][0]), lstPerso[0][1], Convert.ToInt32(lstPerso[0][2]), Convert.ToInt32(lstPerso[0][3]), lstPerso[0][4], lstCar, prof, lstComp);                   
@@ -173,11 +143,11 @@ namespace Combaxe___New.classes.services
             bdCombaxe.Insertion(reqInsertPerso);
             idPersonnage = bdCombaxe.lastInsertId();
 
-            caracteristiqueService.InsertCaracteristique("Force", idPersonnage, valForce);
-            caracteristiqueService.InsertCaracteristique("Vitesse", idPersonnage, valVitesse);
-            caracteristiqueService.InsertCaracteristique("Vie", idPersonnage, valVie);
-            caracteristiqueService.InsertCaracteristique("Énergie", idPersonnage, valEnergie);
-            caracteristiqueService.InsertCaracteristique("Défense", idPersonnage, valDefense);
+            caracteristiqueService.InsertCaracteristique(Caracteristiques.Force.ToString(), idPersonnage, valForce);
+            caracteristiqueService.InsertCaracteristique(Caracteristiques.Vitesse.ToString(), idPersonnage, valVitesse);
+            caracteristiqueService.InsertCaracteristique(Caracteristiques.Vie.ToString(), idPersonnage, valVie);
+            caracteristiqueService.InsertCaracteristique(Caracteristiques.Energie.ToString(), idPersonnage, valEnergie);
+            caracteristiqueService.InsertCaracteristique(Caracteristiques.Defense.ToString(), idPersonnage, valDefense);
         }
 
         //Méthode qui va retourner si le personnage existe ou non (pour la création de personnage) - Anthony Gauthier 2014-10-24

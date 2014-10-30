@@ -68,8 +68,34 @@ namespace Combaxe___New.classes
             int idEnnemiAleatoire = aleatoire.Next(0, tousEnnemi.Count());
             Ennemi ennemi;
             ennemi = ennemiService.RetrieveInfoEnnemi(tousEnnemi[idEnnemiAleatoire][0]);
+            ennemi = NiveauEnnemi(ennemi);
 
             VarGlobales.Ennemi = ennemi;
+        }
+
+        public Ennemi NiveauEnnemi(Ennemi ennemi)
+        {
+            //Selectionne un niveau aléatoirement +/- 2 au niveau du personnage
+            int niveauMin = VarGlobales.Personnage.Niveau-2;
+            if(niveauMin<=0)
+            {
+                niveauMin = 1;
+            }
+            int niveauMax = VarGlobales.Personnage.Niveau+2;
+            Random rand = new Random();
+            int niveau = rand.Next(niveauMin, niveauMax);
+
+            ennemi.Niveau = niveau;
+
+            //Calcule les caractéristiques selon le niveau
+            // caracteristique += caracteristique * (niveau-1) *0.3
+            ennemi.ListeCaracteristique[(int)Caracteristiques.Force].Valeur += Convert.ToInt32(ennemi.ListeCaracteristique[(int)Caracteristiques.Force].Valeur * (ennemi.Niveau - 1) * 0.3);
+            ennemi.ListeCaracteristique[(int)Caracteristiques.Defense].Valeur += Convert.ToInt32(ennemi.ListeCaracteristique[(int)Caracteristiques.Defense].Valeur * (ennemi.Niveau - 1) * 0.3);
+            ennemi.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur += Convert.ToInt32(ennemi.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * (ennemi.Niveau - 1) * 0.3);
+            ennemi.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur += Convert.ToInt32(ennemi.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur * (ennemi.Niveau - 1) * 0.3);
+            ennemi.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur += Convert.ToInt32(ennemi.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * (ennemi.Niveau - 1) * 0.3);
+
+            return ennemi;
         }
     }
 }
