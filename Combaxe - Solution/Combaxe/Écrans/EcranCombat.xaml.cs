@@ -59,6 +59,9 @@ namespace Combaxe___New.écrans
             btnAction3.Content = VarGlobales.Personnage.ListeCompetence[2].Nom;
             btnAction4.Content = VarGlobales.Personnage.ListeCompetence[3].Nom;
             btnAction1.ToolTip = afficherTooltip(0);
+            btnAction2.ToolTip = afficherTooltip(1);
+            btnAction3.ToolTip = afficherTooltip(2);
+            btnAction4.ToolTip = afficherTooltip(3);
         }
 
         //Méthode qui affiche les boutons items lorsque le bouton Items est cliqué - Anthony Gauthier 23/10/2014
@@ -68,6 +71,8 @@ namespace Combaxe___New.écrans
 
             btnAction2.Content = "";
             btnAction3.Content = "";
+            btnAction2.ToolTip = "";
+            btnAction3.ToolTip = "";
 
             btnAction3.Visibility = Visibility.Visible;
 
@@ -156,7 +161,7 @@ namespace Combaxe___New.écrans
 
         private void chargerPersonnage()
         {
-            this.imgPerso.Source = VarGlobales.Personnage.profession.Image; // le lien va être à changer
+            this.imgPerso.Source = VarGlobales.Personnage.Image;
             lblNomPerso.Content = VarGlobales.Personnage.Nom;
             lblNiveauPerso.Content = VarGlobales.Personnage.Niveau;
             lblViePerso.Content = Convert.ToInt32((VarGlobales.Personnage.ListeCaracteristique[2].Valeur * 20) / 3.1416).ToString();
@@ -201,6 +206,7 @@ namespace Combaxe___New.écrans
             CompetenceService competenceService = new CompetenceService();
             ToolTip toolTip = new ToolTip();
             toolTip.Content = VarGlobales.Personnage.ListeCompetence[num].Nom + "\nType : " + VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence;
+            toolTip.Content += "\n" + VarGlobales.Personnage.ListeCompetence[num].Description;
             //if pour le type d'attaque
             //List<string> typesAttaque = competenceService.RetrieveListeTypeCompetence();
             // requête bd pour définir les types de competence
@@ -208,10 +214,36 @@ namespace Combaxe___New.écrans
             { // Attaque physique
                 // Min dégât + 31.416%/2.2 * points de caractéristique de force
                 // Max dégât + 31.416%/2.2 * des points de caractéristique de force
-                int val = calculValeur(VarGlobales.Personnage.ListeCompetence[num].ValeurMin, VarGlobales.Personnage.ListeCompetence[num].ValeurMax, Competences.Physique.ToString()); // champs pas optimisé
-                toolTip.Content += "\nDégât : " + VarGlobales.Personnage.ListeCompetence[num].ValeurMin + " - " + VarGlobales.Personnage.ListeCompetence[num].ValeurMax;
-
+                int valeurMin = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMin + VarGlobales.Personnage.ListeCompetence[num].ValeurMin * 0.31416 / 2.2 * VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur);
+                int valeurMax = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMax + VarGlobales.Personnage.ListeCompetence[num].ValeurMax * 0.31416 / 2.2 * VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur);
+                toolTip.Content += "\nDégât : " + valeurMin + " - " + valeurMax;
             }
+            else if (VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence == Competences.Defensive.ToString())
+            { // Defense
+                // point de défense *1.5/3.1416
+                int valeurMin = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMin + VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * 1.5 / 3.1416);
+                int valeurMax = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMax + VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * 1.5 / 3.1416);
+                toolTip.Content += "\nRésistance au dégât : " + valeurMin + " - " + valeurMax;                
+            }
+            else if (VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence == Competences.Magique.ToString())
+            { // Magique
+                // o	Min = Min dégât pouvoir + 31.416%/2 * des points de caractéristique d’énergie
+                // o	Max = Max dégât pouvoir + 31.416%/2 * des points de caractéristique d’énergie
+
+                int valeurMin = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMin + VarGlobales.Personnage.ListeCompetence[num].ValeurMin * 0.31416 / 2.2 * VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur);
+                int valeurMax = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMax + VarGlobales.Personnage.ListeCompetence[num].ValeurMax * 0.31416 / 2.2 * VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur);
+                toolTip.Content += "\nDégât : " + valeurMin + " - " + valeurMax;
+            }
+            else if (VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence == Competences.Support.ToString())
+            { // support
+                //((point de caractéristique de vie)*20)/3.1416
+                int valeurMin = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMin + VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20 / 3.1416);
+                int valeurMax = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMax + VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20 / 3.1416);
+                toolTip.Content += "\nRégénération : " + valeurMin + " - " + valeurMax;
+            }
+
+            toolTip.Content += "\nCoût d'énergie : " + VarGlobales.Personnage.ListeCompetence[num].EnergieUtilise;
+            toolTip.Content += "\nTemps de recharge : " + VarGlobales.Personnage.ListeCompetence[num].TempsRecarge;
 
             // on fait calcul valeur 
             // on attribut le bon texte pour le tooltip

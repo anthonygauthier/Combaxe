@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MiniBD;
+using System.Windows.Media.Imaging;
 
 namespace Combaxe___New.classes.services
 {
@@ -149,6 +150,7 @@ namespace Combaxe___New.classes.services
             InventaireService inventaireService = new InventaireService();
             StatistiqueService statistiqueService = new StatistiqueService();
             CaracteristiqueService caracteristiqueService = new CaracteristiqueService();
+            ProfessionService professionService = new ProfessionService();
    
             int idInventaire = 0;
             int idStatistique = 0;
@@ -161,9 +163,13 @@ namespace Combaxe___New.classes.services
             //On insert les statistiques et on sauvegarde le id
             statistiqueService.InsertionStatistiques();
             idStatistique = bdCombaxe.lastInsertId();
+            // On va chercher la bonne sélection
+            //string imageURL = "";
+            Profession Prof = professionService.RetrieveIdProfessionAvecId(idProfession);
+            string image = Prof.Image.UriSource.OriginalString;
 
             //On insert le personnage
-            string reqInsertPerso = "INSERT INTO Personnages (idProfession, idInventaire, idJoueur, idStatistique, nom, niveau, experience, image) VALUES ("+idProfession+"," + idInventaire + "," + VarGlobales.Joueur.idJoueur + "," + idStatistique + ",'" + nomPerso + "',1,0,null)";
+            string reqInsertPerso = "INSERT INTO Personnages (idProfession, idInventaire, idJoueur, idStatistique, nom, niveau, experience, image) VALUES ("+idProfession+"," + idInventaire + "," + VarGlobales.Joueur.idJoueur + "," + idStatistique + ",'" + nomPerso + "',1,0,'"+image+"')";
             bdCombaxe.Insertion(reqInsertPerso);
             idPersonnage = bdCombaxe.lastInsertId();
 
