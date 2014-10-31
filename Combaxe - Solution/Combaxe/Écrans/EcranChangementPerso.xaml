@@ -14,7 +14,7 @@
             <RowDefinition Height="11*"/>
         </Grid.RowDefinitions>
         <!--Titre de la page-->
-        <Label Foreground="White" HorizontalAlignment="Center" Content="Choisir Personnage" FontFamily="Motorwerk" FontSize="44" Margin="0,0,2,0" VerticalAlignment="Center"/>
+        <Label Foreground="White" HorizontalAlignment="Center" Content="Choisir Personnage" FontFamily="Matura MT Script Capitals" FontSize="44" Margin="0,0,2,0" VerticalAlignment="Center"/>
 
         <!--Grid personnage #1-->
         <Grid Grid.Row="1" Margin="10,2,10,2" Background="AliceBlue">

@@ -225,5 +225,12 @@ namespace Combaxe___New.classes.services
 
             bdCombaxe.maj(requeteUpdate);
         }
+
+        public void MiseAJourExperience()
+        { 
+            string requeteUpdate = "UPDATE Personnages SET experience = "+ VarGlobales.Personnage.Experience + " WHERE idPersonnage = " + VarGlobales.Personnage.IdPersonnage + ";";
+
+            bdCombaxe.maj(requeteUpdate);
+        }
     }
 }
