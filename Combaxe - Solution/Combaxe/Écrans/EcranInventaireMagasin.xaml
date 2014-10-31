@@ -21,7 +21,7 @@
 
         <!-- StackPanel pour le label de l'inventaire et du magasin-->
         <StackPanel Grid.Row="0" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Label Foreground="White" Content="Inventaire et Magasin" FontFamily="Motorwerk" FontSize="30"/>
+            <Label Foreground="White" Content="Inventaire et Magasin" FontFamily="Matura MT Script Capitals" FontSize="30"/>
         </StackPanel>
 
         <!--Grid pour le magasin-->

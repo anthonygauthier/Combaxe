@@ -41,13 +41,13 @@
 
         <!--StackPanel pour les labels de connexion-->
         <StackPanel Grid.Row="1" Orientation="Vertical" Grid.ColumnSpan="2">
-            <Label Foreground="White" FontFamily="Motorwerk" FontSize="20" HorizontalAlignment="Right">Nom d'usager:</Label>
-            <Label Foreground="White" FontFamily="Motorwerk" FontSize="20" HorizontalAlignment="Right">Mot de passe:</Label>
+            <Label Foreground="White" FontFamily="Matura MT Script Capitals" FontSize="20" HorizontalAlignment="Right">Nom d'usager:</Label>
+            <Label Foreground="White" FontFamily="Matura MT Script Capitals" FontSize="20" HorizontalAlignment="Right">Mot de passe:</Label>
         </StackPanel>
 
         <!-- StackPanel pour le label de Combaxe-->
         <StackPanel Grid.Row="0" Grid.ColumnSpan="4" Orientation="Vertical">
-            <Label Foreground="White" HorizontalAlignment="Center" Content="Combaxe" FontFamily="Motorwerk" FontSize="44" Margin="0,0,2,0" Width="183"/>
+            <Label Foreground="White" HorizontalAlignment="Center" Content="Combaxe" FontFamily="Matura MT Script Capitals" FontSize="44" Margin="0,0,2,0" Width="183"/>
         </StackPanel>
     </Grid>
 </Window>

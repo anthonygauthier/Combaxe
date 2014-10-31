@@ -23,8 +23,8 @@ namespace Combaxe___New.classes
 
         public Combat(Personnage personnage, Ennemi ennemi)
         {
-            ViePersonnage = Convert.ToInt32((personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20) / 3.1416);
-            EnergiePersonnage = Convert.ToInt32((personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * 10) / 3.1416);
+            ViePersonnage = VarGlobales.Personnage.Vie;
+            EnergiePersonnage = VarGlobales.Personnage.Energie;
             VieEnnemi = Convert.ToInt32((ennemi.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20) / 3.1416);
             EnergieEnnemi = Convert.ToInt32((ennemi.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * 10) / 3.1416);
         }

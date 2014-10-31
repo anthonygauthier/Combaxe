@@ -20,7 +20,7 @@
 
         <!-- StackPanel pour le label de création de personnage-->
         <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Vertical">
-            <Label Foreground="White" HorizontalAlignment="Center" Content="Creation de personnage" FontFamily="Motorwerk" FontSize="44" Margin="10,0"/>
+            <Label Foreground="White" HorizontalAlignment="Center" Content="Creation de personnage" FontFamily="Matura MT Script Capitals" FontSize="38" Margin="34,0,33,0"/>
         </StackPanel>
 
         <!--StackPanel pour le nom du personnage et sa profesion-->
@@ -44,7 +44,7 @@
         <TextBox Name="txtbDescriptionProf" TextAlignment="Justify" Grid.Row="1" Grid.Column="1" Text="Description de la profession" IsEnabled="False" Margin="1,35,5,0"></TextBox>
 
         <!--Grid pour les caractéristiques-->
-        <Label Grid.Row="2" Grid.RowSpan="2" FontSize="25" FontFamily="Motorwerk" Content="Caracteristiques" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <Label Grid.Row="2" Grid.RowSpan="2" FontSize="25" FontFamily="Matura MT Script Capitals" Content="Caracteristiques" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Center"/>
         <Grid Background="White" Grid.Row="3" MaxWidth="340" Margin="5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -136,7 +136,7 @@
         
         <!--Stackpanel pour les points restants-->
         <StackPanel HorizontalAlignment="Center" Grid.Row="4" Orientation="Horizontal">
-            <Label FontSize="15" FontFamily="motorwerk" Foreground="White" Content="Points restants:"></Label>
+            <Label FontSize="15" FontFamily="Matura MT Script Capitals" Foreground="White" Content="Points restants:"></Label>
             <TextBox Name="txtbPointsRestants" VerticalAlignment="Top" IsEnabled="False" Margin="0,0,0,2" MaxHeight="40" MinWidth="30" Text="0" TextAlignment="Center"></TextBox>
         </StackPanel>
     </Grid>

@@ -37,14 +37,14 @@
 
         <!--StackPanel pour les labels de connexion-->
         <StackPanel Grid.Row="1" Orientation="Vertical" Grid.ColumnSpan="2">
-            <Label Name="lblUsager" Foreground="White" FontFamily="Motorwerk" FontSize="20" HorizontalAlignment="Right">Nom d'usager:</Label>
-            <Label Name="lblMDP" Foreground="White" FontFamily="Motorwerk" FontSize="20" HorizontalAlignment="Right">Mot de passe:</Label>
-            <Label Name="lblConfirmationMDP" Foreground="White" FontFamily="Motorwerk" FontSize="20" HorizontalAlignment="Right" Width="258">Confirmation mot de passe:</Label>
+            <Label Name="lblUsager" Foreground="White" FontFamily="Matura MT Script Capitals" FontSize="20" HorizontalAlignment="Right">Nom d'usager:</Label>
+            <Label Name="lblMDP" Foreground="White" FontFamily="Matura MT Script Capitals" FontSize="20" HorizontalAlignment="Right">Mot de passe:</Label>
+            <Label Name="lblConfirmationMDP" Foreground="White" FontFamily="Matura MT Script Capitals" FontSize="20" HorizontalAlignment="Right" Width="258">Confirmation mot de passe:</Label>
         </StackPanel>
 
         <!-- StackPanel pour le label de creer compte-->
         <StackPanel Grid.Row="0" Grid.ColumnSpan="4" Orientation="Vertical">
-            <Label Foreground="White" HorizontalAlignment="Center" Content="Creer Compte" FontFamily="Motorwerk" FontSize="44" Margin="118,0,123,0" Width="276"/>
+            <Label Foreground="White" HorizontalAlignment="Center" Content="Creer Compte" FontFamily="Matura MT Script Capitals" FontSize="44" Margin="118,0,123,0" MinWidth="280"/>
         </StackPanel>
     </Grid>
 </Window>

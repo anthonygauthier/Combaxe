@@ -25,7 +25,7 @@
         </Grid.RowDefinitions>
 
         <!---Boutons du menu-->
-        <Label Foreground="White" HorizontalAlignment="Center" Content="Menu Principal" FontFamily="Motorwerk" FontSize="44" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Label Foreground="White" HorizontalAlignment="Center" Content="Menu Principal" FontFamily="Matura MT Script Capitals" FontSize="44" Grid.Column="1" Grid.ColumnSpan="2"/>
         <Button Name="btnCombat" Click="btnCombat_Click"  Grid.Row="1" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Combat" HorizontalAlignment="Stretch" Grid.ColumnSpan="4"></Button>
         <Button Name="btnInventaire" Click="btnInventaire_Click_1" Grid.Row="2" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Inventaire et magasin" HorizontalAlignment="Stretch" Grid.ColumnSpan="4"></Button>
         <Button Name="btnStatistiques" Click="btnStatistiques_Click_1" Grid.Row="3" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5" Content="Statistiques" HorizontalAlignment="Stretch" Grid.ColumnSpan="4"></Button>

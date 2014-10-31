@@ -412,7 +412,6 @@ namespace Combaxe___New.écrans
             if (verificationChamps())
             {
                 personnageService.CreerPersonnage(Int32.Parse(txtForce.Text), Int32.Parse(txtDefense.Text), Int32.Parse(txtVie.Text), Int32.Parse(txtEnergie.Text), Int32.Parse(txtVitesse.Text), profession, txtbNom.Text);
-                MessageBox.Show("Personnage créer avec succès!", "Création de personnage", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 var choisirPerso = new EcranChangementPerso();
                 choisirPerso.Show();
                 this.Close();

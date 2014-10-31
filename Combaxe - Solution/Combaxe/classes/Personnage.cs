@@ -20,6 +20,8 @@ namespace Combaxe___New.classes
         public Profession profession { get; set; }
         public int VieMaximale { get; set; }
         public int EnergieMaximale { get; set; }
+        public int ExperienceMaximale { get; set; }
+        public int SurplusExperience { get; set; }
 
         /// <summary>
         /// Constructeur de base - Anthony Gauthier 02/10/2014
@@ -51,8 +53,11 @@ namespace Combaxe___New.classes
             Vie = hp;
             Energie = mana;
             profession = prof;
+            //Vie, Énergie maximale et Expérience maximum - Anthony Gauthier 30/10/2014
             VieMaximale = Convert.ToInt32(((lstCar[(int)Caracteristiques.Vie].Valeur)*20)/3.1416);
             EnergieMaximale = Convert.ToInt32(((lstCar[(int)Caracteristiques.Energie].Valeur) * 10) / 3.1416);
+            ExperienceMaximale = (int)((((this.Niveau * 10) * (this.Niveau * 10) + 10) * 3.1416));
+            SurplusExperience = 0;
         }
 
         /// <summary>
@@ -87,9 +92,11 @@ namespace Combaxe___New.classes
         /// <summary>
         /// Méthode pour monter le niveau d'un personnage - Anthony Gauthier 02/10/2014
         /// </summary>
-        public void MonterNiveau()
-        { 
-            return;
+        public void MonterNiveau(int experienceEnSurplus)
+        {
+            //Début de la fonction -> Plus à venir bientôt! - Anthony Gauthier 30/10/2014
+            VarGlobales.Personnage.SurplusExperience = (int)experienceEnSurplus - VarGlobales.Personnage.ExperienceMaximale;
+            VarGlobales.Personnage.Experience = VarGlobales.Personnage.ExperienceMaximale;
         }
 
         /// <summary>
@@ -128,6 +135,11 @@ namespace Combaxe___New.classes
         { 
             this.Vie = this.VieMaximale;
             this.Energie = this.EnergieMaximale;
+        }
+
+        public void Mort()
+        { 
+            
         }
 
         /// <summary>

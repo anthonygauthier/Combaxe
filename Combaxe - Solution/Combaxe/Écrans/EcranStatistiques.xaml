@@ -17,7 +17,7 @@
             <ColumnDefinition Width="1*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <!--Titre de la page-->
-        <Label Foreground="White" Name="lblTitre" Grid.ColumnSpan="3" HorizontalAlignment="Center" Content="Statistiques" FontFamily="Motorwerk" FontSize="44"/>
+        <Label Foreground="White" Name="lblTitre" Grid.ColumnSpan="3" HorizontalAlignment="Center" Content="Statistiques" FontFamily="Matura MT Script Capitals" FontSize="44"/>
 
         <!--Grid avec les champs et le bouton retour-->
         <Border Grid.Row="1" Grid.Column="1" Background="White" CornerRadius="50">
