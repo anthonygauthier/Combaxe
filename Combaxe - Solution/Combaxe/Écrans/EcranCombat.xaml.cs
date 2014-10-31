@@ -363,15 +363,6 @@ namespace Combaxe___New.écrans
                 majInterface();// mettre à jour l'interface
                 
                 // on vérifie que le joueur ou l'ennemi est encore en vie
-                if (combat.ViePersonnage <= 0)
-                {
-                    txtbJournalCombat.Text += VarGlobales.Personnage.Nom + " a péri " + nbTour + " tours\n";
-                    combat.ViePersonnage = 0;
-                    MessageBox.Show("Combat terminé !\nVous avez perdu !", "Statut", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                    var EcranMenuPrincipal = new EcranMenuPrincipal();
-                    EcranMenuPrincipal.Show();
-                    this.Close();
-                }
                 if (combat.VieEnnemi <= 0)
                 {
                     txtbJournalCombat.Text += VarGlobales.Ennemi.Nom + " a péri ! en " + nbTour +" tours\n";
@@ -380,9 +371,7 @@ namespace Combaxe___New.écrans
                     var EcranMenuPrincipal = new EcranMenuPrincipal();
                     EcranMenuPrincipal.Show();
                     this.Close();
-                }
-                
-                
+                }                
             }
             else
             {
@@ -432,6 +421,60 @@ namespace Combaxe___New.écrans
             var EcranMenuPrincipal = new EcranMenuPrincipal();
             EcranMenuPrincipal.Show();
             this.Close();
+        }
+
+        private void ActionEnnemi()
+        {
+            // on calcul la valeur qui est effectué
+            int num = 0;
+            bool estCritique = false;
+            int valMin = VarGlobales.Ennemi.ListeCompetence[0].ValeurMin;
+            int valMax = VarGlobales.Ennemi.ListeCompetence[0].ValeurMin;
+            bool cibleEnnemi = true;
+            bool esquive = false;
+
+            // on applique la bonne action pour la cible
+            combat.CibleValeurEnnemi(num, ref cibleEnnemi, ref valMin, ref valMax);
+
+            int valeur = combat.CalculValeurCompetence(valMin, valMax, true, ref estCritique);
+            if (cibleEnnemi)
+            {
+                combat.CalculDegatSubi(ref valeur, false, ref esquive);
+                if (!esquive)
+                {
+                    combat.ViePersonnage -= valeur;
+                    combat.EnergieEnnemi -= VarGlobales.Ennemi.ListeCompetence[num].EnergieUtilise;
+                    txtbJournalCombat.Text += VarGlobales.Ennemi.Nom + " a utilisé " + VarGlobales.Ennemi.ListeCompetence[num].Nom + ", ce qui a infligé " + valeur.ToString() + " dégâts.\n";
+                }
+            }
+            else
+            {
+                combat.VieEnnemi += valeur;
+                combat.EnergieEnnemi -= VarGlobales.Ennemi.ListeCompetence[num].EnergieUtilise;
+                txtbJournalCombat.Text += VarGlobales.Ennemi.Nom + " a utilisé " + VarGlobales.Ennemi.ListeCompetence[num].Nom + ", ce qui le protège de " + valeur.ToString() + ".\n";
+            }
+            // on vérifie quel est le type de compétence
+            majInterface();// mettre à jour l'interface
+
+            // on vérifie que le joueur ou l'ennemi est encore en vie
+            if (combat.ViePersonnage <= 0)
+            {
+                txtbJournalCombat.Text += VarGlobales.Personnage.Nom + " a péri " + nbTour + " tours\n";
+                combat.ViePersonnage = 0;
+                MessageBox.Show("Combat terminé !\nVous avez perdu !", "Statut", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                var EcranMenuPrincipal = new EcranMenuPrincipal();
+                EcranMenuPrincipal.Show();
+                this.Close();
+            }
+            txtbJournalCombat.ScrollToEnd();
+        }
+
+        private void DeroulementCombat(int btnClique)
+        {
+            if (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur >= VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur)
+            {
+
+            }
         }
     }
 }
