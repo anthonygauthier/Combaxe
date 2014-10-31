@@ -365,37 +365,29 @@ namespace Combaxe___New.écrans
                     txtbJournalCombat.Text += VarGlobales.Personnage.Nom + " a utilisé " + VarGlobales.Personnage.ListeCompetence[num].Nom + ", ce qui le protège de " + valeur.ToString() + ".\n";
                 }
                 // on vérifie quel est le type de compétence
-<<<<<<< HEAD
+
                 majInterface();// mettre à jour l'interface
                 
                 // on vérifie que le joueur ou l'ennemi est encore en vie
-=======
-                majInterface();// mettre à jour l'interface       
 
->>>>>>> c3bdad92d068fd961dbb6693c4c5734432d2f423
                 if (combat.VieEnnemi <= 0)
                 {
-                    int xpGagner = (int)((((VarGlobales.Ennemi.Niveau * 10) * (VarGlobales.Ennemi.Niveau * 10) + 1000) / 31) * 3.1416);
+                    int expGagner = (int)((((VarGlobales.Ennemi.Niveau * 10) * (VarGlobales.Ennemi.Niveau * 10) + 1000) / 31) * 3.1416);
 
                     txtbJournalCombat.Text += VarGlobales.Ennemi.Nom + " a péri ! en " + nbTour +" tours\n";
 
                     //On effectue toutes les opérations reliées à l'expérience.
-                    ExperienceVictoire(xpGagner);
+                    ExperienceVictoire(expGagner);
 
                     combat.VieEnnemi = 0;
-<<<<<<< HEAD
+
                     MessageBox.Show("Combat terminé !\nVous avez gagné !", "Statut", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                     var EcranMenuPrincipal = new EcranMenuPrincipal();
                     EcranMenuPrincipal.Show();
                     this.Close();
-                }                
-=======
-                    MessageBox.Show("Combat terminé, vous avez gagné !\n" + "Victoire! " + xpGagner + " points d'expérience!", "Statut", MessageBoxButton.OK, MessageBoxImage.Information);
-                    menuPrincipal();
                 }
                 
                 
->>>>>>> c3bdad92d068fd961dbb6693c4c5734432d2f423
             }
             else
             {
@@ -416,7 +408,7 @@ namespace Combaxe___New.écrans
             int vitesseEnnemi = VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur;
             horloge.Stop();
             //Si la vitesse de l'ennemi est plus rapide que celle du joueur, on inflige des dégâts
-            if(vitesseEnnemi >= vitessePersonnage)
+            if (vitesseEnnemi >= vitessePersonnage)
             {
                 PersonnageService personnageService = new PersonnageService();
 
@@ -428,21 +420,24 @@ namespace Combaxe___New.écrans
                 personnageService.DommageDeFuite(dommageInflige);
                 VarGlobales.Personnage.Vie = VarGlobales.Personnage.Vie - dommageInflige;
 
-                //Si 
-                if(VarGlobales.Personnage.Vie <= 0)
-                {
-                    
-                }
+                ////Si 
+                //if(VarGlobales.Personnage.Vie <= 0)
+                //{
+
+                //}
 
                 //lblViePerso.Content = VarGlobales.Personnage.Vie + "/" + VarGlobales.Personnage.VieMaximale;
-                
-            if(MessageBox.Show("Vous fuyez le combat, mais le monstre est plus rapide que vous et a eu le temps de vous attaquer une dernière fois pour " + dommageInflige + " de dégâts.", "Fuite", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK)
+
+
+                if (MessageBox.Show("Vous fuyez le combat, mais le monstre est plus rapide que vous et a eu le temps de vous attaquer une dernière fois pour " + dommageInflige + " de dégâts.", "Fuite", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK)
+                {
                     menuPrincipal();
-            }
-            else
-            {
-                if(MessageBox.Show("Vous êtes plus rapide que l'ennemi et fuyez le combat sans problème","Fuite",MessageBoxButton.OK,MessageBoxImage.Information) == MessageBoxResult.OK)
-                    menuPrincipal();
+                }
+                else
+                {
+                    if (MessageBox.Show("Vous êtes plus rapide que l'ennemi et fuyez le combat sans problème", "Fuite", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK)
+                        menuPrincipal();
+                }
             }
         }
 
@@ -456,7 +451,6 @@ namespace Combaxe___New.écrans
             this.Close();
         }
 
-<<<<<<< HEAD
         private void ActionEnnemi()
         {
             // on calcul la valeur qui est effectué
@@ -510,7 +504,7 @@ namespace Combaxe___New.écrans
 
             }
         }
-=======
+
         /// <summary>
         /// Fonction activé lorsque le joueur gagne un combat - Augmentation de son expérience - Anthony Gauthier 30/10/2014
         /// </summary>
@@ -532,14 +526,14 @@ namespace Combaxe___New.écrans
             lblExperiencePerso.Content = VarGlobales.Personnage.Experience.ToString() + "/" + VarGlobales.Personnage.ExperienceMaximale.ToString();
         }
 
-        /*/// <summary>
+        /// <summary>
         /// Fonction activée lorsque le joueur perd un combat - Diminution de son expérience - Anthony Gauthier 30/10/2014
         /// </summary>
         private void ExperienceDefaite(int experiencePerdu)
         {
             //On calcule l'expérience perdu - Anthony Gauthier 30/10/2014
             int xpPerdu = (int)(VarGlobales.Personnage.Experience * 0.10);
-            ExperienceDefaite(xpPerdu); <---------------CODE POUR LORSQU'IL PERD
+            ExperienceDefaite(xpPerdu);
 
             PersonnageService persoService = new PersonnageService();
 
@@ -555,7 +549,6 @@ namespace Combaxe___New.écrans
 
             persoService.MiseAJourExperience();
             lblExperiencePerso.Content = VarGlobales.Personnage.Experience.ToString() + "/" + VarGlobales.Personnage.ExperienceMaximale.ToString();
-        }*/
->>>>>>> c3bdad92d068fd961dbb6693c4c5734432d2f423
+        }
     }
 }
