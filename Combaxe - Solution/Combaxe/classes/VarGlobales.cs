@@ -15,5 +15,6 @@ namespace Combaxe___New.classes
         public static bool aPersonnage { get; set; }
         public static bool EstConnecte { get; set; }
         public static Ennemi Ennemi { get; set; }
+        public static bool etaitMort { get; set; }
     }
 }
