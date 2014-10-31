@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 30 Octobre 2014 à 16:05
+-- Généré le :  Ven 31 Octobre 2014 à 20:11
 -- Version du serveur :  5.6.16
 -- Version de PHP :  5.5.11
 
@@ -19,7 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `combaxe`
 --
-
 DROP TABLE IF EXISTS CompetencesProfessions;
 DROP TABLE IF EXISTS CompetencesEnnemis;
 DROP TABLE IF EXISTS Competences;
@@ -41,6 +40,7 @@ DROP TABLE IF EXISTS Modeles;
 DROP TABLE IF EXISTS Ennemis;
 DROP TABLE IF EXISTS Inventaires;
 DROP TABLE IF EXISTS Joueurs;
+
 
 -- --------------------------------------------------------
 
@@ -1151,9 +1151,9 @@ CREATE TABLE IF NOT EXISTS `professions` (
 --
 
 INSERT INTO `professions` (`idProfession`, `nom`, `image`, `description`) VALUES
-(1, 'Paladin', '../images/paladin.png', 'Le paladin est un guerrier croyant en les dieux. Il ne se bat que s''il en sent le besoin.\n    Durant les combats, il les implore pour avoir leur aide pour le guérrir ou simplement enchanter ses\n    attaques.'),
-(2, 'Magicien', '../images/magicien.png', 'Le magicien étudie différent type de magie, mais exclut la magie noire. Il contrôle les arcanes,\n    le feu et l''électricité. Il se sert de sorts pour attaquer son ennemi, mais aussi pour se protéger. Les sorts\n    du magicien sont très puissant et effica'),
-(3, 'Guerrier', '../images/guerrier.png', 'Le guerrier est une brute ne se fiant qu''à sa force pour abattre ses ennemis, il n''hésite pas une seconde\n    à enfoncer son sur sur ceux-ci. Endurci par les combats au corps à corps, le guerrier est résistant et physiquement\n    très fort.');
+(1, 'Paladin', '../images/paladin.png', 'Le paladin est un guerrier croyant en les dieux. Il ne se bat que s''il en sent le besoin.\n Durant les combats, il les implore pour avoir leur aide pour le guérrir ou simplement enchanter ses\n attaques.'),
+(2, 'Magicien', '../images/magicien.png', 'Le magicien étudie différent type de magie, mais exclut la magie noire. Il contrôle les arcanes,\n le feu et l''électricité. Il se sert de sorts pour attaquer son ennemi, mais aussi pour se protéger.Les sorts du magicien sont très puissant et efficaces, cep'),
+(3, 'Guerrier', '../images/guerrier.png', 'Le guerrier est une brute ne se fiant qu''à sa force pour abattre ses ennemis, il n''hésite pas une seconde à enfoncer son sur sur ceux-ci. Endurci par les combats au corps à corps, le guerrier est résistant et physiquement très fort.');
 
 -- --------------------------------------------------------
 
