@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Combaxe___New.écrans.EcranRepos"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="EcranRepos" Height="100" Width="300" WindowStyle="None" Background="Black" Opacity="0.8" WindowStartupLocation="CenterScreen">
+        Title="EcranRepos" Height="100" Width="300" WindowStyle="None" Background="Black" Opacity="0.8" WindowStartupLocation="CenterScreen" Topmost="True">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="8*"></RowDefinition>

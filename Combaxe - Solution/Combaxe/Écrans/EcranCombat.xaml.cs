@@ -97,7 +97,6 @@ namespace Combaxe___New.écrans
             //Tommy gingras
             boutonClique = true;
             DeroulementCombat(0); 
-            boutonClique = true;
         }
 
         private void btnAction2_Click(object sender, RoutedEventArgs e)
@@ -122,21 +121,22 @@ namespace Combaxe___New.écrans
         }
         //Chronomètre de combat - Anthony Gauthier 28/10/2014
         private void chronometreCombat()
-        {   
+        {
             //On initialise le temps de l'horloge et la progress bar
             temps = TimeSpan.FromSeconds(30);
+            pbHorloge.Foreground = Brushes.LightGreen;
             pbHorloge.Maximum = temps.TotalSeconds;
             pbHorloge.Value = pbHorloge.Maximum;
-            
+            const int SOUSTRACTIONTEMPS = -1;
 
             horloge = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
                 txtbHorloge.Text = temps.ToString("%s"); //%s spécifie que nous ne voulons que les secondes qui s'affichent
 
-                //Si l'horloge atteint "0", on le stop
-                if (temps == TimeSpan.Zero)
+                //Si l'horloge atteint "0", ou l'ennemi est mort, ou le personnage est mort : on arrête le cadran
+                if (temps == TimeSpan.Zero || combat.VieEnnemi <= 0 || VarGlobales.Personnage.Vie == 0)
                 {
-                    ReinitialisationHorloge();
+                    horloge.Stop();
                 }
                 //Sinon, on ajoute du temps à l'horloge
                 else
@@ -152,28 +152,18 @@ namespace Combaxe___New.écrans
                     }
                     
                     //On ajoute (enlève) le temps à l'horloge puis on modifie la valeur de la progress bar
-                    temps = temps.Add(TimeSpan.FromSeconds(-1));
+                    temps = temps.Add(TimeSpan.FromSeconds(SOUSTRACTIONTEMPS));
                     pbHorloge.Value = temps.TotalSeconds;
 
                     //Si un bouton d'action a été cliqué, on réinitialise l'horloge et la progress bar
                     if (boutonClique)
                     {
-                        ReinitialisationHorloge();
+                        horloge.Stop();
                     }
                 }
             }, Application.Current.Dispatcher);
 
             horloge.Start();  
-        }
-
-        //Méthode qui réinitialise l'holorge - Anthony Gauthier 28/10/2014
-        private void ReinitialisationHorloge()
-        {
-            horloge.Stop();
-            temps = TimeSpan.FromSeconds(30);
-            pbHorloge.Foreground = Brushes.Green;
-            pbHorloge.Value = pbHorloge.Maximum;
-            txtbHorloge.Text = temps.ToString("%s");
         }
 
         /// <summary>
@@ -282,7 +272,14 @@ namespace Combaxe___New.écrans
             lblEnergieEnnemi.Content = combat.EnergieEnnemi + "/" + Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * 10) / 3.1416).ToString();
             lblEnergiePerso.Content = VarGlobales.Personnage.Energie + "/" + VarGlobales.Personnage.EnergieMaximale;
             lblVieEnnemi.Content = combat.VieEnnemi + "/" + Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20) / 3.1416).ToString();
-            lblViePerso.Content = VarGlobales.Personnage.Vie + "/" + VarGlobales.Personnage.VieMaximale;
+            if (VarGlobales.Personnage.Vie <= 0)
+            {
+                lblViePerso.Content = 0 + "/" + VarGlobales.Personnage.VieMaximale;
+            }
+            else 
+            {
+                lblViePerso.Content = VarGlobales.Personnage.Vie + "/" + VarGlobales.Personnage.VieMaximale;
+            }
             nbTour++;
             tempsRecharge[0] = 0;
             if (tempsRecharge[1] > 0)
@@ -366,7 +363,7 @@ namespace Combaxe___New.écrans
                 }
 
                 majInterface();// mettre à jour l'interface
-                
+
                 // on vérifie que l'ennemi est encore en vie
 
                 if (combat.VieEnnemi <= 0)
@@ -381,11 +378,10 @@ namespace Combaxe___New.écrans
 
                     combat.VieEnnemi = 0;
 
+                    boutonClique = true;
                     MessageBox.Show("Combat terminé, vous avez gagné !\n" + "Vous gagnez! " + expGagner + " points d'expérience!", "Statut", MessageBoxButton.OK, MessageBoxImage.Information);
                     menuPrincipal();
                 }
-                
-                
             }
             else
             {
@@ -421,7 +417,7 @@ namespace Combaxe___New.écrans
                 if (VarGlobales.Personnage.Vie <= 0)
                 {
                     DefaitePersonnage();
-                    VarGlobales.Personnage.Mort(nbTour);
+                    VarGlobales.Personnage.Mort(nbTour, horloge);
                     menuPrincipal();
                     return;
                 }
@@ -490,15 +486,14 @@ namespace Combaxe___New.écrans
                 txtbJournalCombat.Text += VarGlobales.Personnage.Nom + " a péri " + nbTour + " tours\n";
                 VarGlobales.Personnage.Vie = 0;
                 personnageService.MAJVieEnergie();
-                MessageBox.Show("Combat terminé !\nVous avez perdu !", "Statut", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                var EcranMenuPrincipal = new EcranMenuPrincipal();
-                EcranMenuPrincipal.Show();
-                this.Close();
+
                 DefaitePersonnage();
-                VarGlobales.Personnage.Mort(nbTour);
+                VarGlobales.Personnage.Mort(nbTour, horloge);
                 menuPrincipal();
             }
             txtbJournalCombat.ScrollToEnd();
+            //On redémarre l'horloge de combat
+            chronometreCombat();
         }
 
         private void DeroulementCombat(int btnClique)

@@ -8,6 +8,7 @@ using Combaxe___New.classes.services;
 using Combaxe___New.écrans;
 using System.Windows.Media.Imaging;
 using Combaxe___New.classes.abstraites;
+using System.Windows.Threading;
 
 namespace Combaxe___New.classes
 {
@@ -135,13 +136,18 @@ namespace Combaxe___New.classes
             this.Energie = this.EnergieMaximale;
         }
 
-        public void Mort(int nbrTour)
+        public void Mort(int nbrTour, DispatcherTimer chrono)
         {
+            PersonnageService persoService = new PersonnageService();
             this.Vie = 0;
             int expPerdu = (int)(this.Experience * 0.10);
-
-            if (MessageBox.Show("Combat terminé...\n Vous êtes mort et avez perdu "+expPerdu+" points d'expérience.\n", "Défaite...", MessageBoxButton.OK, MessageBoxImage.Exclamation) == MessageBoxResult.OK)
+            chrono.Stop();
+            if (MessageBox.Show("Combat terminé...\n Vous êtes mort et avez perdu " + expPerdu + " points d'expérience.\n", "Défaite...", MessageBoxButton.OK, MessageBoxImage.Exclamation) == MessageBoxResult.OK)
+            {
                 Regeneration();
+                persoService.MAJVieEnergie();
+            }
+            
         }
 
         /// <summary>

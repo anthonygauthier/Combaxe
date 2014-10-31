@@ -126,5 +126,11 @@ namespace Combaxe___New
                 }
             }
         }
+
+        //Pour que le premier champ est le focus au démarrage
+        private void txtbNomUsager_Loaded_1(object sender, RoutedEventArgs e)
+        {
+            Keyboard.Focus(txtbNomUsager);
+        }
     }
 }

@@ -1,53 +1,47 @@
 ﻿<Window x:Class="Combaxe___New.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Combaxe - Connexion" MinHeight="350" MinWidth="525" Height="350" Width="525" WindowStartupLocation="CenterScreen" KeyUp="btnConnexion_KeyUp_1">
+        Title="Combaxe - Connexion" MinHeight="350" MinWidth="525" Height="350" Width="525" WindowStartupLocation="CenterScreen" KeyUp="btnConnexion_KeyUp_1" WindowStyle="None" WindowState="Maximized" Topmost="True">
     <Window.Background>
         <ImageBrush ImageSource="./Images/background.png"></ImageBrush>
     </Window.Background>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="3*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="111*"></RowDefinition>
+            <RowDefinition Height="182*"></RowDefinition>
+            <RowDefinition Height="49*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="166*"></ColumnDefinition>
-            <ColumnDefinition Width="92*"></ColumnDefinition>
-            <ColumnDefinition Width="93*"/>
-            <ColumnDefinition Width="166*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <Label Foreground="White" HorizontalAlignment="Center" Content="Combaxe" FontFamily="Matura MT Script Capitals" FontSize="80" Grid.ColumnSpan="3"/>
+        
+        <!--Boutons-->
+        <Button Name="btnQuitter" Content="Quitter" Grid.Column="2" Grid.Row="2" MinHeight="40" MinWidth="100" MaxHeight="80" MaxWidth="150" VerticalAlignment="Center" Click="btnQuitter_Click" Height="40" Margin="0,5,0,4"></Button>
+        <Button Name="btnCreerCompte" Grid.Column="0" Grid.Row="2" MinHeight="40" MinWidth="100" MaxHeight="80" MaxWidth="150" Content="Créer un compte" VerticalAlignment="Center" Click="btnCreerCompte_Click" Height="40" Margin="0,5,0,4"></Button>
+        
 
-        <!--StackPanel pour le bouton Quitter-->
-        <StackPanel Orientation="Vertical" Grid.Column="3" Grid.Row="2">
-            <Button Name="btnQuitter" Content="Quitter" Margin="0,30,5,0" MinHeight="30" MaxHeight="30" MaxWidth="99" Click="btnQuitter_Click"></Button>
-        </StackPanel>
+ 
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
 
-        <!--StackPanel pour le bouton CreerCompte-->
-        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="2">
-            <Button Name="btnCreerCompte" Content="Créer un compte" Margin="5,30,0,0" MinHeight="30" MaxHeight="30" MaxWidth="99" Click="btnCreerCompte_Click"></Button>
-        </StackPanel>
+            <Button Name="btnConnexion" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" MinHeight="40" MinWidth="100" MaxHeight="80" MaxWidth="150" VerticalAlignment="Top" Content="Connexion" Click="btnConnexion_Click"></Button>
 
-        <!--StackPanel pour les inputs de connexion-->
-        <StackPanel Grid.Row="1" Grid.Column="2" Margin="0,5" Orientation="Vertical">
-            <TextBox Name="txtbNomUsager" BorderBrush="Black"></TextBox>
-            <PasswordBox Name="pwdbMdp" BorderBrush="Black" Margin="0,14"/>
-        </StackPanel>
+            <TextBox Loaded="txtbNomUsager_Loaded_1" MinWidth="150" Name="txtbNomUsager" Grid.Row="0" Grid.Column="1" BorderBrush="Black" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,7"/>
+            <PasswordBox MinWidth="150" Name="pwdbMdp" Grid.Row="1" Grid.Column="1" BorderBrush="Black" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0"/>
 
-        <!--StackPanel pour le bouton de connexion-->
-        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,75">
-            <Button Name="btnConnexion" HorizontalAlignment="Center" Content="Connexion" MinWidth="70" MaxWidth="70" MinHeight="30" MaxHeight="30" Click="btnConnexion_Click"></Button>
-        </StackPanel>
-
-        <!--StackPanel pour les labels de connexion-->
-        <StackPanel Grid.Row="1" Orientation="Vertical" Grid.ColumnSpan="2">
-            <Label Foreground="White" FontFamily="Matura MT Script Capitals" FontSize="20" HorizontalAlignment="Right">Nom d'usager:</Label>
-            <Label Foreground="White" FontFamily="Matura MT Script Capitals" FontSize="20" HorizontalAlignment="Right">Mot de passe:</Label>
-        </StackPanel>
-
-        <!-- StackPanel pour le label de Combaxe-->
-        <StackPanel Grid.Row="0" Grid.ColumnSpan="4" Orientation="Vertical">
-            <Label Foreground="White" HorizontalAlignment="Center" Content="Combaxe" FontFamily="Matura MT Script Capitals" FontSize="44" Margin="0,0,2,0" Width="183"/>
-        </StackPanel>
+            <Label HorizontalAlignment="Right" Foreground="White" Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom"  FontFamily="Matura MT Script Capitals" FontSize="20">Nom d'usager:</Label>
+            <Label HorizontalAlignment="Right" Foreground="White" Grid.Row="1" Grid.Column="0" FontFamily="Matura MT Script Capitals" FontSize="20">Mot de passe:</Label>
+        </Grid>
     </Grid>
 </Window>

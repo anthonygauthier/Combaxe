@@ -139,27 +139,39 @@ namespace Combaxe___New.écrans
             VarGlobales.Personnage.Regeneration();
 
             this.Opacity = 0.5;
-            this.WindowStyle = WindowStyle.None;
-            this.ResizeMode = ResizeMode.NoResize;
             this.IsEnabled = false;
+            this.Focusable = false;
+            this.Topmost = false;
+            //Si le jeu n'est pas fullscreen
+            if(this.WindowStyle != WindowStyle.None)
+            {
+                this.WindowStyle = WindowStyle.None;
+                this.ResizeMode = ResizeMode.NoResize;
+            }
+            
+            //On affiche la progress bar
             Repos.Show();
 
-            //On initialise le temps de l'horloge et la progress bar
+            //On initialise un timer égal à celui du progress bar de l'écran de repos pour déterminer quand nous allons rendre la fenêtre utilisable à nouveau
             temps = TimeSpan.FromSeconds(10);
-            this.ResizeMode = ResizeMode.NoResize;
 
             horloge = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
-                //On ajoute (enlève) le temps à l'horloge puis on modifie la valeur de la progress bar
+                //On enleve du temps au timer
                 temps = temps.Add(TimeSpan.FromSeconds(-1));
 
                 if (temps == TimeSpan.FromMilliseconds(0))
                 {
                     this.Opacity = 1;
-                    this.WindowStyle = WindowStyle.SingleBorderWindow;
-                    this.ResizeMode = ResizeMode.CanResize;
                     this.IsEnabled = true;
+                    this.Topmost = true;
                     btnTaverne.IsEnabled = false;
+
+                    if (this.WindowStyle != WindowStyle.None)
+                    {
+                        this.WindowStyle = WindowStyle.SingleBorderWindow;
+                        this.ResizeMode = ResizeMode.CanResize;
+                    }
                 }
             }, Application.Current.Dispatcher);
 
