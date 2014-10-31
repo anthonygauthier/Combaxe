@@ -122,6 +122,11 @@ namespace Combaxe___New.écrans
         //Chronomètre de combat - Anthony Gauthier 28/10/2014
         private void chronometreCombat()
         {
+            //Si un bouton a été cliqué
+            if (boutonClique)
+            {
+                horloge.Stop();
+            }
             //On initialise le temps de l'horloge et la progress bar
             temps = TimeSpan.FromSeconds(30);
             pbHorloge.Foreground = Brushes.LightGreen;
@@ -154,12 +159,6 @@ namespace Combaxe___New.écrans
                     //On ajoute (enlève) le temps à l'horloge puis on modifie la valeur de la progress bar
                     temps = temps.Add(TimeSpan.FromSeconds(SOUSTRACTIONTEMPS));
                     pbHorloge.Value = temps.TotalSeconds;
-
-                    //Si un bouton d'action a été cliqué, on réinitialise l'horloge et la progress bar
-                    if (boutonClique)
-                    {
-                        horloge.Stop();
-                    }
                 }
             }, Application.Current.Dispatcher);
 
@@ -485,7 +484,6 @@ namespace Combaxe___New.écrans
 
                 txtbJournalCombat.Text += VarGlobales.Personnage.Nom + " a péri " + nbTour + " tours\n";
                 VarGlobales.Personnage.Vie = 0;
-                personnageService.MAJVieEnergie();
 
                 DefaitePersonnage();
                 VarGlobales.Personnage.Mort(nbTour, horloge);
@@ -501,12 +499,14 @@ namespace Combaxe___New.écrans
             if (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur >= VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur)
             {
                 actionBouton(btnClique);
-                ActionEnnemi();
+                if(combat.VieEnnemi > 0)
+                    ActionEnnemi();
             }
             else
             {
                 ActionEnnemi();
-                actionBouton(btnClique);
+                if(VarGlobales.Personnage.Vie > 0)
+                    actionBouton(btnClique);
             }
         }
 
@@ -558,7 +558,7 @@ namespace Combaxe___New.écrans
         private void DefaitePersonnage()
         {
             //On calcule l'expérience perdu - Anthony Gauthier 30/10/2014
-            int xpPerdu = (int)(VarGlobales.Personnage.Experience * 0.10);
+            int xpPerdu = (int)(VarGlobales.Personnage.Experience * 0.50);
             ExperienceDefaite(xpPerdu);
             txtbJournalCombat.Text += VarGlobales.Personnage.Nom + " a péri " + nbTour + " tours\n";
         }
