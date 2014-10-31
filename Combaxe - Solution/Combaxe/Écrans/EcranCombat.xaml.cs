@@ -398,7 +398,6 @@ namespace Combaxe___New.écrans
         }
 
         /// <summary>
-<<<<<<< HEAD
         /// Fonction qui se déclanche lorsque le btnFuite est cliqué
         /// </summary>
         private void fuiteDuJoueur()
@@ -419,13 +418,13 @@ namespace Combaxe___New.écrans
 
                 personnageService.MAJVieEnergie();
 
-                ////Si 
-                //if(VarGlobales.Personnage.Vie <= 0)
-                //{
-
-                //}
-
-                //lblViePerso.Content = VarGlobales.Personnage.Vie + "/" + VarGlobales.Personnage.VieMaximale;
+                if (VarGlobales.Personnage.Vie <= 0)
+                {
+                    DefaitePersonnage();
+                    VarGlobales.Personnage.Mort(nbTour);
+                    menuPrincipal();
+                    return;
+                }
 
 
                 if (MessageBox.Show("Vous fuyez le combat, mais le monstre est plus rapide que vous et a eu le temps de vous attaquer une dernière fois pour " + dommageInflige + " de dégâts.", "Fuite", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK)
@@ -441,8 +440,6 @@ namespace Combaxe___New.écrans
         }
 
         /// <summary>
-=======
->>>>>>> origin/master
         /// Fonction qui amène le joueur au menu principal suite à une fuite
         /// </summary>
         private void menuPrincipal()
@@ -488,7 +485,6 @@ namespace Combaxe___New.écrans
             // on vérifie que le joueur ou l'ennemi est encore en vie
             if (VarGlobales.Personnage.Vie <= 0)
             {
-<<<<<<< HEAD
                 PersonnageService personnageService = new PersonnageService();
 
                 txtbJournalCombat.Text += VarGlobales.Personnage.Nom + " a péri " + nbTour + " tours\n";
@@ -498,11 +494,9 @@ namespace Combaxe___New.écrans
                 var EcranMenuPrincipal = new EcranMenuPrincipal();
                 EcranMenuPrincipal.Show();
                 this.Close();
-=======
                 DefaitePersonnage();
                 VarGlobales.Personnage.Mort(nbTour);
                 menuPrincipal();
->>>>>>> origin/master
             }
             txtbJournalCombat.ScrollToEnd();
         }
@@ -518,48 +512,6 @@ namespace Combaxe___New.écrans
             {
                 ActionEnnemi();
                 actionBouton(btnClique);
-            }
-        }
-
-        /// <summary>
-        /// Fonction qui se déclanche lorsque le btnFuite est cliqué
-        /// </summary>
-        private void fuiteDuJoueur()
-        {
-            int vitessePersonnage = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur;
-            int vitesseEnnemi = VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur;
-            horloge.Stop();
-            //Si la vitesse de l'ennemi est plus rapide que celle du joueur, on inflige des dégâts
-            if (vitesseEnnemi >= vitessePersonnage)
-            {
-                PersonnageService personnageService = new PersonnageService();
-
-                int dmgMin = VarGlobales.Ennemi.ListeCompetence[0].ValeurMin;
-                int dmgMax = VarGlobales.Ennemi.ListeCompetence[0].ValeurMax;
-                Random randDmg = new Random();
-                int dommageInflige = randDmg.Next(dmgMin, dmgMax); //On génère le dommage infligé
-
-                personnageService.DommageDeFuite(dommageInflige);
-                VarGlobales.Personnage.Vie = VarGlobales.Personnage.Vie - dommageInflige;
-                
-                //Si le personnage n'a plus de vie
-                if (VarGlobales.Personnage.Vie <= 0)
-                {
-                    DefaitePersonnage();
-                    VarGlobales.Personnage.Mort(nbTour);
-                    menuPrincipal();
-                    return;
-                }
-
-                if (MessageBox.Show("Vous fuyez le combat, mais le monstre est plus rapide que vous et a eu le temps de vous attaquer une dernière fois pour " + dommageInflige + " de dégâts.", "Fuite", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK)
-                {
-                    menuPrincipal();
-                }
-                else
-                {
-                    if (MessageBox.Show("Vous êtes plus rapide que l'ennemi et fuyez le combat sans problème", "Fuite", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK)
-                        menuPrincipal();
-                }
             }
         }
 
