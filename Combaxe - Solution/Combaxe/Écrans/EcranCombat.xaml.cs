@@ -70,6 +70,26 @@ namespace Combaxe___New.écrans
             btnAction2.ToolTip = afficherTooltip(1);
             btnAction3.ToolTip = afficherTooltip(2);
             btnAction4.ToolTip = afficherTooltip(3);
+            btnChoisirActions.IsEnabled = false;
+            btnItems.IsEnabled = true;
+
+            tempsRecharge[0] = 0;
+            if (tempsRecharge[1] > 0)
+            {
+                btnAction2.IsEnabled = false;
+                btnAction2.Content = VarGlobales.Personnage.ListeCompetence[1].Nom + "\n(" + (tempsRecharge[1] + 1) + ")";
+            }
+            if (tempsRecharge[2] > 0)
+            {
+                btnAction3.IsEnabled = false;
+                btnAction3.Content = VarGlobales.Personnage.ListeCompetence[2].Nom + "\n(" + (tempsRecharge[2] + 1) + ")";
+            }
+            if (tempsRecharge[3] > 0)
+            {
+                btnAction4.IsEnabled = false;
+                btnAction4.Content = VarGlobales.Personnage.ListeCompetence[3].Nom + "\n(" + (tempsRecharge[3] + 1) + ")";
+            }
+
         }
 
         //Méthode qui affiche les boutons items lorsque le bouton Items est cliqué - Anthony Gauthier 23/10/2014
@@ -77,11 +97,12 @@ namespace Combaxe___New.écrans
         {
             btnAction2.Visibility = Visibility.Visible;
 
-            btnAction2.Content = "";
-            btnAction3.Content = "";
-            btnAction2.ToolTip = "";
-            btnAction3.ToolTip = "";
-
+            btnAction2.Content = "Potion de vie";
+            btnAction3.Content = "Potion d'énergie";
+            btnAction2.ToolTip = "Cette potion régénère 30% de votre vie";
+            btnAction3.ToolTip = "Cette potion régénère 30% de votre énergie";
+            btnAction2.IsEnabled = true;
+            btnAction3.IsEnabled = true;
             btnAction3.Visibility = Visibility.Visible;
 
             if(btnAction3.Visibility == Visibility.Visible)
@@ -89,6 +110,9 @@ namespace Combaxe___New.écrans
                 btnAction1.Visibility = Visibility.Hidden;
                 btnAction4.Visibility = Visibility.Hidden;
             }
+            
+            btnItems.IsEnabled = false;
+            btnChoisirActions.IsEnabled = true;
         }
 
 
@@ -103,14 +127,26 @@ namespace Combaxe___New.écrans
         {
             boutonClique = true;
             //tommy gingras
-            DeroulementCombat(1); 
+            if (btnChoisirActions.IsEnabled == true)
+            {
+                actionItem(1);
+                DeroulementCombat(-1);
+            }
+            else
+                DeroulementCombat(1); 
         }
 
         private void btnAction3_Click(object sender, RoutedEventArgs e)
         {
             boutonClique = true;
             //tommy gingras
-            DeroulementCombat(2); 
+            if (btnChoisirActions.IsEnabled == true)
+            {
+                actionItem(2);
+                DeroulementCombat(-1);
+            }
+            else
+                DeroulementCombat(2); 
         }
 
         private void btnAction4_Click(object sender, RoutedEventArgs e)
@@ -266,7 +302,7 @@ namespace Combaxe___New.écrans
         /// <summary>
         /// pour mettre à jour la vie et l'énergie
         /// </summary>
-        private void majInterface()
+        private void majInterface(bool estEnnemi)
         {
             lblEnergieEnnemi.Content = combat.EnergieEnnemi + "/" + Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * 10) / 3.1416).ToString();
             lblEnergiePerso.Content = VarGlobales.Personnage.Energie + "/" + VarGlobales.Personnage.EnergieMaximale;
@@ -279,43 +315,85 @@ namespace Combaxe___New.écrans
             {
                 lblViePerso.Content = VarGlobales.Personnage.Vie + "/" + VarGlobales.Personnage.VieMaximale;
             }
-            nbTour++;
-            tempsRecharge[0] = 0;
-            if (tempsRecharge[1] > 0)
-            {
-                btnAction2.IsEnabled = false;
-                btnAction2.Content = VarGlobales.Personnage.ListeCompetence[1].Nom + "\n(" + tempsRecharge[1] + ")";
-                tempsRecharge[1] -= 1;
+            
+            if((btnChoisirActions.IsEnabled == false && estEnnemi == false) || estEnnemi == false && btnItems.IsEnabled == false)
+            { 
+                tempsRecharge[0] = 0;
+                if (tempsRecharge[1] > 0)
+                {
+                    if (btnItems.IsEnabled == true && btnChoisirActions.IsEnabled == false)
+                    {
+                        btnAction2.IsEnabled = false;
+                        btnAction2.Content = VarGlobales.Personnage.ListeCompetence[1].Nom + "\n(" + tempsRecharge[1] + ")";
+                    }
+                    tempsRecharge[1] -= 1;
+                }
+                else
+                {
+                    if (btnItems.IsEnabled == true && btnChoisirActions.IsEnabled == false)
+                    {
+                        btnAction2.IsEnabled = true;
+                        btnAction2.Content = VarGlobales.Personnage.ListeCompetence[1].Nom;
+                    }
+                }
+                if (tempsRecharge[2] > 0)
+                {
+                    if (btnItems.IsEnabled == true && btnChoisirActions.IsEnabled == false)
+                    { 
+                        btnAction3.IsEnabled = false;
+                        btnAction3.Content = VarGlobales.Personnage.ListeCompetence[2].Nom + "\n(" + tempsRecharge[2] + ")";
+                    }
+                    tempsRecharge[2] -= 1;
+                }
+                else
+                {
+                    if (btnItems.IsEnabled == true && btnChoisirActions.IsEnabled == false)
+                    {
+                        btnAction3.IsEnabled = true;
+                        btnAction3.Content = VarGlobales.Personnage.ListeCompetence[2].Nom;
+                    }
+                }
+                if (tempsRecharge[3] > 0)
+                {
+                    btnAction4.IsEnabled = false;
+                    btnAction4.Content = VarGlobales.Personnage.ListeCompetence[3].Nom + "\n(" + tempsRecharge[3] + ")";
+                    tempsRecharge[3] -= 1;
+                }
+                else
+                {
+                    btnAction4.IsEnabled = true;
+                    btnAction4.Content = VarGlobales.Personnage.ListeCompetence[3].Nom;
+                }
             }
             else
             {
-                btnAction2.IsEnabled = true;
-                btnAction2.Content = VarGlobales.Personnage.ListeCompetence[1].Nom;
-            }
-            if (tempsRecharge[2] > 0)
-            {
-                btnAction3.IsEnabled = false;
-                btnAction3.Content = VarGlobales.Personnage.ListeCompetence[2].Nom + "\n(" + tempsRecharge[2] + ")";
-                tempsRecharge[2] -= 1;
-            }
-            else
-            {
-                btnAction3.IsEnabled = true;
-                btnAction3.Content = VarGlobales.Personnage.ListeCompetence[2].Nom;
-            }
-            if (tempsRecharge[3] > 0)
-            {
-                btnAction4.IsEnabled = false;
-                btnAction4.Content = VarGlobales.Personnage.ListeCompetence[3].Nom + "\n(" + tempsRecharge[3] + ")";
-                tempsRecharge[3] -= 1;
-            }
-            else
-            {
-                btnAction4.IsEnabled = true;
-                btnAction4.Content = VarGlobales.Personnage.ListeCompetence[3].Nom;
+                //fait rien car reste tel quel
             }
         }
 
+        /// <summary>
+        /// Pour effectuer ce que les items font, potion vie, potion énergie, tommy gingras
+        /// </summary>
+        private void actionItem(int potion)
+        {
+            if(potion == 1) // vie
+            {
+                VarGlobales.Personnage.Vie += VarGlobales.Personnage.VieMaximale*30/100;
+                if(VarGlobales.Personnage.Vie > VarGlobales.Personnage.VieMaximale)
+                    VarGlobales.Personnage.Vie = VarGlobales.Personnage.VieMaximale;
+
+                txtbJournalCombat.Text += "\nVous avez régénéré " + VarGlobales.Personnage.VieMaximale*30/100 + "points de vie";
+                majInterface(true);
+            }
+            else if(potion == 2) // énergie
+            {
+                VarGlobales.Personnage.Energie += VarGlobales.Personnage.EnergieMaximale*30/100;
+                if(VarGlobales.Personnage.Energie > VarGlobales.Personnage.EnergieMaximale)
+                    VarGlobales.Personnage.Energie = VarGlobales.Personnage.EnergieMaximale;
+                txtbJournalCombat.Text += "\nVous avez régénéré " + VarGlobales.Personnage.EnergieMaximale * 30 / 100 + "points d'énergie";
+                majInterface(true);
+            }
+        }
         /// <summary>
         /// Pour effectuer ce que les boutons doivent faire, tommy gingras
         /// </summary>
@@ -329,7 +407,7 @@ namespace Combaxe___New.écrans
             if (estUtilisable && tempsRecharge[num] == 0)
             {
                 // on calcul la valeur qui est effectué
-                tempsRecharge[num] = VarGlobales.Personnage.ListeCompetence[num].TempsRecarge;
+                tempsRecharge[num] = VarGlobales.Personnage.ListeCompetence[num].TempsRecarge + 1;
                 bool estCritique = false;
                 int valMin = VarGlobales.Personnage.ListeCompetence[num].ValeurMin;
                 int valMax = VarGlobales.Personnage.ListeCompetence[num].ValeurMax;
@@ -357,11 +435,14 @@ namespace Combaxe___New.écrans
                 else
                 {
                     VarGlobales.Personnage.Vie += valeur;
+                    if(VarGlobales.Personnage.Vie > VarGlobales.Personnage.VieMaximale)
+                        VarGlobales.Personnage.Vie = VarGlobales.Personnage.VieMaximale;
+
                     VarGlobales.Personnage.Energie -= VarGlobales.Personnage.ListeCompetence[num].EnergieUtilise;
                     txtbJournalCombat.Text += VarGlobales.Personnage.Nom + " a utilisé " + VarGlobales.Personnage.ListeCompetence[num].Nom + ", ce qui le protège de " + valeur.ToString() + ".\n";
                 }
 
-                majInterface();// mettre à jour l'interface
+                majInterface(false);// mettre à jour l'interface
 
                 // on vérifie que l'ennemi est encore en vie
 
@@ -475,7 +556,7 @@ namespace Combaxe___New.écrans
                 txtbJournalCombat.Text += VarGlobales.Ennemi.Nom + " a utilisé " + VarGlobales.Ennemi.ListeCompetence[num].Nom + ", ce qui le protège de " + valeur.ToString() + ".\n";
             }
             // on vérifie quel est le type de compétence
-            majInterface();// mettre à jour l'interface
+            majInterface(true);// mettre à jour l'interface
 
             // on vérifie que le joueur ou l'ennemi est encore en vie
             if (VarGlobales.Personnage.Vie <= 0)
@@ -496,18 +577,28 @@ namespace Combaxe___New.écrans
 
         private void DeroulementCombat(int btnClique)
         {
-            if (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur >= VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur)
+            if (btnClique == -1) // si heal
             {
-                actionBouton(btnClique);
-                if(combat.VieEnnemi > 0)
-                    ActionEnnemi();
-            }
-            else
-            {
+                majInterface(false); // pour mettre a jour selon le nb tour
                 ActionEnnemi();
-                if(VarGlobales.Personnage.Vie > 0)
-                    actionBouton(btnClique);
+                
             }
+            else // si combat habituel
+            {
+                if (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur >= VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur)
+                {
+                    actionBouton(btnClique);
+                    if(combat.VieEnnemi > 0)
+                        ActionEnnemi();
+                }
+                else
+                {
+                    ActionEnnemi();
+                    if(VarGlobales.Personnage.Vie > 0)
+                        actionBouton(btnClique);
+                }
+            }
+            nbTour++;
         }
 
         /// <summary>
