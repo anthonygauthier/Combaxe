@@ -30,7 +30,7 @@ namespace Combaxe___New.écrans
             tempsRecharge = new List<int>();
             chargerEnnemi();
             chargerPersonnage();
-            combat = new Combat(VarGlobales.Personnage, VarGlobales.Ennemi);
+            combat = new Combat(VarGlobales.Ennemi);
             chronometreCombat();
             txtbJournalCombat.IsReadOnly = true;
         }
@@ -96,7 +96,7 @@ namespace Combaxe___New.écrans
         {
             //Tommy gingras
             boutonClique = true;
-            actionBouton(0); 
+            DeroulementCombat(0); 
             boutonClique = true;
         }
 
@@ -104,21 +104,21 @@ namespace Combaxe___New.écrans
         {
             boutonClique = true;
             //tommy gingras
-            actionBouton(1); 
+            DeroulementCombat(1); 
         }
 
         private void btnAction3_Click(object sender, RoutedEventArgs e)
         {
             boutonClique = true;
             //tommy gingras
-            actionBouton(2); 
+            DeroulementCombat(2); 
         }
 
         private void btnAction4_Click(object sender, RoutedEventArgs e)
         {
             boutonClique = true;
             //tommy gingras
-            actionBouton(3); 
+            DeroulementCombat(3); 
         }
         //Chronomètre de combat - Anthony Gauthier 28/10/2014
         private void chronometreCombat()
@@ -186,7 +186,7 @@ namespace Combaxe___New.écrans
             lblNiveauPerso.Content = VarGlobales.Personnage.Niveau;
             lblViePerso.Content = VarGlobales.Personnage.Vie.ToString() + "/" + VarGlobales.Personnage.VieMaximale.ToString();
             lblEnergiePerso.Content = VarGlobales.Personnage.Energie.ToString() + "/" + VarGlobales.Personnage.EnergieMaximale.ToString();
-            lblExperiencePerso.Content = VarGlobales.Personnage.Experience + "/" + VarGlobales.Personnage.ExperienceMaximale.ToString(); ;
+            lblExperiencePerso.Content = VarGlobales.Personnage.Experience + "/" + VarGlobales.Personnage.ExperienceMaximale.ToString();
             tempsRecharge.Add(0);
             tempsRecharge.Add(0);
             tempsRecharge.Add(0);
@@ -203,8 +203,8 @@ namespace Combaxe___New.écrans
             ennemi.ennemiAleatoire();
             lblNomEnnemi.Content = VarGlobales.Ennemi.Nom;
             lblNiveauEnnemi.Content = VarGlobales.Ennemi.Niveau;
-            lblVieEnnemi.Content = Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20) / 3.1416).ToString();
-            lblEnergieEnnemi.Content = Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * 10) / 3.1416).ToString();
+            lblVieEnnemi.Content = Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20) / 3.1416).ToString() + "/" + Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20) / 3.1416).ToString();
+            lblEnergieEnnemi.Content = Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * 10) / 3.1416).ToString() + "/" + Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * 10) / 3.1416).ToString();
         }
 
         /// <summary>
@@ -244,8 +244,8 @@ namespace Combaxe___New.écrans
             { // Attaque physique
                 // Min dégât + 31.416%/2.2 * points de caractéristique de force
                 // Max dégât + 31.416%/2.2 * des points de caractéristique de force
-                int valeurMin = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMin + VarGlobales.Personnage.ListeCompetence[num].ValeurMin * 0.31416 / 2.2 * VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur);
-                int valeurMax = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMax + VarGlobales.Personnage.ListeCompetence[num].ValeurMax * 0.31416 / 2.2 * VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur);
+                int valeurMin = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMin * 0.31416 / 2.2 * VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur);
+                int valeurMax = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMax * 0.31416 / 2.2 * VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur);
                 content = "\nDégât : " + valeurMin + " - " + valeurMax;
             }
             else if (VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence == Competences.Defensive.ToString())
@@ -260,8 +260,8 @@ namespace Combaxe___New.écrans
                 // o	Min = Min dégât pouvoir + 31.416%/2 * des points de caractéristique d’énergie
                 // o	Max = Max dégât pouvoir + 31.416%/2 * des points de caractéristique d’énergie
 
-                int valeurMin = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMin + VarGlobales.Personnage.ListeCompetence[num].ValeurMin * 0.31416 / 2.2 * VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur);
-                int valeurMax = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMax + VarGlobales.Personnage.ListeCompetence[num].ValeurMax * 0.31416 / 2.2 * VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur);
+                int valeurMin = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMin* 0.31416 / 2.2 * VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur);
+                int valeurMax = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMax* 0.31416 / 2.2 * VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur);
                 content = "\nDégât : " + valeurMin + " - " + valeurMax;
             }
             else if (VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence == Competences.Support.ToString())
@@ -279,10 +279,10 @@ namespace Combaxe___New.écrans
         /// </summary>
         private void majInterface()
         {
-            lblEnergieEnnemi.Content = combat.EnergieEnnemi;
-            lblEnergiePerso.Content = combat.EnergiePersonnage + "/" + VarGlobales.Personnage.EnergieMaximale;
-            lblVieEnnemi.Content = combat.VieEnnemi;
-            lblViePerso.Content = combat.ViePersonnage +"/"+ VarGlobales.Personnage.VieMaximale;
+            lblEnergieEnnemi.Content = combat.EnergieEnnemi + "/" + Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * 10) / 3.1416).ToString();
+            lblEnergiePerso.Content = VarGlobales.Personnage.Energie + "/" + VarGlobales.Personnage.EnergieMaximale;
+            lblVieEnnemi.Content = combat.VieEnnemi + "/" + Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20) / 3.1416).ToString();
+            lblViePerso.Content = VarGlobales.Personnage.Vie + "/" + VarGlobales.Personnage.VieMaximale;
             nbTour++;
             tempsRecharge[0] = 0;
             if (tempsRecharge[1] > 0)
@@ -328,7 +328,7 @@ namespace Combaxe___New.écrans
         {
             // on va chercher la bonne compétence la 1
             // on vérifie que l'énergie n'est pas manquante
-            bool estUtilisable = combat.VerifierEnergieRestante(VarGlobales.Personnage.ListeCompetence[num].EnergieUtilise, combat.EnergiePersonnage);
+            bool estUtilisable = combat.VerifierEnergieRestante(VarGlobales.Personnage.ListeCompetence[num].EnergieUtilise, VarGlobales.Personnage.Energie);
 
             if (estUtilisable && tempsRecharge[num] == 0)
             {
@@ -354,28 +354,28 @@ namespace Combaxe___New.écrans
                         {
                             combat.VieEnnemi = 0;
                         }
-                        combat.EnergiePersonnage -= VarGlobales.Personnage.ListeCompetence[num].EnergieUtilise;
+                        VarGlobales.Personnage.Energie -= VarGlobales.Personnage.ListeCompetence[num].EnergieUtilise;
                         txtbJournalCombat.Text += VarGlobales.Personnage.Nom + " a utilisé " + VarGlobales.Personnage.ListeCompetence[num].Nom + ", ce qui a infligé " + valeur.ToString() + " dégâts.\n";
                     }
                 }
                 else
                 {
-                    combat.ViePersonnage += valeur;
-                    combat.EnergiePersonnage -= VarGlobales.Personnage.ListeCompetence[num].EnergieUtilise;
+                    VarGlobales.Personnage.Vie += valeur;
+                    VarGlobales.Personnage.Energie -= VarGlobales.Personnage.ListeCompetence[num].EnergieUtilise;
                     txtbJournalCombat.Text += VarGlobales.Personnage.Nom + " a utilisé " + VarGlobales.Personnage.ListeCompetence[num].Nom + ", ce qui le protège de " + valeur.ToString() + ".\n";
                 }
-                // on vérifie quel est le type de compétence
 
                 majInterface();// mettre à jour l'interface
                 
-                // on vérifie que le joueur ou l'ennemi est encore en vie
+                // on vérifie que l'ennemi est encore en vie
 
                 if (combat.VieEnnemi <= 0)
                 {
+                    PersonnageService personnageService = new PersonnageService();
                     int expGagner = (int)((((VarGlobales.Ennemi.Niveau * 10) * (VarGlobales.Ennemi.Niveau * 10) + 1000) / 31) * 3.1416);
 
                     txtbJournalCombat.Text += VarGlobales.Ennemi.Nom + " a péri ! en " + nbTour +" tours\n";
-
+                    personnageService.MAJVieEnergie();
                     //On effectue toutes les opérations reliées à l'expérience.
                     ExperienceVictoire(expGagner);
 
@@ -416,9 +416,9 @@ namespace Combaxe___New.écrans
                 int dmgMax = VarGlobales.Ennemi.ListeCompetence[0].ValeurMax;
                 Random randDmg = new Random();
                 int dommageInflige = randDmg.Next(dmgMin, dmgMax); //On génère le dommage infligé
+                VarGlobales.Personnage.Vie -= dommageInflige;
 
-                personnageService.DommageDeFuite(dommageInflige);
-                VarGlobales.Personnage.Vie = VarGlobales.Personnage.Vie - dommageInflige;
+                personnageService.MAJVieEnergie();
 
                 ////Si 
                 //if(VarGlobales.Personnage.Vie <= 0)
@@ -470,7 +470,7 @@ namespace Combaxe___New.écrans
                 combat.CalculDegatSubi(ref valeur, false, ref esquive);
                 if (!esquive)
                 {
-                    combat.ViePersonnage -= valeur;
+                    VarGlobales.Personnage.Vie -= valeur;
                     combat.EnergieEnnemi -= VarGlobales.Ennemi.ListeCompetence[num].EnergieUtilise;
                     txtbJournalCombat.Text += VarGlobales.Ennemi.Nom + " a utilisé " + VarGlobales.Ennemi.ListeCompetence[num].Nom + ", ce qui a infligé " + valeur.ToString() + " dégâts.\n";
                 }
@@ -485,10 +485,13 @@ namespace Combaxe___New.écrans
             majInterface();// mettre à jour l'interface
 
             // on vérifie que le joueur ou l'ennemi est encore en vie
-            if (combat.ViePersonnage <= 0)
+            if (VarGlobales.Personnage.Vie <= 0)
             {
+                PersonnageService personnageService = new PersonnageService();
+
                 txtbJournalCombat.Text += VarGlobales.Personnage.Nom + " a péri " + nbTour + " tours\n";
-                combat.ViePersonnage = 0;
+                VarGlobales.Personnage.Vie = 0;
+                personnageService.MAJVieEnergie();
                 MessageBox.Show("Combat terminé !\nVous avez perdu !", "Statut", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 var EcranMenuPrincipal = new EcranMenuPrincipal();
                 EcranMenuPrincipal.Show();
@@ -501,7 +504,13 @@ namespace Combaxe___New.écrans
         {
             if (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur >= VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur)
             {
-
+                actionBouton(btnClique);
+                ActionEnnemi();
+            }
+            else
+            {
+                ActionEnnemi();
+                actionBouton(btnClique);
             }
         }
 

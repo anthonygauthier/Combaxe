@@ -209,9 +209,9 @@ namespace Combaxe___New.classes.services
         /// Fonction qui fait la mise à jour de la vie du personnage en BD
         /// </summary>
         /// <param name="dmg">Nombre de dégâts infligés au personnage</param>
-        public void DommageDeFuite(int dmg)
+        public void MAJVieEnergie()
         {
-            string requeteUpdate = "UPDATE Personnages SET vie = vie - "+dmg+" WHERE idPersonnage = '" + VarGlobales.Personnage.IdPersonnage + "';";
+            string requeteUpdate = "UPDATE Personnages SET vie = "+VarGlobales.Personnage.Vie+", energie = "+VarGlobales.Personnage.Energie+" WHERE idPersonnage = '" + VarGlobales.Personnage.IdPersonnage + "';";
 
             bdCombaxe.maj(requeteUpdate);
         }
