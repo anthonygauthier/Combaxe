@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Combaxe___New.classes
 {
 
-    public enum Competences
+    public enum TypeCompetence
     {
         Physique,
         Magique,

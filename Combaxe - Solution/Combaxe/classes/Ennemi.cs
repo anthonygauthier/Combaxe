@@ -97,5 +97,102 @@ namespace Combaxe___New.classes
 
             return ennemi;
         }
+
+        /// <summary>
+        /// Choisi si l'ennemi fait une attaque normale ou fait une des ses attaques speciales - William Themens
+        /// </summary>
+        /// <param name="vieRestante">La vie restante à l'ennemi</param>
+        /// <param name="energieRestante">L'énergie restante à l'ennemi</param>
+        /// <returns>le numéro de l'attaque qui doit être exécutée</returns>
+        public int AI(int vieRestante, int energieRestante)
+        {
+            Random rand = new Random();
+            int numeroAttaque = 0;
+            int attaqueNormal = rand.Next(100);
+            int attaqueSpecial = rand.Next(100);
+
+            if (attaqueSpecial > attaqueNormal)
+            {
+                numeroAttaque = attaqueChoisi(vieRestante, energieRestante);
+            }
+
+            return numeroAttaque;
+        }
+
+        /// <summary>
+        /// Permet de savoir quel attaque spéciale sera exécutée
+        /// </summary>
+        /// <param name="vieRestante">La vie restante à l'ennemi</param>
+        /// <param name="energieRestante">L'énergie restante à l'ennemi</param>
+        /// <returns>Le numéro de l'attaque speciale qui sera exécutée</returns>
+        public int attaqueChoisi(int vieRestante, int energieRestante)
+        {
+            int attaque = 0;
+            int plusHautChiffre = 0;
+
+            List<string>[] pourcentageAttaque = new List<string>[this.ListeCompetence.Count()];
+
+            for (int i = 0; i < this.ListeCompetence.Count()-1; i++)
+            {
+                pourcentageAttaque[i]=ChanceAttaqueSpecial(this.ListeCompetence[i+1], vieRestante, energieRestante);
+
+                if (i == 0)
+                {
+                    attaque = i+1;
+                    plusHautChiffre = Convert.ToInt32(pourcentageAttaque[i][1]);
+                }
+
+                else
+                {
+                    if(plusHautChiffre<Convert.ToInt32(pourcentageAttaque[i][1]))
+                    {
+                        attaque = i+1;
+                        plusHautChiffre = Convert.ToInt32(pourcentageAttaque[i][1]);
+                    }
+                }
+            }
+
+            //Si le plus haut chiffre est 0, alors l'ennemi n'a pas assez d'énergie pour exécutée l'attaque spéciale
+            if (plusHautChiffre == 0)
+            {
+                //L'attaque à exécutée sera alors la 0 qui se trouve à être une attaque normal qui ne coûte pas d'énergie
+                attaque = 0;
+            }
+
+            return attaque;
+        }
+
+        /// <summary>
+        /// Fonction qui détermine le pourcentage de change que l'ennemi exécute une attaque spéciale
+        /// </summary>
+        /// <param name="competence">La compétence qui peut être exécutée</param>
+        /// <param name="vieRestante">La vie restante à l'ennemi</param>
+        /// <param name="energieRestante">L'énergie restante à l'ennemi</param>
+        /// <returns>Le nom de la compétence et son pourcentage de chance d'être exécuté</returns>
+        public List<string> ChanceAttaqueSpecial(Competence competence, int vieRestante, int energieRestante)
+        {
+            List<string> chanceAttaque = new List<string>();
+            Random rand = new Random();
+            int pourcentageChange = 0; ;
+
+
+            if (energieRestante>competence.EnergieUtilise)
+            {
+                if (competence.NomTypeCompetence == TypeCompetence.Support.ToString() && (vieRestante + competence.ValeurMin) <= Convert.ToInt32((this.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20) / 3.1416))
+                {
+                    pourcentageChange = rand.Next(1,61);
+                }
+
+                else
+                {
+                    pourcentageChange = rand.Next(1,51);
+                }
+            }
+
+            chanceAttaque.Add(competence.Nom);
+            chanceAttaque.Add(pourcentageChange.ToString());
+
+            return chanceAttaque;
+        }
     }
 }

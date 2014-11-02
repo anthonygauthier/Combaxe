@@ -265,7 +265,7 @@ namespace Combaxe___New.écrans
         {
             string content = "";
             
-            if (VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence == Competences.Physique.ToString())
+            if (VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence == TypeCompetence.Physique.ToString())
             { // Attaque physique
                 // Min dégât + 31.416%/2.2 * points de caractéristique de force
                 // Max dégât + 31.416%/2.2 * des points de caractéristique de force
@@ -273,14 +273,14 @@ namespace Combaxe___New.écrans
                 int valeurMax = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMax * 0.31416 / 2.2 * VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur);
                 content = "\nDégât : " + valeurMin + " - " + valeurMax;
             }
-            else if (VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence == Competences.Defensive.ToString())
+            else if (VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence == TypeCompetence.Defensive.ToString())
             { // Defense
                 // point de défense *1.5/3.1416
                 int valeurMin = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMin + VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * 1.5 / 3.1416);
                 int valeurMax = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMax + VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * 1.5 / 3.1416);
                 content = "\nRésistance au dégât : " + valeurMin + " - " + valeurMax;
             }
-            else if (VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence == Competences.Magique.ToString())
+            else if (VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence == TypeCompetence.Magique.ToString())
             { // Magique
                 // o	Min = Min dégât pouvoir + 31.416%/2 * des points de caractéristique d’énergie
                 // o	Max = Max dégât pouvoir + 31.416%/2 * des points de caractéristique d’énergie
@@ -289,7 +289,7 @@ namespace Combaxe___New.écrans
                 int valeurMax = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMax* 0.31416 / 2.2 * VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur);
                 content = "\nDégât : " + valeurMin + " - " + valeurMax;
             }
-            else if (VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence == Competences.Support.ToString())
+            else if (VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence == TypeCompetence.Support.ToString())
             { // support
                 //((point de caractéristique de vie)*20)/3.1416
                 int valeurMin = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMin + VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20 / 3.1416);
@@ -528,10 +528,10 @@ namespace Combaxe___New.écrans
         private void ActionEnnemi()
         {
             // on calcul la valeur qui est effectué
-            int num = 0;
+            int num = VarGlobales.Ennemi.AI(combat.VieEnnemi,combat.EnergieEnnemi);
             bool estCritique = false;
-            int valMin = VarGlobales.Ennemi.ListeCompetence[0].ValeurMin;
-            int valMax = VarGlobales.Ennemi.ListeCompetence[0].ValeurMin;
+            int valMin = VarGlobales.Ennemi.ListeCompetence[num].ValeurMin;
+            int valMax = VarGlobales.Ennemi.ListeCompetence[num].ValeurMin;
             bool cibleEnnemi = true;
             bool esquive = false;
 

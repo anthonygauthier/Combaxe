@@ -24,44 +24,6 @@ namespace Combaxe___New.classes
         }
 
         /// <summary>
-        /// Fonction qui enleve le nombre de point de vie perdu selon l'attaque- William Themens
-        /// </summary>
-        /// <param name="degat">Le nombre de dégât infligé</param>
-        /// <param name="victime">L'unité qui resoit les dégats</param>
-        /// <returns></returns>
-        //public void PerteDeVie(int degat, Object victime)
-        //{
-        //    if(victime.GetType() == VarGlobales.Ennemi.GetType())
-        //    {
-        //        VieEnnemi = VieEnnemi - degat;
-        //    }
-        //    else
-        //    {
-        //        ViePersonnage = ViePersonnage - degat;
-        //    }
-        //}
-
-        /// <summary>
-        /// Fonction qui enleve le nombre de point d'énergie utilisé - William Themens
-        /// </summary>
-        /// <param name="energie">Le nombre de point d'énergie utilisé</param>
-        /// <param name="victime">L'unité qui pert de l'énergie</param>
-        /// <returns></returns>
-        //public int PerteDEnergie(int energie, Object victime)
-        //{
-        //    if (victime.GetType() == VarGlobales.Ennemi.GetType())
-        //    {
-        //        EnergieEnnemi = EnergieEnnemi - energie;
-        //        return EnergieEnnemi;
-        //    }
-        //    else
-        //    {
-        //        EnergiePersonnage = EnergiePersonnage - energie;
-        //        return EnergiePersonnage;
-        //    }
-        //}
-
-        /// <summary>
         /// Fonction qui verifie, selon le nombre de point d'énergie restante et nessessaire si la compétence peut être utilisé - William Themens
         /// </summary>
         /// <param name="energieNecessaire">Nombre d'énergie nécessaire pour faire la compétence</param>
@@ -211,25 +173,25 @@ namespace Combaxe___New.classes
         /// <param name="valeurMax">la valeur maximum de la compétence</param>
         public void cibleValeur(int num, ref bool cibleEnnemi, ref int valeurMin, ref int valeurMax)
         {
-            if (VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence == Competences.Physique.ToString())
+            if (VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence == TypeCompetence.Physique.ToString())
             {
                 valeurMin = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMin * 0.31416 / 2.2 * VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur);
                 valeurMax = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMax * 0.31416 / 2.2 * VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur);
                 cibleEnnemi = true;
             }
-            else if (VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence == Competences.Defensive.ToString())
+            else if (VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence == TypeCompetence.Defensive.ToString())
             {
                 valeurMin = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMin + VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * 1.5 / 3.1416);
                 valeurMax = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMax + VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * 1.5 / 3.1416);
                 cibleEnnemi = false;
             }
-            else if (VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence == Competences.Magique.ToString())
+            else if (VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence == TypeCompetence.Magique.ToString())
             {
                 valeurMin = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMin * 0.31416 / 2.2 * VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur);
                 valeurMax = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMax * 0.31416 / 2.2 * VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur);
                 cibleEnnemi = true;
             }
-            else if (VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence == Competences.Support.ToString())
+            else if (VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence == TypeCompetence.Support.ToString())
             {
                 valeurMin = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMin + VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20 / 3.1416);
                 valeurMax = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMax + VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20 / 3.1416);
@@ -246,25 +208,25 @@ namespace Combaxe___New.classes
         /// <param name="valeurMax">la valeur maximum de la compétence</param>
         public void CibleValeurEnnemi(int num, ref bool cibleEnnemi, ref int valeurMin, ref int valeurMax)
         {
-            if (VarGlobales.Ennemi.ListeCompetence[num].NomTypeCompetence == Competences.Physique.ToString())
+            if (VarGlobales.Ennemi.ListeCompetence[num].NomTypeCompetence == TypeCompetence.Physique.ToString())
             {
                 valeurMin = Convert.ToInt32(VarGlobales.Ennemi.ListeCompetence[num].ValeurMin * 0.31416 / 2.2 * VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Force].Valeur);
                 valeurMax = Convert.ToInt32(VarGlobales.Ennemi.ListeCompetence[num].ValeurMax * 0.31416 / 2.2 * VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Force].Valeur);
                 cibleEnnemi = true;
             }
-            else if (VarGlobales.Ennemi.ListeCompetence[num].NomTypeCompetence == Competences.Defensive.ToString())
+            else if (VarGlobales.Ennemi.ListeCompetence[num].NomTypeCompetence == TypeCompetence.Defensive.ToString())
             {
                 valeurMin = Convert.ToInt32(VarGlobales.Ennemi.ListeCompetence[num].ValeurMin + VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * 1.5 / 3.1416);
                 valeurMax = Convert.ToInt32(VarGlobales.Ennemi.ListeCompetence[num].ValeurMax + VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * 1.5 / 3.1416);
                 cibleEnnemi = false;
             }
-            else if (VarGlobales.Ennemi.ListeCompetence[num].NomTypeCompetence == Competences.Magique.ToString())
+            else if (VarGlobales.Ennemi.ListeCompetence[num].NomTypeCompetence == TypeCompetence.Magique.ToString())
             {
                 valeurMin = Convert.ToInt32(VarGlobales.Ennemi.ListeCompetence[num].ValeurMin * 0.31416 / 2.2 * VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur);
                 valeurMax = Convert.ToInt32(VarGlobales.Ennemi.ListeCompetence[num].ValeurMax * 0.31416 / 2.2 * VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur);
                 cibleEnnemi = true;
             }
-            else if (VarGlobales.Ennemi.ListeCompetence[num].NomTypeCompetence == Competences.Support.ToString())
+            else if (VarGlobales.Ennemi.ListeCompetence[num].NomTypeCompetence == TypeCompetence.Support.ToString())
             {
                 valeurMin = Convert.ToInt32(VarGlobales.Ennemi.ListeCompetence[num].ValeurMin + VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20 / 3.1416);
                 valeurMax = Convert.ToInt32(VarGlobales.Ennemi.ListeCompetence[num].ValeurMax + VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20 / 3.1416);
