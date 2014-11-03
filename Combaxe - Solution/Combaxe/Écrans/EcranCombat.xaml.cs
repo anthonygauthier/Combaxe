@@ -449,7 +449,7 @@ namespace Combaxe___New.écrans
                 if (combat.VieEnnemi <= 0)
                 {
                     PersonnageService personnageService = new PersonnageService();
-                    int expGagner = (int)((((VarGlobales.Ennemi.Niveau * 10) * (VarGlobales.Ennemi.Niveau * 10) + 1000) / 31) * 3.1416);
+                    int expGagner = combat.ExperienceRecu();
 
                     txtbJournalCombat.Text += VarGlobales.Ennemi.Nom + " a péri ! en " + nbTour +" tours\n";
                     personnageService.MAJVieEnergie();
@@ -613,7 +613,7 @@ namespace Combaxe___New.écrans
             VarGlobales.Personnage.Experience = VarGlobales.Personnage.Experience + experienceGagner;
 
             //Si l'expérience gagné est plus grande ou égale à l'expérience maximale, on monte de niveau
-            if (VarGlobales.Personnage.Experience >= VarGlobales.Personnage.ExperienceMaximale)
+            if (combat.NiveauSuperieur())
             {
                 VarGlobales.Personnage.MonterNiveau();
             }
