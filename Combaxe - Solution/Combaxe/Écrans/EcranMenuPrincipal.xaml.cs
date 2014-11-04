@@ -31,6 +31,7 @@ namespace Combaxe___New.écrans
         {
             InitializeComponent();
 
+
             //On active le bouton taverne dépendemment de la vie et l'énergie actuelle du personnage
             if(!VarGlobales.Personnage.VerifierVieEnergie())
             {

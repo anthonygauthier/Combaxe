@@ -68,6 +68,9 @@
     <Compile Include="classes\services\StatistiqueService.cs" />
     <Compile Include="classes\VarGlobales.cs" />
     <Compile Include="classes\Effet.cs" />
+    <Compile Include="UserControl1.xaml.cs">
+      <DependentUpon>UserControl1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="écrans\EcranChangementPerso.xaml.cs">
       <DependentUpon>EcranChangementPerso.xaml</DependentUpon>
     </Compile>
@@ -89,6 +92,10 @@
     <Compile Include="écrans\EcranStatistiques.xaml.cs">
       <DependentUpon>EcranStatistiques.xaml</DependentUpon>
     </Compile>
+    <Page Include="UserControl1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="écrans\EcranChangementPerso.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -165,7 +172,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -191,6 +198,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\background_old.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="resources\media\theme.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
