@@ -15,6 +15,7 @@ using Combaxe___New.classes;
 using Combaxe___New.écrans;
 using Combaxe___New.classes.services;
 using System.Text.RegularExpressions;
+using System.IO;
 
 namespace Combaxe___New.écrans
 {
@@ -26,7 +27,7 @@ namespace Combaxe___New.écrans
         public EcranCreationPersonnage()
         {
             InitializeComponent();
-
+            
             //L'utilisateur n'a pas choisi de profession, alors tous les boutons de caractéristiques ou d'image sont désactivés
             disableBtnMoins();
             disableBtnPlus();
@@ -65,7 +66,7 @@ namespace Combaxe___New.écrans
             profession = professionService.RetrieveIdProfession(btnGuerrier.Content.ToString());
             enableBtnMoins();
             enableBtnPlus();
-            imagePersonnage.Source = new BitmapImage(new Uri(@"../images/guerrier.png", UriKind.RelativeOrAbsolute));
+            //imagePersonnage.Source = new BitmapImage(new Uri(@"../images/guerrier.png", UriKind.RelativeOrAbsolute));
         }
 
         //Méthode lorsque le bouton Paladin est cliqué
@@ -86,7 +87,7 @@ namespace Combaxe___New.écrans
             profession = professionService.RetrieveIdProfession(btnPaladin.Content.ToString());
             enableBtnMoins();
             enableBtnPlus();
-            imagePersonnage.Source = new BitmapImage(new Uri(@"../images/paladin.png", UriKind.RelativeOrAbsolute));
+            //imagePersonnage.Source = new BitmapImage(new Uri(@"../images/paladin.png", UriKind.RelativeOrAbsolute));
         }
 
         //Méthode lorsque le bouton Magicien est cliqué
@@ -107,7 +108,7 @@ namespace Combaxe___New.écrans
             profession = professionService.RetrieveIdProfession(btnMagicien.Content.ToString());
             enableBtnMoins();
             enableBtnPlus();
-            imagePersonnage.Source = new BitmapImage(new Uri(@"../images/magicien.png", UriKind.RelativeOrAbsolute));
+            //imagePersonnage.Source = new BitmapImage(new Uri(@"../images/magicien.png", UriKind.RelativeOrAbsolute));
         }
 
         //Méthode pour disable les boutons moins de caractéristiques
@@ -435,6 +436,8 @@ namespace Combaxe___New.écrans
         //Méthode qui est activé lorsque le bouton "Créer personnage" est cliqué
         private void btnCreerPerso_Click(object sender, RoutedEventArgs e)
         {
+
+            sauve(txtbNom.Text);
             if (verificationChamps())
             {
                 personnageService.CreerPersonnage(Int32.Parse(txtForce.Text), Int32.Parse(txtDefense.Text), Int32.Parse(txtVie.Text), Int32.Parse(txtEnergie.Text), Int32.Parse(txtVitesse.Text), profession, txtbNom.Text);
@@ -509,6 +512,33 @@ namespace Combaxe___New.écrans
             else
             {
                 return true;
+            }
+        }
+
+        private void _colorPicker_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color> e)
+        {
+            _colorCanvas.DefaultDrawingAttributes.Color = _colorPicker.SelectedColor;
+        }
+
+        private void sauve(string nom)
+        {
+            // Save document
+            string filename = "resources\\images\\personnages\\"+nom+".jpg";
+            //get the dimensions of the ink control
+            int margin = (int)this._colorCanvas.Margin.Left;
+            int width = (int)this._colorCanvas.ActualWidth - margin;
+            int height = (int)this._colorCanvas.ActualHeight - margin;
+            //render ink to bitmap
+            RenderTargetBitmap rtb =
+            new RenderTargetBitmap(width, height, 96d, 96d, PixelFormats.Default);
+            rtb.Render(_colorCanvas);
+            Directory.CreateDirectory("resources\\images\\personnages");
+
+            using (FileStream fs = new FileStream(filename, FileMode.CreateNew))
+            {
+                BmpBitmapEncoder encoder = new BmpBitmapEncoder();
+                encoder.Frames.Add(BitmapFrame.Create(rtb));
+                encoder.Save(fs);    
             }
         }
     }
