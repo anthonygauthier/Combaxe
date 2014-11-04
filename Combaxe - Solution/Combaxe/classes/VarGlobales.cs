@@ -18,5 +18,7 @@ namespace Combaxe___New.classes
         public static Ennemi Ennemi { get; set; }
         public static bool etaitMort { get; set; }
         public static SoundPlayer musiqueTheme { get; set; }
+        public static bool aMonterNiveau { get; set; }
+        public static bool femerModifCaracteristique { get; set; }
     }
 }

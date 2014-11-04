@@ -12,102 +12,31 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Combaxe___New.classes;
-using Combaxe___New.écrans;
 using Combaxe___New.classes.services;
-using System.Text.RegularExpressions;
 
 namespace Combaxe___New.écrans
 {
     /// <summary>
-    /// Logique d'interaction pour creationPersonnage.xaml
+    /// Logique d'interaction pour EcranCaracteristiques.xaml
     /// </summary>
-    public partial class EcranCreationPersonnage : Window
+    public partial class EcranCaracteristiques : Window
     {
-        public EcranCreationPersonnage()
+        public EcranCaracteristiques()
         {
             InitializeComponent();
-
-            //L'utilisateur n'a pas choisi de profession, alors tous les boutons de caractéristiques ou d'image sont désactivés
             disableBtnMoins();
-            disableBtnPlus();
-        }
-        //Lorsque la page s'initialise, on initie une connexion à la BD - Anthony Gauthier 09/10/2014
-        PersonnageService personnageService = new PersonnageService();
-        ProfessionService professionService = new ProfessionService();
-        CaracteristiqueService caracteristiqueService = new CaracteristiqueService();
-        int profession = 0;
-
-        //----------------------------------MÉTHODES---------------------------------
-
-        //Méthode qui vide le TextBox du nom de personnage lorsque celle-ci a le focus
-        private void txtbNom_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-        {
-            txtbNom.Text = string.Empty;
+            modifierChampCaracteristiques();
         }
 
-
-
-        //Méthode lorsque le bouton Guerrier est cliqué
-        private void btnGuerrier_Click(object sender, RoutedEventArgs e)
-        {
-            //Va chercher les caractéristiques de bases du guerrier
-            List<string>[] caracteristiquesGuer = caracteristiqueService.RetrieveCaracteristiqueBase(btnGuerrier.Content.ToString());
-
-            //Change la description
-            txtbDescriptionProf.Text = professionService.selectionDescription(btnGuerrier.Content.ToString());
-
-            //Change les caractéristiques pour les caractéristiques proposées pour paladin
-            txtForce.Text = caracteristiquesGuer[0][0];
-            txtDefense.Text = caracteristiquesGuer[1][0];
-            txtVie.Text = caracteristiquesGuer[2][0];
-            txtVitesse.Text = caracteristiquesGuer[3][0];
-            txtEnergie.Text = caracteristiquesGuer[4][0];
-            profession = professionService.RetrieveIdProfession(btnGuerrier.Content.ToString());
-            enableBtnMoins();
-            enableBtnPlus();
-            imagePersonnage.Source = new BitmapImage(new Uri(@"../images/guerrier.png", UriKind.RelativeOrAbsolute));
-        }
-
-        //Méthode lorsque le bouton Paladin est cliqué
-        private void btnPaladin_Click(object sender, RoutedEventArgs e)
-        {
-            //Va chercher les caractéristiques de bases du paladin
-            List<string>[] caracteristiquesPal = caracteristiqueService.RetrieveCaracteristiqueBase(btnPaladin.Content.ToString());
-
-            //Change la description
-            txtbDescriptionProf.Text = professionService.selectionDescription(btnPaladin.Content.ToString());
-
-            //Change les caractéristiques pour les caractéristiques proposées pour paladin
-            txtForce.Text = caracteristiquesPal[0][0];
-            txtDefense.Text = caracteristiquesPal[1][0];
-            txtVie.Text = caracteristiquesPal[2][0];
-            txtVitesse.Text = caracteristiquesPal[3][0];
-            txtEnergie.Text = caracteristiquesPal[4][0];
-            profession = professionService.RetrieveIdProfession(btnPaladin.Content.ToString());
-            enableBtnMoins();
-            enableBtnPlus();
-            imagePersonnage.Source = new BitmapImage(new Uri(@"../images/paladin.png", UriKind.RelativeOrAbsolute));
-        }
-
-        //Méthode lorsque le bouton Magicien est cliqué
-        private void btnMagicien_Click(object sender, RoutedEventArgs e)
-        {
-            //Va chercher les caractéristiques de bases du magicien
-            List<string>[] caracteristiquesMagi = caracteristiqueService.RetrieveCaracteristiqueBase(btnMagicien.Content.ToString());
-
-            //Change la description
-            txtbDescriptionProf.Text = professionService.selectionDescription(btnMagicien.Content.ToString());
-
-            //Change les caractéristiques pour les caractéristiques proposées pour magicien
-            txtForce.Text = caracteristiquesMagi[0][0];
-            txtDefense.Text = caracteristiquesMagi[1][0];
-            txtVie.Text = caracteristiquesMagi[2][0];
-            txtVitesse.Text = caracteristiquesMagi[3][0];
-            txtEnergie.Text = caracteristiquesMagi[4][0];
-            profession = professionService.RetrieveIdProfession(btnMagicien.Content.ToString());
-            enableBtnMoins();
-            enableBtnPlus();
-            imagePersonnage.Source = new BitmapImage(new Uri(@"../images/magicien.png", UriKind.RelativeOrAbsolute));
+        //Méthode qui va chercher et affiche les caractéristiques du personnage
+        private void modifierChampCaracteristiques()
+        { 
+            txtbPointsRestants.Text = "5";
+            txtDefense.Text = VarGlobales.Personnage.ListeCaracteristique[(int) Caracteristiques.Defense].Valeur.ToString();
+            txtVitesse.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur.ToString();
+            txtForce.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur.ToString();
+            txtVie.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur.ToString();
+            txtEnergie.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur.ToString();
         }
 
         //Méthode pour disable les boutons moins de caractéristiques
@@ -184,10 +113,10 @@ namespace Combaxe___New.écrans
             {
                 enableBtnPlus();
             }
-            //Si le nombre de points restants est égale à 0
-            if (txtbPointsRestants.Text == "30")
+            //Si le nombre de points restants est égale à 5
+            if (txtbPointsRestants.Text == "5")
             {
-                //Si le nombre de points restant est égal à 30, on désactive les boutons moins
+                //Si le nombre de points restant est égal à 5, on désactive les boutons moins
                 disableBtnMoins();
             }
             else
@@ -197,7 +126,7 @@ namespace Combaxe___New.écrans
                 txtbPointsRestants.Text = Nombre.ToString();
 
                 //On vérifie maintenant si le nombre de points restant est de 0
-                if (Nombre == 30)
+                if (Nombre == 5)
                 {
                     //Si le nombre de points restant est égal à 30, on désactive les boutons moins
                     disableBtnMoins();
@@ -229,10 +158,10 @@ namespace Combaxe___New.écrans
         private void btnMoinsForce_Click(object sender, RoutedEventArgs e)
         {
             //Si la force est égale à 0, on désactive le bouton immédiatement et on remet la valeur à 0
-            if (txtForce.Text == "0")
+            if (txtForce.Text == VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur.ToString())
             {
                 btnMoinsForce.IsEnabled = false;
-                txtForce.Text = "0";
+                txtForce.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur.ToString();
             }
             else
             {
@@ -254,10 +183,10 @@ namespace Combaxe___New.écrans
         private void btnMoinsEnergie_Click(object sender, RoutedEventArgs e)
         {
             //Si la énergie est égale à 0, on désactive le bouton immédiatement et on remet la valeur à 0
-            if (txtEnergie.Text == "0")
+            if (txtEnergie.Text == VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur.ToString())
             {
                 btnMoinsEnergie.IsEnabled = false;
-                txtEnergie.Text = "0";
+                txtEnergie.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur.ToString();
             }
             else
             {
@@ -279,10 +208,10 @@ namespace Combaxe___New.écrans
         private void btnMoinsVie_Click(object sender, RoutedEventArgs e)
         {
             //Si la vie est égale à 0, on désactive le bouton immédiatement et on remet la valeur à 0
-            if (txtVie.Text == "0")
+            if (txtVie.Text == VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur.ToString())
             {
                 btnMoinsVie.IsEnabled = false;
-                txtVie.Text = "0";
+                txtVie.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur.ToString();
             }
             else
             {
@@ -304,10 +233,10 @@ namespace Combaxe___New.écrans
         private void btnMoinsVitesse_Click(object sender, RoutedEventArgs e)
         {
             //Si la vie est égale à 0, on désactive le bouton immédiatement et on remet la valeur à 0
-            if (txtVitesse.Text == "0")
+            if (txtVitesse.Text == VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur.ToString())
             {
                 btnMoinsVitesse.IsEnabled = false;
-                txtVitesse.Text = "0";
+                txtVitesse.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur.ToString();
             }
             else
             {
@@ -330,10 +259,10 @@ namespace Combaxe___New.écrans
         private void btnMoinsDefense_Click(object sender, RoutedEventArgs e)
         {
             //Si la vie est égale à 0, on désactive le bouton immédiatement et on remet la valeur à 0
-            if (txtDefense.Text == "0")
+            if (txtDefense.Text == VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Defense].Valeur.ToString())
             {
                 btnMoinsDefense.IsEnabled = false;
-                txtDefense.Text = "0";
+                txtDefense.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Defense].Valeur.ToString();
             }
             else
             {
@@ -361,7 +290,7 @@ namespace Combaxe___New.écrans
             int nombre = convertirEnIntPlus(txtForce.Text);
             txtForce.Text = nombre.ToString();
 
-            if (txtForce.Text != "0")
+            if (txtForce.Text != VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur.ToString())
             {
                 btnMoinsForce.IsEnabled = true;
             }
@@ -378,7 +307,7 @@ namespace Combaxe___New.écrans
             int nombre = convertirEnIntPlus(txtEnergie.Text);
             txtEnergie.Text = nombre.ToString();
 
-            if (txtEnergie.Text != "0")
+            if (txtEnergie.Text != VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur.ToString())
             {
                 btnMoinsEnergie.IsEnabled = true;
             }
@@ -394,7 +323,7 @@ namespace Combaxe___New.écrans
             int nombre = convertirEnIntPlus(txtVie.Text);
             txtVie.Text = nombre.ToString();
 
-            if (txtVie.Text != "0")
+            if (txtVie.Text != VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur.ToString())
             {
                 btnMoinsVie.IsEnabled = true;
             }
@@ -410,7 +339,7 @@ namespace Combaxe___New.écrans
             int nombre = convertirEnIntPlus(txtVitesse.Text);
             txtVitesse.Text = nombre.ToString();
 
-            if (txtVitesse.Text != "0")
+            if (txtVitesse.Text != VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur.ToString())
             {
                 btnMoinsVitesse.IsEnabled = true;
             }
@@ -426,89 +355,20 @@ namespace Combaxe___New.écrans
             int nombre = convertirEnIntPlus(txtDefense.Text);
             txtDefense.Text = nombre.ToString();
 
-            if (txtDefense.Text != "0")
+            if (txtDefense.Text != VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Defense].Valeur.ToString())
             {
                 btnMoinsDefense.IsEnabled = true;
             }
         }
 
-        //Méthode qui est activé lorsque le bouton "Créer personnage" est cliqué
-        private void btnCreerPerso_Click(object sender, RoutedEventArgs e)
+        private void btnModifier_Click(object sender, RoutedEventArgs e)
         {
-            if (verificationChamps())
+            CaracteristiqueService carService = new CaracteristiqueService();
+            carService.MiseAJourCaracteristiques(Convert.ToInt32(txtForce.Text), Convert.ToInt32(txtVitesse.Text), Convert.ToInt32(txtEnergie.Text), Convert.ToInt32(txtVie.Text), Convert.ToInt32(txtDefense.Text));
+            
+            if (MessageBox.Show("Les caracétristiques de votre personnage ont été mises à jour avec succès!", "Nouvelle caractéristiques", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK) 
             {
-                personnageService.CreerPersonnage(Int32.Parse(txtForce.Text), Int32.Parse(txtDefense.Text), Int32.Parse(txtVie.Text), Int32.Parse(txtEnergie.Text), Int32.Parse(txtVitesse.Text), profession, txtbNom.Text);
-                var choisirPerso = new EcranChangementPerso();
-                choisirPerso.Show();
-                this.Close();
-            }
-        }
-
-        //Méthode qui effectue le comportement du bouton retour
-        private void btnRetour_Click(object sender, RoutedEventArgs e)
-        {
-            //Si le joueur a des personnages, on le retourne à l'écran de choix du personnage
-            if (VarGlobales.aPersonnage)
-            {
-                var choixPerso = new EcranChangementPerso();
-                choixPerso.Show();
-                this.Close();
-            }
-            //Sinon, on retourne à l'écran de connexion et on le déconnecte
-            else
-            {
-                VarGlobales.Joueur.Deconnexion();
-                var connexion = new MainWindow();
-                connexion.Show();
-                this.Close();
-            }
-        }
-
-        //Méthode qui vérifie si tous les champs ont été remplis
-        private bool verificationChamps()
-        {
-            Regex rgx = new Regex("^[a-zA-Z]+$", RegexOptions.IgnoreCase);
-            Match match = rgx.Match(txtbNom.Text);
-
-            //Si l'utilisateur n'a pas entré de nom de personnage
-            if (txtbNom.Text == "" || txtbNom.Text == " ")
-            {
-                MessageBox.Show("Votre nom de personnage ne contient rien.", "Erreur lors de la création du personnage", MessageBoxButton.OK, MessageBoxImage.Error);
-                return false;
-            }
-            else if (txtbNom.Text.Length < 3)
-            {
-                MessageBox.Show("Votre nom de personnage ne peut pas contenir moins de 3 lettres.", "Erreur lors de la création du personnage", MessageBoxButton.OK, MessageBoxImage.Error);
-                return false;
-            }
-            else if (txtbNom.Text.Length > 20)
-            {
-                MessageBox.Show("Votre nom de personnage ne peut pas contenir plus de 20 lettres.", "Erreur lors de la création du personnage", MessageBoxButton.OK, MessageBoxImage.Error);
-                return false;
-            }
-            else if (!match.Success)
-            {
-                MessageBox.Show("Votre nom de personnage ne peut contenir que des lettres.", "Erreur lors de la création du personnage", MessageBoxButton.OK, MessageBoxImage.Error);
-                return false;
-            }
-            else if (txtbPointsRestants.Text != "0")
-            {
-                MessageBox.Show("Vous devez placer tous vos points de caractéristiques, il vous en reste " + txtbPointsRestants.Text + " a placer.", "Erreur lors de la création du personnage", MessageBoxButton.OK, MessageBoxImage.Error);
-                return false;
-            }
-            else if (txtDefense.Text == "0" && txtVie.Text == "0" && txtVitesse.Text == "0" && txtForce.Text == "0" && txtEnergie.Text == "0")
-            {
-                MessageBox.Show("Vous devez choisir une profession!", "Erreur lors de la création du personnage", MessageBoxButton.OK, MessageBoxImage.Error);
-                return false;
-            }
-            else if (personnageService.RetrieveExistancePersonnage(txtbNom.Text))
-            {
-                MessageBox.Show("Le nom de personnage que vous avez choisi existe déjà.", "Erreur lors de la création du personnage", MessageBoxButton.OK, MessageBoxImage.Error);
-                return false;
-            }
-            else
-            {
-                return true;
+                VarGlobales.femerModifCaracteristique = true;
             }
         }
     }

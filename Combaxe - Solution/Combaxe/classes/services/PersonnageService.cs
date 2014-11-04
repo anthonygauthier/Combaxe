@@ -206,7 +206,7 @@ namespace Combaxe___New.classes.services
         }
 
         /// <summary>
-        /// Fonction qui fait la mise à jour de la vie du personnage en BD
+        /// Fonction qui fait la mise à jour de la vie du personnage en BD - Modifié Anthony Gauthier 4/11/2014
         /// </summary>
         /// <param name="dmg">Nombre de dégâts infligés au personnage</param>
         public void MAJVieEnergie()
@@ -217,19 +217,32 @@ namespace Combaxe___New.classes.services
         }
         
         /// <summary>
-        /// Remet la vie et l'énergie du personnage au max en BASE DE DONNÉES
+        /// Remet la vie et l'énergie du personnage au max en BASE DE DONNÉES - Modifié par Anthony Gauthier 4/11/2014
         /// </summary>
         public void RemiseDeVieEtEnergie()
         {
-            string requeteUpdate = "UPDATE Personnages SET vie = " + VarGlobales.Personnage.VieMaximale + " , energie = " + VarGlobales.Personnage.EnergieMaximale + " WHERE idPersonnage = '" + VarGlobales.Personnage.IdPersonnage + "';";
+            string requeteUpdate = "UPDATE Personnages SET vie = " + VarGlobales.Personnage.VieMaximale * 0.5 + " , energie = " + VarGlobales.Personnage.EnergieMaximale * 0.5 + " WHERE idPersonnage = '" + VarGlobales.Personnage.IdPersonnage + "';";
 
             bdCombaxe.maj(requeteUpdate);
         }
 
+        /// <summary>
+        /// Met à jour l'expérience du personnage en BD - Anthony Gauthier 4/11/2014
+        /// </summary>
         public void MiseAJourExperience()
         { 
             string requeteUpdate = "UPDATE Personnages SET experience = "+ VarGlobales.Personnage.Experience + " WHERE idPersonnage = " + VarGlobales.Personnage.IdPersonnage + ";";
 
+            bdCombaxe.maj(requeteUpdate);
+        }
+
+        /// <summary>
+        /// Met à jour le niveau du personnage en BD.  - Anthony Gauthier 4/11/2014
+        /// </summary>
+        public void MiseAJourNiveau()
+        { 
+            string requeteUpdate = "UPDATE Personnages SET niveau = "+(VarGlobales.Personnage.Niveau)+" WHERE idPersonnage = "+VarGlobales.Personnage.IdPersonnage+";";
+            
             bdCombaxe.maj(requeteUpdate);
         }
     }

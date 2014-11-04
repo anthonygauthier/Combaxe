@@ -453,14 +453,50 @@ namespace Combaxe___New.écrans
 
                     txtbJournalCombat.Text += VarGlobales.Ennemi.Nom + " a péri ! en " + nbTour +" tours\n";
                     personnageService.MAJVieEnergie();
-                    //On effectue toutes les opérations reliées à l'expérience.
-                    ExperienceVictoire(expGagner);
 
                     combat.VieEnnemi = 0;
 
                     boutonClique = true;
                     MessageBox.Show("Combat terminé, vous avez gagné !\n" + "Vous gagnez! " + expGagner + " points d'expérience!", "Statut", MessageBoxButton.OK, MessageBoxImage.Information);
-                    menuPrincipal();
+                    //On effectue toutes les opérations reliées à l'expérience.
+                    ExperienceVictoire(expGagner);
+
+                    //Si l'expérience gagné est plus grande ou égale à l'expérience maximale, on monte de niveau
+                    if (VarGlobales.aMonterNiveau == true)
+                    {
+                        //On initialise un timer égal à celui du progress bar de l'écran de repos pour déterminer quand nous allons rendre la fenêtre utilisable à nouveau
+                        temps = TimeSpan.FromHours(9999);
+
+                        horloge = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+                        {
+                            //On enleve du temps au timer
+                            temps = temps.Add(TimeSpan.FromSeconds(-1));
+
+                            //Si le joueur a modifier ses caractéristiques, on ferme la fenêtre
+                            if (VarGlobales.femerModifCaracteristique == true)
+                            {
+                                //On réactive l'écran de combat
+                                this.Opacity = 1;
+                                this.IsEnabled = true;
+
+                                if (this.WindowStyle != WindowStyle.None)
+                                {
+                                    this.WindowStyle = WindowStyle.SingleBorderWindow;
+                                    this.ResizeMode = ResizeMode.CanResize;
+                                }
+
+                                //Lorsque le joueur a terminer de modifier les caractéristiques, on affiche le menu principal
+                                menuPrincipal();
+                                horloge.Stop();
+                            }
+                        }, Application.Current.Dispatcher);
+
+                        horloge.Start();
+                    }
+                    else
+                    {
+                        menuPrincipal();
+                    }
                 }
             }
             else
@@ -607,6 +643,7 @@ namespace Combaxe___New.écrans
         private void ExperienceVictoire(int experienceGagner)
         {
             PersonnageService persoService = new PersonnageService();
+            
 
             //On donne l'expérience au joueur - Anthony Gauthier 30/10/2014
             txtbJournalCombat.Text += "Vous gagnez " + experienceGagner + " points d'expérience!";
@@ -616,10 +653,44 @@ namespace Combaxe___New.écrans
             if (combat.NiveauSuperieur())
             {
                 VarGlobales.Personnage.MonterNiveau();
-            }
+                VarGlobales.aMonterNiveau = true;
+                var EcranCar = new EcranCaracteristiques();
 
-            persoService.MiseAJourExperience();
-            lblExperiencePerso.Content = VarGlobales.Personnage.Experience.ToString() + "/" + VarGlobales.Personnage.ExperienceMaximale.ToString();
+                //On initialise un timer égal à celui du progress bar de l'écran de repos pour déterminer quand nous allons rendre la fenêtre utilisable à nouveau
+                temps = TimeSpan.FromHours(9999);
+
+                horloge = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+                {
+                    //On enleve du temps au timer
+                    temps = temps.Add(TimeSpan.FromSeconds(-1));
+
+                    //Si le joueur a modifier ses caractéristiques, on ferme la fenêtre
+                    if (VarGlobales.femerModifCaracteristique == true)
+                    {
+                        EcranCar.Close();
+                    }
+                }, Application.Current.Dispatcher);
+
+                horloge.Start();
+
+                //On désactive carrément l'écran de combat
+                this.Opacity = 0.5;
+                this.IsEnabled = false;
+                this.Focusable = false;
+                //Si le jeu n'est pas fullscreen
+                if (this.WindowStyle != WindowStyle.None)
+                {
+                    this.WindowStyle = WindowStyle.None;
+                    this.ResizeMode = ResizeMode.NoResize;
+                }
+
+                EcranCar.Show();
+            }
+            else
+            { 
+                persoService.MiseAJourExperience();
+                lblExperiencePerso.Content = VarGlobales.Personnage.Experience.ToString() + "/" + VarGlobales.Personnage.ExperienceMaximale.ToString();
+            }
         }
 
         /// <summary>
