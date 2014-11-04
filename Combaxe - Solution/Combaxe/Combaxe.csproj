@@ -68,9 +68,6 @@
     <Compile Include="classes\services\StatistiqueService.cs" />
     <Compile Include="classes\VarGlobales.cs" />
     <Compile Include="classes\Effet.cs" />
-    <Compile Include="UserControl1.xaml.cs">
-      <DependentUpon>UserControl1.xaml</DependentUpon>
-    </Compile>
     <Compile Include="écrans\EcranChangementPerso.xaml.cs">
       <DependentUpon>EcranChangementPerso.xaml</DependentUpon>
     </Compile>
@@ -92,10 +89,6 @@
     <Compile Include="écrans\EcranStatistiques.xaml.cs">
       <DependentUpon>EcranStatistiques.xaml</DependentUpon>
     </Compile>
-    <Page Include="UserControl1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="écrans\EcranChangementPerso.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
