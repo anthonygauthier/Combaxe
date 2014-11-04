@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media.Imaging;
 
 namespace Combaxe___New.classes.abstraites
@@ -28,7 +30,9 @@ namespace Combaxe___New.classes.abstraites
         {
             Nom = n;
             Niveau = niv;
-            Image = new BitmapImage(new Uri(lien, UriKind.RelativeOrAbsolute)); // fait par tommy gingras
+            Directory.CreateDirectory("resources\\images\\personnages");
+            Directory.CreateDirectory("resources\\images\\ennemis");
+            Image = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + lien, UriKind.RelativeOrAbsolute)); // fait par tommy gingras
             ListeCaracteristique = lstCar;
             ListeCompetence = lstComp;
         }
