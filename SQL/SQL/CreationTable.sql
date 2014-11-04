@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS Competences;
 DROP TABLE IF EXISTS TypesCompetences;
 DROP TABLE IF EXISTS Effets;
 DROP TABLE IF EXISTS EquipementsPersonnages;
+DROP TABLE IF EXISTS InventairesConsommables;
 DROP TABLE IF EXISTS InventairesEquipements;
 DROP TABLE IF EXISTS Equipements;
 DROP TABLE IF EXISTS CaracteristiquesPersonnages;
@@ -14,6 +15,8 @@ DROP TABLE IF EXISTS Personnages;
 DROP TABLE IF EXISTS Professions;
 DROP TABLE IF EXISTS Statistiques;
 DROP TABLE IF EXISTS Caracteristiques;
+DROP TABLE IF EXISTS Consommables;
+DROP TABLE IF EXISTS TypesConsommables;
 DROP TABLE IF EXISTS EquipementsModeles;
 DROP TABLE IF EXISTS Modeles;
 DROP TABLE IF EXISTS Ennemis;
@@ -61,11 +64,26 @@ CREATE TABLE IF NOT EXISTS EquipementsModeles
 ,	degatMax INT NOT NULL DEFAULT 0
 );
 
+CREATE TABLE IF NOT EXISTS TypesConsommables
+(
+	idTypeConsommable INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
+,	nom VARCHAR(21) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Consommables
+(
+    idEquipementModele INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
+,	idTypeConsommable INT NOT NULL
+,	nom VARCHAR(51) NOT NULL
+,	prix DOUBLE NOT NULL DEFAULT 0
+,	valeurPourcentage INT NOT NULL
+,	image VARCHAR(255)
+);
+
 CREATE TABLE IF NOT EXISTS Caracteristiques
 (
     idCaracteristique INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
 ,	nom VARCHAR(31) NOT NULL UNIQUE
-/*,	valeur INT NOT NULL DEFAULT 0 DOIT ÊTRE ENLEVÉ */
 );
 
 CREATE TABLE IF NOT EXISTS Statistiques
@@ -98,7 +116,7 @@ CREATE TABLE IF NOT EXISTS Personnages
 ,	nom VARCHAR(21) NOT NULL UNIQUE
 ,	niveau INT NOT NULL DEFAULT 1
 ,	experience INT NOT NULL DEFAULT 0
-,   vie INT NOT NULL DEFAULT 0
+,   vie INT NOT NULL DEFAULT 5
 ,   energie INT NOT NULL DEFAULT 0
 ,	image VARCHAR(255)
 ,	estActif BOOL NOT NULL DEFAULT TRUE
@@ -133,7 +151,7 @@ CREATE TABLE IF NOT EXISTS CaracteristiquesPersonnages
     idCaracteristiquePersonnage INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
 ,	idCaracteristique INT NOT NULL
 ,	idPersonnage INT NOT NULL
-, 	valeur INT NOT NULL /* RAJOUTER LA VALEUR ICI */
+, 	valeur INT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Equipements
@@ -147,6 +165,14 @@ CREATE TABLE IF NOT EXISTS InventairesEquipements
     idInventaireEquipement INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
 ,	idInventaire INT NOT NULL
 ,	idEquipement INT NOT NULL
+,	quantite INT NOT NULL DEFAULT 1
+);
+
+CREATE TABLE IF NOT EXISTS InventairesConsommables
+(
+    idInventaireConsommable INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
+,	idInventaire INT NOT NULL
+,	idConsommable INT NOT NULL
 ,	quantite INT NOT NULL DEFAULT 1
 );
 

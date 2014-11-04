@@ -129,8 +129,7 @@ namespace Combaxe___New.écrans
             //tommy gingras
             if (btnChoisirActions.IsEnabled == true)
             {
-                actionItem(1);
-                DeroulementCombat(-1);
+                DeroulementCombat(4);
             }
             else
                 DeroulementCombat(1); 
@@ -142,8 +141,7 @@ namespace Combaxe___New.écrans
             //tommy gingras
             if (btnChoisirActions.IsEnabled == true)
             {
-                actionItem(2);
-                DeroulementCombat(-1);
+                DeroulementCombat(5);
             }
             else
                 DeroulementCombat(2); 
@@ -178,6 +176,7 @@ namespace Combaxe___New.écrans
                 if (temps == TimeSpan.Zero || combat.VieEnnemi <= 0 || VarGlobales.Personnage.Vie == 0)
                 {
                     horloge.Stop();
+                    DeroulementCombat(-1);
                 }
                 //Sinon, on ajoute du temps à l'horloge
                 else
@@ -190,8 +189,7 @@ namespace Combaxe___New.écrans
                     else if (temps == TimeSpan.FromSeconds(7))
                     {
                         pbHorloge.Foreground = Brushes.Red;
-                    }
-                    
+                    }                    
                     //On ajoute (enlève) le temps à l'horloge puis on modifie la valeur de la progress bar
                     temps = temps.Add(TimeSpan.FromSeconds(SOUSTRACTIONTEMPS));
                     pbHorloge.Value = temps.TotalSeconds;
@@ -376,21 +374,21 @@ namespace Combaxe___New.écrans
         /// </summary>
         private void actionItem(int potion)
         {
-            if(potion == 1) // vie
+            if(potion == 4) // vie
             {
                 VarGlobales.Personnage.Vie += VarGlobales.Personnage.VieMaximale*30/100;
                 if(VarGlobales.Personnage.Vie > VarGlobales.Personnage.VieMaximale)
                     VarGlobales.Personnage.Vie = VarGlobales.Personnage.VieMaximale;
 
-                txtbJournalCombat.Text += "\nVous avez régénéré " + VarGlobales.Personnage.VieMaximale*30/100 + "points de vie";
+                txtbJournalCombat.Text += "Vous avez régénéré " + VarGlobales.Personnage.VieMaximale*30/100 + "points de vie\n";
                 majInterface(true);
             }
-            else if(potion == 2) // énergie
+            else if(potion == 5) // énergie
             {
                 VarGlobales.Personnage.Energie += VarGlobales.Personnage.EnergieMaximale*30/100;
                 if(VarGlobales.Personnage.Energie > VarGlobales.Personnage.EnergieMaximale)
                     VarGlobales.Personnage.Energie = VarGlobales.Personnage.EnergieMaximale;
-                txtbJournalCombat.Text += "\nVous avez régénéré " + VarGlobales.Personnage.EnergieMaximale * 30 / 100 + "points d'énergie";
+                txtbJournalCombat.Text += "Vous avez régénéré " + VarGlobales.Personnage.EnergieMaximale * 30 / 100 + "points d'énergie\n";
                 majInterface(true);
             }
         }
@@ -400,77 +398,85 @@ namespace Combaxe___New.écrans
         /// <param name="num">le id du bouton pour les compétences</param>
         private void actionBouton(int num)
         {
-            // on va chercher la bonne compétence la 1
-            // on vérifie que l'énergie n'est pas manquante
-            bool estUtilisable = combat.VerifierEnergieRestante(VarGlobales.Personnage.ListeCompetence[num].EnergieUtilise, VarGlobales.Personnage.Energie);
-
-            if (estUtilisable && tempsRecharge[num] == 0)
+            if (num == 4 || num == 5)
             {
-                // on calcul la valeur qui est effectué
-                tempsRecharge[num] = VarGlobales.Personnage.ListeCompetence[num].TempsRecarge + 1;
-                bool estCritique = false;
-                int valMin = VarGlobales.Personnage.ListeCompetence[num].ValeurMin;
-                int valMax = VarGlobales.Personnage.ListeCompetence[num].ValeurMax;
-                bool cibleEnnemi = true;
-                bool esquive = false;
-
-                // on applique la bonne action pour la cible
-                combat.cibleValeur(num, ref cibleEnnemi, ref valMin, ref valMax);
-
-                int valeur = combat.CalculValeurCompetence(valMin, valMax, true, ref estCritique);
-                if (cibleEnnemi)
-                {
-                    combat.CalculDegatSubi(ref valeur, false, ref esquive);
-                    if (!esquive)
-                    {
-                        combat.VieEnnemi -= valeur;
-                        if(combat.VieEnnemi <= 0)
-                        {
-                            combat.VieEnnemi = 0;
-                        }
-                        VarGlobales.Personnage.Energie -= VarGlobales.Personnage.ListeCompetence[num].EnergieUtilise;
-                        txtbJournalCombat.Text += VarGlobales.Personnage.Nom + " a utilisé " + VarGlobales.Personnage.ListeCompetence[num].Nom + ", ce qui a infligé " + valeur.ToString() + " dégâts.\n";
-                    }
-                }
-                else
-                {
-                    VarGlobales.Personnage.Vie += valeur;
-                    if(VarGlobales.Personnage.Vie > VarGlobales.Personnage.VieMaximale)
-                        VarGlobales.Personnage.Vie = VarGlobales.Personnage.VieMaximale;
-
-                    VarGlobales.Personnage.Energie -= VarGlobales.Personnage.ListeCompetence[num].EnergieUtilise;
-                    txtbJournalCombat.Text += VarGlobales.Personnage.Nom + " a utilisé " + VarGlobales.Personnage.ListeCompetence[num].Nom + ", ce qui le protège de " + valeur.ToString() + ".\n";
-                }
-
-                majInterface(false);// mettre à jour l'interface
-
-                // on vérifie que l'ennemi est encore en vie
-
-                if (combat.VieEnnemi <= 0)
-                {
-                    PersonnageService personnageService = new PersonnageService();
-                    int expGagner = (int)((((VarGlobales.Ennemi.Niveau * 10) * (VarGlobales.Ennemi.Niveau * 10) + 1000) / 31) * 3.1416);
-
-                    txtbJournalCombat.Text += VarGlobales.Ennemi.Nom + " a péri ! en " + nbTour +" tours\n";
-                    personnageService.MAJVieEnergie();
-                    //On effectue toutes les opérations reliées à l'expérience.
-                    ExperienceVictoire(expGagner);
-
-                    combat.VieEnnemi = 0;
-
-                    boutonClique = true;
-                    MessageBox.Show("Combat terminé, vous avez gagné !\n" + "Vous gagnez! " + expGagner + " points d'expérience!", "Statut", MessageBoxButton.OK, MessageBoxImage.Information);
-                    menuPrincipal();
-                }
+                actionItem(num);
             }
             else
             {
-                if(!estUtilisable)
-                    txtbJournalCombat.Text += "Vous n'avez pas assez d'énergie !\n";
+                // on va chercher la bonne compétence la 1
+                // on vérifie que l'énergie n'est pas manquante
+                bool estUtilisable = combat.VerifierEnergieRestante(VarGlobales.Personnage.ListeCompetence[num].EnergieUtilise, VarGlobales.Personnage.Energie);
+
+                if (estUtilisable && tempsRecharge[num] == 0)
+                {
+                    // on calcul la valeur qui est effectué
+                    tempsRecharge[num] = VarGlobales.Personnage.ListeCompetence[num].TempsRecarge + 1;
+                    bool estCritique = false;
+                    int valMin = VarGlobales.Personnage.ListeCompetence[num].ValeurMin;
+                    int valMax = VarGlobales.Personnage.ListeCompetence[num].ValeurMax;
+                    bool cibleEnnemi = true;
+                    bool esquive = false;
+
+                    // on applique la bonne action pour la cible
+                    combat.cibleValeur(num, ref cibleEnnemi, ref valMin, ref valMax);
+
+                    int valeur = combat.CalculValeurCompetence(valMin, valMax, true, ref estCritique);
+                    if (cibleEnnemi)
+                    {
+                        combat.CalculDegatSubi(ref valeur, false, ref esquive);
+                        if (!esquive)
+                        {
+                            combat.VieEnnemi -= valeur;
+                            if (combat.VieEnnemi <= 0)
+                            {
+                                combat.VieEnnemi = 0;
+                            }
+                            VarGlobales.Personnage.Energie -= VarGlobales.Personnage.ListeCompetence[num].EnergieUtilise;
+                            txtbJournalCombat.Text += VarGlobales.Personnage.Nom + " a utilisé " + VarGlobales.Personnage.ListeCompetence[num].Nom + ", ce qui a infligé " + valeur.ToString() + " dégâts.\n";
+                        }
+                    }
+                    else
+                    {
+                        VarGlobales.Personnage.Vie += valeur;
+                        if (VarGlobales.Personnage.Vie > VarGlobales.Personnage.VieMaximale)
+                            VarGlobales.Personnage.Vie = VarGlobales.Personnage.VieMaximale;
+
+                        VarGlobales.Personnage.Energie -= VarGlobales.Personnage.ListeCompetence[num].EnergieUtilise;
+                        txtbJournalCombat.Text += VarGlobales.Personnage.Nom + " a utilisé " + VarGlobales.Personnage.ListeCompetence[num].Nom + ", ce qui le protège de " + valeur.ToString() + ".\n";
+                    }
+
+                    majInterface(false);// mettre à jour l'interface
+
+                    // on vérifie que l'ennemi est encore en vie
+
+                    if (combat.VieEnnemi <= 0)
+                    {
+                        PersonnageService personnageService = new PersonnageService();
+                        int expGagner = (int)((((VarGlobales.Ennemi.Niveau * 10) * (VarGlobales.Ennemi.Niveau * 10) + 1000) / 31) * 3.1416);
+
+                        txtbJournalCombat.Text += VarGlobales.Ennemi.Nom + " a péri ! en " + nbTour + " tours\n";
+                        personnageService.MAJVieEnergie();
+                        //On effectue toutes les opérations reliées à l'expérience.
+                        ExperienceVictoire(expGagner);
+
+                        combat.VieEnnemi = 0;
+
+                        boutonClique = true;
+                        MessageBox.Show("Combat terminé, vous avez gagné !\n" + "Vous gagnez! " + expGagner + " points d'expérience!", "Statut", MessageBoxButton.OK, MessageBoxImage.Information);
+                        menuPrincipal();
+                    }
+                }
+
                 else
-                    txtbJournalCombat.Text += "Vous devez attendre que la compétence se charge !\n";
+                {
+                    if (!estUtilisable)
+                        txtbJournalCombat.Text += "Vous n'avez pas assez d'énergie !\n";
+                    else
+                        txtbJournalCombat.Text += "Vous devez attendre que la compétence se charge !\n";
+                }
+                txtbJournalCombat.ScrollToEnd();
             }
-            txtbJournalCombat.ScrollToEnd();
         }
 
         /// <summary>
@@ -507,11 +513,11 @@ namespace Combaxe___New.écrans
                 {
                     menuPrincipal();
                 }
-                else
-                {
-                    if (MessageBox.Show("Vous êtes plus rapide que l'ennemi et fuyez le combat sans problème", "Fuite", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK)
-                        menuPrincipal();
-                }
+            }
+            else
+            {
+                if (MessageBox.Show("Vous êtes plus rapide que l'ennemi et fuyez le combat sans problème", "Fuite", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK)
+                    menuPrincipal();
             }
         }
 
@@ -577,22 +583,30 @@ namespace Combaxe___New.écrans
 
         private void DeroulementCombat(int btnClique)
         {
-            if (btnClique == -1) // si heal
+            if(temps == TimeSpan.FromSeconds(0))
             {
+                txtbJournalCombat.Text += "Le temps s'est écoulé, c'est au tour de l'ennemi\n";
                 majInterface(false); // pour mettre a jour selon le nb tour
                 ActionEnnemi();
-                
             }
             else // si combat habituel
             {
                 if (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur >= VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur)
                 {
+                    if(nbTour==0)
+                    {
+                        txtbJournalCombat.Text += "Vous êtes plus rapide que l'ennemi, donc vous êtes le premier à commencer\n";
+                    }
                     actionBouton(btnClique);
                     if(combat.VieEnnemi > 0)
                         ActionEnnemi();
                 }
                 else
                 {
+                    if (nbTour == 0)
+                    {
+                        txtbJournalCombat.Text += "L'ennemi est plus rapide, donc il est le premier à commencer\n";
+                    }
                     ActionEnnemi();
                     if(VarGlobales.Personnage.Vie > 0)
                         actionBouton(btnClique);
