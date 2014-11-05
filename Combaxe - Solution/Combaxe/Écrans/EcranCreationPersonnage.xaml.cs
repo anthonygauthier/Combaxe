@@ -435,11 +435,10 @@ namespace Combaxe___New.écrans
 
         //Méthode qui est activé lorsque le bouton "Créer personnage" est cliqué
         private void btnCreerPerso_Click(object sender, RoutedEventArgs e)
-        {
-
-            sauve(txtbNom.Text);
+        {            
             if (verificationChamps())
             {
+                sauve(txtbNom.Text);
                 personnageService.CreerPersonnage(Int32.Parse(txtForce.Text), Int32.Parse(txtDefense.Text), Int32.Parse(txtVie.Text), Int32.Parse(txtEnergie.Text), Int32.Parse(txtVitesse.Text), profession, txtbNom.Text);
                 var choisirPerso = new EcranChangementPerso();
                 choisirPerso.Show();

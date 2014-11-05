@@ -139,7 +139,7 @@ namespace Combaxe___New.classes.services
             // On va chercher la bonne sélection
             //string imageURL = "";
             Profession Prof = professionService.RetrieveIdProfessionAvecId(idProfession);
-            string image = Prof.Image.UriSource.OriginalString;
+            string image = @"resources\\images\\personnages\\"+nomPerso+".jpg";
 
             //On insert le personnage
             string reqInsertPerso = "INSERT INTO Personnages (idProfession, idInventaire, idJoueur, idStatistique, nom, niveau, experience, vie, energie, image) VALUES ("+idProfession+"," + idInventaire + "," + VarGlobales.Joueur.idJoueur + "," + idStatistique + ",'" + nomPerso + "',1,0,"+viePersonnage+","+energiePersonnage+",'"+image+"')";
