@@ -76,7 +76,7 @@ namespace Combaxe___New.écrans
                         txtbPointDenergie1.Text = "Énergie: " + lstPerso[0].Energie.ToString() + "/" + lstPerso[0].EnergieMaximale;
                         txtbPointDeVie1.Text = "Vie: " + lstPerso[0].Vie.ToString() + "/" + lstPerso[0].VieMaximale;
                         /* l'image du personnage */
-                        this.imgPerso1.Source = lstPerso[0].profession.Image; // le lien va être à changer
+                        this.imgPerso1.Source = lstPerso[0].Image;
                         lblNomPerso1.Content = lstPerso[0].Nom;
                         lblNiveau1.Content = "Niveau: "+lstPerso[0].Niveau; //Ajout de "Niveau: " Anthony Gauthier 23/10/2014
                         btnChoisir2.IsEnabled = false;
@@ -91,7 +91,7 @@ namespace Combaxe___New.écrans
                         lblNbrVitesse2.Content = lstPerso[1].ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur;
                         txtbPointDenergie2.Text = "Énergie: " + lstPerso[1].Energie.ToString() + "/" + lstPerso[1].EnergieMaximale;
                         txtbPointDeVie2.Text = "Vie: " + lstPerso[1].Vie.ToString() + "/" + lstPerso[1].VieMaximale;
-                        this.imgPerso2.Source = lstPerso[1].profession.Image; // le lien va être achanger
+                        this.imgPerso2.Source = lstPerso[1].Image;
                         lblNomPerso2.Content = lstPerso[1].Nom;
                         lblNiveau2.Content = "Niveau: " + lstPerso[1].Niveau; //Ajout de "Niveau: " Anthony Gauthier 23/10/2014
                         btnChoisir2.IsEnabled = true;
@@ -105,7 +105,7 @@ namespace Combaxe___New.écrans
                         lblNbrVitesse3.Content = lstPerso[2].ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur;
                         txtbPointDenergie3.Text = "Énergie: " + lstPerso[2].Energie.ToString() + "/" + lstPerso[2].EnergieMaximale;
                         txtbPointDeVie3.Text = "Vie: " + lstPerso[2].Vie.ToString() + "/" + lstPerso[2].VieMaximale;
-                        this.imgPerso3.Source = lstPerso[2].profession.Image; // le lien va être achanger
+                        this.imgPerso3.Source = lstPerso[2].Image;
                         lblNomPerso3.Content = lstPerso[2].Nom;
                         lblNiveau3.Content = "Niveau: " + lstPerso[2].Niveau; //Ajout de "Niveau: " Anthony Gauthier 23/10/2014
                         btnChoisir3.IsEnabled = true;

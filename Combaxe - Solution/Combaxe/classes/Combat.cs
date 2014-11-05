@@ -249,7 +249,7 @@ namespace Combaxe___New.classes
         /// <returns></returns>
         public bool NiveauSuperieur()
         {
-            if(VarGlobales.Personnage.Experience>= Convert.ToInt32(((VarGlobales.Personnage.Niveau*10)*(VarGlobales.Personnage.Niveau*10) +10)*3.1416))
+            if(VarGlobales.Personnage.Experience >= VarGlobales.Personnage.ExperienceMaximale)
             {
                 return true;
             }

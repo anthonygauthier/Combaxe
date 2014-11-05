@@ -82,5 +82,30 @@ namespace Combaxe___New.classes.services
             }
             return mesCaracteristiques;
         }
+
+        /// <summary>
+        /// Méthode qui met à jour les caractéristique du personnage après avoir augmenté de niveau - Anthony Gauthier 04/11/2014
+        /// </summary>
+        /// <param name="force">valeur de la textbox de force</param>
+        /// <param name="vitesse">valeur de la textbox de vitesse</param>
+        /// <param name="energie">valeur de la textbox de energie</param>
+        /// <param name="vie">valeur de la textbox de vie</param>
+        /// <param name="defense">valeur de la textbox de defense</param>
+        public void MiseAJourCaracteristiques(int force, int vitesse, int energie, int vie, int defense)
+        {
+            //On créer une requête pour chaque caractéristiques, rendant le code plus léger et simple a débugger
+            string requeteMajForce = "UPDATE CaracteristiquesPersonnages SET valeur = "+force+" WHERE idPersonnage = "+VarGlobales.Personnage.IdPersonnage+" AND idCaracteristique = (SELECT idCaracteristique FROM Caracteristiques WHERE nom = 'Force');";
+            string requeteMajVitesse = "UPDATE CaracteristiquesPersonnages SET valeur = " + vitesse + " WHERE idPersonnage = " + VarGlobales.Personnage.IdPersonnage + " AND idCaracteristique = (SELECT idCaracteristique FROM Caracteristiques WHERE nom = 'Vitesse');";
+            string requeteMajEnergie = "UPDATE CaracteristiquesPersonnages SET valeur = " + energie + " WHERE idPersonnage = " + VarGlobales.Personnage.IdPersonnage + " AND idCaracteristique = (SELECT idCaracteristique FROM Caracteristiques WHERE nom = 'Énergie');";
+            string requeteMajVie = "UPDATE CaracteristiquesPersonnages SET valeur = " + vie + " WHERE idPersonnage = " + VarGlobales.Personnage.IdPersonnage + " AND idCaracteristique = (SELECT idCaracteristique FROM Caracteristiques WHERE nom = 'Vie');";
+            string requeteMajDefense = "UPDATE CaracteristiquesPersonnages SET valeur = " + defense + " WHERE idPersonnage = " + VarGlobales.Personnage.IdPersonnage + " AND idCaracteristique = (SELECT idCaracteristique FROM Caracteristiques WHERE nom = 'Défense');";
+        
+            //On effectue les 5 mises à jour
+            bdCombaxe.maj(requeteMajForce);
+            bdCombaxe.maj(requeteMajVitesse);
+            bdCombaxe.maj(requeteMajEnergie);
+            bdCombaxe.maj(requeteMajVie);
+            bdCombaxe.maj(requeteMajDefense);
+        }
     }
 }

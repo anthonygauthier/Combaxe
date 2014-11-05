@@ -93,9 +93,16 @@ namespace Combaxe___New.classes
         /// </summary>
         public void MonterNiveau()
         {
-            //Début de la fonction -> Plus à venir bientôt! - Anthony Gauthier 30/10/2014
+            //Partie de la fonction ajouté le 30 octobre 2014 - Anthony Gauthier 30/10/2014
+            PersonnageService persoService = new PersonnageService();
+            VarGlobales.Personnage.Niveau = VarGlobales.Personnage.Niveau + 1;
             VarGlobales.Personnage.Experience = VarGlobales.Personnage.Experience - VarGlobales.Personnage.ExperienceMaximale;
             VarGlobales.Personnage.ExperienceMaximale = (int)((((this.Niveau * 10) * (this.Niveau * 10) + 10) * 3.1416));
+
+            //Partie de la fonction ajouté le 2 novembre 2014 - Anthony Gauthier 4/11/2014
+            persoService.MiseAJourNiveau(); //On augmente le niveau du personnage
+            persoService.MiseAJourExperience(); //On met à jour l'expérience du personnage en BD
+
         }
 
         /// <summary>

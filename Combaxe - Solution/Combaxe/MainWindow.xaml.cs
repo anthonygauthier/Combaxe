@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Combaxe___New.classes;
 using Combaxe___New.écrans;
 using Combaxe___New.classes.services;
+using System.Media;
 
 namespace Combaxe___New
 {
@@ -26,6 +27,7 @@ namespace Combaxe___New
         public MainWindow()
         {
             InitializeComponent();
+            musiqueTheme();
         }
         //Lorsque la page s'initialise, on initie une connexion à la BD - Anthony Gauthier 09/10/2014
         JoueurService joueurService = new JoueurService();
@@ -131,6 +133,13 @@ namespace Combaxe___New
         private void txtbNomUsager_Loaded_1(object sender, RoutedEventArgs e)
         {
             Keyboard.Focus(txtbNomUsager);
+        }
+
+        public void musiqueTheme()
+        {
+            VarGlobales.musiqueTheme = new SoundPlayer("./resources/media/theme.wav");
+            VarGlobales.musiqueTheme.Load();
+            VarGlobales.musiqueTheme.PlayLooping();
         }
     }
 }
