@@ -448,88 +448,71 @@ namespace Combaxe___New.écrans
                     majInterface(false);// mettre à jour l'interface
 
                     // on vérifie que l'ennemi est encore en vie
-
-<<<<<<< HEAD
                     if (combat.VieEnnemi <= 0)
                     {
                         PersonnageService personnageService = new PersonnageService();
-                        int expGagner = (int)((((VarGlobales.Ennemi.Niveau * 10) * (VarGlobales.Ennemi.Niveau * 10) + 1000) / 31) * 3.1416);
+                        int expGagner = combat.ExperienceRecu();
 
                         txtbJournalCombat.Text += VarGlobales.Ennemi.Nom + " a péri ! en " + nbTour + " tours\n";
                         personnageService.MAJVieEnergie();
-                        //On effectue toutes les opérations reliées à l'expérience.
-                        ExperienceVictoire(expGagner);
-=======
-                if (combat.VieEnnemi <= 0)
-                {
-                    PersonnageService personnageService = new PersonnageService();
-                    int expGagner = combat.ExperienceRecu();
-
-                    txtbJournalCombat.Text += VarGlobales.Ennemi.Nom + " a péri ! en " + nbTour +" tours\n";
-                    personnageService.MAJVieEnergie();
->>>>>>> origin/master
 
                         combat.VieEnnemi = 0;
 
-<<<<<<< HEAD
                         boutonClique = true;
                         MessageBox.Show("Combat terminé, vous avez gagné !\n" + "Vous gagnez! " + expGagner + " points d'expérience!", "Statut", MessageBoxButton.OK, MessageBoxImage.Information);
-=======
-                    boutonClique = true;
-                    MessageBox.Show("Combat terminé, vous avez gagné !\n" + "Vous gagnez! " + expGagner + " points d'expérience!", "Statut", MessageBoxButton.OK, MessageBoxImage.Information);
-                    //On effectue toutes les opérations reliées à l'expérience.
-                    ExperienceVictoire(expGagner);
+                        //On effectue toutes les opérations reliées à l'expérience.
+                        ExperienceVictoire(expGagner);
 
-                    //Si l'expérience gagné est plus grande ou égale à l'expérience maximale, on monte de niveau
-                    if (VarGlobales.aMonterNiveau == true)
-                    {
-                        //On initialise un timer égal à celui du progress bar de l'écran de repos pour déterminer quand nous allons rendre la fenêtre utilisable à nouveau
-                        temps = TimeSpan.FromHours(9999);
-
-                        horloge = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+                        //Si l'expérience gagné est plus grande ou égale à l'expérience maximale, on monte de niveau
+                        if (VarGlobales.aMonterNiveau == true)
                         {
-                            //On enleve du temps au timer
-                            temps = temps.Add(TimeSpan.FromSeconds(-1));
+                            //On initialise un timer égal à celui du progress bar de l'écran de repos pour déterminer quand nous allons rendre la fenêtre utilisable à nouveau
+                            temps = TimeSpan.FromHours(9999);
 
-                            //Si le joueur a modifier ses caractéristiques, on ferme la fenêtre
-                            if (VarGlobales.femerModifCaracteristique == true)
+                            horloge = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
                             {
-                                //On réactive l'écran de combat
-                                this.Opacity = 1;
-                                this.IsEnabled = true;
+                                //On enleve du temps au timer
+                                temps = temps.Add(TimeSpan.FromSeconds(-1));
 
-                                if (this.WindowStyle != WindowStyle.None)
+                                //Si le joueur a modifier ses caractéristiques, on ferme la fenêtre
+                                if (VarGlobales.femerModifCaracteristique == true)
                                 {
-                                    this.WindowStyle = WindowStyle.SingleBorderWindow;
-                                    this.ResizeMode = ResizeMode.CanResize;
+                                    //On réactive l'écran de combat
+                                    this.Opacity = 1;
+                                    this.IsEnabled = true;
+
+                                    if (this.WindowStyle != WindowStyle.None)
+                                    {
+                                        this.WindowStyle = WindowStyle.SingleBorderWindow;
+                                        this.ResizeMode = ResizeMode.CanResize;
+                                    }
+
+                                    //Lorsque le joueur a terminer de modifier les caractéristiques, on affiche le menu principal
+                                    menuPrincipal();
+                                    horloge.Stop();
+                                    VarGlobales.aMonterNiveau = false;
+                                    VarGlobales.femerModifCaracteristique = false;
                                 }
+                            }, Application.Current.Dispatcher);
 
-                                //Lorsque le joueur a terminer de modifier les caractéristiques, on affiche le menu principal
-                                menuPrincipal();
-                                horloge.Stop();
-                                VarGlobales.aMonterNiveau = false;
-                                VarGlobales.femerModifCaracteristique = false;
-                            }
-                        }, Application.Current.Dispatcher);
-
-                        horloge.Start();
+                            horloge.Start();
+                        }
+                        else
+                        {
+                            menuPrincipal();
+                            horloge.Stop();
+                        }
                     }
+
                     else
                     {
->>>>>>> origin/master
-                        menuPrincipal();
-                        horloge.Stop();
+                        if (!estUtilisable)
+                            txtbJournalCombat.Text += "Vous n'avez pas assez d'énergie !\n";
+                        else
+                            txtbJournalCombat.Text += "Vous devez attendre que la compétence se charge !\n";
                     }
+                    txtbJournalCombat.ScrollToEnd();
                 }
-
-                else
-                {
-                    if (!estUtilisable)
-                        txtbJournalCombat.Text += "Vous n'avez pas assez d'énergie !\n";
-                    else
-                        txtbJournalCombat.Text += "Vous devez attendre que la compétence se charge !\n";
-                }
-                txtbJournalCombat.ScrollToEnd();
             }
         }
 
