@@ -148,11 +148,12 @@ namespace Combaxe___New.classes
             PersonnageService persoService = new PersonnageService();
             this.Vie = 0;
             int expPerdu = (int)(this.Experience * 0.50);
-            chrono.Stop();
+            
             if (MessageBox.Show("Combat terminé...\n Vous êtes mort et avez perdu " + expPerdu + " points d'expérience.\n", "Défaite...", MessageBoxButton.OK, MessageBoxImage.Exclamation) == MessageBoxResult.OK)
             {
                 Regeneration();
-                persoService.MAJVieEnergie();
+                persoService.MAJVieEnergie(true);
+                chrono.Stop();
             }
             
         }

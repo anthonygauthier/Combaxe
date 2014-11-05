@@ -62,6 +62,7 @@ namespace Combaxe___New.écrans
             {
                 var creationPerso = new EcranCreationPersonnage();
                 creationPerso.Show();
+                VarGlobales.aPersonnage = false;
                 this.Close();
             }
             else

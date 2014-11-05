@@ -152,6 +152,18 @@ namespace Combaxe___New.écrans
             //tommy gingras
             DeroulementCombat(3); 
         }
+
+        /// <summary>
+        /// Dès que les barres sont loadés, on met à jour la barre de points de vie du personnage.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void brdMaxWidth_Loaded(object sender, RoutedEventArgs e)
+        {
+            MajBarreViePerso((int)(brdMaxWidth.ActualWidth));
+            MajBarreEnergiePerso((int)(brdMaxWidth.ActualWidth));
+        }
+
         //Chronomètre de combat - Anthony Gauthier 28/10/2014
         private void chronometreCombat()
         {
@@ -171,11 +183,15 @@ namespace Combaxe___New.écrans
             {
                 txtbHorloge.Text = temps.ToString("%s"); //%s spécifie que nous ne voulons que les secondes qui s'affichent
 
-                //Si l'horloge atteint "0", ou l'ennemi est mort, ou le personnage est mort : on arrête le cadran
-                if (temps == TimeSpan.Zero || combat.VieEnnemi <= 0 || VarGlobales.Personnage.Vie == 0)
+                if(temps == TimeSpan.Zero)
                 {
                     horloge.Stop();
                     DeroulementCombat(-1);
+                }
+                //Si l'horloge atteint "0", ou l'ennemi est mort, ou le personnage est mort : on arrête le cadran
+                else if (combat.VieEnnemi <= 0 || VarGlobales.Personnage.Vie == 0)
+                {
+                    horloge.Stop();  
                 }
                 //Sinon, on ajoute du temps à l'horloge
                 else
@@ -433,6 +449,7 @@ namespace Combaxe___New.écrans
                             }
                             VarGlobales.Personnage.Energie -= VarGlobales.Personnage.ListeCompetence[num].EnergieUtilise;
                             txtbJournalCombat.Text += VarGlobales.Personnage.Nom + " a utilisé " + VarGlobales.Personnage.ListeCompetence[num].Nom + ", ce qui a infligé " + valeur.ToString() + " dégâts.\n";
+
                         }
                     }
                     else
@@ -454,7 +471,7 @@ namespace Combaxe___New.écrans
                         int expGagner = combat.ExperienceRecu();
 
                         txtbJournalCombat.Text += VarGlobales.Ennemi.Nom + " a péri ! en " + nbTour + " tours\n";
-                        personnageService.MAJVieEnergie();
+                        personnageService.MAJVieEnergie(false);
 
                         combat.VieEnnemi = 0;
 
@@ -535,7 +552,7 @@ namespace Combaxe___New.écrans
                 int dommageInflige = randDmg.Next(dmgMin, dmgMax); //On génère le dommage infligé
                 VarGlobales.Personnage.Vie -= dommageInflige;
 
-                personnageService.MAJVieEnergie();
+                personnageService.MAJVieEnergie(false);
 
                 if (VarGlobales.Personnage.Vie <= 0)
                 {
@@ -590,7 +607,6 @@ namespace Combaxe___New.écrans
                     VarGlobales.Personnage.Vie -= valeur;
                     combat.EnergieEnnemi -= VarGlobales.Ennemi.ListeCompetence[num].EnergieUtilise;
                     txtbJournalCombat.Text += VarGlobales.Ennemi.Nom + " a utilisé " + VarGlobales.Ennemi.ListeCompetence[num].Nom + ", ce qui a infligé " + valeur.ToString() + " dégâts.\n";
-                    MajBarreViePerso(true);
                 }
             }
             else
@@ -598,7 +614,6 @@ namespace Combaxe___New.écrans
                 combat.VieEnnemi += valeur;
                 combat.EnergieEnnemi -= VarGlobales.Ennemi.ListeCompetence[num].EnergieUtilise;
                 txtbJournalCombat.Text += VarGlobales.Ennemi.Nom + " a utilisé " + VarGlobales.Ennemi.ListeCompetence[num].Nom + ", ce qui le protège de " + valeur.ToString() + ".\n";
-                MajBarreViePerso(false);
             }
             // on vérifie quel est le type de compétence
             majInterface(true);// mettre à jour l'interface
@@ -652,6 +667,10 @@ namespace Combaxe___New.écrans
                 }
             }
             nbTour++;
+            MajBarreEnergiePerso((int)(brdMaxWidth.ActualWidth));
+            MajBarreEnergieEnnemi((int)(brdMaxWidth.ActualWidth));
+            MajBarreViePerso((int)(brdMaxWidth.ActualWidth));
+            MajBarreVieEnnemi((int)(brdMaxWidth.ActualWidth));
         }
 
         /// <summary>
@@ -745,50 +764,97 @@ namespace Combaxe___New.écrans
         /// <summary>
         /// Quand le joueur se fait attaquer, sa barre de vie se réduit - Anthony Gauthier 04/11/2014
         /// </summary>
-        private void MajBarreViePerso(bool cible)
+        private void MajBarreViePerso(int max)
         {
-            brdViePerso.Width = brdViePerso.ActualWidth;
-            int reductionWidth = (int)(VarGlobales.Personnage.Vie * (brdViePerso.ActualWidth / 100));
-            int widthMaximal = (int)(brdViePerso.Width);
-            int moitierWidth = (int)(widthMaximal * 0.5);
-            int quartWidth = (int)(widthMaximal * 0.25);
+            int poucentageVie = (VarGlobales.Personnage.Vie*100)/VarGlobales.Personnage.VieMaximale;
+            
+            //Si la vie du personnage n'est pas à 100%
+            int widthAjuste = max - ((max * poucentageVie)/100);
+            brdViePerso.Margin = new Thickness(5, 5, widthAjuste, 5);
+            MajCouleurBarreVie(brdViePerso, VarGlobales.Personnage);
+        }
 
-            //Si le personnage reçoit des dégâts
-            if (cible)
-            {
-                brdViePerso.Width = brdViePerso.Width - reductionWidth;
+        /// <summary>
+        /// Quand le joueur utilise un sort, sa barre d'énergie se réduit - Anthony Gauthier 05/11/2014
+        /// </summary>
+        private void MajBarreEnergiePerso(int max)
+        {
+            int pourcentageEnergie = (VarGlobales.Personnage.Energie * 100) / VarGlobales.Personnage.EnergieMaximale;
 
-                if (brdViePerso.Width <= moitierWidth)
+            //Si la vie du personnage n'est pas à 100%
+            int widthAjuste = max - ((max * pourcentageEnergie) / 100);
+            brdEnergiePerso.Margin = new Thickness(5, 5, widthAjuste, 5);
+        }
+
+        /// <summary>
+        /// Quand l'ennemi se fait attaquer, sa barre de vie se réduit - Anthony Gauthier 05/11/2014
+        /// </summary>
+        private void MajBarreVieEnnemi(int max)
+        {
+            int poucentageVie = (combat.VieEnnemi * 100) / combat.VieMaximale;
+
+            //Si la vie de l'ennemi n'est pas à 100%
+            int widthAjuste = max - ((max * poucentageVie) / 100);
+            brdVieEnnemi.Margin = new Thickness(widthAjuste, 5, 5, 5);
+            MajCouleurBarreVie(brdVieEnnemi, combat);
+        }
+
+        /// <summary>
+        /// Quand le joueur utilise un sort, sa barre d'énergie se réduit - Anthony Gauthier 05/11/2014
+        /// </summary>
+        private void MajBarreEnergieEnnemi(int max)
+        {
+            int pourcentageEnergie = (combat.EnergieEnnemi * 100) / combat.EnergieMaximale;
+
+            int widthAjuste = max - ((max * pourcentageEnergie) / 100);
+            brdEnergieEnnemi.Margin = new Thickness(widthAjuste, 5, 5, 5);
+        }
+
+
+        /// <summary>
+        /// Met à jour la couleur des barres de vie de l'ennemi et du perso - Anthony Gauthier 05/11/2014 
+        /// </summary>
+        /// <param name="uneBordure">Recoit la barre a modifier</param>
+        private void MajCouleurBarreVie(Border uneBordure, object unObjet)
+        { 
+            //Si l'objet passé est un personnage, on met à jour la couleur de la barre de vie du personnage
+            if(unObjet.GetType() == VarGlobales.Personnage.GetType())
+            { 
+                //Si la vie du personnage est inférieur ou égale à 50%
+                if (VarGlobales.Personnage.Vie <= VarGlobales.Personnage.VieMaximale * 0.5)
                 {
-                    if (brdViePerso.Width <= quartWidth)
+                    if(VarGlobales.Personnage.Vie <= VarGlobales.Personnage.VieMaximale * 0.25)
                     {
-                        brdViePerso.Background = Brushes.Red;
+                        uneBordure.Background = Brushes.Red;
                     }
                     else
                     {
-                        brdViePerso.Background = Brushes.Yellow;
+                        uneBordure.Background = Brushes.Yellow;
                     }
+                }
+                else if (VarGlobales.Personnage.Vie > VarGlobales.Personnage.VieMaximale * 0.50)
+                {
+                    uneBordure.Background = Brushes.Green;
                 }
             }
-            //Si le personnage se fait guérir
+            //Sinon, on fait les changements pour la barre de points de vie de l'ennemi
             else
             {
-                brdViePerso.Width = brdViePerso.Width + reductionWidth;
-
-                if (brdViePerso.Width <= moitierWidth)
+                //Si la vie de l'ennemi est inférieur ou égale à 50%
+                if (combat.VieEnnemi <= combat.VieMaximale * 0.5)
                 {
-                    if (brdViePerso.Width <= quartWidth)
+                    if (combat.VieEnnemi <= combat.VieMaximale * 0.25)
                     {
-                        brdViePerso.Background = Brushes.Red;
+                        uneBordure.Background = Brushes.Red;
                     }
                     else
                     {
-                        brdViePerso.Background = Brushes.Yellow;
+                        uneBordure.Background = Brushes.Yellow;
                     }
                 }
-                else
+                else if (combat.VieEnnemi > combat.VieMaximale * 0.50)
                 {
-                    brdViePerso.Background = Brushes.Green;
+                    uneBordure.Background = Brushes.Green;
                 }
             }
         }

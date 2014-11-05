@@ -10,17 +10,23 @@ namespace Combaxe___New.classes
     {
         public int VieEnnemi { get; set; }
         public int EnergieEnnemi { get; set; }
+        public int VieMaximale { get; set; }
+        public int EnergieMaximale { get; set; }
 
         public Combat()
         {
             VieEnnemi = 0;
             EnergieEnnemi = 0;
+            VieMaximale = 0;
+            EnergieMaximale = 0;
         }
 
         public Combat(Ennemi ennemi)
         {
             VieEnnemi = Convert.ToInt32((ennemi.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20) / 3.1416);
             EnergieEnnemi = Convert.ToInt32((ennemi.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * 10) / 3.1416);
+            VieMaximale = VieEnnemi;
+            EnergieMaximale = EnergieEnnemi;
         }
 
         /// <summary>

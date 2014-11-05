@@ -209,13 +209,27 @@ namespace Combaxe___New.classes.services
         /// Fonction qui fait la mise à jour de la vie du personnage en BD - Modifié Anthony Gauthier 4/11/2014
         /// </summary>
         /// <param name="dmg">Nombre de dégâts infligés au personnage</param>
-        public void MAJVieEnergie()
+        public void MAJVieEnergie(bool mort)
         {
-            int vie = (int) (VarGlobales.Personnage.Vie * 0.5);
-            int energie = (int) (VarGlobales.Personnage.Energie * 0.5);
-            string requeteUpdate = "UPDATE Personnages SET vie = "+vie+", energie = "+energie+" WHERE idPersonnage = '" + VarGlobales.Personnage.IdPersonnage + "';";
+            //Si le personnage est mort, on lui remet 50% de sa vie
+            if(mort)
+            { 
+                int vie = (int) (VarGlobales.Personnage.Vie * 0.5);
+                int energie = (int) (VarGlobales.Personnage.Energie * 0.5);
+                string requeteUpdate = "UPDATE Personnages SET vie = "+vie+", energie = "+energie+" WHERE idPersonnage = '" + VarGlobales.Personnage.IdPersonnage + "';";
 
-            bdCombaxe.maj(requeteUpdate);
+                VarGlobales.Personnage.Vie = vie;
+                VarGlobales.Personnage.Energie = energie;
+
+                bdCombaxe.maj(requeteUpdate);
+            }
+            //Sinon, la vie qui lui reste
+            else
+            {
+                string requeteUpdate = "UPDATE Personnages SET vie = " + VarGlobales.Personnage.Vie + ", energie = " + VarGlobales.Personnage.Energie + " WHERE idPersonnage = '" + VarGlobales.Personnage.IdPersonnage + "';";
+
+                bdCombaxe.maj(requeteUpdate);
+            }
         }
         
         /// <summary>
