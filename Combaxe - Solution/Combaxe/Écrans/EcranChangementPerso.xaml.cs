@@ -235,8 +235,8 @@ namespace Combaxe___New.écrans
             MajBarreViePerso((int)(brdMaxWidth.ActualWidth), brdViePerso2, 1);
             MajBarreViePerso((int)(brdMaxWidth.ActualWidth), brdViePerso3, 2);
             MajBarreEnergiePerso((int)(brdMaxWidth.ActualWidth), brdEnergiePerso1, 0);
-            MajBarreEnergiePerso((int)(brdMaxWidth.ActualWidth), brdEnergiePerso2, 0);
-            MajBarreEnergiePerso((int)(brdMaxWidth.ActualWidth), brdEnergiePerso3, 0);
+            MajBarreEnergiePerso((int)(brdMaxWidth.ActualWidth), brdEnergiePerso2, 1);
+            MajBarreEnergiePerso((int)(brdMaxWidth.ActualWidth), brdEnergiePerso3, 2);
         }
     }
 }

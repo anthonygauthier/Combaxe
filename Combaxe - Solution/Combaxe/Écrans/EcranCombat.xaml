@@ -109,9 +109,9 @@
             </Grid>
             
             <!--Barre d'expérience-->
-            <Border Grid.Row="4" MaxHeight="50" Background="Purple" BorderBrush="Black" BorderThickness="1" Margin="5">
-                <Label Name="lblExperiencePerso" Margin="0,0,0,-3" HorizontalAlignment="Center" Foreground="White"></Label>
-            </Border>
+            <Border Grid.Row="4" MaxHeight="50" Background="Black" Panel.ZIndex="-1" BorderBrush="White" BorderThickness="1" Margin="5"></Border>
+            <Border Name="brdExperience" Grid.Row="4" MaxHeight="50" Background="Purple" Panel.ZIndex="1" BorderBrush="White" BorderThickness="1" Margin="5"></Border>
+            <Label Grid.Row="4" Name="lblExperiencePerso" Margin="0,0,0,-3" Panel.ZIndex="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"></Label>
         </Grid>
         
         <!--Partie de l'ennemi-->

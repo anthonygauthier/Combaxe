@@ -162,6 +162,7 @@ namespace Combaxe___New.écrans
         {
             MajBarreViePerso((int)(brdMaxWidth.ActualWidth));
             MajBarreEnergiePerso((int)(brdMaxWidth.ActualWidth));
+            MajBarreExperience((int)(brdMaxWidth.ActualWidth));
         }
 
         //Chronomètre de combat - Anthony Gauthier 28/10/2014
@@ -479,7 +480,7 @@ namespace Combaxe___New.écrans
                         MessageBox.Show("Combat terminé, vous avez gagné !\n" + "Vous gagnez! " + expGagner + " points d'expérience!", "Statut", MessageBoxButton.OK, MessageBoxImage.Information);
                         //On effectue toutes les opérations reliées à l'expérience.
                         ExperienceVictoire(expGagner);
-
+                        MajBarreExperience((int)(brdMaxWidth.ActualWidth));
                         //Si l'expérience gagné est plus grande ou égale à l'expérience maximale, on monte de niveau
                         if (VarGlobales.aMonterNiveau == true)
                         {
@@ -557,6 +558,7 @@ namespace Combaxe___New.écrans
                 if (VarGlobales.Personnage.Vie <= 0)
                 {
                     DefaitePersonnage();
+                    MajBarreExperience((int)(brdMaxWidth.ActualWidth));
                     VarGlobales.Personnage.Mort(nbTour, horloge);
                     menuPrincipal();
                     return;
@@ -627,6 +629,7 @@ namespace Combaxe___New.écrans
                 VarGlobales.Personnage.Vie = 0;
 
                 DefaitePersonnage();
+                MajBarreExperience((int)(brdMaxWidth.ActualWidth));
                 VarGlobales.Personnage.Mort(nbTour, horloge);
                 menuPrincipal();
             }
@@ -704,6 +707,7 @@ namespace Combaxe___New.écrans
                     if (VarGlobales.femerModifCaracteristique == true)
                     {
                         EcranCar.Close();
+                        MajBarreExperience((int)(brdMaxWidth.ActualWidth));
                     }
                 }, Application.Current.Dispatcher);
 
@@ -767,8 +771,7 @@ namespace Combaxe___New.écrans
         private void MajBarreViePerso(int max)
         {
             int poucentageVie = (VarGlobales.Personnage.Vie*100)/VarGlobales.Personnage.VieMaximale;
-            
-            //Si la vie du personnage n'est pas à 100%
+
             int widthAjuste = max - ((max * poucentageVie)/100);
             brdViePerso.Margin = new Thickness(5, 5, widthAjuste, 5);
             MajCouleurBarreVie(brdViePerso, VarGlobales.Personnage);
@@ -781,9 +784,20 @@ namespace Combaxe___New.écrans
         {
             int pourcentageEnergie = (VarGlobales.Personnage.Energie * 100) / VarGlobales.Personnage.EnergieMaximale;
 
-            //Si la vie du personnage n'est pas à 100%
             int widthAjuste = max - ((max * pourcentageEnergie) / 100);
             brdEnergiePerso.Margin = new Thickness(5, 5, widthAjuste, 5);
+        }
+
+        /// <summary>
+        /// Met à jour la barre d'expérience du joueur
+        /// </summary>
+        /// <param name="max"></param>
+        private void MajBarreExperience(int max)
+        {
+            int pourcentageExp = (VarGlobales.Personnage.Experience * 100) / VarGlobales.Personnage.ExperienceMaximale;
+
+            int widthAjuste = max - ((max * pourcentageExp) / 100);
+            brdExperience.Margin = new Thickness(5, 5, widthAjuste, 5);
         }
 
         /// <summary>
@@ -793,7 +807,6 @@ namespace Combaxe___New.écrans
         {
             int poucentageVie = (combat.VieEnnemi * 100) / combat.VieMaximale;
 
-            //Si la vie de l'ennemi n'est pas à 100%
             int widthAjuste = max - ((max * poucentageVie) / 100);
             brdVieEnnemi.Margin = new Thickness(widthAjuste, 5, 5, 5);
             MajCouleurBarreVie(brdVieEnnemi, combat);
