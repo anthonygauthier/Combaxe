@@ -171,6 +171,7 @@ namespace Combaxe___New.écrans
                         this.WindowStyle = WindowStyle.SingleBorderWindow;
                         this.ResizeMode = ResizeMode.CanResize;
                     }
+                    
                 }
             }, Application.Current.Dispatcher);
 

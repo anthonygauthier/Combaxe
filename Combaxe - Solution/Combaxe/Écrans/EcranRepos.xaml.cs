@@ -48,6 +48,7 @@ namespace Combaxe___New.écrans
                 if(temps == TimeSpan.FromSeconds(10))
                 {
                     this.Close();
+                    horloge.Stop();
                 }
 
             }, Application.Current.Dispatcher);

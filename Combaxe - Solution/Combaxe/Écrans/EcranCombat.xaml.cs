@@ -32,7 +32,6 @@ namespace Combaxe___New.écrans
             chargerPersonnage();
             combat = new Combat(VarGlobales.Ennemi);
             chronometreCombat();
-            txtbJournalCombat.IsReadOnly = true;
         }
 
         //On déclare les variables nécéssaires à l'horloge
@@ -508,6 +507,8 @@ namespace Combaxe___New.écrans
                                 //Lorsque le joueur a terminer de modifier les caractéristiques, on affiche le menu principal
                                 menuPrincipal();
                                 horloge.Stop();
+                                VarGlobales.aMonterNiveau = false;
+                                VarGlobales.femerModifCaracteristique = false;
                             }
                         }, Application.Current.Dispatcher);
 
@@ -517,6 +518,7 @@ namespace Combaxe___New.écrans
                     {
 >>>>>>> origin/master
                         menuPrincipal();
+                        horloge.Stop();
                     }
                 }
 
@@ -605,6 +607,7 @@ namespace Combaxe___New.écrans
                     VarGlobales.Personnage.Vie -= valeur;
                     combat.EnergieEnnemi -= VarGlobales.Ennemi.ListeCompetence[num].EnergieUtilise;
                     txtbJournalCombat.Text += VarGlobales.Ennemi.Nom + " a utilisé " + VarGlobales.Ennemi.ListeCompetence[num].Nom + ", ce qui a infligé " + valeur.ToString() + " dégâts.\n";
+                    MajBarreViePerso(true);
                 }
             }
             else
@@ -612,6 +615,7 @@ namespace Combaxe___New.écrans
                 combat.VieEnnemi += valeur;
                 combat.EnergieEnnemi -= VarGlobales.Ennemi.ListeCompetence[num].EnergieUtilise;
                 txtbJournalCombat.Text += VarGlobales.Ennemi.Nom + " a utilisé " + VarGlobales.Ennemi.ListeCompetence[num].Nom + ", ce qui le protège de " + valeur.ToString() + ".\n";
+                MajBarreViePerso(false);
             }
             // on vérifie quel est le type de compétence
             majInterface(true);// mettre à jour l'interface
@@ -753,6 +757,57 @@ namespace Combaxe___New.écrans
             int xpPerdu = (int)(VarGlobales.Personnage.Experience * 0.50);
             ExperienceDefaite(xpPerdu);
             txtbJournalCombat.Text += VarGlobales.Personnage.Nom + " a péri " + nbTour + " tours\n";
+        }
+
+        /// <summary>
+        /// Quand le joueur se fait attaquer, sa barre de vie se réduit - Anthony Gauthier 04/11/2014
+        /// </summary>
+        private void MajBarreViePerso(bool cible)
+        {
+            brdViePerso.Width = brdViePerso.ActualWidth;
+            int reductionWidth = (int)(VarGlobales.Personnage.Vie * (brdViePerso.ActualWidth / 100));
+            int widthMaximal = (int)(brdViePerso.Width);
+            int moitierWidth = (int)(widthMaximal * 0.5);
+            int quartWidth = (int)(widthMaximal * 0.25);
+
+            //Si le personnage reçoit des dégâts
+            if (cible)
+            {
+                brdViePerso.Width = brdViePerso.Width - reductionWidth;
+
+                if (brdViePerso.Width <= moitierWidth)
+                {
+                    if (brdViePerso.Width <= quartWidth)
+                    {
+                        brdViePerso.Background = Brushes.Red;
+                    }
+                    else
+                    {
+                        brdViePerso.Background = Brushes.Yellow;
+                    }
+                }
+            }
+            //Si le personnage se fait guérir
+            else
+            {
+                brdViePerso.Width = brdViePerso.Width + reductionWidth;
+
+                if (brdViePerso.Width <= moitierWidth)
+                {
+                    if (brdViePerso.Width <= quartWidth)
+                    {
+                        brdViePerso.Background = Brushes.Red;
+                    }
+                    else
+                    {
+                        brdViePerso.Background = Brushes.Yellow;
+                    }
+                }
+                else
+                {
+                    brdViePerso.Background = Brushes.Green;
+                }
+            }
         }
     }
 }

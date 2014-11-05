@@ -42,14 +42,16 @@
             </Border>
             
             <!--Barre de points de vie-->
-            <Border  Grid.Row="2" MaxHeight="50" Background="Green" BorderBrush="Black" BorderThickness="1" Margin="5">
+            <Border Name="brdViePerso"  Grid.Row="2" MaxHeight="50" Background="Green" BorderBrush="Black" BorderThickness="1" Margin="5">
                 <Label Name="lblViePerso" Margin="0,0,0,-3" HorizontalAlignment="Center" Foreground="White"></Label>
             </Border>
+            <Border  Grid.Row="2" MaxHeight="50" Background="Black" Panel.ZIndex="-1" BorderBrush="Black" BorderThickness="1" Margin="5"/>
             
             <!--Barre de points d'énergie-->
-            <Border Grid.Row="3" MaxHeight="50" Background="Blue" BorderBrush="Black" BorderThickness="1" Margin="5">
+            <Border Name="brdEnergiePerso" Grid.Row="3" MaxHeight="50" Background="Blue" BorderBrush="Black" BorderThickness="1" Margin="5">
                 <Label Name="lblEnergiePerso" Margin="0,0,0,-3" HorizontalAlignment="Center" Foreground="White"></Label>
             </Border>
+            <Border  Grid.Row="3" MaxHeight="50" Background="Black" Panel.ZIndex="-1" BorderBrush="Black" BorderThickness="1" Margin="5"/>
             
             <!--Bouton fuir-->
             <Grid Grid.Row="4">
@@ -80,7 +82,7 @@
             <ProgressBar Margin="5" Name="pbHorloge"></ProgressBar>
             
             <!--Journal de combat-->
-            <TextBox  Name="txtbJournalCombat" Grid.Row="1" Margin="5" TextWrapping="Wrap" AcceptsReturn="True"></TextBox>
+            <TextBox  Name="txtbJournalCombat" Grid.Row="1" Margin="5" TextWrapping="Wrap" IsReadOnly="True" AcceptsReturn="True"></TextBox>
             
             <!--Boutons d'actions-->
             <Grid Grid.Row="2">
@@ -145,14 +147,16 @@
             </Border>
 
             <!--Barre de points de vie-->
-            <Border  Grid.Row="2" MaxHeight="50" Background="Green" BorderBrush="Black" BorderThickness="1" Margin="5">
+            <Border Name="brdVieEnnemi"  Grid.Row="2" MaxHeight="50" Background="Green" BorderBrush="Black" BorderThickness="1" Margin="5">
                 <Label Name="lblVieEnnemi" HorizontalAlignment="Center" Margin="0,0,0,-3" Foreground="White"></Label>
             </Border>
+            <Border  Grid.Row="2" MaxHeight="50" Background="Black" Panel.ZIndex="-1" BorderBrush="Black" BorderThickness="1" Margin="5"/>
 
             <!--Barre de points d'énergie-->
-            <Border Grid.Row="3" MaxHeight="50" Background="Blue" BorderBrush="Black" BorderThickness="1" Margin="5">
+            <Border Name="brdEnergieEnnemi" Grid.Row="3" MaxHeight="50" Background="Blue" BorderBrush="Black" BorderThickness="1" Margin="5">
                 <Label Margin="0,0,0,-3" Name="lblEnergieEnnemi" HorizontalAlignment="Center" Foreground="White"></Label>
             </Border>
+            <Border  Grid.Row="3" MaxHeight="50" Background="Black" Panel.ZIndex="-1" BorderBrush="Black" BorderThickness="1" Margin="5"/>
         </Grid>
     </Grid>
 </Window>

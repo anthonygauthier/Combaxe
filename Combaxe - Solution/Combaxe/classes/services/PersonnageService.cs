@@ -211,7 +211,9 @@ namespace Combaxe___New.classes.services
         /// <param name="dmg">Nombre de dégâts infligés au personnage</param>
         public void MAJVieEnergie()
         {
-            string requeteUpdate = "UPDATE Personnages SET vie = "+VarGlobales.Personnage.Vie+", energie = "+VarGlobales.Personnage.Energie+" WHERE idPersonnage = '" + VarGlobales.Personnage.IdPersonnage + "';";
+            int vie = (int) (VarGlobales.Personnage.Vie * 0.5);
+            int energie = (int) (VarGlobales.Personnage.Energie * 0.5);
+            string requeteUpdate = "UPDATE Personnages SET vie = "+vie+", energie = "+energie+" WHERE idPersonnage = '" + VarGlobales.Personnage.IdPersonnage + "';";
 
             bdCombaxe.maj(requeteUpdate);
         }
@@ -221,7 +223,7 @@ namespace Combaxe___New.classes.services
         /// </summary>
         public void RemiseDeVieEtEnergie()
         {
-            string requeteUpdate = "UPDATE Personnages SET vie = " + VarGlobales.Personnage.VieMaximale * 0.5 + " , energie = " + VarGlobales.Personnage.EnergieMaximale * 0.5 + " WHERE idPersonnage = '" + VarGlobales.Personnage.IdPersonnage + "';";
+            string requeteUpdate = "UPDATE Personnages SET vie = " + VarGlobales.Personnage.VieMaximale + " , energie = " + VarGlobales.Personnage.EnergieMaximale + " WHERE idPersonnage = '" + VarGlobales.Personnage.IdPersonnage + "';";
 
             bdCombaxe.maj(requeteUpdate);
         }
