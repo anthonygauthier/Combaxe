@@ -212,15 +212,13 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\ennemis.png" />
-    <Resource Include="images\guerrier.png" />
-    <Resource Include="images\magicien.png" />
-    <Resource Include="images\paladin.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\background_old.png" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Resource Include="images\paladin.png" />
     <Content Include="resources\media\theme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
