@@ -121,9 +121,10 @@
             </StackPanel>
 
             <!--Border pour le background ou l'image du perso sera-->
-            <Grid Grid.Column="1" Background="White" Margin="5">
+            <Grid Grid.Column="1" Background="White" Margin="5,5,50,5">
                 <!--Insérer l'image du personnage ici-->
-                <InkCanvas EditingMode="Ink" Name="_personnageDessin" >
+                
+                <InkCanvas EditingMode="Ink" Name="_personnageDessin">
                     <InkCanvas.Background>
                         <ImageBrush ImageSource="../Images/paladin.png" Stretch="Uniform" ></ImageBrush>
                     </InkCanvas.Background>

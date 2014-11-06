@@ -38,7 +38,7 @@
             
             <!--Image personnage-->
             <Border Background="White" Grid.Row="1" Margin="5" CornerRadius="5">
-                <Image Name="imgPerso" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                <Image Name="imgPerso"  HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform"></Image>
             </Border>
             
             <!--Barre de points de vie-->
@@ -141,7 +141,7 @@
 
             <!--Image personnage-->
             <Border Background="White" Grid.Row="1" Margin="5" CornerRadius="5">
-                <Image Name="imgEnnemi" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                <Image Name="imgEnnemi" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform"></Image>
             </Border>
 
             <!--Barre de points de vie-->
