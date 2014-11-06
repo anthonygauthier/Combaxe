@@ -331,7 +331,7 @@ namespace Combaxe___New.écrans
                 lblViePerso.Content = VarGlobales.Personnage.Vie + "/" + VarGlobales.Personnage.VieMaximale;
             }
             
-            if((btnChoisirActions.IsEnabled == false && estEnnemi == false) || estEnnemi == false && btnItems.IsEnabled == false)
+            if((btnChoisirActions.IsEnabled == false && estEnnemi == false) || (estEnnemi == true && btnItems.IsEnabled == false))
             { 
                 tempsRecharge[0] = 0;
                 if (tempsRecharge[1] > 0)
@@ -494,7 +494,7 @@ namespace Combaxe___New.écrans
                                 temps = temps.Add(TimeSpan.FromSeconds(-1));
 
                                 //Si le joueur a modifier ses caractéristiques, on ferme la fenêtre
-                                if (VarGlobales.femerModifCaracteristique == true)
+                                if (VarGlobales.fermerModifCaracteristique == true)
                                 {
                                     //On réactive l'écran de combat
                                     this.Opacity = 1;
@@ -508,9 +508,6 @@ namespace Combaxe___New.écrans
 
                                     //Lorsque le joueur a terminer de modifier les caractéristiques, on affiche le menu principal
                                     menuPrincipal();
-                                    horloge.Stop();
-                                    VarGlobales.aMonterNiveau = false;
-                                    VarGlobales.femerModifCaracteristique = false;
                                 }
                             }, Application.Current.Dispatcher);
 
@@ -519,18 +516,21 @@ namespace Combaxe___New.écrans
                         else
                         {
                             menuPrincipal();
-                            horloge.Stop();
                         }
                     }
-
                     else
                     {
                         if (!estUtilisable)
+                        {
                             txtbJournalCombat.Text += "Vous n'avez pas assez d'énergie !\n";
+                        }
                         else
+                        { 
                             txtbJournalCombat.Text += "Vous devez attendre que la compétence se charge !\n";
+                        }
                     }
                     txtbJournalCombat.ScrollToEnd();
+   
                 }
             }
         }
@@ -562,7 +562,6 @@ namespace Combaxe___New.écrans
                     MajBarreExperience((int)(brdMaxWidth.ActualWidth));
                     VarGlobales.Personnage.Mort(nbTour, horloge);
                     menuPrincipal();
-                    return;
                 }
 
 
@@ -585,6 +584,7 @@ namespace Combaxe___New.écrans
         {
             var EcranMenuPrincipal = new EcranMenuPrincipal();
             EcranMenuPrincipal.Show();
+            horloge.Stop();
             this.Close();
         }
 
@@ -615,6 +615,10 @@ namespace Combaxe___New.écrans
             else
             {
                 combat.VieEnnemi += valeur;
+                if(combat.VieEnnemi >= combat.VieMaximale)
+                {
+                    combat.VieEnnemi = combat.VieMaximale;
+                }
                 combat.EnergieEnnemi -= VarGlobales.Ennemi.ListeCompetence[num].EnergieUtilise;
                 txtbJournalCombat.Text += VarGlobales.Ennemi.Nom + " a utilisé " + VarGlobales.Ennemi.ListeCompetence[num].Nom + ", ce qui le protège de " + valeur.ToString() + ".\n";
             }
@@ -705,7 +709,7 @@ namespace Combaxe___New.écrans
                     temps = temps.Add(TimeSpan.FromSeconds(-1));
 
                     //Si le joueur a modifier ses caractéristiques, on ferme la fenêtre
-                    if (VarGlobales.femerModifCaracteristique == true)
+                    if (VarGlobales.fermerModifCaracteristique == true)
                     {
                         EcranCar.Close();
                         MajBarreExperience((int)(brdMaxWidth.ActualWidth));
