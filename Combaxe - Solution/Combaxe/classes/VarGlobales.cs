@@ -19,6 +19,7 @@ namespace Combaxe___New.classes
         public static bool etaitMort { get; set; }
         public static SoundPlayer musiqueTheme { get; set; }
         public static bool aMonterNiveau { get; set; }
-        public static bool femerModifCaracteristique { get; set; }
+        public static bool fermerModifCaracteristique { get; set; }
+        public static bool aAssezEnergie { get; set; }
     }
 }
