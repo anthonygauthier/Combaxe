@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -34,9 +36,10 @@ namespace Combaxe___New.écrans
             chronometreCombat();
         }
 
-        //On déclare les variables nécéssaires à l'horloge
-        DispatcherTimer horloge;
-        TimeSpan temps;
+        //On déclare les variables nécéssaires aux différents délais/timers - Anthony Gauthier
+        DispatcherTimer horloge; //Pour le chronomètre
+        DispatcherTimer timer; //Pour le délai d'attaque de l'ennemi 
+        TimeSpan temps; //Temps pour le chronomètre
 
         bool boutonClique = false;
 
@@ -384,6 +387,10 @@ namespace Combaxe___New.écrans
             {
                 //fait rien car reste tel quel
             }
+            MajBarreEnergiePerso((int)(brdMaxWidth.ActualWidth));
+            MajBarreEnergieEnnemi((int)(brdMaxWidth.ActualWidth));
+            MajBarreViePerso((int)(brdMaxWidth.ActualWidth));
+            MajBarreVieEnnemi((int)(brdMaxWidth.ActualWidth));
         }
 
         /// <summary>
@@ -477,11 +484,13 @@ namespace Combaxe___New.écrans
 
                         combat.VieEnnemi = 0;
 
-                        boutonClique = true;
-                        MessageBox.Show("Combat terminé, vous avez gagné !\n" + "Vous gagnez! " + expGagner + " points d'expérience!", "Statut", MessageBoxButton.OK, MessageBoxImage.Information);
                         //On effectue toutes les opérations reliées à l'expérience.
                         ExperienceVictoire(expGagner);
                         MajBarreExperience((int)(brdMaxWidth.ActualWidth));
+
+                        boutonClique = true;
+                        MessageBox.Show("Combat terminé, vous avez gagné !\n" + "Vous gagnez! " + expGagner + " points d'expérience!", "Statut", MessageBoxButton.OK, MessageBoxImage.Information);
+                       
                         //Si l'expérience gagné est plus grande ou égale à l'expérience maximale, on monte de niveau
                         if (VarGlobales.aMonterNiveau == true)
                         {
@@ -649,7 +658,7 @@ namespace Combaxe___New.écrans
             {
                 txtbJournalCombat.Text += "Le temps s'est écoulé, c'est au tour de l'ennemi\n";
                 majInterface(false); // pour mettre a jour selon le nb tour
-                ActionEnnemi();
+                DelaiAttaqueEnnemi();
             }
             else // si combat habituel
             {
@@ -660,8 +669,13 @@ namespace Combaxe___New.écrans
                         txtbJournalCombat.Text += "Vous êtes plus rapide que l'ennemi, donc vous êtes le premier à commencer\n";
                     }
                     actionBouton(btnClique);
+
+                    /*Si l'ennemi est encore en vie, il va attaquer, mais on ajoute un délai pour faire comme si l'ennemi
+                    Choisissais son attaque - Anthony Gauthier 2014-11-06*/
                     if(combat.VieEnnemi > 0)
-                        ActionEnnemi();
+                    {
+                        DelaiAttaqueEnnemi();
+                    }
                 }
                 else
                 {
@@ -669,16 +683,12 @@ namespace Combaxe___New.écrans
                     {
                         txtbJournalCombat.Text += "L'ennemi est plus rapide, donc il est le premier à commencer\n";
                     }
-                    ActionEnnemi();
+                    DelaiAttaqueEnnemi();
                     if(VarGlobales.Personnage.Vie > 0)
                         actionBouton(btnClique);
                 }
             }
             nbTour++;
-            MajBarreEnergiePerso((int)(brdMaxWidth.ActualWidth));
-            MajBarreEnergieEnnemi((int)(brdMaxWidth.ActualWidth));
-            MajBarreViePerso((int)(brdMaxWidth.ActualWidth));
-            MajBarreVieEnnemi((int)(brdMaxWidth.ActualWidth));
         }
 
         /// <summary>
@@ -687,8 +697,8 @@ namespace Combaxe___New.écrans
         private void ExperienceVictoire(int experienceGagner)
         {
             PersonnageService persoService = new PersonnageService();
-            
 
+            MajBarreExperience((int)(brdMaxWidth.ActualWidth));
             //On donne l'expérience au joueur - Anthony Gauthier 30/10/2014
             txtbJournalCombat.Text += "Vous gagnez " + experienceGagner + " points d'expérience!";
             VarGlobales.Personnage.Experience = VarGlobales.Personnage.Experience + experienceGagner;
@@ -712,7 +722,6 @@ namespace Combaxe___New.écrans
                     if (VarGlobales.fermerModifCaracteristique == true)
                     {
                         EcranCar.Close();
-                        MajBarreExperience((int)(brdMaxWidth.ActualWidth));
                     }
                 }, Application.Current.Dispatcher);
 
@@ -875,6 +884,34 @@ namespace Combaxe___New.écrans
                     uneBordure.Background = Brushes.Green;
                 }
             }
+        }
+
+        /// <summary>
+        /// Méthode qui indique que c'est l'ennemi qui attaque en créer un "délai" qui désactive tout l'écran et
+        /// lorsqu'on réactive, l'ennemi attaque. La désactivation permet aussi à ce que le joueur ne puisse 
+        /// tricher et attaquer pendant le délai. - Anthony Gauthier 2014/11/06
+        /// </summary>
+        private void DelaiAttaqueEnnemi()
+        {
+            this.IsEnabled = false;
+            TimeSpan secondes;
+
+            secondes = TimeSpan.FromSeconds(0);
+
+            timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            {
+                secondes = secondes.Add(TimeSpan.FromSeconds(1));
+
+                //Si le délai est terminé, on fait l'attaque de l'ennemi
+                if (secondes == TimeSpan.FromSeconds(1))
+                {
+                    ActionEnnemi();
+                    this.IsEnabled = true;
+                    timer.Stop();
+                }
+
+            }, Application.Current.Dispatcher);
+            timer.Start();
         }
     }
 }
