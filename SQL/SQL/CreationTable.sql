@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS Competences;
 DROP TABLE IF EXISTS TypesCompetences;
 DROP TABLE IF EXISTS Effets;
 DROP TABLE IF EXISTS EquipementsPersonnages;
-DROP TABLE IF EXISTS InventairesConsommables;
+DROP TABLE IF EXISTS InventairesConsommations;
 DROP TABLE IF EXISTS InventairesEquipements;
 DROP TABLE IF EXISTS Equipements;
 DROP TABLE IF EXISTS CaracteristiquesPersonnages;
@@ -15,8 +15,8 @@ DROP TABLE IF EXISTS Personnages;
 DROP TABLE IF EXISTS Professions;
 DROP TABLE IF EXISTS Statistiques;
 DROP TABLE IF EXISTS Caracteristiques;
-DROP TABLE IF EXISTS Consommables;
-DROP TABLE IF EXISTS TypesConsommables;
+DROP TABLE IF EXISTS Consommations;
+DROP TABLE IF EXISTS TypesConsommations;
 DROP TABLE IF EXISTS EquipementsModeles;
 DROP TABLE IF EXISTS Modeles;
 DROP TABLE IF EXISTS Ennemis;
@@ -64,16 +64,16 @@ CREATE TABLE IF NOT EXISTS EquipementsModeles
 ,	degatMax INT NOT NULL DEFAULT 0
 );
 
-CREATE TABLE IF NOT EXISTS TypesConsommables
+CREATE TABLE IF NOT EXISTS TypesConsommations
 (
-	idTypeConsommable INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
+	idTypeConsommation INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
 ,	nom VARCHAR(21) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS Consommables
+CREATE TABLE IF NOT EXISTS Consommations
 (
-    idEquipementModele INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
-,	idTypeConsommable INT NOT NULL
+    idConsommation INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
+,	idTypeConsommation INT NOT NULL
 ,	nom VARCHAR(51) NOT NULL
 ,	prix DOUBLE NOT NULL DEFAULT 0
 ,	valeurPourcentage INT NOT NULL
@@ -168,11 +168,11 @@ CREATE TABLE IF NOT EXISTS InventairesEquipements
 ,	quantite INT NOT NULL DEFAULT 1
 );
 
-CREATE TABLE IF NOT EXISTS InventairesConsommables
+CREATE TABLE IF NOT EXISTS InventairesConsommations
 (
-    idInventaireConsommable INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
+    idInventaireConsommation INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
 ,	idInventaire INT NOT NULL
-,	idConsommable INT NOT NULL
+,	idConsommation INT NOT NULL
 ,	quantite INT NOT NULL DEFAULT 1
 );
 

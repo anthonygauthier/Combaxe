@@ -9,7 +9,7 @@ namespace Combaxe___New.classes
     public enum Caracteristiques : int
     {
         Force,
-        Defense, 
+        Defense,
         Vie, 
         Energie, 
         Vitesse

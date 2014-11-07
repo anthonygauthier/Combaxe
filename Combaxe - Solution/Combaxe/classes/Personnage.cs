@@ -44,8 +44,8 @@ namespace Combaxe___New.classes
         /// <param name="xp">expérience du personnage</param>
         /// <param name="lien">url de l'image du personnage</param>
         /// <param name="lstCar">list de caractéristiques du personnage</param>
-        public Personnage(int id, string n, int niv, int xp, int hp, int mana, string lien, List<Caracteristique> lstCar, Profession prof, List<Competence> lstComp)
-            : base(n,niv,lien,lstCar,lstComp)
+        public Personnage(int id, string n, int niv, int xp, int hp, int mana, string lien, List<Caracteristique> lstCar, Profession prof, List<Competence> lstComp, Inventaire inv)
+            : base(n,niv,lien,lstCar,lstComp,inv)
         {
 
             IdPersonnage = id;

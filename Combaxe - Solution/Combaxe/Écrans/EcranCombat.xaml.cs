@@ -96,8 +96,8 @@ namespace Combaxe___New.écrans
         {
             btnAction2.Visibility = Visibility.Visible;
 
-            btnAction2.Content = "Potion de vie";
-            btnAction3.Content = "Potion d'énergie";
+            btnAction2.Content = "Potion de vie ("+VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Quantite+")";
+            btnAction3.Content = "Potion d'énergie (" + VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Energie].Quantite + ")";
             btnAction2.ToolTip = "Cette potion régénère 30% de votre vie";
             btnAction3.ToolTip = "Cette potion régénère 30% de votre énergie";
             btnAction2.IsEnabled = true;
@@ -108,6 +108,14 @@ namespace Combaxe___New.écrans
             {
                 btnAction1.Visibility = Visibility.Hidden;
                 btnAction4.Visibility = Visibility.Hidden;
+            }
+            if (VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Quantite==0)
+            {
+                btnAction2.IsEnabled = false;
+            }
+            if (VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Energie].Quantite == 0)
+            {
+                btnAction3.IsEnabled = false;
             }
             
             btnItems.IsEnabled = false;
@@ -364,7 +372,17 @@ namespace Combaxe___New.écrans
             }
             else
             {
-                //fait rien car reste tel quel
+                btnAction2.Content = "Potion de vie (" + VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Quantite + ")";
+                btnAction3.Content = "Potion d'énergie (" + VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Energie].Quantite + ")";
+
+                if (VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Quantite == 0)
+                {
+                    btnAction2.IsEnabled = false;
+                }
+                if (VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Energie].Quantite == 0)
+                {
+                    btnAction3.IsEnabled = false;
+                }
             }
         }
 
@@ -373,21 +391,23 @@ namespace Combaxe___New.écrans
         /// </summary>
         private void actionItem(int potion)
         {
-            if(potion == 4) // vie
+            if (potion == 4 && VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Quantite>0) // vie
             {
                 VarGlobales.Personnage.Vie += VarGlobales.Personnage.VieMaximale*30/100;
                 if(VarGlobales.Personnage.Vie > VarGlobales.Personnage.VieMaximale)
                     VarGlobales.Personnage.Vie = VarGlobales.Personnage.VieMaximale;
 
-                txtbJournalCombat.Text += "Vous avez régénéré " + VarGlobales.Personnage.VieMaximale*30/100 + "points de vie\n";
+                txtbJournalCombat.Text += "Vous avez régénéré " + VarGlobales.Personnage.VieMaximale*30/100 + " points de vie\n";
+                VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Quantite -= 1;
                 majInterface(true);
             }
-            else if(potion == 5) // énergie
+            else if (potion == 5 && VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Energie].Quantite>0) // énergie
             {
                 VarGlobales.Personnage.Energie += VarGlobales.Personnage.EnergieMaximale*30/100;
                 if(VarGlobales.Personnage.Energie > VarGlobales.Personnage.EnergieMaximale)
                     VarGlobales.Personnage.Energie = VarGlobales.Personnage.EnergieMaximale;
-                txtbJournalCombat.Text += "Vous avez régénéré " + VarGlobales.Personnage.EnergieMaximale * 30 / 100 + "points d'énergie\n";
+                VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Energie].Quantite -= 1;
+                txtbJournalCombat.Text += "Vous avez régénéré " + VarGlobales.Personnage.EnergieMaximale * 30 / 100 + " points d'énergie\n";
                 majInterface(true);
             }
         }

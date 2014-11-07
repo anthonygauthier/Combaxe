@@ -14,6 +14,9 @@ namespace Combaxe___New.classes.services
         BdService bdCombaxe = new BdService();
         ProfessionService professionService = new ProfessionService();
         CompetenceService competenceService = new CompetenceService();
+        InventaireService inventaireService = new InventaireService();
+        CaracteristiqueService caracteristiqueService = new CaracteristiqueService();
+        ConsommationService consommationService = new ConsommationService();
 
         /// <summary>
         /// Pour récupérer toutes les données des personnages d'un joueur, Tommy Gingras
@@ -27,7 +30,6 @@ namespace Combaxe___New.classes.services
             if(nbLigne != 0){
                 List<Personnage> lstPersonnage = new List<Personnage>();
                 List<Caracteristique> lstCar = new List<Caracteristique>();
-                CaracteristiqueService caracteristiqueService = new CaracteristiqueService();
                 Profession prof;
                 
                 if(lstPerso.Count() != 0){
@@ -37,7 +39,7 @@ namespace Combaxe___New.classes.services
                         lstCar = caracteristiqueService.RetrieveCaracteristique(lstPerso[i][0], true);
                         prof = professionService.RetrieveIdProfessionAvecId(Convert.ToInt32(lstPerso[i][7]));
                             
-                        Personnage perso = new Personnage(Convert.ToInt32(lstPerso[i][0]), lstPerso[i][1], Convert.ToInt32(lstPerso[i][2]), Convert.ToInt32(lstPerso[i][3]), Convert.ToInt32(lstPerso[i][4]), Convert.ToInt32(lstPerso[i][5]), lstPerso[i][6], lstCar, prof, null);
+                        Personnage perso = new Personnage(Convert.ToInt32(lstPerso[i][0]), lstPerso[i][1], Convert.ToInt32(lstPerso[i][2]), Convert.ToInt32(lstPerso[i][3]), Convert.ToInt32(lstPerso[i][4]), Convert.ToInt32(lstPerso[i][5]), lstPerso[i][6], lstCar, prof, null, null);
                         lstPersonnage.Add(perso);
                         lstCar = new List<Caracteristique>();
                      }
@@ -58,9 +60,9 @@ namespace Combaxe___New.classes.services
         public Personnage selectionUnPersonnage(int id)
         {
 
-            string reqSelect = ecrireSelect("estActif = TRUE AND idJoueur = '" + VarGlobales.Joueur.idJoueur + "' AND idPersonnage = '" + id + "'", "idPersonnage, nom, niveau, experience, vie, energie, image, idProfession");
+            string reqSelect = ecrireSelect("estActif = TRUE AND idJoueur = '" + VarGlobales.Joueur.idJoueur + "' AND idPersonnage = '" + id + "'", "idPersonnage, nom, niveau, experience, vie, energie, image, idProfession, idInventaire");
             int nbLigne = 0;
-            List<string>[] lstPerso = bdCombaxe.selection(reqSelect, 8, ref nbLigne);
+            List<string>[] lstPerso = bdCombaxe.selection(reqSelect, 9, ref nbLigne);
             List<Caracteristique> lstCaracteristique = new List<Caracteristique>();
             Profession prof;
             List<Competence> lstComp = new List<Competence>();
@@ -69,7 +71,7 @@ namespace Combaxe___New.classes.services
             {
                 Personnage perso = null;
                 List<Caracteristique> lstCar = new List<Caracteristique>();
-                CaracteristiqueService caracteristiqueService = new CaracteristiqueService();
+                Inventaire inventaire = new Inventaire();
 
                 if (lstPerso.Count() != 0)
                 {
@@ -78,7 +80,8 @@ namespace Combaxe___New.classes.services
                     lstCar = caracteristiqueService.RetrieveCaracteristique(lstPerso[0][0], true);
                     prof = professionService.RetrieveIdProfessionAvecId(Convert.ToInt32(lstPerso[0][7]));
                     lstComp = competenceService.RetrieveCompetenceUnPersonnage(prof.IdProfession);
-                    perso = new Personnage(Convert.ToInt32(lstPerso[0][0]), lstPerso[0][1], Convert.ToInt32(lstPerso[0][2]), Convert.ToInt32(lstPerso[0][3]), Convert.ToInt32(lstPerso[0][4]), Convert.ToInt32(lstPerso[0][5]), lstPerso[0][6], lstCar, prof, lstComp);                   
+                    inventaire = inventaireService.retrieveInventaire(Convert.ToInt32(lstPerso[0][8]));
+                    perso = new Personnage(Convert.ToInt32(lstPerso[0][0]), lstPerso[0][1], Convert.ToInt32(lstPerso[0][2]), Convert.ToInt32(lstPerso[0][3]), Convert.ToInt32(lstPerso[0][4]), Convert.ToInt32(lstPerso[0][5]), lstPerso[0][6], lstCar, prof, lstComp, inventaire);                   
                 }
                 
                 return perso;
@@ -145,6 +148,13 @@ namespace Combaxe___New.classes.services
             string reqInsertPerso = "INSERT INTO Personnages (idProfession, idInventaire, idJoueur, idStatistique, nom, niveau, experience, vie, energie, image) VALUES ("+idProfession+"," + idInventaire + "," + VarGlobales.Joueur.idJoueur + "," + idStatistique + ",'" + nomPerso + "',1,0,"+viePersonnage+","+energiePersonnage+",'"+image+"')";
             bdCombaxe.Insertion(reqInsertPerso);
             idPersonnage = bdCombaxe.lastInsertId();
+
+            //On donne des potions de départ au personnage
+            string reqInsertPotionVie = "INSERT INTO InventairesConsommations (idInventaire, idConsommation, quantite) VALUES (" + idInventaire + ",(SELECT idConsommation FROM Consommations WHERE nom='Potion de vie'),3);";
+            bdCombaxe.Insertion(reqInsertPotionVie);
+
+            string reqInsertPotionEnergie = "INSERT INTO InventairesConsommations (idInventaire, idConsommation, quantite) VALUES (" + idInventaire + ",(SELECT idConsommation FROM Consommations WHERE nom='Potion énergie'),3);";
+            bdCombaxe.Insertion(reqInsertPotionEnergie);
 
             caracteristiqueService.InsertCaracteristique(Caracteristiques.Force.ToString(), idPersonnage, valForce);
             caracteristiqueService.InsertCaracteristique(Caracteristiques.Vitesse.ToString(), idPersonnage, valVitesse);
@@ -216,6 +226,7 @@ namespace Combaxe___New.classes.services
             string requeteUpdate = "UPDATE Personnages SET vie = "+vie+", energie = "+energie+" WHERE idPersonnage = '" + VarGlobales.Personnage.IdPersonnage + "';";
 
             bdCombaxe.maj(requeteUpdate);
+            consommationService.MAJConsommation();
         }
         
         /// <summary>
@@ -236,6 +247,7 @@ namespace Combaxe___New.classes.services
             string requeteUpdate = "UPDATE Personnages SET experience = "+ VarGlobales.Personnage.Experience + " WHERE idPersonnage = " + VarGlobales.Personnage.IdPersonnage + ";";
 
             bdCombaxe.maj(requeteUpdate);
+
         }
 
         /// <summary>

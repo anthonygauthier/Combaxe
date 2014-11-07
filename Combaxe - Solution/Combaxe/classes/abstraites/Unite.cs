@@ -16,6 +16,7 @@ namespace Combaxe___New.classes.abstraites
         public List<Caracteristique> ListeCaracteristique { get; set; }
         public List<Competence> ListeCompetence { get; set; }
         public BitmapImage Image { get; set; }
+        public Inventaire Inventaire { get; set; }
 
         public Unite()
         {
@@ -24,9 +25,10 @@ namespace Combaxe___New.classes.abstraites
             Image = null;
             ListeCaracteristique = null;
             ListeCompetence = null;
+            Inventaire = null;
         }
 
-        public Unite(string n, int niv, string lien, List<Caracteristique> lstCar, List<Competence> lstComp)
+        public Unite(string n, int niv, string lien, List<Caracteristique> lstCar, List<Competence> lstComp, Inventaire inv)
         {
             Nom = n;
             Niveau = niv;
@@ -36,14 +38,7 @@ namespace Combaxe___New.classes.abstraites
              * Image = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + lien, UriKind.RelativeOrAbsolute)); // fait par tommy gingras*/
             ListeCaracteristique = lstCar;
             ListeCompetence = lstComp;
-        }
-
-        public void perteDeVie(int point, bool personnage)
-        {
-            if(personnage == true)
-            {
-
-            }
+            Inventaire = inv;
         }
     }
 }

@@ -8,10 +8,11 @@ namespace Combaxe___New.classes
 {
     public class Inventaire
     {
-        private int idInventaire;
-        private double argent;
-        private List<Equipement> listeEquipement;
-        private List<Equipement> listeEquipementUtilise;
+        public int idInventaire { get; set; }
+        public double argent { get; set; }
+        public List<Equipement> listeEquipement { get; set; }
+        public List<Equipement> listeEquipementUtilise { get; set; }
+        public List<Consommation> listeConsommation { get; set; }
 
         /// <summary>
         /// Constructeur de base - Anthony Gauthier 02/10/2014
@@ -22,6 +23,7 @@ namespace Combaxe___New.classes
             argent = 0;
             listeEquipement = null;
             listeEquipementUtilise  = null;
+            listeConsommation = null;
         }
 
         /// <summary>
@@ -31,12 +33,13 @@ namespace Combaxe___New.classes
         /// <param name="or">l'argent relié à l'inventaire</param>
         /// <param name="lstEq">la liste d'équipement de l'inventaire</param>
         /// <param name="lstEqUt">la list d'équipement utilisé dans l'inventaire</param>
-        public Inventaire(int id, double or, List<Equipement> lstEq, List<Equipement> lstEqUt)
+        public Inventaire(int id, double or, List<Equipement> lstEq, List<Equipement> lstEqUt, List<Consommation> lstCons)
         {
             idInventaire = id;
             argent = or;
             listeEquipement = lstEq;
             listeEquipementUtilise = lstEqUt;
+            listeConsommation = lstCons;
         }
 
         /// <summary>

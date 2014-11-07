@@ -29,8 +29,8 @@ namespace Combaxe___New.classes
         /// <param name="url">url de l'image</param>
         /// <param name="n">nom de l'ennemi</param>
         /// <param name="lstCar">list des caractéristiques de l'ennemi</param>
-        public Ennemi(int id, int niv, string lien, string n, List<Caracteristique> lstCar, List<Competence> lstComp)
-            : base(n, niv, lien, lstCar, lstComp)
+        public Ennemi(int id, int niv, string lien, string n, List<Caracteristique> lstCar, List<Competence> lstComp, Inventaire inv)
+            : base(n, niv, lien, lstCar, lstComp, inv)
         {
             IdEnnemi = id;
         }

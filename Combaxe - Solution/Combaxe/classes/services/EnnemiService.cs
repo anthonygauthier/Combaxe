@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Combaxe___New.classes.services
 {
-    class EnnemiService
+    public class EnnemiService
     {
         BdService bdCombaxe = new BdService();
 
@@ -46,7 +46,7 @@ namespace Combaxe___New.classes.services
             }
 
             //On insere les competences dans l'ennemi
-            Ennemi ennemi = new Ennemi(Convert.ToInt32(unEnnemi[0][0]), Convert.ToInt32(unEnnemi[0][3]), unEnnemi[0][4], unEnnemi[0][2],caracteristiques, lesCompetences);
+            Ennemi ennemi = new Ennemi(Convert.ToInt32(unEnnemi[0][0]), Convert.ToInt32(unEnnemi[0][3]), unEnnemi[0][4], unEnnemi[0][2],caracteristiques, lesCompetences, null);
 
             return ennemi;
         }
