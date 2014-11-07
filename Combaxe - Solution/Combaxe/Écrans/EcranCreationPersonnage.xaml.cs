@@ -31,6 +31,7 @@ namespace Combaxe___New.écrans
             //L'utilisateur n'a pas choisi de profession, alors tous les boutons de caractéristiques ou d'image sont désactivés
             disableBtnMoins();
             disableBtnPlus();
+            comboBox(); // POUR LA TAILLE de la plume 
         }
         //Lorsque la page s'initialise, on initie une connexion à la BD - Anthony Gauthier 09/10/2014
         PersonnageService personnageService = new PersonnageService();
@@ -435,7 +436,11 @@ namespace Combaxe___New.écrans
 
         //Méthode qui est activé lorsque le bouton "Créer personnage" est cliqué
         private void btnCreerPerso_Click(object sender, RoutedEventArgs e)
+<<<<<<< HEAD
         {
+=======
+        {            
+>>>>>>> origin/master
             if (verificationChamps())
             {
                 sauve(txtbNom.Text);
@@ -516,7 +521,7 @@ namespace Combaxe___New.écrans
 
         private void _colorPicker_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color> e)
         {
-            _colorCanvas.DefaultDrawingAttributes.Color = _colorPicker.SelectedColor;
+            _personnageDessin.DefaultDrawingAttributes.Color = _colorPicker.SelectedColor;
         }
 
         private void sauve(string nom)
@@ -524,13 +529,13 @@ namespace Combaxe___New.écrans
             // Save document
             string filename = "resources\\images\\personnages\\"+nom+".jpg";
             //get the dimensions of the ink control
-            int margin = (int)this._colorCanvas.Margin.Left;
-            int width = (int)this._colorCanvas.ActualWidth - margin;
-            int height = (int)this._colorCanvas.ActualHeight - margin;
+            int margin = (int)this._personnageDessin.Margin.Left;
+            int width = (int)this._personnageDessin.ActualWidth - margin;
+            int height = (int)this._personnageDessin.ActualHeight - margin;
             //render ink to bitmap
             RenderTargetBitmap rtb =
             new RenderTargetBitmap(width, height, 96d, 96d, PixelFormats.Default);
-            rtb.Render(_colorCanvas);
+            rtb.Render(_personnageDessin);
             Directory.CreateDirectory("resources\\images\\personnages");
 
             using (FileStream fs = new FileStream(filename, FileMode.CreateNew))
@@ -539,6 +544,35 @@ namespace Combaxe___New.écrans
                 encoder.Frames.Add(BitmapFrame.Create(rtb));
                 encoder.Save(fs);    
             }
+        }
+
+        private void choixPointeur_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int taille = Convert.ToInt32(choixPointeur.SelectedItem.ToString().Substring(0, 2));
+            _personnageDessin.DefaultDrawingAttributes.Height = taille;
+            _personnageDessin.DefaultDrawingAttributes.Width = taille;
+
+        }
+
+        private void comboBox()
+        {
+            choixPointeur.Items.Add("5 mm");
+            choixPointeur.Items.Add("7 mm");
+            choixPointeur.Items.Add("9 mm");
+            choixPointeur.Items.Add("11 mm");
+            choixPointeur.Items.Add("13 mm");
+            choixPointeur.Items.Add("15 mm");
+            choixPointeur.SelectedIndex = 0;
+        }
+
+        private void btnRectangle_Click(object sender, RoutedEventArgs e)
+        {
+            _personnageDessin.DefaultDrawingAttributes.StylusTip = System.Windows.Ink.StylusTip.Rectangle;
+        }
+
+        private void btnEllipse_Click(object sender, RoutedEventArgs e)
+        {
+            _personnageDessin.DefaultDrawingAttributes.StylusTip = System.Windows.Ink.StylusTip.Ellipse;
         }
     }
 }

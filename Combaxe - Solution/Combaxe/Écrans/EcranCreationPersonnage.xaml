@@ -111,6 +111,9 @@
             <!--StackPanel pour boutons gauche-->
             <StackPanel Orientation="Vertical" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
                 <xctk:ColorPicker Name="_colorPicker" VerticalAlignment="Top" SelectedColorChanged="_colorPicker_SelectedColorChanged"/>
+                <ComboBox Name="choixPointeur" SelectionChanged="choixPointeur_SelectionChanged"/>
+                <Button Name="btnRectangle" Content="Rectangle" Click="btnRectangle_Click"/>
+                <Button Name="btnEllipse" Content="Ellipse" Click="btnEllipse_Click"/>
             </StackPanel>
 
             <!--StackPanel pour boutons droite-->
@@ -118,14 +121,15 @@
             </StackPanel>
 
             <!--Border pour le background ou l'image du perso sera-->
-            <Grid Grid.Column="1" Background="White" Margin="5">
+            <Grid Grid.Column="1" Background="White" Margin="5,5,50,5">
                 <!--Insérer l'image du personnage ici-->
-                <InkCanvas EditingMode="Ink" Name="_colorCanvas">
+                
+                <InkCanvas EditingMode="Ink" Name="_personnageDessin">
                     <InkCanvas.Background>
-                        <ImageBrush ImageSource="../Images/paladin.png" Stretch="Uniform"></ImageBrush>
+                        <ImageBrush ImageSource="../Images/paladin.png" Stretch="Uniform" ></ImageBrush>
                     </InkCanvas.Background>
                     <InkCanvas.DefaultDrawingAttributes>
-                        <DrawingAttributes  Color="#FF953131" FitToCurve="False" Height="5" IgnorePressure="False" IsHighlighter="False" StylusTip="Ellipse" StylusTipTransform="Identity" Width="5"/>
+                        <DrawingAttributes Color="Black" FitToCurve="False" Height="5" Width="5" IgnorePressure="False" IsHighlighter="False" StylusTip="Ellipse" />
                     </InkCanvas.DefaultDrawingAttributes>
                 </InkCanvas>
             </Grid>

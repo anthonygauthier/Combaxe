@@ -368,7 +368,7 @@ namespace Combaxe___New.écrans
             
             if (MessageBox.Show("Les caracétristiques de votre personnage ont été mises à jour avec succès!", "Nouvelle caractéristiques", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK) 
             {
-                VarGlobales.femerModifCaracteristique = true;
+                VarGlobales.fermerModifCaracteristique = true;
             }
         }
     }

@@ -34,8 +34,7 @@ namespace Combaxe___New.classes.abstraites
             Niveau = niv;
             Directory.CreateDirectory("resources\\images\\personnages");
             Directory.CreateDirectory("resources\\images\\ennemis");
-            /*À regarder bug
-             * Image = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + lien, UriKind.RelativeOrAbsolute)); // fait par tommy gingras*/
+            Image = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + lien, UriKind.RelativeOrAbsolute)); // fait par tommy gingras
             ListeCaracteristique = lstCar;
             ListeCompetence = lstComp;
             Inventaire = inv;

@@ -73,8 +73,8 @@ namespace Combaxe___New.écrans
                         lblNbrForce1.Content = lstPerso[0].ListeCaracteristique[(int)Caracteristiques.Force].Valeur;
                         lblNbrVie1.Content = lstPerso[0].ListeCaracteristique[(int)Caracteristiques.Vie].Valeur;
                         lblNbrVitesse1.Content = lstPerso[0].ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur;
-                        txtbPointDenergie1.Text = "Énergie: " + lstPerso[0].Energie.ToString() + "/" + lstPerso[0].EnergieMaximale;
-                        txtbPointDeVie1.Text = "Vie: " + lstPerso[0].Vie.ToString() + "/" + lstPerso[0].VieMaximale;
+                        txtbPointDenergie1.Content = "Énergie: " + lstPerso[0].Energie.ToString() + "/" + lstPerso[0].EnergieMaximale;
+                        txtbPointDeVie1.Content = "Vie: " + lstPerso[0].Vie.ToString() + "/" + lstPerso[0].VieMaximale;
                         /* l'image du personnage */
                         this.imgPerso1.Source = lstPerso[0].Image;
                         lblNomPerso1.Content = lstPerso[0].Nom;
@@ -89,12 +89,13 @@ namespace Combaxe___New.écrans
                         lblNbrForce2.Content = lstPerso[1].ListeCaracteristique[(int)Caracteristiques.Force].Valeur;
                         lblNbrVie2.Content = lstPerso[1].ListeCaracteristique[(int)Caracteristiques.Vie].Valeur;
                         lblNbrVitesse2.Content = lstPerso[1].ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur;
-                        txtbPointDenergie2.Text = "Énergie: " + lstPerso[1].Energie.ToString() + "/" + lstPerso[1].EnergieMaximale;
-                        txtbPointDeVie2.Text = "Vie: " + lstPerso[1].Vie.ToString() + "/" + lstPerso[1].VieMaximale;
+                        txtbPointDenergie2.Content = "Énergie: " + lstPerso[1].Energie.ToString() + "/" + lstPerso[1].EnergieMaximale;
+                        txtbPointDeVie2.Content = "Vie: " + lstPerso[1].Vie.ToString() + "/" + lstPerso[1].VieMaximale;
                         this.imgPerso2.Source = lstPerso[1].Image;
                         lblNomPerso2.Content = lstPerso[1].Nom;
                         lblNiveau2.Content = "Niveau: " + lstPerso[1].Niveau; //Ajout de "Niveau: " Anthony Gauthier 23/10/2014
                         btnChoisir2.IsEnabled = true;
+                        MajBarreViePerso((int)(brdMaxWidth.ActualWidth), brdViePerso2, 1);
                     }
                     if(nbLigne >= 3)
                     {
@@ -103,13 +104,14 @@ namespace Combaxe___New.écrans
                         lblNbrForce3.Content = lstPerso[2].ListeCaracteristique[(int)Caracteristiques.Force].Valeur;
                         lblNbrVie3.Content = lstPerso[2].ListeCaracteristique[(int)Caracteristiques.Vie].Valeur;
                         lblNbrVitesse3.Content = lstPerso[2].ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur;
-                        txtbPointDenergie3.Text = "Énergie: " + lstPerso[2].Energie.ToString() + "/" + lstPerso[2].EnergieMaximale;
-                        txtbPointDeVie3.Text = "Vie: " + lstPerso[2].Vie.ToString() + "/" + lstPerso[2].VieMaximale;
+                        txtbPointDenergie3.Content = "Énergie: " + lstPerso[2].Energie.ToString() + "/" + lstPerso[2].EnergieMaximale;
+                        txtbPointDeVie3.Content = "Vie: " + lstPerso[2].Vie.ToString() + "/" + lstPerso[2].VieMaximale;
                         this.imgPerso3.Source = lstPerso[2].Image;
                         lblNomPerso3.Content = lstPerso[2].Nom;
                         lblNiveau3.Content = "Niveau: " + lstPerso[2].Niveau; //Ajout de "Niveau: " Anthony Gauthier 23/10/2014
                         btnChoisir3.IsEnabled = true;
                         btnCreerPerso.IsEnabled = false;
+                        MajBarreViePerso((int)(brdMaxWidth.ActualWidth), brdViePerso3, 2);
                     }
                 } // on peut choisir le personnage et aller au menu principal
             }
@@ -179,5 +181,62 @@ namespace Combaxe___New.écrans
             this.Close();
         }
 
+        /// <summary>
+        /// Quand le joueur se fait attaquer, sa barre de vie se réduit - Anthony Gauthier 04/11/2014
+        /// </summary>
+        private void MajBarreViePerso(int max, Border bordure, int index)
+        {
+            int poucentageVie = (lstPerso[index].Vie * 100) / lstPerso[index].VieMaximale;
+
+            int widthAjuste = max - ((max * poucentageVie) / 100);
+            bordure.Margin = new Thickness(1, 1, widthAjuste, 1);
+            MajCouleurBarreVie(bordure, index);
+        }
+
+        /// <summary>
+        /// Quand le joueur utilise un sort, sa barre d'énergie se réduit - Anthony Gauthier 05/11/2014
+        /// </summary>
+        private void MajBarreEnergiePerso(int max, Border bordure, int index)
+        {
+            int pourcentageEnergie = (lstPerso[index].Energie * 100) / lstPerso[index].EnergieMaximale;
+
+            int widthAjuste = max - ((max * pourcentageEnergie) / 100);
+            bordure.Margin = new Thickness(1, 1, widthAjuste, 1);
+        }
+
+
+        /// <summary>
+        /// Met à jour la couleur des barres de vie des personnages - Anthony Gauthier 05/11/2014 
+        /// </summary>
+        /// <param name="uneBordure">Recoit la barre a modifier</param>
+        private void MajCouleurBarreVie(Border uneBordure, int index)
+        {
+            //Si la vie du personnage est inférieur ou égale à 50%
+            if (lstPerso[index].Vie <= lstPerso[index].VieMaximale * 0.5)
+            {
+                if (lstPerso[index].Vie <= lstPerso[index].VieMaximale * 0.25)
+                {
+                    uneBordure.Background = Brushes.Red;
+                }
+                else
+                {
+                    uneBordure.Background = Brushes.Yellow;
+                }
+            }
+            else if (lstPerso[index].Vie > lstPerso[index].VieMaximale * 0.50)
+            {
+                uneBordure.Background = Brushes.Green;
+            }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            MajBarreViePerso((int)(brdMaxWidth.ActualWidth), brdViePerso1, 0);
+            MajBarreViePerso((int)(brdMaxWidth.ActualWidth), brdViePerso2, 1); 
+            MajBarreViePerso((int)(brdMaxWidth.ActualWidth), brdViePerso3, 2); 
+            MajBarreEnergiePerso((int)(brdMaxWidth.ActualWidth), brdEnergiePerso1, 0); 
+            MajBarreEnergiePerso((int)(brdMaxWidth.ActualWidth), brdEnergiePerso2, 0); 
+            MajBarreEnergiePerso((int)(brdMaxWidth.ActualWidth), brdEnergiePerso3, 0); 
+        }
     }
 }
