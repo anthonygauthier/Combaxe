@@ -78,12 +78,17 @@
     </ApplicationDefinition>
     <Compile Include="classes\abstraites\Unite.cs" />
     <Compile Include="classes\Combat.cs" />
+    <Compile Include="classes\Consommation.cs" />
+    <Compile Include="classes\Modele.cs" />
     <Compile Include="classes\services\BdService.cs" />
     <Compile Include="classes\services\CaracteristiqueService.cs" />
     <Compile Include="classes\services\CompetenceService.cs" />
+    <Compile Include="classes\services\ConsommationService.cs" />
     <Compile Include="classes\services\EnnemiService.cs" />
+    <Compile Include="classes\services\EquipementService.cs" />
     <Compile Include="classes\services\InventaireService.cs" />
     <Compile Include="classes\services\JoueurService.cs" />
+    <Compile Include="classes\services\ModeleService.cs" />
     <Compile Include="classes\services\PersonnageService.cs" />
     <Compile Include="classes\services\ProfessionService.cs" />
     <Compile Include="classes\services\StatistiqueService.cs" />

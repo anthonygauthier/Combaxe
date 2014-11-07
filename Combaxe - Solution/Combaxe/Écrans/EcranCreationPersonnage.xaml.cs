@@ -436,11 +436,7 @@ namespace Combaxe___New.écrans
 
         //Méthode qui est activé lorsque le bouton "Créer personnage" est cliqué
         private void btnCreerPerso_Click(object sender, RoutedEventArgs e)
-<<<<<<< HEAD
         {
-=======
-        {            
->>>>>>> origin/master
             if (verificationChamps())
             {
                 sauve(txtbNom.Text);

@@ -228,14 +228,11 @@ namespace Combaxe___New.classes.services
                 int energie = (int) (VarGlobales.Personnage.Energie * 0.5);
                 string requeteUpdate = "UPDATE Personnages SET vie = "+vie+", energie = "+energie+" WHERE idPersonnage = '" + VarGlobales.Personnage.IdPersonnage + "';";
 
-<<<<<<< HEAD
-            bdCombaxe.maj(requeteUpdate);
-            consommationService.MAJConsommation();
-=======
+                bdCombaxe.maj(requeteUpdate);
+                consommationService.MAJConsommation();
+
                 VarGlobales.Personnage.Vie = vie;
                 VarGlobales.Personnage.Energie = energie;
-
-                bdCombaxe.maj(requeteUpdate);
             }
             //Sinon, la vie qui lui reste
             else
@@ -244,7 +241,6 @@ namespace Combaxe___New.classes.services
 
                 bdCombaxe.maj(requeteUpdate);
             }
->>>>>>> origin/master
         }
         
         /// <summary>
