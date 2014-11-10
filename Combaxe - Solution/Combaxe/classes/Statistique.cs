@@ -8,14 +8,15 @@ namespace Combaxe___New.classes
 {
     public class Statistique
     {
-        private int idStatistique;
-        private TimeSpan tempsDeJeu;
-        private int nombreDeCombat;
-        private int nombreVictoires;
-        private int nombreDefaites;
-        private int dommageTotal;
-        private double moyenneDommage;
-        private int nombreAttaque;
+        //tommy gingras
+        public int idStatistique { get; set; }
+        public TimeSpan tempsDeJeu { get; set; }
+        public int nombreDeCombat { get; set; }
+        public int nombreVictoires { get; set; }
+        public int nombreDefaites { get; set; }
+        public int dommageTotal { get; set; }
+        public double moyenneDommage { get; set; }
+        public int nombreAttaque { get; set; }
 
         /// <summary>
         /// Constructeur de base - Anthony Gauthier 02/10/2014

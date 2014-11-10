@@ -273,5 +273,20 @@ namespace Combaxe___New.classes.services
             
             bdCombaxe.maj(requeteUpdate);
         }
+
+        public int idStatistique(int idPersonnage)
+        {
+            string reqSelect = ecrireSelect("idPersonnage = "+idPersonnage, "idStatistique");
+            int nbRange = 0;
+
+            List<string>[] lstid = bdCombaxe.selection(reqSelect, 1, ref nbRange);
+            if(nbRange == 1){
+                return Convert.ToInt32(lstid[0][0]);
+            }
+            else
+            {
+                return 0;
+            }
+        }
     }
 }
