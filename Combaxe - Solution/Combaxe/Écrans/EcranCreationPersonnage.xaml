@@ -114,6 +114,7 @@
                 <ComboBox Name="choixPointeur" SelectionChanged="choixPointeur_SelectionChanged"/>
                 <Button Name="btnRectangle" Content="Rectangle" Click="btnRectangle_Click"/>
                 <Button Name="btnEllipse" Content="Ellipse" Click="btnEllipse_Click"/>
+                <Button Name="btnToutSupprimer" Content="Suppresion" Click="toutSupprimer_Click"/>
             </StackPanel>
 
             <!--StackPanel pour boutons droite-->

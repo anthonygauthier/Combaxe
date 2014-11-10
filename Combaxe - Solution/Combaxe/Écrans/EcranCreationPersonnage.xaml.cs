@@ -16,6 +16,7 @@ using Combaxe___New.écrans;
 using Combaxe___New.classes.services;
 using System.Text.RegularExpressions;
 using System.IO;
+using System.Windows.Ink;
 
 namespace Combaxe___New.écrans
 {
@@ -515,11 +516,20 @@ namespace Combaxe___New.écrans
             }
         }
 
+        /// <summary>
+        /// Pour changer la couleur du pointeur, tommy gingras
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void _colorPicker_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color> e)
         {
             _personnageDessin.DefaultDrawingAttributes.Color = _colorPicker.SelectedColor;
         }
 
+        /// <summary>
+        /// Pour sauvegarder l'image créé, tommy gingras
+        /// </summary>
+        /// <param name="nom">le nom du personnage</param>
         private void sauve(string nom)
         {
             // Save document
@@ -542,6 +552,11 @@ namespace Combaxe___New.écrans
             }
         }
 
+        /// <summary>
+        /// Pour changer la grosseur du pointeur , tommy gingras
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void choixPointeur_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int taille = Convert.ToInt32(choixPointeur.SelectedItem.ToString().Substring(0, 2));
@@ -550,6 +565,9 @@ namespace Combaxe___New.écrans
 
         }
 
+        /// <summary>
+        /// Pour mettre les sortes de pointeur dans la liste, tommy gingras 
+        /// </summary>
         private void comboBox()
         {
             choixPointeur.Items.Add("5 mm");
@@ -561,14 +579,46 @@ namespace Combaxe___New.écrans
             choixPointeur.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// POur mettre le pointeur carré, tommy gingras
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRectangle_Click(object sender, RoutedEventArgs e)
         {
             _personnageDessin.DefaultDrawingAttributes.StylusTip = System.Windows.Ink.StylusTip.Rectangle;
         }
 
+        /// <summary>
+        /// Pour mettre le pointeur rond, tommy gingras
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEllipse_Click(object sender, RoutedEventArgs e)
         {
             _personnageDessin.DefaultDrawingAttributes.StylusTip = System.Windows.Ink.StylusTip.Ellipse;
+        }
+
+        /// <summary>
+        /// Pour tout supprimer le jolie dessin, tommy gingras
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toutSupprimer_Click(object sender, RoutedEventArgs e)
+        {
+            StrokeCollection selectedStrokes = _personnageDessin.GetSelectedStrokes();
+            if (selectedStrokes.Count == 0)
+            {
+                if (MessageBox.Show("Voulez-vous tout supprimer ?","Suppresion du jolie dessin", MessageBoxButton.OKCancel, MessageBoxImage.Question) == MessageBoxResult.OK)
+                {
+                    _personnageDessin.Strokes.Clear();
+                }
+                return;
+            }
+            else
+            {
+                _personnageDessin.Strokes.Remove(selectedStrokes);
+            }
         }
     }
 }
