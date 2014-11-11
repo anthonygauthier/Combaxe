@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.12
+-- version 3.3.9
 -- http://www.phpmyadmin.net
 --
--- Client :  127.0.0.1
--- Généré le :  Ven 31 Octobre 2014 à 20:11
--- Version du serveur :  5.6.16
--- Version de PHP :  5.5.11
+-- Serveur: localhost
+-- Généré le : Mar 11 Novembre 2014 à 10:14
+-- Version du serveur: 5.5.8
+-- Version de PHP: 5.3.5
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -17,30 +16,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données :  `combaxe`
+-- Base de données: `5a5_a14_combaxe`
 --
-DROP TABLE IF EXISTS CompetencesProfessions;
-DROP TABLE IF EXISTS CompetencesEnnemis;
-DROP TABLE IF EXISTS Competences;
-DROP TABLE IF EXISTS TypesCompetences;
-DROP TABLE IF EXISTS Effets;
-DROP TABLE IF EXISTS EquipementsPersonnages;
-DROP TABLE IF EXISTS InventairesEquipements;
-DROP TABLE IF EXISTS Equipements;
-DROP TABLE IF EXISTS CaracteristiquesPersonnages;
-DROP TABLE IF EXISTS CaracteristiquesEquipementsModeles;
-DROP TABLE IF EXISTS CaracteristiquesEnnemis;
-DROP TABLE IF EXISTS CaracteristiquesProfessions;
-DROP TABLE IF EXISTS Personnages;
-DROP TABLE IF EXISTS Professions;
-DROP TABLE IF EXISTS Statistiques;
-DROP TABLE IF EXISTS Caracteristiques;
-DROP TABLE IF EXISTS EquipementsModeles;
-DROP TABLE IF EXISTS Modeles;
-DROP TABLE IF EXISTS Ennemis;
-DROP TABLE IF EXISTS Inventaires;
-DROP TABLE IF EXISTS Joueurs;
-
 
 -- --------------------------------------------------------
 
@@ -260,118 +237,118 @@ CREATE TABLE IF NOT EXISTS `caracteristiquesequipementsmodeles` (
 --
 
 INSERT INTO `caracteristiquesequipementsmodeles` (`idCaracteristiqueEquipementModele`, `idCaracteristique`, `idEquipementModele`, `valeur`) VALUES
-(1, 1, 109, 1),
-(2, 4, 109, 3),
-(3, 2, 109, 2),
-(4, 5, 110, 3),
-(5, 4, 110, 1),
-(6, 2, 110, 2),
-(7, 1, 111, 2),
-(8, 4, 111, 2),
-(9, 2, 111, 1),
-(10, 5, 112, 2),
-(11, 4, 112, 1),
-(12, 2, 112, 2),
-(13, 1, 113, 1),
-(14, 4, 113, 1),
-(15, 5, 114, 1),
-(16, 3, 114, 1),
-(17, 2, 115, 1),
-(18, 4, 115, 1),
-(19, 5, 116, 1),
-(20, 2, 116, 1),
-(21, 4, 117, 1),
-(22, 3, 117, 1),
-(23, 5, 118, 1),
-(24, 3, 118, 1),
-(25, 1, 119, 3),
-(26, 4, 119, 9),
-(27, 2, 119, 6),
-(28, 5, 120, 9),
-(29, 4, 120, 3),
-(30, 2, 120, 6),
-(31, 1, 121, 6),
-(32, 4, 121, 6),
-(33, 2, 121, 3),
-(34, 5, 122, 6),
-(35, 4, 122, 3),
-(36, 2, 122, 6),
-(37, 1, 123, 3),
-(38, 4, 123, 3),
-(39, 5, 124, 3),
-(40, 3, 124, 3),
-(41, 2, 125, 3),
-(42, 4, 125, 3),
-(43, 5, 126, 3),
-(44, 2, 126, 3),
-(45, 4, 127, 3),
-(46, 3, 127, 3),
-(47, 5, 128, 3),
-(48, 3, 128, 3),
-(49, 1, 129, 4),
-(50, 4, 129, 12),
-(51, 2, 129, 8),
-(52, 5, 130, 12),
-(53, 4, 130, 4),
-(54, 2, 130, 8),
-(55, 1, 131, 8),
-(56, 4, 131, 8),
-(57, 2, 131, 4),
-(58, 5, 132, 8),
-(59, 4, 132, 4),
-(60, 2, 132, 8),
-(61, 1, 133, 4),
-(62, 4, 133, 4),
-(63, 5, 134, 4),
-(64, 3, 134, 4),
-(65, 2, 135, 4),
-(66, 4, 135, 4),
-(67, 5, 136, 4),
-(68, 2, 136, 4),
-(69, 4, 137, 4),
-(70, 3, 137, 4),
-(71, 5, 138, 4),
-(72, 3, 138, 4),
-(73, 1, 1, 2),
-(74, 2, 1, 1),
-(75, 1, 3, 1),
-(76, 3, 3, 1),
-(77, 2, 2, 1),
-(78, 5, 2, 2),
-(79, 2, 4, 1),
-(80, 4, 4, 1),
-(81, 1, 5, 6),
-(82, 2, 5, 3),
-(83, 5, 6, 6),
-(84, 2, 6, 3),
-(85, 3, 7, 2),
-(86, 1, 7, 3),
-(87, 4, 8, 3),
-(88, 2, 8, 2),
-(89, 1, 9, 3),
-(90, 3, 9, 2),
-(91, 5, 10, 3),
-(92, 3, 10, 2),
-(93, 1, 11, 6),
-(94, 4, 11, 3),
-(95, 2, 12, 3),
-(96, 1, 12, 6),
-(97, 1, 13, 8),
-(98, 2, 13, 4),
-(99, 5, 14, 8),
-(100, 4, 14, 4),
-(101, 1, 15, 4),
-(102, 3, 15, 2),
-(103, 4, 16, 4),
-(104, 2, 16, 2),
-(105, 1, 17, 4),
-(106, 3, 17, 2),
-(107, 5, 18, 4),
-(108, 3, 18, 2),
-(109, 4, 19, 4),
-(110, 1, 19, 8),
-(111, 2, 20, 4),
-(112, 1, 20, 8);
+(1, 1, 1, 2),
+(2, 2, 1, 1),
+(3, 1, 3, 1),
+(4, 3, 3, 1),
+(5, 2, 2, 1),
+(6, 5, 2, 2),
+(7, 2, 4, 1),
+(8, 4, 4, 1),
+(9, 1, 5, 6),
+(10, 2, 5, 3),
+(11, 5, 6, 6),
+(12, 2, 6, 3),
+(13, 3, 7, 2),
+(14, 1, 7, 3),
+(15, 4, 8, 3),
+(16, 2, 8, 2),
+(17, 1, 9, 3),
+(18, 3, 9, 2),
+(19, 5, 10, 3),
+(20, 3, 10, 2),
+(21, 1, 11, 6),
+(22, 4, 11, 3),
+(23, 2, 12, 3),
+(24, 1, 12, 6),
+(25, 1, 13, 8),
+(26, 2, 13, 4),
+(27, 5, 14, 8),
+(28, 4, 14, 4),
+(29, 1, 15, 4),
+(30, 3, 15, 2),
+(31, 4, 16, 4),
+(32, 2, 16, 2),
+(33, 1, 17, 4),
+(34, 3, 17, 2),
+(35, 5, 18, 4),
+(36, 3, 18, 2),
+(37, 4, 19, 4),
+(38, 1, 19, 8),
+(39, 2, 20, 4),
+(40, 1, 20, 8),
+(41, 1, 109, 1),
+(42, 4, 109, 3),
+(43, 2, 109, 2),
+(44, 5, 110, 3),
+(45, 4, 110, 1),
+(46, 2, 110, 2),
+(47, 1, 111, 2),
+(48, 4, 111, 2),
+(49, 2, 111, 1),
+(50, 5, 112, 2),
+(51, 4, 112, 1),
+(52, 2, 112, 2),
+(53, 1, 113, 1),
+(54, 4, 113, 1),
+(55, 5, 114, 1),
+(56, 3, 114, 1),
+(57, 2, 115, 1),
+(58, 4, 115, 1),
+(59, 5, 116, 1),
+(60, 2, 116, 1),
+(61, 4, 117, 1),
+(62, 3, 117, 1),
+(63, 5, 118, 1),
+(64, 3, 118, 1),
+(65, 1, 119, 3),
+(66, 4, 119, 9),
+(67, 2, 119, 6),
+(68, 5, 120, 9),
+(69, 4, 120, 3),
+(70, 2, 120, 6),
+(71, 1, 121, 6),
+(72, 4, 121, 6),
+(73, 2, 121, 3),
+(74, 5, 122, 6),
+(75, 4, 122, 3),
+(76, 2, 122, 6),
+(77, 1, 123, 3),
+(78, 4, 123, 3),
+(79, 5, 124, 3),
+(80, 3, 124, 3),
+(81, 2, 125, 3),
+(82, 4, 125, 3),
+(83, 5, 126, 3),
+(84, 2, 126, 3),
+(85, 4, 127, 3),
+(86, 3, 127, 3),
+(87, 5, 128, 3),
+(88, 3, 128, 3),
+(89, 1, 129, 4),
+(90, 4, 129, 12),
+(91, 2, 129, 8),
+(92, 5, 130, 12),
+(93, 4, 130, 4),
+(94, 2, 130, 8),
+(95, 1, 131, 8),
+(96, 4, 131, 8),
+(97, 2, 131, 4),
+(98, 5, 132, 8),
+(99, 4, 132, 4),
+(100, 2, 132, 8),
+(101, 1, 133, 4),
+(102, 4, 133, 4),
+(103, 5, 134, 4),
+(104, 3, 134, 4),
+(105, 2, 135, 4),
+(106, 4, 135, 4),
+(107, 5, 136, 4),
+(108, 2, 136, 4),
+(109, 4, 137, 4),
+(110, 3, 137, 4),
+(111, 5, 138, 4),
+(112, 3, 138, 4);
 
 -- --------------------------------------------------------
 
@@ -389,6 +366,11 @@ CREATE TABLE IF NOT EXISTS `caracteristiquespersonnages` (
   KEY `CaracteristiquesPersonnages_Personnages_FK` (`idPersonnage`),
   KEY `CaracteristiquesPersonnages_Caracteristiques_FK` (`idCaracteristique`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Contenu de la table `caracteristiquespersonnages`
+--
+
 
 -- --------------------------------------------------------
 
@@ -646,6 +628,31 @@ INSERT INTO `competencesprofessions` (`idCompetenceProfession`, `idCompetence`, 
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `consommations`
+--
+
+CREATE TABLE IF NOT EXISTS `consommations` (
+  `idConsommation` int(11) NOT NULL AUTO_INCREMENT,
+  `idTypeConsommation` int(11) NOT NULL,
+  `nom` varchar(51) NOT NULL,
+  `prix` double NOT NULL DEFAULT '0',
+  `valeurPourcentage` int(11) NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`idConsommation`),
+  UNIQUE KEY `idConsommation` (`idConsommation`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Contenu de la table `consommations`
+--
+
+INSERT INTO `consommations` (`idConsommation`, `idTypeConsommation`, `nom`, `prix`, `valeurPourcentage`, `image`) VALUES
+(1, 1, 'Potion de santé', 120, 30, NULL),
+(2, 2, 'Potion d''énergie', 120, 30, NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `effets`
 --
 
@@ -741,6 +748,11 @@ CREATE TABLE IF NOT EXISTS `equipements` (
   UNIQUE KEY `idEquipement` (`idEquipement`),
   KEY `Equipements_EquipementsModeles_FK` (`idEquipementModele`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Contenu de la table `equipements`
+--
+
 
 -- --------------------------------------------------------
 
@@ -1032,6 +1044,11 @@ CREATE TABLE IF NOT EXISTS `equipementspersonnages` (
   KEY `EquipementsPersonnages_Equipements_FK` (`idEquipement`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
+--
+-- Contenu de la table `equipementspersonnages`
+--
+
+
 -- --------------------------------------------------------
 
 --
@@ -1044,6 +1061,31 @@ CREATE TABLE IF NOT EXISTS `inventaires` (
   PRIMARY KEY (`idInventaire`),
   UNIQUE KEY `idInventaire` (`idInventaire`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Contenu de la table `inventaires`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `inventairesconsommations`
+--
+
+CREATE TABLE IF NOT EXISTS `inventairesconsommations` (
+  `idInventaireConsommation` int(11) NOT NULL AUTO_INCREMENT,
+  `idInventaire` int(11) NOT NULL,
+  `idConsommation` int(11) NOT NULL,
+  `quantite` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`idInventaireConsommation`),
+  UNIQUE KEY `idInventaireConsommation` (`idInventaireConsommation`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Contenu de la table `inventairesconsommations`
+--
+
 
 -- --------------------------------------------------------
 
@@ -1060,6 +1102,11 @@ CREATE TABLE IF NOT EXISTS `inventairesequipements` (
   UNIQUE KEY `idInventaireEquipement` (`idInventaireEquipement`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
+--
+-- Contenu de la table `inventairesequipements`
+--
+
+
 -- --------------------------------------------------------
 
 --
@@ -1074,6 +1121,11 @@ CREATE TABLE IF NOT EXISTS `joueurs` (
   UNIQUE KEY `idJoueur` (`idJoueur`),
   UNIQUE KEY `pseudonyme` (`pseudonyme`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Contenu de la table `joueurs`
+--
+
 
 -- --------------------------------------------------------
 
@@ -1118,7 +1170,7 @@ CREATE TABLE IF NOT EXISTS `personnages` (
   `nom` varchar(21) NOT NULL,
   `niveau` int(11) NOT NULL DEFAULT '1',
   `experience` int(11) NOT NULL DEFAULT '0',
-  `vie` int(11) NOT NULL DEFAULT '0',
+  `vie` int(11) NOT NULL DEFAULT '5',
   `energie` int(11) NOT NULL DEFAULT '0',
   `image` varchar(255) DEFAULT NULL,
   `estActif` tinyint(1) NOT NULL DEFAULT '1',
@@ -1130,6 +1182,11 @@ CREATE TABLE IF NOT EXISTS `personnages` (
   KEY `Personnages_Joueurs_FK` (`idJoueur`),
   KEY `Personnages_Statistique_FK` (`idStatistique`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Contenu de la table `personnages`
+--
+
 
 -- --------------------------------------------------------
 
@@ -1151,9 +1208,9 @@ CREATE TABLE IF NOT EXISTS `professions` (
 --
 
 INSERT INTO `professions` (`idProfession`, `nom`, `image`, `description`) VALUES
-(1, 'Paladin', '../images/paladin.png', 'Le paladin est un guerrier croyant en les dieux. Il ne se bat que s''il en sent le besoin.\n Durant les combats, il les implore pour avoir leur aide pour le guérrir ou simplement enchanter ses\n attaques.'),
-(2, 'Magicien', '../images/magicien.png', 'Le magicien étudie différent type de magie, mais exclut la magie noire. Il contrôle les arcanes,\n le feu et l''électricité. Il se sert de sorts pour attaquer son ennemi, mais aussi pour se protéger.Les sorts du magicien sont très puissant et efficaces, cep'),
-(3, 'Guerrier', '../images/guerrier.png', 'Le guerrier est une brute ne se fiant qu''à sa force pour abattre ses ennemis, il n''hésite pas une seconde à enfoncer son sur sur ceux-ci. Endurci par les combats au corps à corps, le guerrier est résistant et physiquement très fort.');
+(1, 'Paladin', '../images/paladin.png', 'Le paladin est un guerrier croyant en les dieux. Il ne se bat que s''il en sent le besoin.\n    Durant les combats, il les implore pour avoir leur aide pour le guérrir ou simplement enchanter ses\n    attaques.'),
+(2, 'Magicien', '../images/magicien.png', 'Le magicien étudie différent type de magie, mais exclut la magie noire. Il contrôle les arcanes,\n    le feu et l''électricité. Il se sert de sorts pour attaquer son ennemi, mais aussi pour se protéger. Les sorts\n    du magicien sont très puissant et effica'),
+(3, 'Guerrier', '../images/guerrier.png', 'Le guerrier est une brute ne se fiant qu''à sa force pour abattre ses ennemis, il n''hésite pas une seconde\n    à enfoncer son sur sur ceux-ci. Endurci par les combats au corps à corps, le guerrier est résistant et physiquement\n    très fort.');
 
 -- --------------------------------------------------------
 
@@ -1173,6 +1230,11 @@ CREATE TABLE IF NOT EXISTS `statistiques` (
   PRIMARY KEY (`idStatistique`),
   UNIQUE KEY `idStatistique` (`idStatistique`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Contenu de la table `statistiques`
+--
+
 
 -- --------------------------------------------------------
 
@@ -1196,6 +1258,27 @@ INSERT INTO `typescompetences` (`idTypeCompetence`, `nom`) VALUES
 (2, 'Physique'),
 (3, 'Defensive'),
 (4, 'Support');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `typesconsommations`
+--
+
+CREATE TABLE IF NOT EXISTS `typesconsommations` (
+  `idTypeConsommation` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(21) NOT NULL,
+  PRIMARY KEY (`idTypeConsommation`),
+  UNIQUE KEY `idTypeConsommation` (`idTypeConsommation`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Contenu de la table `typesconsommations`
+--
+
+INSERT INTO `typesconsommations` (`idTypeConsommation`, `nom`) VALUES
+(1, 'Vie'),
+(2, 'Énergie');
 
 --
 -- Contraintes pour les tables exportées
@@ -1275,7 +1358,3 @@ ALTER TABLE `personnages`
   ADD CONSTRAINT `Personnages_Inventaires_FK` FOREIGN KEY (`idInventaire`) REFERENCES `inventaires` (`idInventaire`),
   ADD CONSTRAINT `Personnages_Joueurs_FK` FOREIGN KEY (`idJoueur`) REFERENCES `joueurs` (`idJoueur`),
   ADD CONSTRAINT `Personnages_Professions_FK` FOREIGN KEY (`idProfession`) REFERENCES `professions` (`idProfession`);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

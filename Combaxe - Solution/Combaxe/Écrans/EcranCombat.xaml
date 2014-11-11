@@ -25,14 +25,13 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 
-                <Border Background="White" CornerRadius="5" Margin="5,3,5,0" HorizontalAlignment="Stretch" Grid.Column="0">
-                    <Label Name="lblNiveauPerso" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
-                </Border>
-                <Border Background="White" CornerRadius="5" Margin="0,3,5,0" HorizontalAlignment="Stretch" Grid.Column="1">
-                    <Label Name="lblNomPerso" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                <Border Background="White" CornerRadius="5" Margin="5,3,5,0" HorizontalAlignment="Stretch" Grid.Column="1" Grid.ColumnSpan="2">
+                    <Label Content="Niveau: " Name="lblNiveauPerso" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
                 </Border>
             </Grid>
             
@@ -67,21 +66,43 @@
         <!--Partie du milieu (actions, journal de combat, etc.)-->
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="4*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="2*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-            
-            <!--Horloge de jeu-->
 
-            <TextBlock Name="txtbHorloge" VerticalAlignment="Center" Panel.ZIndex="1" HorizontalAlignment="Center"></TextBlock>
-            <ProgressBar Margin="5" Name="pbHorloge"></ProgressBar>
+            <!--Horloge de jeu-->
+            <TextBlock Name="txtbHorloge" Grid.Row="1" VerticalAlignment="Center"  Panel.ZIndex="1" HorizontalAlignment="Center"></TextBlock>
+            <ProgressBar Margin="5" Grid.Row="1"  Name="pbHorloge"></ProgressBar>
             
-            <!--Journal de combat-->
-            <TextBox  Name="txtbJournalCombat" Grid.Row="1" Margin="5" TextWrapping="Wrap" IsReadOnly="True" AcceptsReturn="True"></TextBox>
-            
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="4*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Border Background="White" CornerRadius="5" Margin="5,3,5,0"  HorizontalAlignment="Stretch" Grid.Column="2" Grid.ColumnSpan="2">
+                    <Label Name="lblNomEnnemi" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                </Border>
+
+                <Border Background="White" CornerRadius="5" Margin="0,3,5,0" HorizontalAlignment="Stretch" Grid.Column="0" Grid.ColumnSpan="2">
+                    <Label Name="lblNomPerso" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                </Border>
+
+                <!--Journal de combat-->
+                <TextBox Grid.Row="2"  Name="txtAttaquesPerso" Margin="5" TextWrapping="Wrap" IsReadOnly="True" AcceptsReturn="True"></TextBox>
+                <TextBox Grid.Row="2" Grid.Column="1" Name="txtDmgPerso" Margin="5" TextWrapping="Wrap" IsReadOnly="True" AcceptsReturn="True"></TextBox>
+                <TextBox Grid.Row="2" Grid.Column="3" Name="txtAttaquesEnnemi" Margin="5" TextWrapping="Wrap" IsReadOnly="True" AcceptsReturn="True"></TextBox>
+                <TextBox Grid.Row="2" Grid.Column="2" Name="txtDmgEnnemi" Margin="5" TextWrapping="Wrap" IsReadOnly="True" AcceptsReturn="True"></TextBox>
+            </Grid>
             <!--Boutons d'actions-->
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
@@ -127,15 +148,14 @@
             <!--Nom, niveau-->
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <Border Background="White" CornerRadius="5" Margin="5,3,5,0"  HorizontalAlignment="Stretch" Grid.Column="0">
-                    <Label Name="lblNomEnnemi" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
-                </Border>
-                <Border Background="White" CornerRadius="5" Margin="0,3,5,0" HorizontalAlignment="Stretch" Grid.Column="1">
-                    <Label Name="lblNiveauEnnemi" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                <Border Background="White" CornerRadius="5" Grid.ColumnSpan="2" Margin="0,3,5,0" HorizontalAlignment="Stretch" Grid.Column="1">
+                    <Label Name="lblNiveauEnnemi" Content="Niveau: " HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
                 </Border>
             </Grid>
 

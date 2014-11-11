@@ -233,10 +233,10 @@ namespace Combaxe___New.écrans
         {
             this.imgPerso.Source = VarGlobales.Personnage.Image;
             lblNomPerso.Content = VarGlobales.Personnage.Nom;
-            lblNiveauPerso.Content = VarGlobales.Personnage.Niveau;
-            lblViePerso.Content = VarGlobales.Personnage.Vie.ToString() + "/" + VarGlobales.Personnage.VieMaximale.ToString();
-            lblEnergiePerso.Content = VarGlobales.Personnage.Energie.ToString() + "/" + VarGlobales.Personnage.EnergieMaximale.ToString();
-            lblExperiencePerso.Content = VarGlobales.Personnage.Experience + "/" + VarGlobales.Personnage.ExperienceMaximale.ToString();
+            lblNiveauPerso.Content =+ VarGlobales.Personnage.Niveau;
+            lblViePerso.Content = "Points de vie (PV): "+ VarGlobales.Personnage.Vie.ToString() + "/" + VarGlobales.Personnage.VieMaximale.ToString();
+            lblEnergiePerso.Content = "Points d'énergie (PE): " + VarGlobales.Personnage.Energie.ToString() + "/" + VarGlobales.Personnage.EnergieMaximale.ToString();
+            lblExperiencePerso.Content = "Points d'expérience (XP): " + VarGlobales.Personnage.Experience + "/" + VarGlobales.Personnage.ExperienceMaximale.ToString();
             tempsRecharge.Add(0);
             tempsRecharge.Add(0);
             tempsRecharge.Add(0);
@@ -253,9 +253,9 @@ namespace Combaxe___New.écrans
             ennemi.ennemiAleatoire();
             imgEnnemi.Source = VarGlobales.Ennemi.Image;
             lblNomEnnemi.Content = VarGlobales.Ennemi.Nom;
-            lblNiveauEnnemi.Content = VarGlobales.Ennemi.Niveau;
-            lblVieEnnemi.Content = Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20) / 3.1416).ToString() + "/" + Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20) / 3.1416).ToString();
-            lblEnergieEnnemi.Content = Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * 10) / 3.1416).ToString() + "/" + Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * 10) / 3.1416).ToString();
+            lblNiveauEnnemi.Content =+ VarGlobales.Ennemi.Niveau;
+            lblVieEnnemi.Content = "Points de vie (PV): " + Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20) / 3.1416).ToString() + "/" + Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20) / 3.1416).ToString();
+            lblEnergieEnnemi.Content = "Points d'énergie (PE): " + Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * 10) / 3.1416).ToString() + "/" + Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * 10) / 3.1416).ToString();
         }
 
         /// <summary>
@@ -330,16 +330,16 @@ namespace Combaxe___New.écrans
         /// </summary>
         private void majInterface(bool estEnnemi)
         {
-            lblEnergieEnnemi.Content = combat.EnergieEnnemi + "/" + Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * 10) / 3.1416).ToString();
-            lblEnergiePerso.Content = VarGlobales.Personnage.Energie + "/" + VarGlobales.Personnage.EnergieMaximale;
+            lblEnergieEnnemi.Content = "Points d'énergie (PE): " + combat.EnergieEnnemi + "/" + Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * 10) / 3.1416).ToString();
+            lblEnergiePerso.Content = "Points d'énergie (PE): " + VarGlobales.Personnage.Energie + "/" + VarGlobales.Personnage.EnergieMaximale;
             lblVieEnnemi.Content = combat.VieEnnemi + "/" + Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20) / 3.1416).ToString();
             if (VarGlobales.Personnage.Vie <= 0)
             {
-                lblViePerso.Content = 0 + "/" + VarGlobales.Personnage.VieMaximale;
+                lblViePerso.Content = "Points de vie (PV): " + 0 + "/" + VarGlobales.Personnage.VieMaximale;
             }
             else 
             {
-                lblViePerso.Content = VarGlobales.Personnage.Vie + "/" + VarGlobales.Personnage.VieMaximale;
+                lblViePerso.Content = "Points de vie (PV): " + VarGlobales.Personnage.Vie + "/" + VarGlobales.Personnage.VieMaximale;
             }
             
             if((btnChoisirActions.IsEnabled == false && estEnnemi == false) || (estEnnemi == true && btnItems.IsEnabled == false))
@@ -422,7 +422,10 @@ namespace Combaxe___New.écrans
                 if(VarGlobales.Personnage.Vie > VarGlobales.Personnage.VieMaximale)
                     VarGlobales.Personnage.Vie = VarGlobales.Personnage.VieMaximale;
 
-                txtbJournalCombat.Text += "Vous avez régénéré " + VarGlobales.Personnage.VieMaximale*30/100 + " points de vie\n";
+                txtAttaquesPerso.Text += "Potion vie\n\n";
+
+                txtDmgPerso.Text += "+"+ VarGlobales.Personnage.VieMaximale * 30 / 100+ " PV \n\n";
+
                 VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Quantite -= 1;
                 majInterface(true);
             }
@@ -432,7 +435,10 @@ namespace Combaxe___New.écrans
                 if(VarGlobales.Personnage.Energie > VarGlobales.Personnage.EnergieMaximale)
                     VarGlobales.Personnage.Energie = VarGlobales.Personnage.EnergieMaximale;
                 VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Energie].Quantite -= 1;
-                txtbJournalCombat.Text += "Vous avez régénéré " + VarGlobales.Personnage.EnergieMaximale * 30 / 100 + " points d'énergie\n";
+                txtAttaquesPerso.Text += "Potion énergie \n\n";
+
+                txtDmgPerso.Text += "+" + VarGlobales.Personnage.EnergieMaximale * 30 / 100 + " PE \n\n";
+
                 majInterface(true);
             }
         }
@@ -477,8 +483,8 @@ namespace Combaxe___New.écrans
                                 combat.VieEnnemi = 0;
                             }
                             VarGlobales.Personnage.Energie -= VarGlobales.Personnage.ListeCompetence[num].EnergieUtilise;
-                            txtbJournalCombat.Text += VarGlobales.Personnage.Nom + " a utilisé " + VarGlobales.Personnage.ListeCompetence[num].Nom + ", ce qui a infligé " + valeur.ToString() + " dégâts.\n";
-
+                            txtAttaquesPerso.Text += VarGlobales.Personnage.ListeCompetence[num].Nom + "\n\n";
+                            txtDmgPerso.Text += valeur.ToString() + "\n\n"; ;
                         }
                     }
                     else
@@ -487,8 +493,8 @@ namespace Combaxe___New.écrans
                         if (VarGlobales.Personnage.Vie > VarGlobales.Personnage.VieMaximale)
                             VarGlobales.Personnage.Vie = VarGlobales.Personnage.VieMaximale;
 
-                        VarGlobales.Personnage.Energie -= VarGlobales.Personnage.ListeCompetence[num].EnergieUtilise;
-                        txtbJournalCombat.Text += VarGlobales.Personnage.Nom + " a utilisé " + VarGlobales.Personnage.ListeCompetence[num].Nom + ", ce qui le protège de " + valeur.ToString() + ".\n";
+                        txtAttaquesPerso.Text += VarGlobales.Personnage.ListeCompetence[num].Nom + "\n\n";
+                        txtDmgPerso.Text += "+"+ valeur.ToString()+" PV \n\n";
                     }
 
                     majInterface(false);// mettre à jour l'interface
@@ -499,7 +505,8 @@ namespace Combaxe___New.écrans
                         PersonnageService personnageService = new PersonnageService();
                         int expGagner = combat.ExperienceRecu();
 
-                        txtbJournalCombat.Text += VarGlobales.Ennemi.Nom + " a péri ! en " + nbTour + " tours\n";
+                        txtAttaquesEnnemi.Text += VarGlobales.Ennemi.Nom;
+                        txtDmgEnnemi.Text += "MORT\n\n";
                         personnageService.MAJVieEnergie(false);
 
                         combat.VieEnnemi = 0;
@@ -546,21 +553,14 @@ namespace Combaxe___New.écrans
                         {
                             menuPrincipal();
                         }
-                    }
-                    else
-                    {
-                        if (!estUtilisable)
-                        {
-                            txtbJournalCombat.Text += "Vous n'avez pas assez d'énergie !\n";
-                        }
-                        else
-                        { 
-                            txtbJournalCombat.Text += "Vous devez attendre que la compétence se charge !\n";
-                        }
-                    }
-                    txtbJournalCombat.ScrollToEnd();
-   
+                    } 
                 }
+                else
+                {
+                        txtAttaquesPerso.Text += "Pas assez d'énergie!\n\n";
+                }
+                txtAttaquesPerso.ScrollToEnd();
+                txtDmgPerso.ScrollToEnd();
             }
         }
 
@@ -587,9 +587,10 @@ namespace Combaxe___New.écrans
 
                 if (VarGlobales.Personnage.Vie <= 0)
                 {
+                    int xpPerdu = (int)(VarGlobales.Personnage.Experience * 0.50);
                     DefaitePersonnage();
                     MajBarreExperience((int)(brdMaxWidth.ActualWidth));
-                    VarGlobales.Personnage.Mort(nbTour, horloge);
+                    VarGlobales.Personnage.Mort(nbTour, horloge, xpPerdu);
                     menuPrincipal();
                 }
 
@@ -638,7 +639,8 @@ namespace Combaxe___New.écrans
                 {
                     VarGlobales.Personnage.Vie -= valeur;
                     combat.EnergieEnnemi -= VarGlobales.Ennemi.ListeCompetence[num].EnergieUtilise;
-                    txtbJournalCombat.Text += VarGlobales.Ennemi.Nom + " a utilisé " + VarGlobales.Ennemi.ListeCompetence[num].Nom + ", ce qui a infligé " + valeur.ToString() + " dégâts.\n";
+                    txtAttaquesEnnemi.Text += VarGlobales.Ennemi.ListeCompetence[num].Nom + "\n\n";
+                    txtDmgEnnemi.Text += valeur.ToString() + "\n\n";
                 }
             }
             else
@@ -649,7 +651,7 @@ namespace Combaxe___New.écrans
                     combat.VieEnnemi = combat.VieMaximale;
                 }
                 combat.EnergieEnnemi -= VarGlobales.Ennemi.ListeCompetence[num].EnergieUtilise;
-                txtbJournalCombat.Text += VarGlobales.Ennemi.Nom + " a utilisé " + VarGlobales.Ennemi.ListeCompetence[num].Nom + ", ce qui le protège de " + valeur.ToString() + ".\n";
+                txtDmgEnnemi.Text += "+"+ valeur.ToString() + " PV \n\n";
             }
             // on vérifie quel est le type de compétence
             majInterface(true);// mettre à jour l'interface
@@ -659,15 +661,19 @@ namespace Combaxe___New.écrans
             {
                 PersonnageService personnageService = new PersonnageService();
 
-                txtbJournalCombat.Text += VarGlobales.Personnage.Nom + " a péri " + nbTour + " tours\n";
+                txtAttaquesPerso.Text += VarGlobales.Personnage.Nom + "\n\n";
+                txtDmgPerso.Text += "MORT\n\n";
                 VarGlobales.Personnage.Vie = 0;
+
+                int xpPerdu = (int)(VarGlobales.Personnage.Experience* 0.5);
 
                 DefaitePersonnage();
                 MajBarreExperience((int)(brdMaxWidth.ActualWidth));
-                VarGlobales.Personnage.Mort(nbTour, horloge);
+                VarGlobales.Personnage.Mort(nbTour, horloge, xpPerdu);
                 menuPrincipal();
             }
-            txtbJournalCombat.ScrollToEnd();
+            txtAttaquesPerso.ScrollToEnd();
+            txtDmgPerso.ScrollToEnd();
             //On redémarre l'horloge de combat
             chronometreCombat();
         }
@@ -676,7 +682,8 @@ namespace Combaxe___New.écrans
         {
             if(temps == TimeSpan.FromSeconds(0))
             {
-                txtbJournalCombat.Text += "Le temps s'est écoulé, c'est au tour de l'ennemi\n";
+                txtAttaquesPerso.Text += "Temps écoulé\n\n";
+                txtDmgPerso.Text += "\n\n";
                 majInterface(false); // pour mettre a jour selon le nb tour
                 DelaiAttaqueEnnemi();
             }
@@ -686,7 +693,10 @@ namespace Combaxe___New.écrans
                 {
                     if(nbTour==0)
                     {
-                        txtbJournalCombat.Text += "Vous êtes plus rapide que l'ennemi, donc vous êtes le premier à commencer\n";
+                        txtAttaquesPerso.Text += "Rapidité\n\n";
+                        txtDmgPerso.Text += "<- \n\n";
+                        txtDmgEnnemi.Text += "\n";
+                        txtAttaquesEnnemi.Text += "\n";
                     }
                     actionBouton(btnClique);
 
@@ -701,7 +711,10 @@ namespace Combaxe___New.écrans
                 {
                     if (nbTour == 0)
                     {
-                        txtbJournalCombat.Text += "L'ennemi est plus rapide, donc il est le premier à commencer\n";
+                        txtAttaquesEnnemi.Text += "Rapidité\n\n";
+                        txtDmgEnnemi.Text += "L'ennemi commence.\n\n";
+                        txtDmgPerso.Text += "\n";
+                        txtAttaquesPerso.Text += "\n";
                     }
                     DelaiAttaqueEnnemi();
                     if(VarGlobales.Personnage.Vie > 0)
@@ -720,7 +733,8 @@ namespace Combaxe___New.écrans
 
             MajBarreExperience((int)(brdMaxWidth.ActualWidth));
             //On donne l'expérience au joueur - Anthony Gauthier 30/10/2014
-            txtbJournalCombat.Text += "Vous gagnez " + experienceGagner + " points d'expérience!";
+            txtAttaquesPerso.Text += "Victoire!\n\n ";
+            txtDmgPerso.Text += "+"+ experienceGagner.ToString() + " XP \n\n";
             VarGlobales.Personnage.Experience = VarGlobales.Personnage.Experience + experienceGagner;
 
             //Si l'expérience gagné est plus grande ou égale à l'expérience maximale, on monte de niveau
@@ -775,7 +789,8 @@ namespace Combaxe___New.écrans
             PersonnageService persoService = new PersonnageService();
 
             //On retire l'expérience au joueur - Anthony Gauthier 30/10/2014
-            txtbJournalCombat.Text += "Vous perdez " + experiencePerdu + " points d'expérience...";
+            txtAttaquesPerso.Text += "Défaite!\n\n ";
+            txtDmgPerso.Text += "-"+ experiencePerdu.ToString() + " XP \n\n";
             VarGlobales.Personnage.Experience = VarGlobales.Personnage.Experience - experiencePerdu;
 
             //Si l'expérience perdu est plus petite ou égale à 0, on gèle l'expérience du joueur à 0
@@ -796,7 +811,6 @@ namespace Combaxe___New.écrans
             //On calcule l'expérience perdu - Anthony Gauthier 30/10/2014
             int xpPerdu = (int)(VarGlobales.Personnage.Experience * 0.50);
             ExperienceDefaite(xpPerdu);
-            txtbJournalCombat.Text += VarGlobales.Personnage.Nom + " a péri " + nbTour + " tours\n";
         }
 
         /// <summary>
