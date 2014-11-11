@@ -1,1216 +1,152 @@
-﻿/*DÉBUT PRATIQUE*/
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Épée de pratique'
-    ,	7.07
-    ,	2
-    ,	4
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Bâton de pratique'
-    ,	7.07
-    ,	2
-    ,	4
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Marteau de pratique'
-    ,	4.71
-    ,	1
-    ,	3
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Bouclier')
-    ,	'Bouclier de pratique'
-    ,	4.71
-    ,	0
-    ,	0
-    );
+﻿INSERT INTO EquipementsModeles
+(idModele, niveauEquipement, nom, prix, degatMin, degatMax)
+VALUES
+/*DÉBUT PRATIQUE*/
+    ((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),1,'Épée de pratique',7.07,2,4),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),1,'Bâton de pratique',7.07,2,4),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),1,'Marteau de pratique',4.71,1,3),
+	((SELECT idModele FROM Modeles WHERE nom='Bouclier'),1,'Bouclier de pratique',4.71,0,0),
 /* FIN PRATIQUE */
 
 /*DÉBUT ROUILLÉ*/
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Épée rouillée'
-    ,	134.30
-    ,	3
-    ,	6
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Bâton rouillé'
-    ,	134.30
-    ,	3
-    ,	6
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Marteau rouillé'
-    ,	89.54
-    ,	2
-    ,	5
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Bouclier')
-    ,	'Bouclier rouillé'
-    ,	89.54
-    ,	0
-    ,	0
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Dague rouillée'
-    ,	89.54
-    ,	2
-    ,	5
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Baguette rouillée'
-    ,	89.54
-    ,	2
-    ,	5
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Hache rouillée'
-    ,	134.30
-    ,	3
-    ,	6
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Lance rouillée'
-    ,	134.30
-    ,	3
-    ,	6
-    );
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),3,'Épée rouillée',134.30,3,6),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),3,'Bâton rouillé',134.30,3,6),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),3,'Marteau rouillé',89.54,2,5),
+	((SELECT idModele FROM Modeles WHERE nom='Bouclier'),3,'Bouclier rouillé',89.54,0,0),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),3,'Dague rouillée',89.54,2,5),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),3,'Baguette rouillée',89.54,2,5),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),3,'Hache rouillée',134.30,3,6),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),3,'Lance rouillé',134.30,3,6),
 /* FIN ROUILLÉ */
 
 /*DÉBUT MAGIQUE*/
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Épée magique'
-    ,	311.02
-    ,	4
-    ,	8
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Bâton magique'
-    ,	311.02
-    ,	4
-    ,	8
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Marteau magique'
-    ,	207.35
-    ,	2
-    ,	6
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Bouclier')
-    ,	'Bouclier magique'
-    ,	207.35
-    ,	0
-    ,	0
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Dague magique'
-    ,	207.35
-    ,	2
-    ,	6
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Baguette magique'
-    ,	207.35
-    ,	2
-    ,	6
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Hache magique'
-    ,	311.02
-    ,	4
-    ,	8
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Lance magique'
-    ,	311.02
-    ,	4
-    ,	8
-    );
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),4,'Épée magique',311.02,4,8),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),4,'Bâton magique',311.02,4,8),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),4,'Marteau magique',207.35,2,6),
+	((SELECT idModele FROM Modeles WHERE nom='Bouclier'),4,'Bouclier magique',207.35,2,6),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),4,'Dague magique',207.35,2,6),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),4,'Baguette magique',207.35,2,6),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),4,'Hache magique',311.02,4,8),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),4,'Lance magique',311.02,4,8),
 /* FIN MAGIQUE */
 
 /*DÉBUT ÉLÉMENTAL*/
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Épée élémentale'
-    ,	1032.02
-    ,	6
-    ,	12
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Bâton élémental'
-    ,	1032.02
-    ,	6
-    ,	12
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Marteau élémental'
-    ,	688.01
-    ,	3
-    ,	9
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Bouclier')
-    ,	'Bouclier élémental'
-    ,	688.01
-    ,	0
-    ,	0
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Dague élémentale'
-    ,	688.01
-    ,	3
-    ,	9
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Baguette élémentale'
-    ,	688.01
-    ,	3
-    ,	9
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Hache élémentale'
-    ,	1032.02
-    ,	6
-    ,	12
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Lance élémentale'
-    ,	1032.02
-    ,	6
-    ,	12
-    );
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),6,'Épée élémentale',1032.02,6,12),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),6,'Bâton élémental',1032.02,6,12),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),6,'Marteau élémental',688.01,3,9),
+	((SELECT idModele FROM Modeles WHERE nom='Bouclier'),6,'Bouclier élémental',688.01,3,9),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),6,'Dague élémentale',688.01,3,9),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),6,'Baguette élémentale',688.01,3,9),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),6,'Hache élémentale',1032.02,6,12),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),6,'Lance élémentale',1032.02,6,12),
 /* FIN ÉLÉMENTAL */
 
 /*DÉBUT BRONZE*/
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Épée de bronze'
-    ,	1632.84
-    ,	7
-    ,	14
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Bâton de bronze'
-    ,	1632.84
-    ,	7
-    ,	14
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Marteau de bronze'
-    ,	1088.56
-    ,	4
-    ,	11
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Bouclier')
-    ,	'Bouclier de bronze'
-    ,	1088.56
-    ,	0
-    ,	0
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Dague de bronze'
-    ,	1088.56
-    ,	4
-    ,	11
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Baguette de bronze'
-    ,	1088.56
-    ,	4
-    ,	11
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Hache de bronze'
-    ,	1632.84
-    ,	7
-    ,	14
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Lance de bronze'
-    ,	1632.84
-    ,	7
-    ,	14
-    );
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),7,'Épée de bronze',1632.84,7,14),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),7,'Bâton de bronze',1632.84,7,14),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),7,'Marteau de bronze',1088.56,4,11),
+	((SELECT idModele FROM Modeles WHERE nom='Bouclier'),7,'Bouclier de bronze',1088.56,0,0),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),7,'Dague de bronze',1088.56,4,11),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),7,'Baguette de bronze',1088.56,4,11),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),7,'Hache de bronze',1632.84,7,14),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),7,'Lance de bronze',1632.84,7,14),
 /* FIN BRONZE */
 
 /*DÉBUT FER*/
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Épée de fer'
-    ,	3456.54
-    ,	9
-    ,	18
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Bâton de fer'
-    ,	3456.54
-    ,	9
-    ,	18
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Marteau de fer'
-    ,	2304.36
-    ,	5
-    ,	14
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Bouclier')
-    ,	'Bouclier de fer'
-    ,	2304.36
-    ,	0
-    ,	0
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Dague de fer'
-    ,	2304.36
-    ,	5
-    ,	14
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Baguette de fer'
-    ,	2304.36
-    ,	5
-    ,	14
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Hache de fer'
-    ,	3456.54
-    ,	9
-    ,	18
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Lance de fer'
-    ,	3456.54
-    ,	9
-    ,	18
-    );
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),9,'Épée de fer',3456.54,9,18),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),9,'Bâton de fer',3456.54,9,18),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),9,'Marteau de fer',2304.36,5,14),
+	((SELECT idModele FROM Modeles WHERE nom='Bouclier'),9,'Bouclier de fer',2304.36,0,0),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),9,'Dague de fer',2304.36,5,14),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),9,'Baguette de fer',2304.36,5,14),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),9,'Hache de fer',3456.54,9,18),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),9,'Lance de fer',3456.54,9,18),
 /* FIN FER */
 
 /*DÉBUT ENCHANTÉ*/
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Épée enchantée'
-    ,	4735.96
-    ,	10
-    ,	20
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Bâton enchanté'
-    ,	4735.96
-    ,	10
-    ,	20
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Marteau enchanté'
-    ,	3157.30
-    ,	5
-    ,	15
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Bouclier')
-    ,	'Bouclier enchanté'
-    ,	3157.30
-    ,	0
-    ,	0
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Dague enchantée'
-    ,	3157.30
-    ,	5
-    ,	15
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Baguette enchantée'
-    ,	3157.30
-    ,	5
-    ,	15
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Hache enchantée'
-    ,	4735.96
-    ,	10
-    ,	20
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Lance enchantée'
-    ,	4735.96
-    ,	10
-    ,	20
-    );
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),10,'Épée enchantée',4735.96,10,20),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),10,'Bâton enchanté',4735.96,10,20),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),10,'Marteau enchanté',3157.30,5,15),
+	((SELECT idModele FROM Modeles WHERE nom='Bouclier'),10,'Bouclier enchanté',3157.30,0,0),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),10,'Dague enchantée',3157.30,5,15),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),10,'Baguette enchantée',3157.30,5,15),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),10,'Hache enchantée',4735.96,10,20),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),10,'Lance enchantée',4735.96,10,20),
 /* FIN ENCHANTÉ */
 
 /*DÉBUT MAUDIT*/
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Épée maudite'
-    ,	8171.30
-    ,	12
-    ,	24
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Bâton maudit'
-    ,	8171.30
-    ,	12
-    ,	24
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Marteau maudit'
-    ,	5447.53
-    ,	6
-    ,	18
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Bouclier')
-    ,	'Bouclier maudit'
-    ,	5447.53
-    ,	0
-    ,	0
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Dague maudite'
-    ,	5447.53
-    ,	6
-    ,	18
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Baguette maudite'
-    ,	5447.53
-    ,	6
-    ,	18
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Hache maudite'
-    ,	8171.30
-    ,	12
-    ,	24
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Lance maudite'
-    ,	8171.30
-    ,	12
-    ,	24
-    );
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),12,'Épée maudite',8171.30,12,24),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),12,'Bâton maudit',8171.30,12,24),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),12,'Marteau maudit',5447.53,6,18),
+	((SELECT idModele FROM Modeles WHERE nom='Bouclier'),12,'Bouclier maudit',5447.53,0,0),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),12,'Dague maudite',5447.53,6,18),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),12,'Baguette maudite',5447.53,6,18),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),12,'Hache maudite',8171.30,12,24),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),12,'Lance maudite',8171.30,12,24),
 /* FIN MAUDIT */
 
 /*DÉBUT SACRÉ*/
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Épée sacrée'
-    ,	10383.77
-    ,	13
-    ,	26
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Bâton sacré'
-    ,	10383.77
-    ,	13
-    ,	16
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Marteau sacré'
-    ,	6922.52
-    ,	7
-    ,	20
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Bouclier')
-    ,	'Bouclier sacré'
-    ,	6922.52
-    ,	0
-    ,	0
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Dague sacrée'
-    ,	6922.52
-    ,	7
-    ,	20
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Baguette sacrée'
-    ,	6922.52
-    ,	7
-    ,	20
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Hache sacrée'
-    ,	10383.77
-    ,	13
-    ,	26
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Lance sacrée'
-    ,	10383.77
-    ,	13
-    ,	26
-    );
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),13,'Épée sacrée',10383.77,13,26),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),13,'Bâton sacré',10383.77,13,26),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),13,'Marteau sacré',6922.52,7,20),
+	((SELECT idModele FROM Modeles WHERE nom='Bouclier'),13,'Bouclier sacré',6922.52,0,0),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),13,'Dague sacrée',6922.52,7,20),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),13,'Baguette sacrée',6922.52,7,20),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),13,'Hache sacrée',10383.77,13,26),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),13,'Lance sacrée',10383.77,13,26),
 /* FIN SACRÉ */
 
 /*DÉBUT CRYSTAL*/
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Épée de crystal'
-    ,	15939.69
-    ,	15
-    ,	30
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Bâton de crystal'
-    ,	15939.69
-    ,	15
-    ,	30
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Marteau de crystal'
-    ,	10626.46
-    ,	8
-    ,	23
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Bouclier')
-    ,	'Bouclier de crystal'
-    ,	10626.46
-    ,	0
-    ,	0
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Dague de crystal'
-    ,	10626.46
-    ,	8
-    ,	23
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Baguette de crystal'
-    ,	10626.46
-    ,	8
-    ,	23
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Hache de crystal'
-    ,	15939.69
-    ,	15
-    ,	30
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Lance de crystal'
-    ,	15939.69
-    ,	15
-    ,	30
-    );
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),15,'Épée de crystal',15939.69,15,30),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),15,'Bâton de crystal',15939.69,15,30),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),15,'Marteau de crystal',10626.46,8,23),
+	((SELECT idModele FROM Modeles WHERE nom='Bouclier'),15,'Bouclier de crystal',10626.46,0,0),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),15,'Dague de crystal',10626.46,8,23),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),15,'Baguette de crystal',10626.46,8,23),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),15,'Hache de crystal',15939.69,15,30),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),15,'Lance de crystal',15939.69,15,30),
 /* FIN CRYSTAL*/
 
 /*DÉBUT HÉROÏQUE*/
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Épée héroïque'
-    ,	19339.70
-    ,	16
-    ,	32
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Bâton héroïque'
-    ,	19339.70
-    ,	16
-    ,	32
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Marteau héroïque'
-    ,	12893.13
-    ,	8
-    ,	24
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Bouclier')
-    ,	'Bouclier héroïque'
-    ,	12893.13
-    ,	0
-    ,	0
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Dague héroïque'
-    ,	12893.13
-    ,	8
-    ,	24
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Baguette héroïque'
-    ,	12893.13
-    ,	8
-    ,	24
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Hache héroïque'
-    ,	19339.70
-    ,	16
-    ,	32
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Lance héroïque'
-    ,	19339.70
-    ,	16
-    ,	32
-    );
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),16,'Épée héroïque',19339.70,16,32),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),16,'Bâton héroïque',19339.70,16,32),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),16,'Marteau héroïque',12893.13,8,24),
+	((SELECT idModele FROM Modeles WHERE nom='Bouclier'),16,'Bouclier héroïque',12893.13,0,0),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),16,'Dague héroïque',12893.13,8,24),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),16,'Baguette héroïque',12893.13,8,24),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),16,'Hache héroïque',19339.70,16,32),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),16,'Lance héroïque',19339.70,16,32),
 /* FIN HÉROÏQUE */
 
 /*DÉBUT LÉGENDAIRE*/
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Épée légendaire'
-    ,	23192.08
-    ,	17
-    ,	34
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Bâton légendaire'
-    ,	23192.08
-    ,	17
-    ,	34
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Marteau légendaire'
-    ,	15461.38
-    ,	9
-    ,	26
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Bouclier')
-    ,	'Bouclier légendaire'
-    ,	15461.38
-    ,	0
-    ,	0
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Dague légendaire'
-    ,	15461.38
-    ,	9
-    ,	26
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Baguette légendaire'
-    ,	15461.38
-    ,	9
-    ,	26
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Hache légendaire'
-    ,	23192.08
-    ,	17
-    ,	34
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Lance légendaire'
-    ,	23192.08
-    ,	17
-    ,	34
-    );
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),18,'Épée légendaire',23192.08,17,34),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),18,'Bâton légendaire',23192.08,17,34),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),18,'Marteau légendaire',15461.38,9,26),
+	((SELECT idModele FROM Modeles WHERE nom='Bouclier'),18,'Bouclier légendaire',15461.38,0,0),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),18,'Dague légendaire',15461.38,9,26),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),18,'Baguette légendaire',15461.38,9,26),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),18,'Hache légendaire',23192.08,17,34),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),18,'Lance légendaire',23192.08,17,34),
 /* FIN LÉGENDAIRE */
 
 /*DÉBUT DIAMANT*/
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Épée de diamant'
-    ,	32367.12
-    ,	19
-    ,	38
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Bâton de diamant'
-    ,	32367.12
-    ,	19
-    ,	38
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Marteau de diamant'
-    ,	21578.08
-    ,	10
-    ,	29
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Bouclier')
-    ,	'Bouclier de diamant'
-    ,	21578.08
-    ,	0
-    ,	0
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Dague de diamant'
-    ,	21578.08
-    ,	10
-    ,	29
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Baguette de diamant'
-    ,	21578.08
-    ,	10
-    ,	29
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Hache de diamant'
-    ,	32367.12
-    ,	19
-    ,	38
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Lance de diamant'
-    ,	32367.12
-    ,	19
-    ,	38
-    );
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),19,'Épée de diamant',32367.12,19,38),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),19,'Bâton de diamant',32367.12,19,38),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),19,'Marteau de diamant',21578.08,10,29),
+	((SELECT idModele FROM Modeles WHERE nom='Bouclier'),19,'Bouclier de diamant',21578.08,0,0),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),19,'Dague de diamant',21578.08,10,29),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),19,'Baguette de diamant',21578.08,10,29),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),19,'Hache de diamant',32367.12,19,38),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),19,'Lance de diamant',32367.12,19,38),
 /* FIN DIAMAND */
 
 /*DÉBUT CÉLESTE*/
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Épée céleste'
-    ,	37746.32
-    ,	20
-    ,	40
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Bâton céleste'
-    ,	37746.32
-    ,	20
-    ,	40
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Marteau céleste'
-    ,	25164.22
-    ,	10
-    ,	30
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Bouclier')
-    ,	'Bouclier céleste'
-    ,	25164.22
-    ,	0
-    ,	0
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Dague céleste'
-    ,	25164.22
-    ,	10
-    ,	30
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à une main')
-    ,	'Baguette céleste'
-    ,	25164.22
-    ,	10
-    ,	30
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Hache céleste'
-    ,	37746.32
-    ,	20
-    ,	40
-    );
-
-    INSERT INTO EquipementsModeles
-    (idModele, nom, prix, degatMin, degatMax)
-    VALUES
-    (
-        (SELECT idModele FROM Modeles WHERE nom='Arme à deux mains')
-    ,	'Lance céleste'
-    ,	37746.32
-    ,	20
-    ,	40
-    );
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),20,'Épée céleste',37746.32,20,40),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),20,'Bâton céleste',37746.32,20,40),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),20,'Marteau céleste',25164.22,10,30),
+	((SELECT idModele FROM Modeles WHERE nom='Bouclier'),20,'Bouclier céleste',25164.22,0,0),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),20,'Dague céleste',25164.22,10,30),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),20,'Baguette céleste',25164.22,10,30),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),20,'Hache céleste',37746.32,20,40),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),20,'Lance céleste',37746.32,20,40);
 /* FIN CÉLESTE */
-

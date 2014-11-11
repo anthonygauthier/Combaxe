@@ -3,7 +3,7 @@ INSERT INTO Consommations
 VALUES
 (
 (SELECT idTypeConsommation FROM TypesConsommations WHERE nom='Vie')
-,'Potion de santé'
+,'Potion de vie'
 ,30
 ,120
 );
@@ -13,7 +13,7 @@ INSERT INTO Consommations
 VALUES
 (
 (SELECT idTypeConsommation FROM TypesConsommations WHERE nom='Énergie')
-,'Potion d\'énergie'
+,'Potion énergie'
 ,30
 ,120
 );

@@ -1,4 +1,4 @@
-﻿DROP TABLE IF EXISTS CompetencesProfessions;
+DROP TABLE IF EXISTS CompetencesProfessions;
 DROP TABLE IF EXISTS CompetencesEnnemis;
 DROP TABLE IF EXISTS Competences;
 DROP TABLE IF EXISTS TypesCompetences;
@@ -57,6 +57,7 @@ CREATE TABLE IF NOT EXISTS EquipementsModeles
 (
     idEquipementModele INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
 ,	idModele INT NOT NULL
+,	niveauEquipement INT NOT NULL
 ,	nom VARCHAR(51) NOT NULL
 ,	prix DOUBLE NOT NULL DEFAULT 0
 ,	image VARCHAR(255)

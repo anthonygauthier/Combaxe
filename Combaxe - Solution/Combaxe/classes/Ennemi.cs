@@ -45,12 +45,10 @@ namespace Combaxe___New.classes
         }
 
         /// <summary>
-        /// Définit le butin donné par l'ennemi - Anthony Gauthier 02/10/2014
+        /// Détermine l'inventaire du butin
         /// </summary>
-        /// <returns>Le nombre d'or donné par l'ennemi</returns>
-        public int butinDonne()
+        public void butinDonne()
         { 
-            return 0;
         }
 
         /// <summary>
@@ -81,7 +79,7 @@ namespace Combaxe___New.classes
             {
                 niveauMin = 1;
             }
-            int niveauMax = VarGlobales.Personnage.Niveau+2;
+            int niveauMax = VarGlobales.Personnage.Niveau+3;
             Random rand = new Random();
             int niveau = rand.Next(niveauMin, niveauMax);
 
