@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Combaxe___New.classes.services;
 
 namespace Combaxe___New.classes
 {
@@ -44,6 +45,7 @@ namespace Combaxe___New.classes
         {
             idJoueur = id;
             pseudo = user;
+            VarGlobales.HeureConnexion = DateTime.Now;
         }
 
         /// <summary>
@@ -61,6 +63,14 @@ namespace Combaxe___New.classes
         { 
             this.idJoueur = 0; // vaut 0 lorsque le joueur n'est pas connecté
             this.pseudo = "";
+            //DateTime tempsPasse = new DateTime(0, 0, 0);
+            //DateTime now = DateTime.Now;
+            //tempsPasse = DateDiff(now.TimeOfDay - VarGlobales.HeureConnexion.TimeOfDay);
+
+            //string format = "hh:mm:ss";
+
+            //StatistiqueService statsService = new StatistiqueService();
+            //statsService.miseAjourStatistiques("tempsDeJeu = tempsDeJeu + " + tempsPasse.ToString(format));
         }
 
         /// <summary>

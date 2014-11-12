@@ -34,6 +34,8 @@ namespace Combaxe___New.écrans
             chargerPersonnage();
             combat = new Combat(VarGlobales.Ennemi);
             chronometreCombat();
+            StatistiqueService statsService = new StatistiqueService();
+            statsService.miseAjourStatistiques("nombreDeCombat = nombreDeCombat+1");
         }
 
         //On déclare les variables nécéssaires aux différents délais/timers - Anthony Gauthier
@@ -478,6 +480,8 @@ namespace Combaxe___New.écrans
                         if (!esquive)
                         {
                             combat.VieEnnemi -= valeur;
+                            StatistiqueService statsService = new StatistiqueService();
+                            statsService.miseAjourStatistiques("dommageTotal =  DommageTotal + "+ valeur + ", nombreAttaque = nombreAttaque+1");
                             if (combat.VieEnnemi <= 0)
                             {
                                 combat.VieEnnemi = 0;
@@ -779,6 +783,8 @@ namespace Combaxe___New.écrans
                 persoService.MiseAJourExperience();
                 lblExperiencePerso.Content = VarGlobales.Personnage.Experience.ToString() + "/" + VarGlobales.Personnage.ExperienceMaximale.ToString();
             }
+            StatistiqueService statsService = new StatistiqueService();
+            statsService.miseAjourStatistiques("victoire = victoire + 1");
         }
 
         /// <summary>
@@ -811,6 +817,8 @@ namespace Combaxe___New.écrans
             //On calcule l'expérience perdu - Anthony Gauthier 30/10/2014
             int xpPerdu = (int)(VarGlobales.Personnage.Experience * 0.50);
             ExperienceDefaite(xpPerdu);
+            StatistiqueService statsService = new StatistiqueService();
+            statsService.miseAjourStatistiques("defaite = defaite + 1");
         }
 
         /// <summary>

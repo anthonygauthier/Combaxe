@@ -45,7 +45,7 @@ namespace Combaxe___New.classes
         /// <param name="dmgTotal">dommage total effectué par le personnage</param>
         /// <param name="moyDmg">moyenne de domage effectué par le personnage</param>
         /// <param name="nbrAtk">nombre d'attaques effectuées par le personnage</param>
-        public Statistique(int id, TimeSpan temps, int nbrComb, int nbrVic, int nbrDef, int dmgTotal, int moyDmg, int nbrAtk)
+        public Statistique(int id, TimeSpan temps, int nbrComb, int nbrVic, int nbrDef, int dmgTotal, int nbrAtk)
         {
             idStatistique = id;
             tempsDeJeu = temps;
@@ -53,7 +53,8 @@ namespace Combaxe___New.classes
             nombreVictoires = nbrVic;
             nombreDefaites = nbrDef;
             dommageTotal = dmgTotal;
-            moyenneDommage = moyDmg;
+            moyenneDommage = dmgTotal/nbrAtk;
+;
             nombreAttaque = nbrAtk;
         }
 

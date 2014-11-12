@@ -26,11 +26,11 @@ namespace Combaxe___New.classes.services
         /// <returns>un objet de type statistique</returns>
         public Statistique SelectionStatsPersonnage(string where)
         {
-            string reqSelect = "SELECT idStatistique, tempsDeJeu, nombreDeCombat, victoire, defaite, dommageTotal, moyenneDommage, nombreAttaque FROM Statistiques WHERE " + where + ";";
+            string reqSelect = "SELECT idStatistique, tempsDeJeu, nombreDeCombat, victoire, defaite, dommageTotal, nombreAttaque FROM Statistiques WHERE " + where + ";";
             int nbRow = 0;
             List<string>[] lstStats;
             Statistique Stats = null;
-            lstStats = bdCombaxe.selection(reqSelect, 8, ref nbRow);
+            lstStats = bdCombaxe.selection(reqSelect, 7, ref nbRow);
 
             for (int i = 0; i < nbRow; i++)
             {
@@ -40,12 +40,28 @@ namespace Combaxe___New.classes.services
                 int nbVictoire = Convert.ToInt32(lstStats[i][3]);
                 int nbDefaite = Convert.ToInt32(lstStats[i][4]);
                 int dmTotal = Convert.ToInt32(lstStats[i][5]);
-                int dmMoy = Convert.ToInt32(lstStats[i][6]); 
-                int nbAtt = Convert.ToInt32(lstStats[i][7]);
+                int nbAtt = Convert.ToInt32(lstStats[i][6]);
 
-                Stats = new Statistique(id, tmjeu, nbCombat, nbVictoire, nbDefaite, dmTotal, dmMoy, nbAtt);
+                Stats = new Statistique(id, tmjeu, nbCombat, nbVictoire, nbDefaite, dmTotal, nbAtt);
             }
             return Stats;
+        }
+
+        /// <summary>
+        /// Pour mettre à jour les stastistique du jeu, tommy gingras
+        /// </summary>
+        /// <param name="champs">la query</param>
+        public void miseAjourStatistiques(string champs)
+        {
+            //pour aller chercher le bon id : 
+            PersonnageService persoService = new PersonnageService();
+            if(VarGlobales.Personnage.IdPersonnage > 0)
+            {
+                int id = persoService.idStatistique(VarGlobales.Personnage.IdPersonnage);
+                string majRequete = "UPDATE Statistiques SET " + champs + " WHERE idStatistique = " + id + ";";
+                // champs = reponse where idStatistique
+                bdCombaxe.maj(majRequete);
+            }
         }
     }
 }

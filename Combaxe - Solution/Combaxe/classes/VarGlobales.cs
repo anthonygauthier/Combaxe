@@ -21,5 +21,6 @@ namespace Combaxe___New.classes
         public static bool aMonterNiveau { get; set; }
         public static bool fermerModifCaracteristique { get; set; }
         public static bool aAssezEnergie { get; set; }
+        public static DateTime HeureConnexion { get; set; }
     }
 }
