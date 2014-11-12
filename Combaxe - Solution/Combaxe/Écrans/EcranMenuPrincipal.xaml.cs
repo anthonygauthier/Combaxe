@@ -43,6 +43,9 @@ namespace Combaxe___New.écrans
             }
         }
 
+        DispatcherTimer horloge;
+        TimeSpan temps;
+
         //Méthode du bouton Combat - Anthony Gauthier 23/10/2014
         private void btnCombat_Click(object sender, RoutedEventArgs e)
         {
@@ -131,8 +134,6 @@ namespace Combaxe___New.écrans
         private void btnTaverne_Click(object sender, RoutedEventArgs e)
         {
             var Repos = new EcranRepos();
-            DispatcherTimer horloge;
-            TimeSpan temps;
             PersonnageService persoService = new PersonnageService();
 
             persoService.RemiseDeVieEtEnergie();
@@ -154,7 +155,7 @@ namespace Combaxe___New.écrans
             Repos.Show();
 
             //On initialise un timer égal à celui du progress bar de l'écran de repos pour déterminer quand nous allons rendre la fenêtre utilisable à nouveau
-            temps = TimeSpan.FromSeconds(10);
+            temps = TimeSpan.FromSeconds(6);
 
             horloge = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
@@ -171,6 +172,7 @@ namespace Combaxe___New.écrans
                     {
                         this.WindowStyle = WindowStyle.SingleBorderWindow;
                         this.ResizeMode = ResizeMode.CanResize;
+                        horloge.Stop();
                     }
                     
                 }

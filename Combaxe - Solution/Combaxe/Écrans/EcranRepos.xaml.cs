@@ -33,7 +33,7 @@ namespace Combaxe___New.écrans
         private void tempsDeRepos()
         {
             //On initialise le temps de l'horloge et la progress bar
-            temps = TimeSpan.FromSeconds(10);
+            temps = TimeSpan.FromSeconds(6);
             pbRepos.Maximum = temps.TotalSeconds;
             pbRepos.Value = pbRepos.Minimum;
             this.ResizeMode = ResizeMode.NoResize;
@@ -45,7 +45,7 @@ namespace Combaxe___New.écrans
                 temps = temps.Add(TimeSpan.FromSeconds(1));
                 pbRepos.Value = temps.Seconds;
 
-                if(temps == TimeSpan.FromSeconds(10))
+                if(temps == TimeSpan.FromSeconds(6))
                 {
                     this.Close();
                     horloge.Stop();

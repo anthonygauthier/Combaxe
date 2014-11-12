@@ -4,11 +4,13 @@
         Title="EcranRepos" Height="100" Width="300" WindowStyle="None" Background="Black" Opacity="0.8" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Topmost="True">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="8*"></RowDefinition>
-            <RowDefinition Height="15*"></RowDefinition>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Label HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center" Content="Votre personnage se repose..."></Label>
+        <Label HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center" Height="42" Margin="50,4" Width="200">
+            <TextBlock TextAlignment="Center">Votre personnage se repose... <LineBreak/> Sa vie et son énergie se remplissent.</TextBlock>
+        </Label>
         <ProgressBar Name="pbRepos" Grid.Row="1" Margin="10"></ProgressBar>
     </Grid>
 </Window>
