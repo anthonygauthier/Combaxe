@@ -254,6 +254,7 @@ namespace Combaxe___New.écrans
         {
             Ennemi ennemi = new Ennemi();
             ennemi.ennemiAleatoire();
+            VarGlobales.Ennemi.butinDonne();
             imgEnnemi.Source = VarGlobales.Ennemi.Image;
             lblNomEnnemi.Content = VarGlobales.Ennemi.Nom;
             lblNiveauEnnemi.Content = lblNiveauEnnemi.Content + VarGlobales.Ennemi.Niveau.ToString();

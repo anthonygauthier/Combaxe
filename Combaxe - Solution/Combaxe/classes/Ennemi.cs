@@ -48,7 +48,14 @@ namespace Combaxe___New.classes
         /// Détermine l'inventaire du butin
         /// </summary>
         public void butinDonne()
-        { 
+        {
+            Inventaire = new Inventaire();
+            //Calcule l'argent das le butin
+            Random rand = new Random();
+            int argentMin = Convert.ToInt32(((Niveau / 2) + (Niveau * Niveau * Niveau)) * 3.1416);
+            int argentMax = Convert.ToInt32(((Niveau / 2) + (Niveau * Niveau * Niveau)) * 3.1416 * 1.5);
+            Inventaire.argent = rand.Next(argentMin, argentMax);
+            Inventaire.listeEquipement = equipementButin();
         }
 
         /// <summary>
@@ -191,6 +198,42 @@ namespace Combaxe___New.classes
             chanceAttaque.Add(pourcentageChange.ToString());
 
             return chanceAttaque;
+        }
+
+        private List<Equipement> equipementButin()
+        {
+            EquipementService equipementService = new EquipementService();
+            List<Equipement> lstEquipementButin = new List<Equipement>();
+            Random rand = new Random();
+
+            //Retrieve tous les équipements qui sont du niveau de l'ennemi
+            List<Equipement> lstEquipement = equipementService.retrieveEquipements(VarGlobales.Ennemi.Niveau);
+
+            //Si la liste d'équipement est vide, on retrieve tous les équipements qui sont inferieur de 1 du niveau de l'ennemi
+            if(lstEquipement.Count() == 0)
+            {
+                lstEquipement = equipementService.retrieveEquipements(VarGlobales.Ennemi.Niveau-1);
+            }
+            //Random entre 0 et 4 pour savoir le nombre d'equipement qui seront dans le butin
+            int nombreButin = rand.Next(4);
+            int noEquipementButin; //Variable qui sera égal au numero de l'équipement de la liste qui se retrouvera dans le butin
+            //Genere x random selon le nombre d'equipement qui a dans le butin pour savoir quel equipement sera dans le butin
+            for (int i = 0; i < nombreButin; i++)
+            {
+                noEquipementButin = rand.Next(lstEquipement.Count());
+                //Ajoute l'equipement dans la liste
+                lstEquipementButin.Add(lstEquipement[noEquipementButin]);
+
+                //Retire l'équipement de lstEquipement pour ne pas qu'il soit rechoisi 
+                //puisque l'on veut que l'équipement puisse être dans le butin maximum une fois
+                for (int j = noEquipementButin; j < lstEquipement.Count()-1; j++)
+                {
+                    lstEquipement[j] = lstEquipement[j + 1];
+                }
+                lstEquipement.RemoveAt(lstEquipement.Count() - 1);
+            }
+            //Retourne la liste
+            return lstEquipementButin;
         }
     }
 }

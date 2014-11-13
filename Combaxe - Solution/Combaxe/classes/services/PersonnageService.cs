@@ -136,9 +136,6 @@ namespace Combaxe___New.classes.services
             inventaireService.InsertionInventaire();
             idInventaire = bdCombaxe.lastInsertId();
 
-            //On insert les statistiques et on sauvegarde le id
-            statistiqueService.InsertionStatistiques();
-            idStatistique = bdCombaxe.lastInsertId();
             // On va chercher la bonne sélection
             //string imageURL = "";
             Profession Prof = professionService.RetrieveIdProfessionAvecId(idProfession);
@@ -161,6 +158,10 @@ namespace Combaxe___New.classes.services
             caracteristiqueService.InsertCaracteristique(Caracteristiques.Vie.ToString(), idPersonnage, valVie);
             caracteristiqueService.InsertCaracteristique(Caracteristiques.Energie.ToString(), idPersonnage, valEnergie);
             caracteristiqueService.InsertCaracteristique(Caracteristiques.Defense.ToString(), idPersonnage, valDefense);
+
+            //On insert les statistiques et on sauvegarde le id
+            statistiqueService.InsertionStatistiques(idPersonnage);
+            idStatistique = bdCombaxe.lastInsertId();
         }
 
         //Méthode qui va retourner si le personnage existe ou non (pour la création de personnage) - Anthony Gauthier 2014-10-24

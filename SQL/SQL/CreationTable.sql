@@ -11,9 +11,9 @@ DROP TABLE IF EXISTS CaracteristiquesPersonnages;
 DROP TABLE IF EXISTS CaracteristiquesEquipementsModeles;
 DROP TABLE IF EXISTS CaracteristiquesEnnemis;
 DROP TABLE IF EXISTS CaracteristiquesProfessions;
+DROP TABLE IF EXISTS Statistiques;
 DROP TABLE IF EXISTS Personnages;
 DROP TABLE IF EXISTS Professions;
-DROP TABLE IF EXISTS Statistiques;
 DROP TABLE IF EXISTS Caracteristiques;
 DROP TABLE IF EXISTS Consommations;
 DROP TABLE IF EXISTS TypesConsommations;
@@ -39,7 +39,6 @@ CREATE TABLE IF NOT EXISTS Inventaires
 CREATE TABLE IF NOT EXISTS Ennemis
 (
     idEnnemi INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
-,	idInventaire INT
 ,	nom VARCHAR(31) NOT NULL UNIQUE
 ,	niveau INT NOT NULL DEFAULT 1
 ,	image VARCHAR(255)
@@ -87,18 +86,6 @@ CREATE TABLE IF NOT EXISTS Caracteristiques
 ,	nom VARCHAR(31) NOT NULL UNIQUE
 );
 
-CREATE TABLE IF NOT EXISTS Statistiques
-(
-    idStatistique INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
-,	tempsDeJeu TIME NOT NULL DEFAULT 0
-,	nombreDeCombat INT NOT NULL DEFAULT 0
-,	victoire INT NOT NULL DEFAULT 0
-,	defaite INT NOT NULL DEFAULT 0
-,	dommageTotal INT NOT NULL DEFAULT 0
-,	moyenneDommage INT NOT NULL DEFAULT 0
-,	nombreAttaque INT NOT NULL DEFAULT 0
-);
-
 CREATE TABLE IF NOT EXISTS Professions
 (
     idProfession INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
@@ -113,7 +100,6 @@ CREATE TABLE IF NOT EXISTS Personnages
 ,	idProfession INT NOT NULL
 ,	idInventaire INT NOT NULL
 ,	idJoueur INT NOT NULL
-,	idStatistique INT NOT NULL
 ,	nom VARCHAR(21) NOT NULL UNIQUE
 ,	niveau INT NOT NULL DEFAULT 1
 ,	experience INT NOT NULL DEFAULT 0
@@ -121,6 +107,18 @@ CREATE TABLE IF NOT EXISTS Personnages
 ,   energie INT NOT NULL DEFAULT 0
 ,	image VARCHAR(255)
 ,	estActif BOOL NOT NULL DEFAULT TRUE
+);
+
+CREATE TABLE IF NOT EXISTS Statistiques
+(
+    idStatistique INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
+,	idPersonnage INT NOT NULL
+,	tempsDeJeu TIME NOT NULL DEFAULT 0
+,	nombreDeCombat INT NOT NULL DEFAULT 0
+,	victoire INT NOT NULL DEFAULT 0
+,	defaite INT NOT NULL DEFAULT 0
+,	dommageTotal INT NOT NULL DEFAULT 0
+,	nombreAttaque INT NOT NULL DEFAULT 0
 );
 
 CREATE TABLE IF NOT EXISTS CaracteristiquesProfessions
@@ -166,7 +164,6 @@ CREATE TABLE IF NOT EXISTS InventairesEquipements
     idInventaireEquipement INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
 ,	idInventaire INT NOT NULL
 ,	idEquipement INT NOT NULL
-,	quantite INT NOT NULL DEFAULT 1
 );
 
 CREATE TABLE IF NOT EXISTS InventairesConsommations
@@ -243,9 +240,9 @@ ALTER TABLE Personnages
 ADD CONSTRAINT Personnages_Joueurs_FK
 FOREIGN KEY (idJoueur) REFERENCES Joueurs(idJoueur);
 
-ALTER TABLE Personnages
-ADD CONSTRAINT Personnages_Statistique_FK
-FOREIGN KEY (idStatistique) REFERENCES Statistiques(idStatistique);
+ALTER TABLE Statistiques
+ADD CONSTRAINT Statistiques_Personnages_FK
+FOREIGN KEY (idPersonnage) REFERENCES Personnages(idPersonnage);
 
 ALTER TABLE CompetencesProfessions
 ADD CONSTRAINT CompetencesProfessions_Competences_FK

@@ -16,7 +16,6 @@ namespace Combaxe___New.classes
         public double Prix;
         public int DegatMin;
         public int DegatMax;
-        public int Quantite;
 
         /// <summary>
         /// Constructeur de base - Anthony Gauthier 02/10/2014
@@ -30,7 +29,6 @@ namespace Combaxe___New.classes
             Prix = 0;
             DegatMin = 0;
             DegatMax = 0;
-            Quantite = 0;
         }
 
         /// <summary>
@@ -42,7 +40,7 @@ namespace Combaxe___New.classes
         /// <param name="pr">prix de l'équipement</param>
         /// <param name="min">degatMinimum</param>
         /// <param name="max">degatMaximum</param>
-        public Equipement(int id, Modele m, string n, string uri, double pr, int min, int max, int q)
+        public Equipement(int id, Modele m, string n, string uri, double pr, int min, int max)
         {
             IdEquipement = id;
             Modele = m;
@@ -51,7 +49,6 @@ namespace Combaxe___New.classes
             Prix = pr;
             DegatMin = min;
             DegatMax = max;
-            Quantite = q;
         }
     }
 }

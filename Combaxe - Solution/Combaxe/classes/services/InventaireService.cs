@@ -42,8 +42,8 @@ namespace Combaxe___New.classes.services
 
             lstConsommation.Add(consommationService.RetrieveConsommation(idInventaire, Convert.ToInt32(idCons[0][0])));
 
-            equipementInventaire = equipementService.retreiveEquipementInventaire(idInventaire);
-            equipementUtilise = equipementService.retreiveEquipementUtilise(idInventaire);
+            equipementInventaire = equipementService.retrieveEquipementInventaire(idInventaire);
+            equipementUtilise = equipementService.retrieveEquipementUtilise(idInventaire);
 
             Inventaire inventaire = new Inventaire(idInventaire, Convert.ToInt64(contenuInventaire[0][0]), equipementInventaire, equipementUtilise, lstConsommation);
 
