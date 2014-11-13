@@ -63,14 +63,14 @@ namespace Combaxe___New.classes
         { 
             this.idJoueur = 0; // vaut 0 lorsque le joueur n'est pas connecté
             this.pseudo = "";
-            //DateTime tempsPasse = new DateTime(0, 0, 0);
-            //DateTime now = DateTime.Now;
-            //tempsPasse = DateDiff(now.TimeOfDay - VarGlobales.HeureConnexion.TimeOfDay);
+            DateTime moment = DateTime.Now;
+            TimeSpan temps = moment - VarGlobales.HeureConnexion;
 
-            //string format = "hh:mm:ss";
-
-            //StatistiqueService statsService = new StatistiqueService();
-            //statsService.miseAjourStatistiques("tempsDeJeu = tempsDeJeu + " + tempsPasse.ToString(format));
+            if (VarGlobales.Personnage.IdPersonnage > 0)
+            {
+                StatistiqueService statsService = new StatistiqueService();
+                statsService.miseAjourStatistiques("tempsDeJeu = ADDTIME(tempsDeJeu, '"+temps+"')");
+            }
         }
 
         /// <summary>

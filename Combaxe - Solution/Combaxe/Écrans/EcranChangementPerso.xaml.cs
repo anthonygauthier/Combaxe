@@ -120,6 +120,7 @@ namespace Combaxe___New.écrans
         //Méthode pour le bouton "Créer personnage"
         private void btnCreerPerso_Click(object sender, RoutedEventArgs e)
         {
+            VarGlobales.playClique();
             var creationPerso = new EcranCreationPersonnage();
             creationPerso.Show();
             this.Close();
@@ -128,6 +129,7 @@ namespace Combaxe___New.écrans
         //Méthode pour le bouton retour
         private void btnRetour_Click(object sender, RoutedEventArgs e)
         {
+            VarGlobales.playClique();
             if(!VarGlobales.EstConnecte)
             {
                 VarGlobales.Joueur.Deconnexion();
@@ -149,6 +151,7 @@ namespace Combaxe___New.écrans
         //Méthode pour le bouton choisir du personnage #1
         private void btnChoisir1_Click(object sender, RoutedEventArgs e)
         {
+            VarGlobales.playClique();
             // on va chercher un personnage
             PersonnageService personnageService = new PersonnageService();
             VarGlobales.Personnage = personnageService.selectionUnPersonnage(lstPerso[0].IdPersonnage);
@@ -158,6 +161,7 @@ namespace Combaxe___New.écrans
         //Méthode pour le bouton choisir du personnage #2
         private void btnChoisir2_Click(object sender, RoutedEventArgs e)
         {
+            VarGlobales.playClique();
             // on va chercher un personnage
             PersonnageService personnageService = new PersonnageService();
             VarGlobales.Personnage = personnageService.selectionUnPersonnage(lstPerso[1].IdPersonnage);
@@ -167,6 +171,7 @@ namespace Combaxe___New.écrans
         //Méthode pour le bouton choisir du personnage #3
         private void btnChoisir3_Click(object sender, RoutedEventArgs e)
         {
+            VarGlobales.playClique();
             // on va chercher un personnage
             PersonnageService personnageService = new PersonnageService();
             VarGlobales.Personnage = personnageService.selectionUnPersonnage(lstPerso[2].IdPersonnage);

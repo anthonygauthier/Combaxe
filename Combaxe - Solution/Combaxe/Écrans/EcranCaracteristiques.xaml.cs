@@ -85,6 +85,7 @@ namespace Combaxe___New.écrans
         //Méthode qui effectue tous les changements nécéssaire lorsqu'un bouton PLUS a été cliqué
         private void btnPlusClique()
         {
+            VarGlobales.playClique();
             //Si le nombre de points restants est égale à 0
             if (txtbPointsRestants.Text == "0")
             {
@@ -109,6 +110,7 @@ namespace Combaxe___New.écrans
         //Méthode qui effectue tous les changements nécéssaire lorsqu'un bouton MOINS a été cliqué
         private void btnMoinsClique()
         {
+            VarGlobales.playClique();
             if (btnPlusForce.IsEnabled == false)
             {
                 enableBtnPlus();
@@ -363,6 +365,7 @@ namespace Combaxe___New.écrans
 
         private void btnModifier_Click(object sender, RoutedEventArgs e)
         {
+            VarGlobales.playClique();
             CaracteristiqueService carService = new CaracteristiqueService();
             carService.MiseAJourCaracteristiques(Convert.ToInt32(txtForce.Text), Convert.ToInt32(txtVitesse.Text), Convert.ToInt32(txtEnergie.Text), Convert.ToInt32(txtVie.Text), Convert.ToInt32(txtDefense.Text));
             

@@ -37,9 +37,8 @@ namespace Combaxe___New.écrans
             /* TOMMY GINGRAS */
             // on va chercher les stats
             
-            int id = persoService.idStatistique(VarGlobales.Personnage.IdPersonnage);
             Statistique stats = new Statistique();
-            stats = serviceStat.SelectionStatsPersonnage("idStatistique = " + id.ToString());
+            stats = serviceStat.SelectionStatsPersonnage("idPersonnage = " + VarGlobales.Personnage.IdPersonnage);
             
             txtbDefaite.Text = stats.nombreDefaites.ToString();
             txtbDmgMoyen.Text= stats.moyenneDommage.ToString();
@@ -55,6 +54,7 @@ namespace Combaxe___New.écrans
         //Méthode pour le bouton retour (Anthony Gauthier - 28/10/2014)
         private void btnRetour_Click(object sender, RoutedEventArgs e)
         {
+            VarGlobales.playClique();
             var MenuPrincipal = new EcranMenuPrincipal();
             MenuPrincipal.Show();
             this.Close();

@@ -57,8 +57,7 @@ namespace Combaxe___New.classes.services
             PersonnageService persoService = new PersonnageService();
             if(VarGlobales.Personnage.IdPersonnage > 0)
             {
-                int id = persoService.idStatistique(VarGlobales.Personnage.IdPersonnage);
-                string majRequete = "UPDATE Statistiques SET " + champs + " WHERE idStatistique = " + id + ";";
+                string majRequete = "UPDATE Statistiques SET " + champs + " WHERE idPersonnage = " + VarGlobales.Personnage.IdPersonnage + ";";
                 // champs = reponse where idStatistique
                 bdCombaxe.maj(majRequete);
             }

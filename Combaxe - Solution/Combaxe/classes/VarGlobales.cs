@@ -5,6 +5,7 @@ using System.Linq;
 using System.Media;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace Combaxe___New.classes
 {
@@ -13,14 +14,23 @@ namespace Combaxe___New.classes
 
         public static Joueur Joueur{ get; set; }
         public static Personnage Personnage { get; set; }
+        public static Ennemi Ennemi { get; set; }
+
+        public static DateTime HeureConnexion { get; set; }
+
         public static bool aPersonnage { get; set; }
         public static bool EstConnecte { get; set; }
-        public static Ennemi Ennemi { get; set; }
         public static bool etaitMort { get; set; }
-        public static SoundPlayer musiqueTheme { get; set; }
         public static bool aMonterNiveau { get; set; }
         public static bool fermerModifCaracteristique { get; set; }
         public static bool aAssezEnergie { get; set; }
-        public static DateTime HeureConnexion { get; set; }
+
+        public static SoundPlayer sonPotion { get; set; }
+        public static SoundPlayer cliqueBouton { get; set; }
+
+        public static void playClique()
+        {
+            cliqueBouton.Play();
+        }
     }
 }
