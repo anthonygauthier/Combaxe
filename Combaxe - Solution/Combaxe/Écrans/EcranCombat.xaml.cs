@@ -61,6 +61,9 @@ namespace Combaxe___New.écrans
         //Méthode qui affiche tous les actions lorsque le bouton Action est cliqué - Anthony Gauthier 23/10/2014
         private void btnChoisirActions_Click(object sender, RoutedEventArgs e)
         {
+            btnAction2.IsEnabled = true;
+            btnAction3.IsEnabled = true;
+
             //On affiche les quatres buotons d'actions
             btnAction1.Visibility = Visibility.Visible;
             btnAction2.Visibility = Visibility.Visible;
@@ -349,22 +352,15 @@ namespace Combaxe___New.écrans
             
             if((btnChoisirActions.IsEnabled == false && estEnnemi == false))
             { 
-
-               
-               //btnAction2.Content = VarGlobales.Personnage.ListeCompetence[i].Nom;
-               bool rechargeFlag = (tempsRecharge[1] == 0);
-               btnAction2.IsEnabled = rechargeFlag;
-               btnAction2.Content = rechargeFlag ? "" : "\n(" + tempsRecharge[1] + ")";
-
-
                 if (tempsRecharge[1] > 0)
                 {
                     btnAction2.IsEnabled = false;
-                     //btnAction2.ContextMenu+= "\n(" + tempsRecharge[1] + ")";
+                    btnAction2.Content = VarGlobales.Personnage.ListeCompetence[1].Nom + "\n(" + tempsRecharge[1] + ")";
                     tempsRecharge[1] -= 1;
                 }
                 else
                 {
+                        btnAction2.Content = VarGlobales.Personnage.ListeCompetence[1].Nom;
                         btnAction2.IsEnabled = true;
                 }
 
@@ -372,7 +368,7 @@ namespace Combaxe___New.écrans
                 {
                         btnAction3.IsEnabled = false;
                         btnAction3.Content = VarGlobales.Personnage.ListeCompetence[2].Nom + "\n(" + tempsRecharge[2] + ")";
-                    tempsRecharge[2] -= 1;
+                        tempsRecharge[2] -= 1;
                 }
                 else
                 {
