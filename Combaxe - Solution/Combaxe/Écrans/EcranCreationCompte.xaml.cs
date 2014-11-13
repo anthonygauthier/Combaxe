@@ -42,7 +42,7 @@ namespace Combaxe___New
             {
                 JoueurService joueurService = new JoueurService();
                 joueurService.CreerJoueur(txtbNomUsager.Text,pwdboxMdp.Password);
-                MessageBox.Show("Compte créer avec succès!", "Création de compte", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show("Compte créé avec succès!", "Création de compte", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 var connexion = new MainWindow();
                 connexion.Show();
                 this.Close();

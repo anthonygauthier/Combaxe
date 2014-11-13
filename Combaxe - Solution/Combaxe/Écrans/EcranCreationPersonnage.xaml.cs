@@ -502,7 +502,7 @@ namespace Combaxe___New.écrans
             }
             else if (txtDefense.Text == "0" && txtVie.Text == "0" && txtVitesse.Text == "0" && txtForce.Text == "0" && txtEnergie.Text == "0")
             {
-                MessageBox.Show("Vous devez choisir une profession!", "Erreur lors de la création du personnage", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Vous devez choisir une profession.", "Erreur lors de la création du personnage", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
             else if (personnageService.RetrieveExistancePersonnage(txtbNom.Text))
