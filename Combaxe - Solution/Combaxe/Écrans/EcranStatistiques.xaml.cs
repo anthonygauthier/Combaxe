@@ -54,6 +54,7 @@ namespace Combaxe___New.écrans
         //Méthode pour le bouton retour (Anthony Gauthier - 28/10/2014)
         private void btnRetour_Click(object sender, RoutedEventArgs e)
         {
+            VarGlobales.playClique();
             var MenuPrincipal = new EcranMenuPrincipal();
             MenuPrincipal.Show();
             this.Close();

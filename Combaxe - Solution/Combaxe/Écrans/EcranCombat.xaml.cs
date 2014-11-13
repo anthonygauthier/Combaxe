@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using Combaxe___New.classes;
 using Combaxe___New.classes.services;
+using System.Media;
 
 namespace Combaxe___New.écrans
 {
@@ -55,12 +56,14 @@ namespace Combaxe___New.écrans
         //Méthode du bouton pour fuir un combat - Anthony Gauthier 23/10/2014
         private void btnFuir_Click(object sender, RoutedEventArgs e)
         {
+            VarGlobales.playClique();
             fuiteDuJoueur();
         }
 
         //Méthode qui affiche tous les actions lorsque le bouton Action est cliqué - Anthony Gauthier 23/10/2014
         private void btnChoisirActions_Click(object sender, RoutedEventArgs e)
         {
+            VarGlobales.playClique();
             btnAction2.IsEnabled = true;
             btnAction3.IsEnabled = true;
 
@@ -103,6 +106,7 @@ namespace Combaxe___New.écrans
         //Méthode qui affiche les boutons items lorsque le bouton Items est cliqué - Anthony Gauthier 23/10/2014
         private void btnItems_Click(object sender, RoutedEventArgs e)
         {
+            VarGlobales.playClique();
             btnAction2.Visibility = Visibility.Visible;
 
             btnAction2.Content = "Potion de vie ("+VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Quantite+")";
@@ -134,6 +138,7 @@ namespace Combaxe___New.écrans
 
         private void btnAction1_Click(object sender, RoutedEventArgs e)
         {
+            VarGlobales.playClique();
             //Tommy gingras
             boutonClique = true;
             DeroulementCombat(0); 
@@ -141,6 +146,7 @@ namespace Combaxe___New.écrans
 
         private void btnAction2_Click(object sender, RoutedEventArgs e)
         {
+            VarGlobales.playClique();
             boutonClique = true;
             //tommy gingras
             if (btnChoisirActions.IsEnabled == true)
@@ -153,6 +159,7 @@ namespace Combaxe___New.écrans
 
         private void btnAction3_Click(object sender, RoutedEventArgs e)
         {
+            VarGlobales.playClique();
             boutonClique = true;
             //tommy gingras
             if (btnChoisirActions.IsEnabled == true)
@@ -165,6 +172,7 @@ namespace Combaxe___New.écrans
 
         private void btnAction4_Click(object sender, RoutedEventArgs e)
         {
+            VarGlobales.playClique();
             boutonClique = true;
             //tommy gingras
             DeroulementCombat(3); 
@@ -338,7 +346,7 @@ namespace Combaxe___New.écrans
         {
             lblEnergieEnnemi.Content = "Points d'énergie (PE): " + combat.EnergieEnnemi + "/" + Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * 10) / 3.1416).ToString();
             lblEnergiePerso.Content = "Points d'énergie (PE): " + VarGlobales.Personnage.Energie + "/" + VarGlobales.Personnage.EnergieMaximale;
-            lblVieEnnemi.Content = combat.VieEnnemi + "/" + Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20) / 3.1416).ToString();
+            lblVieEnnemi.Content = "Points de vie (PV): " + combat.VieEnnemi + "/" + Convert.ToInt32((VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20) / 3.1416).ToString();
             tempsRecharge[0] = 0;
 
             if (VarGlobales.Personnage.Vie <= 0)
@@ -437,6 +445,7 @@ namespace Combaxe___New.écrans
 
                 majInterface(true);
             }
+            VarGlobales.sonPotion.Play();
         }
         /// <summary>
         /// Pour effectuer ce que les boutons doivent faire, tommy gingras
@@ -765,6 +774,8 @@ namespace Combaxe___New.écrans
                     {
                         tempsCaracteristiques.Stop();
                         EcranCar.Close();
+                        //On update le joueur dans l'application suite à sa mise à jour en BD
+                        VarGlobales.Personnage = persoService.selectionUnPersonnage(VarGlobales.Personnage.IdPersonnage);
                     }
                 }, Application.Current.Dispatcher);
 

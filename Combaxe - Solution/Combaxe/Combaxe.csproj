@@ -224,6 +224,12 @@
   <ItemGroup />
   <ItemGroup>
     <Resource Include="images\paladin.png" />
+    <Content Include="resources\media\clique.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\media\potion.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="resources\media\theme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

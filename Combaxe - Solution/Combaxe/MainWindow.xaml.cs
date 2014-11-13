@@ -27,15 +27,15 @@ namespace Combaxe___New
         public MainWindow()
         {
             InitializeComponent();
-            musiqueTheme();
+            LoadMedias();
         }
         //Lorsque la page s'initialise, on initie une connexion à la BD - Anthony Gauthier 09/10/2014
         JoueurService joueurService = new JoueurService();
-        
 
         //Méthode pour se rendre à l'écran de création de compte - Anthony Gauthier 09/10/2014
         private void btnCreerCompte_Click(object sender, RoutedEventArgs e)
         {
+            VarGlobales.playClique();
             var creationCompte = new EcranCreationCompte();
             creationCompte.Show();
             this.Close();
@@ -44,12 +44,14 @@ namespace Combaxe___New
         //Méthode pour quitter le jeu - Anthony Gauthier 09/10/2014
         private void btnQuitter_Click(object sender, RoutedEventArgs e)
         {
+            VarGlobales.playClique();
             this.Close();
         }
 
         //Méthode du bouton pour se connecter - Anthony Gauthier 09/10/2014
         private void btnConnexion_Click(object sender, RoutedEventArgs e)
         {
+            VarGlobales.playClique();
             btnConnexionActive();
         }
 
@@ -135,11 +137,16 @@ namespace Combaxe___New
             Keyboard.Focus(txtbNomUsager);
         }
 
-        public void musiqueTheme()
+        //Méthode qui load tous les médias (sons/musiques) - Anthony Gauthier 13 Nov. 2014
+        public void LoadMedias()
         {
-            VarGlobales.musiqueTheme = new SoundPlayer("./resources/media/theme.wav");
-            VarGlobales.musiqueTheme.Load();
-            VarGlobales.musiqueTheme.PlayLooping();
+            //Son des potions
+            VarGlobales.sonPotion = new SoundPlayer("./resources/media/potion.wav");
+            VarGlobales.sonPotion.Load();
+
+            //Son de clique de bouton
+            VarGlobales.cliqueBouton = new SoundPlayer("./resources/media/clique.wav");
+            VarGlobales.cliqueBouton.Load();
         }
     }
 }
