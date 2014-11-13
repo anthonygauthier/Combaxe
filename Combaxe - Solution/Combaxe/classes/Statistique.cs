@@ -53,7 +53,10 @@ namespace Combaxe___New.classes
             nombreVictoires = nbrVic;
             nombreDefaites = nbrDef;
             dommageTotal = dmgTotal;
-            moyenneDommage = dmgTotal/nbrAtk;
+            if(dmgTotal != 0)
+                moyenneDommage = dmgTotal/nbrAtk;
+            else
+                moyenneDommage = 0;
 ;
             nombreAttaque = nbrAtk;
         }

@@ -37,9 +37,8 @@ namespace Combaxe___New.écrans
             /* TOMMY GINGRAS */
             // on va chercher les stats
             
-            int id = persoService.idStatistique(VarGlobales.Personnage.IdPersonnage);
             Statistique stats = new Statistique();
-            stats = serviceStat.SelectionStatsPersonnage("idStatistique = " + id.ToString());
+            stats = serviceStat.SelectionStatsPersonnage("idPersonnage = " + VarGlobales.Personnage.IdPersonnage);
             
             txtbDefaite.Text = stats.nombreDefaites.ToString();
             txtbDmgMoyen.Text= stats.moyenneDommage.ToString();
