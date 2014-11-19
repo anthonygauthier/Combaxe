@@ -24,6 +24,7 @@ namespace Combaxe___New.classes
         public static bool aMonterNiveau { get; set; }
         public static bool fermerModifCaracteristique { get; set; }
         public static bool aAssezEnergie { get; set; }
+        public static bool ChoixPersoFait { get; set; }
 
         public static SoundPlayer sonPotion { get; set; }
         public static SoundPlayer cliqueBouton { get; set; }
@@ -32,5 +33,9 @@ namespace Combaxe___New.classes
         {
             cliqueBouton.Play();
         }
+
+
+
+        public static bool Retour { get; set; }
     }
 }

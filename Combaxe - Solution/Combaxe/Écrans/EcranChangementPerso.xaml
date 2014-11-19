@@ -1,225 +1,99 @@
 ﻿<Window x:Class="Combaxe___New.écrans.EcranChangementPerso"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Combaxe - Choisir personnage" MinHeight="350" MinWidth="525" Height="350" Width="525" WindowStartupLocation="CenterScreen" WindowStyle="None" WindowState="Maximized"
-        Loaded="Window_Loaded"
-        >
+        Title="Combaxe - Choisir personnage" Height="400" Width="425"  WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Topmost="True">
     <Window.Background>
         <ImageBrush ImageSource="../images/background.png"></ImageBrush>
     </Window.Background>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="16*"/>
-            <RowDefinition Height="21*"/>
-            <RowDefinition Height="21*"/>
-            <RowDefinition Height="21*"/>
-            <RowDefinition Height="11*"/>
+            <RowDefinition Height="4*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <!--Titre de la page-->
-        <Label Foreground="White" HorizontalAlignment="Center" Content="Choisir Personnage" FontFamily="Matura MT Script Capitals" FontSize="44" Margin="0,0,2,0" VerticalAlignment="Center"/>
 
-        <!--Grid personnage #1-->
-        <Grid Grid.Row="1" Margin="10,2,10,2" Background="AliceBlue">
+        <Grid Margin="20" Grid.Row="0" Grid.Column="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="27*"></RowDefinition>
-                <RowDefinition Height="20*"></RowDefinition>
-                <RowDefinition Height="18*"/>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="259*"></ColumnDefinition>
-                <ColumnDefinition Width="139*"/>
-                <ColumnDefinition Width="99*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <!--Label pour nom de personnages et niveau-->
-            <Label Name="lblNomPerso1" Grid.Column="0" Margin="5,2,0,0" MaxHeight="45" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1"></Label>
-            <Label Name="lblNiveau1" Grid.Column="1" Margin="0,1,0,0" MaxHeight="45" HorizontalAlignment="Stretch"  Background="White" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="1"></Label>
 
-            <!--Barre de points de vie et barre de points d'énergie-->
-            <Border Margin="1,1,1,1" Name="brdMaxWidth" Grid.Row="1" Grid.Column="1" Background="Black"></Border>
-            <Border Margin="1,1,1,1" Name="brdViePerso1" Grid.Row="1" Grid.Column="1" Panel.ZIndex="1" Background="Green"></Border>
-            <Label Margin="1" MaxHeight="30" Foreground="White" Grid.Row="1" Grid.Column="1" Panel.ZIndex="1" VerticalAlignment="Center" HorizontalAlignment="Center" Name="txtbPointDeVie1" ></Label>
+            <!--Grid pour le perso 1-->
+            <Border Name="border1">
+                <Grid Name="gridPerso1" Grid.Row="0" Grid.Column="0" Margin="5" MouseEnter="GridPerso1_MouseEnter" MouseLeave="gridPerso1_MouseLeave" MouseUp="gridPerso1_MouseUp">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
 
-            <Border Margin="1,1,1,1" Grid.Row="2" Grid.Column="1" Background="Black"></Border>
-            <Border Margin="1,1,1,1" Name="brdEnergiePerso1" Grid.Row="2" Grid.Column="1" Panel.ZIndex="1" Background="Blue"></Border>
-            <Label Margin="1" MaxHeight="30"  Name="txtbPointDenergie1" VerticalAlignment="Center" Panel.ZIndex="1" HorizontalAlignment="Center" Foreground="White" Grid.Row="2" Grid.Column="1"></Label>
+                    <Image Name="imgPerso1" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"></Image>
 
-            <!--Image du personnage-->
-            <Image Name="imgPerso1" Margin="3" Grid.Row="0" Grid.RowSpan="3" Grid.Column="2"></Image>
-            <Border BorderBrush="Black" BorderThickness="1,1,1,1" Margin="1" Grid.Row="0" Grid.RowSpan="3" Grid.Column="2"></Border>
-            <!--Grid pour caractéristiques-->
-            <Grid Grid.Row="1" Grid.RowSpan="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" MaxWidth="168"></ColumnDefinition>
-                    <ColumnDefinition Width="*" MaxWidth="168"></ColumnDefinition>
-                    <ColumnDefinition Width="*" MaxWidth="168"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
+                    <Border Grid.Row="0" Grid.Column="1" Margin="5" Background="White" CornerRadius="15">
+                        <Label Name="lblNomPerso1"></Label>
+                    </Border>
 
-                <!--Border pour séparer les caractéristiques-->
-                <Border Grid.Row="0" BorderBrush="Black" BorderThickness="1,1,1,1"></Border>
-                <Border Grid.Row="1" BorderBrush="Black" BorderThickness="1,0,1,1"></Border>
-                <Border Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="0,1,1,1"></Border>
-                <Border Grid.Row="0" Grid.Column="2" BorderBrush="Black" BorderThickness="0,1,1,1"></Border>
-                <Border Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                    <Border Grid.Row="1" Grid.Column="1" Margin="5" Background="White" CornerRadius="15">
+                        <Label Name="lblProfessionPerso1"></Label>
+                    </Border>
+                </Grid>
+            </Border>
+            <!--Grid pour le perso 2-->
+            <Border Name="border2" Grid.Row="1" Grid.Column="0">
+                <Grid  Name="gridPerso2" Visibility="Hidden" Margin="5" MouseEnter="gridPerso2_MouseEnter" MouseLeave="gridPerso2_MouseLeave" MouseUp="gridPerso2_MouseUp">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
 
-                <!--Première colonne de caractéristiques-->
-                <Label Name="lblVie1" Content="Vie:" VerticalAlignment="Center" Margin="0,0,0,-5"></Label>
-                <Label Name="lblNbrVie1" Content="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,-5"></Label>
-                <Label Name="lblEnergie1" Content="Energie:" Grid.Row="1" VerticalAlignment="Center" Margin="0,0,0,-5"></Label>
-                <Label Name="lblNbrEnergie1" Content="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,-5"></Label>
+                    <Image Name="imgPerso2" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"></Image>
 
-                <!--Deuxième colonne de caractéristiques-->
-                <Label Name="lblForce1" Content="Force:" VerticalAlignment="Center" Grid.Column="1" Margin="0,0,0,-5"></Label>
-                <Label Name="lblNbrForce1" Content="0" VerticalAlignment="Center" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,0,-5"></Label>
-                <Label Name="lblDefense1" Content="Défense:" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,-5"></Label>
-                <Label Name="lblNbrEDefense1" Content="0" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,-5"></Label>
+                    <Border Grid.Row="0" Grid.Column="1" Margin="5" Background="White" CornerRadius="15">
+                        <Label Name="lblNomPerso2"></Label>
+                    </Border>
 
-                <!--Troisième colonne de caractéristiques-->
-                <Label Name="lblVitesse1" Content="Vitesse:" VerticalAlignment="Center" Grid.Column="2" Margin="0,0,0,-5"></Label>
-                <Label Name="lblNbrVitesse1" Content="0" VerticalAlignment="Center" Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,0,-5"></Label>
-                <Button Name="btnChoisir1" Grid.Row="1" Grid.Column="2" Content="Choisir" MaxHeight="50" Margin="5,0,5,0" Click="btnChoisir1_Click"></Button>
-            </Grid>
+                    <Border Grid.Row="1" Grid.Column="1" Margin="5" Background="White" CornerRadius="15">
+                        <Label Name="lblProfessionPerso2"></Label>
+                    </Border>
+                </Grid>
+            </Border>
+
+            <!--Grid pour le perso 3-->
+            <Border Name="border3" Grid.Row="2" Grid.Column="0">
+                <Grid Name="gridPerso3" Grid.Row="2" Grid.Column="0" Margin="5" Visibility="Hidden" MouseEnter="gridPerso3_MouseEnter" MouseLeave="gridPerso3_MouseLeave" MouseUp="gridPerso3_MouseUp">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Image Name="imgPerso3" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"></Image>
+
+                    <Border Grid.Row="0" Grid.Column="1" Margin="5" Background="White" CornerRadius="15">
+                        <Label Name="lblNomPerso3"></Label>
+                    </Border>
+
+                    <Border Grid.Row="1" Grid.Column="1" Margin="5" Background="White" CornerRadius="15">
+                        <Label Name="lblProfessionPerso3"></Label>
+                    </Border>
+                </Grid>
+            </Border>
         </Grid>
 
-        <!--Grid personnage #2-->
-        <Grid Grid.Row="2" Margin="10,5,10,5" Background="AliceBlue">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="27*"></RowDefinition>
-                <RowDefinition Height="20*"></RowDefinition>
-                <RowDefinition Height="18*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="259*"></ColumnDefinition>
-                <ColumnDefinition Width="139*"/>
-                <ColumnDefinition Width="99*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <!--Label pour nom de personnages et niveau-->
-            <Label Name="lblNomPerso2" Grid.Column="0" Margin="5,0,0,0" MaxHeight="45" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1"></Label>
-            <Label Name="lblNiveau2" Grid.Column="1" Margin="0,1,0,0" MaxHeight="45" HorizontalAlignment="Stretch" Background="White" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="1"></Label>
 
-            <!--Barre de points de vie et barre de points d'énergie-->
-            <Border Margin="1,1,1,1" Grid.Row="1" Grid.Column="1" Background="Black"></Border>
-            <Border Margin="1,1,1,1" Name="brdViePerso2" Grid.Row="1" Grid.Column="1" Panel.ZIndex="1" Background="Green"></Border>
-            <Label Margin="1" MaxHeight="30" Panel.ZIndex="1" Foreground="White" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Name="txtbPointDeVie2" ></Label>
-
-            <Border Margin="1,1,1,1" Grid.Row="2" Grid.Column="1" Background="Black"></Border>
-            <Border Margin="1,1,1,1" Name="brdEnergiePerso2" Grid.Row="2" Grid.Column="1" Panel.ZIndex="1" Background="Blue"></Border>
-            <Label Margin="1" MaxHeight="30" Panel.ZIndex="1" Name="txtbPointDenergie2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Grid.Row="2" Grid.Column="1"></Label>
-            <!--Image du personnage-->
-            <Image Name="imgPerso2" Margin="3" Grid.Row="0" Grid.RowSpan="3" Grid.Column="2"></Image>
-            <Border BorderBrush="Black" BorderThickness="1,1,1,1" Margin="1" Grid.Row="0" Grid.RowSpan="3" Grid.Column="2"></Border>
-            <!--Grid pour caractéristiques-->
-            <Grid Grid.Row="1" Grid.RowSpan="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" MaxWidth="168"></ColumnDefinition>
-                    <ColumnDefinition Width="*" MaxWidth="168"></ColumnDefinition>
-                    <ColumnDefinition Width="*" MaxWidth="168"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-
-                <!--Border pour séparer les caractéristiques-->
-                <Border Grid.Row="0" BorderBrush="Black" BorderThickness="1,1,1,1"></Border>
-                <Border Grid.Row="1" BorderBrush="Black" BorderThickness="1,0,1,1"></Border>
-                <Border Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="0,1,1,1"></Border>
-                <Border Grid.Row="0" Grid.Column="2" BorderBrush="Black" BorderThickness="0,1,1,1"></Border>
-                <Border Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
-
-                <!--Première colonne de caractéristiques-->
-                <Label Name="lblVie2" Content="Vie:" VerticalAlignment="Center" Margin="0,0,0,-5"></Label>
-                <Label Name="lblNbrVie2" Content="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,-5"></Label>
-                <Label Name="lblEnergie2" Content="Energie:" Grid.Row="1" VerticalAlignment="Center" Margin="0,0,0,-5"></Label>
-                <Label Name="lblNbrEnergie2" Content="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,-5"></Label>
-
-                <!--Deuxième colonne de caractéristiques-->
-                <Label Name="lblForce2" Content="Force:" VerticalAlignment="Center" Grid.Column="1" Margin="0,0,0,-5"></Label>
-                <Label Name="lblNbrForce2" Content="0" VerticalAlignment="Center" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,0,-5"></Label>
-                <Label Name="lblDefense2" Content="Défense:" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,-5"></Label>
-                <Label Name="lblNbrEDefense2" Content="0" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,-5"></Label>
-
-                <!--Troisième colonne de caractéristiques-->
-                <Label Name="lblVitesse2" Content="Vitesse:" VerticalAlignment="Center" Grid.Column="2" Margin="0,0,0,-5"></Label>
-                <Label Name="lblNbrVitesse2" Content="0" VerticalAlignment="Center" Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,0,-5"></Label>
-                <Button Name="btnChoisir2" Grid.Row="1" Grid.Column="2" Content="Choisir" MaxHeight="50" Margin="5,-1,5,0" Click="btnChoisir2_Click"></Button>
-            </Grid>
-        </Grid>
-
-        <!--Grid personnage #3-->
-        <Grid Grid.Row="3" Margin="10,5,10,5" Background="AliceBlue">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="27*"></RowDefinition>
-                <RowDefinition Height="20*"></RowDefinition>
-                <RowDefinition Height="18*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="259*"></ColumnDefinition>
-                <ColumnDefinition Width="139*"/>
-                <ColumnDefinition Width="99*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <!--Label pour nom de personnages et niveau-->
-            <Label Name="lblNomPerso3" Grid.Column="0" Margin="5,0,0,0" MaxHeight="45" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="White" BorderBrush="Black" BorderThickness="1"></Label>
-            <Label Name="lblNiveau3" Grid.Column="1" Margin="0,1,0,0" MaxHeight="45" HorizontalAlignment="Stretch" Background="White" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="1"></Label>
-
-            <!--Barre de points de vie et barre de points d'énergie-->
-            <Border Margin="1,1,1,1" Grid.Row="1" Grid.Column="1" Background="Black"></Border>
-            <Border Margin="1,1,1,1" Name="brdViePerso3" Grid.Row="1" Grid.Column="1" Panel.ZIndex="1" Background="Green"></Border>
-            <Label Margin="1" MaxHeight="30" Panel.ZIndex="1" Foreground="White" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Name="txtbPointDeVie3" ></Label>
-
-            <Border Margin="1,1,1,1" Grid.Row="2" Grid.Column="1" Background="Black"></Border>
-            <Border  Margin="1,1,1,1" Name="brdEnergiePerso3" Grid.Row="2" Grid.Column="1" Panel.ZIndex="1" Background="Blue"></Border>
-            <Label Margin="1" MaxHeight="30" Panel.ZIndex="1" Name="txtbPointDenergie3" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Grid.Row="2" Grid.Column="1"></Label>
-            
-
-            <!--Image du personnage-->
-            <Image Name="imgPerso3" Margin="3" Grid.Row="0" Grid.RowSpan="3" Grid.Column="2"></Image>
-            <Border BorderBrush="Black" BorderThickness="1,1,1,1" Margin="1" Grid.Row="0" Grid.RowSpan="3" Grid.Column="2"></Border>
-            <!--Grid pour caractéristiques-->
-            <Grid Grid.Row="1" Grid.RowSpan="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" MaxWidth="168"></ColumnDefinition>
-                    <ColumnDefinition Width="*" MaxWidth="168"></ColumnDefinition>
-                    <ColumnDefinition Width="*" MaxWidth="168"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-
-                <!--Border pour séparer les caractéristiques-->
-                <Border Grid.Row="0" BorderBrush="Black" BorderThickness="1,1,1,1"></Border>
-                <Border Grid.Row="1" BorderBrush="Black" BorderThickness="1,0,1,1"></Border>
-                <Border Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="0,1,1,1"></Border>
-                <Border Grid.Row="0" Grid.Column="2" BorderBrush="Black" BorderThickness="0,1,1,1"></Border>
-                <Border Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
-
-                <!--Première colonne de caractéristiques-->
-                <Label Name="lblVie3" Content="Vie:" VerticalAlignment="Center" Margin="0,0,0,-5"></Label>
-                <Label Name="lblNbrVie3" Content="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,-5"></Label>
-                <Label Name="lblEnergie3" Content="Energie:" Grid.Row="1" VerticalAlignment="Center" Margin="0,0,0,-5"></Label>
-                <Label Name="lblNbrEnergie3" Content="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,-5"></Label>
-
-                <!--Deuxième colonne de caractéristiques-->
-                <Label Name="lblForce3" Content="Force:" VerticalAlignment="Center" Grid.Column="1" Margin="0,0,0,-5"></Label>
-                <Label Name="lblNbrForce3" Content="0" VerticalAlignment="Center" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,0,-5"></Label>
-                <Label Name="lblDefense3" Content="Défense:" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,-5"></Label>
-                <Label Name="lblNbrEDefense3" Content="0" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,-5"></Label>
-
-                <!--Troisième colonne de caractéristiques-->
-                <Label Name="lblVitesse3" Content="Vitesse:" VerticalAlignment="Center" Grid.Column="2" Margin="0,0,0,-5"></Label>
-                <Label Name="lblNbrVitesse3" Content="0" VerticalAlignment="Center" Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,0,-5"></Label>
-                <Button Name="btnChoisir3" Grid.Row="1" Grid.Column="2" Content="Choisir" MaxHeight="50" Margin="5,-1,5,0" Click="btnChoisir3_Click"/>
-            </Grid>
-        </Grid>
-
-        <!--Stackpanel boutons choix-->
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="4" Margin="10,5,10,5">
-            <Button x:Name="btnCreerPerso" Content="Créer personnage" MinWidth="108" MaxHeight="50" Click="btnCreerPerso_Click"/>
-            <Button x:Name="btnRetour" Content="Retour"  MinWidth="108" MaxHeight="50" Margin="5,0,0,0" Click="btnRetour_Click"/>
+        <!--Boutons-->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" MaxHeight="45">
+            <Button Name="btnCreerPerso" Content="Créer personnage" Click="btnCreerPerso_Click"></Button>
+            <Button Name="btnRetour" Content="Retour" Margin="5,0,0,0" MinWidth="100" Click="btnRetour_Click"></Button>
         </StackPanel>
     </Grid>
 </Window>

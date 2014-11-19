@@ -16,6 +16,7 @@ using Combaxe___New.classes;
 using Combaxe___New.écrans;
 using Combaxe___New.classes.services;
 using System.Media;
+using System.Windows.Threading;
 
 namespace Combaxe___New
 {
@@ -29,6 +30,9 @@ namespace Combaxe___New
             InitializeComponent();
             LoadMedias();
         }
+        TimeSpan temps;
+        DispatcherTimer horloge;
+
         //Lorsque la page s'initialise, on initie une connexion à la BD - Anthony Gauthier 09/10/2014
         JoueurService joueurService = new JoueurService();
 
@@ -116,9 +120,7 @@ namespace Combaxe___New
                     //Si le joueur a des personnages, on affiche l'écran de changement de personnages - Anthony Gauthier 09/10/2014
                     if (joueurAPersonnage == true)
                     {
-                        var choixPerso = new EcranChangementPerso();
-                        choixPerso.Show();
-                        this.Close();
+                        ChoixPerso();
                     }
                     //Sinon, on l'amène à la page de création de personnage - Anthony Gauthier 09/10/2014
                     else
@@ -147,6 +149,47 @@ namespace Combaxe___New
             //Son de clique de bouton
             VarGlobales.cliqueBouton = new SoundPlayer("./resources/media/clique.wav");
             VarGlobales.cliqueBouton.Load();
+        }
+
+        public void ChoixPerso()
+        {
+            var choixPerso = new EcranChangementPerso();
+            choixPerso.Show();
+
+            this.Opacity = 0.5;
+            this.IsEnabled = false;
+            this.Focusable = false;
+            //Si le jeu n'est pas fullscreen
+            if (this.WindowStyle != WindowStyle.None)
+            {
+                this.WindowStyle = WindowStyle.None;
+                this.ResizeMode = ResizeMode.NoResize;
+            }
+
+            //On initialise un timer égal à celui du progress bar de l'écran de repos pour déterminer quand nous allons rendre la fenêtre utilisable à nouveau
+            temps = TimeSpan.FromSeconds(99999);
+
+            horloge = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            {
+                //On enleve du temps au timer
+                temps = temps.Add(TimeSpan.FromSeconds(-1));
+
+                if (VarGlobales.ChoixPersoFait == true)
+                {
+                    this.Opacity = 1;
+                    this.IsEnabled = true;
+                    horloge.Stop();
+                    this.Close();
+                }
+                else if(VarGlobales.Retour == true)
+                {
+                    this.Opacity = 1;
+                    this.IsEnabled = true;
+                    horloge.Stop();
+                }
+            }, Application.Current.Dispatcher);
+
+            horloge.Start();
         }
     }
 }
