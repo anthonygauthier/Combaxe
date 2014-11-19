@@ -265,7 +265,6 @@ namespace Combaxe___New.écrans
         {
             Ennemi ennemi = new Ennemi();
             ennemi.ennemiAleatoire();
-            VarGlobales.Ennemi.butinDonne();
             imgEnnemi.Source = VarGlobales.Ennemi.Image;
             lblNomEnnemi.Content = VarGlobales.Ennemi.Nom;
             lblNiveauEnnemi.Content = lblNiveauEnnemi.Content + VarGlobales.Ennemi.Niveau.ToString();
@@ -508,9 +507,10 @@ namespace Combaxe___New.écrans
 
                     majInterface(false);// mettre à jour l'interface
 
-                    // on vérifie que l'ennemi est encore en vie
+                    // on vérifie que l'ennemi n'est plus en vie
                     if (combat.VieEnnemi <= 0)
                     {
+                        InventaireService inventaireService = new InventaireService();
                         PersonnageService personnageService = new PersonnageService();
                         int expGagner = combat.ExperienceRecu();
 
@@ -519,6 +519,17 @@ namespace Combaxe___New.écrans
                         personnageService.MAJVieEnergie(false);
 
                         combat.VieEnnemi = 0;
+
+                        VarGlobales.Ennemi.butinDonne();
+
+                        //Donne l'argent du butin au personnage
+                        VarGlobales.Personnage.Inventaire.argent += VarGlobales.Ennemi.Inventaire.argent;
+                        inventaireService.MAJArgent();
+
+                        //Donne les équipements du butin au personnage
+                        VarGlobales.Personnage.Inventaire.listeEquipement.AddRange(VarGlobales.Ennemi.Inventaire.listeEquipement);
+                        //Insert dans la BD les nouveau objet acquis par le personnage
+                        inventaireService.MAJEquipementInventaire(VarGlobales.Personnage.Inventaire.listeEquipement);
 
                         //On effectue toutes les opérations reliées à l'expérience.
                         ExperienceVictoire(expGagner);

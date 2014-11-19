@@ -21,6 +21,11 @@ namespace Combaxe___New.classes.services
             bdCombaxe.Insertion(reqInsertInventaire);
         }
 
+        /// <summary>
+        /// Fonction qui va chercher un inventaire dans la bd
+        /// </summary>
+        /// <param name="idInventaire">Le idInventaire que l'on cherche</param>
+        /// <returns>Retourne l'inventaire qui est recherché</returns>
         public Inventaire retrieveInventaire(int idInventaire)
         {
             List<string>[] contenuInventaire;
@@ -45,9 +50,78 @@ namespace Combaxe___New.classes.services
             equipementInventaire = equipementService.retrieveEquipementInventaire(idInventaire);
             equipementUtilise = equipementService.retrieveEquipementUtilise(idInventaire);
 
-            Inventaire inventaire = new Inventaire(idInventaire, Convert.ToInt64(contenuInventaire[0][0]), equipementInventaire, equipementUtilise, lstConsommation);
+            Inventaire inventaire = new Inventaire(idInventaire, Convert.ToDouble(contenuInventaire[0][0]), equipementInventaire, equipementUtilise, lstConsommation);
 
             return inventaire;
+        }
+
+        /// <summary>
+        /// Fonction qui met à jour l'argent dans la bd
+        /// </summary>
+        public void MAJArgent()
+        {
+            string argent = VarGlobales.Personnage.Inventaire.argent.ToString().Replace(',', '.');
+            string requeteUpdate = "UPDATE Inventaires SET argent = " + argent + " WHERE idInventaire = " + VarGlobales.Personnage.Inventaire.idInventaire + ";";
+
+            bdCombaxe.maj(requeteUpdate);
+        }
+
+        /// <summary>
+        /// Fonction qui met à jour les équipements de l'inventaire dans la bd
+        /// </summary>
+        public void MAJEquipementInventaire(List<Equipement> lstEquipement)
+        {
+            List<Equipement> ancienneLstEquipement = new List<Equipement>();
+            string reqInsert;
+            string reqDelete;
+            bool existe;
+
+            //On va chercher la liste d'équipement que le personnage avait dans son inventaire
+            ancienneLstEquipement = equipementService.retrieveEquipementInventaire(VarGlobales.Personnage.Inventaire.idInventaire);
+
+            //On compare l'ancienne liste avec la nouvelle 
+            //si l'équipement dans l'ancien n'est plus dans la nouvelle, on la retire de la bd
+            for (int i = 0; i < ancienneLstEquipement.Count(); i++)
+            {
+                existe = false;
+                for (int j = 0; j < lstEquipement.Count(); j++)
+                {
+                    if(ancienneLstEquipement[i].IdEquipement == lstEquipement[j].IdEquipement)
+                    {
+                        existe = true;
+                    }
+                }
+
+                if(existe == false)
+                {
+                    reqDelete = "DELETE FROM InventairesEquipements WHERE idInventaire ='"+VarGlobales.Personnage.Inventaire.idInventaire+"' AND idEquipement ='"+ancienneLstEquipement[i].IdEquipement+"';";
+                    bdCombaxe.maj(reqDelete);
+                }
+            }
+
+            //On compare la nouvelle liste avec l'ancienne
+            //si l'équipement dans la nouvelle n'est pas dans l'ancienne, on l'ajoute à la bd
+            for (int i = 0; i < lstEquipement.Count(); i++)
+            {
+                existe = false;
+                if (ancienneLstEquipement.Count() != 0)
+                {
+                    for (int j = 0; j < ancienneLstEquipement.Count(); j++)
+                    {
+                        if (ancienneLstEquipement[j].IdEquipement == lstEquipement[i].IdEquipement)
+                        {
+                            existe = true;
+                        }
+                    }
+                }
+
+                if (existe == false)
+                {
+                    reqInsert = "INSERT INTO InventairesEquipements (idInventaire,idEquipement) VALUES ('" + VarGlobales.Personnage.Inventaire.idInventaire + "','" + lstEquipement[i].IdEquipement + "');";
+                    bdCombaxe.Insertion(reqInsert);
+                }
+            }
+            return;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Combaxe___New.classes.services
         //Méthode pour insérer un inventaire en BD lors de la création d'un personnage - Anthony Gauthier 2014-10-24
         public void InsertionStatistiques(int idPersonnage)
         {
-            string reqInsertStatistiques = "INSERT INTO Statistiques (idPersonnage,tempsDeJeu, nombreDeCombat, victoire, defaite, dommageTotal, moyenneDommage, nombreAttaque) VALUES ('"+idPersonnage+"',0,0,0,0,0,0,0);";
+            string reqInsertStatistiques = "INSERT INTO Statistiques (idPersonnage,tempsDeJeu, nombreDeCombat, victoire, defaite, dommageTotal, nombreAttaque) VALUES ('"+idPersonnage+"',0,0,0,0,0,0);";
 
             bdCombaxe.Insertion(reqInsertStatistiques);
         }

@@ -66,10 +66,13 @@ namespace Combaxe___New.classes
             DateTime moment = DateTime.Now;
             TimeSpan temps = moment - VarGlobales.HeureConnexion;
 
-            if (VarGlobales.Personnage.IdPersonnage > 0)
+            if (VarGlobales.Personnage !=null)
             {
-                StatistiqueService statsService = new StatistiqueService();
-                statsService.miseAjourStatistiques("tempsDeJeu = ADDTIME(tempsDeJeu, '"+temps+"')");
+                if (VarGlobales.Personnage.IdPersonnage > 0)
+                {
+                    StatistiqueService statsService = new StatistiqueService();
+                    statsService.miseAjourStatistiques("tempsDeJeu = ADDTIME(tempsDeJeu, '" + temps + "')");
+                }
             }
         }
 

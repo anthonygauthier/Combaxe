@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MiniBD;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -43,18 +44,24 @@ namespace Combaxe___New.classes
         }
 
         /// <summary>
-        /// Méthode pour modifier l'argent de l'inventaire - Anthony Gauthier 02/10/2014
-        /// </summary>
-        public void ModifierArgent()
-        {
-            return;
-        }
-
-        /// <summary>
         /// Méthode pour ajouter une pièce d'équipement à l'inventaire - Anthony Gauthier 02/10/2014
         /// </summary>
-        public void AjouterEquipement()
-        { 
+        public void MAJEquipementInventaire(List<Equipement> lstEquipement)
+        {
+            List<Equipement> ancienLstEquipement = new List<Equipement>();
+            string selectInventaireEquipement;
+            string reqInsert;
+            BdService bdCombaxe = new BdService();
+
+            for (int i = 0; i < lstEquipement.Count(); i++)
+			{
+			    selectInventaireEquipement = "SELECT idInventaireEquipement FROM InventairesEquipements WHERE idInventaire='"+ this.idInventaire +"' AND idEquipement = '"+lstEquipement[i].IdEquipement+"';";
+
+                if(selectInventaireEquipement[1].ToString()=="")
+                {
+                    bdCombaxe.Insertion(selectInventaireEquipement);
+                }
+			}
             return;
         }
 

@@ -16,8 +16,9 @@ namespace Combaxe___New.classes.services
         /// Fonction qui va chercher les informations d'un equipement.
         /// </summary>
         /// <param name="idEquipementModele">Le id de l'equipementModele</param>
+        /// <param name="idEquipement">Le id de l'équipement</param>
         /// <returns>Un objet equipement</returns>
-        public Equipement retrieveEquipementModele(int idEquipementModele)
+        public Equipement retrieveEquipementModele(int idEquipementModele, int idEquipement)
         {
             Equipement unEquipement = new Equipement();
             Modele modele = new Modele();
@@ -32,7 +33,7 @@ namespace Combaxe___New.classes.services
             modele = modeleService.retreiveModele(Convert.ToInt32(lstEquipement[0][0]));
 
             //On créer l'équipement et on le retourne
-            unEquipement = new Equipement(idEquipementModele, modele, lstEquipement[0][1], lstEquipement[0][2], Convert.ToDouble(lstEquipement[0][3]), Convert.ToInt32(lstEquipement[0][4]), Convert.ToInt32(lstEquipement[0][5]));
+            unEquipement = new Equipement(idEquipement, modele, lstEquipement[0][1], lstEquipement[0][2], Convert.ToDouble(lstEquipement[0][3]), Convert.ToInt32(lstEquipement[0][4]), Convert.ToInt32(lstEquipement[0][5]));
             return unEquipement;
         }
 
@@ -62,10 +63,10 @@ namespace Combaxe___New.classes.services
                     //On va chercher les idEquipementModele des équipements de l'inventaire
                     //En donnant le idEquipementModele à la fonction retrieveEquipementModele, on reçoit les informations de l'équipement désiré
                     selEquipement = "SELECT idEquipementModele FROM Equipements WHERE idEquipement = '" + lstEquipement[i][0] + "';";
-                    lstEquipementModele = bdCombaxe.selection(selEquipementInventaire, 1, ref nombreRange);
+                    lstEquipementModele = bdCombaxe.selection(selEquipement, 1, ref nombreRange);
 
                     //On ajoute l'équipement à lstEquipementInventaire
-                    lstEquipementInventaire.Add(retrieveEquipementModele(Convert.ToInt32(lstEquipementModele[i][0])));
+                    lstEquipementInventaire.Add(retrieveEquipementModele(Convert.ToInt32(lstEquipementModele[0][0]),Convert.ToInt32(lstEquipement[i][0])));
                 }
             }
             return lstEquipementInventaire;
@@ -99,7 +100,7 @@ namespace Combaxe___New.classes.services
                     lstEquipementModele = bdCombaxe.selection(selEquipementUtilise, 1, ref nombreRange);
 
                     //On ajoute l'équipement à lstEquipementUtilise
-                    lstEquipementUtilise.Add(retrieveEquipementModele(Convert.ToInt32(lstEquipementModele[i][0])));
+                    lstEquipementUtilise.Add(retrieveEquipementModele(Convert.ToInt32(lstEquipementModele[i][0]), Convert.ToInt32(lstEquipement[i][0])));
                 }
             }
             return lstEquipementUtilise;
@@ -110,7 +111,7 @@ namespace Combaxe___New.classes.services
         /// </summary>
         /// <param name="niveau">Le niveau demandé pour les équipements</param>
         /// <returns>Une liste d'équipement</returns>
-        public List<Equipement> retrieveEquipements(int niveau)
+        public List<Equipement> retrieveEquipements(int niveau, int idEquipement)
         {
             List<Equipement> lstEquipementButin = new List<Equipement>();
             List<string>[] lstEquipement;
@@ -126,10 +127,17 @@ namespace Combaxe___New.classes.services
                 for (int i = 0; i < lstEquipement.Count(); i++)
                 {
                     //On ajoute l'équipement à lstEquipementButin
-                    lstEquipementButin.Add(retrieveEquipementModele(Convert.ToInt32(lstEquipement[i][0])));
+                    lstEquipementButin.Add(retrieveEquipementModele(Convert.ToInt32(lstEquipement[i][0]), idEquipement));
                 }
             }
             return lstEquipementButin;
+        }
+
+        public int insertEquipement(int idEquipementModele)
+        {
+            string reqInsertEquipement = "INSERT INTO Equipements(idEquipementModele) VALUES ('" + idEquipementModele + "');";
+            bdCombaxe.Insertion(reqInsertEquipement);
+            return bdCombaxe.lastInsertId();
         }
     }
 }

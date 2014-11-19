@@ -122,62 +122,6 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            
-            <!--Rangée 1 de l'inventaire-->
-            <Border BorderThickness="1" BorderBrush="Black">
-                <Image Name="inv1Row1" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
-            </Border>
-            <Border BorderThickness="1" Grid.Column="1" BorderBrush="Black">
-                <Image Name="inv2Row1" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
-            </Border>
-            <Border BorderThickness="1" Grid.Column="2" BorderBrush="Black">
-                <Image Name="inv3Row1" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
-            </Border>
-            <Border BorderThickness="1" Grid.Column="3" BorderBrush="Black">
-                <Image Name="inv4Row1" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
-            </Border>
-
-            <!--Rangée 2 de l'inventaire-->
-            <Border BorderThickness="1" Grid.Row="1" Grid.Column="0" BorderBrush="Black">
-                <Image Name="inv1Row2" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
-            </Border>
-            <Border BorderThickness="1" Grid.Row="1" Grid.Column="1" BorderBrush="Black">
-                <Image Name="inv2Row2" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
-            </Border>
-            <Border BorderThickness="1" Grid.Row="1" Grid.Column="2" BorderBrush="Black">
-                <Image Name="inv3Row2" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
-            </Border>
-            <Border BorderThickness="1" Grid.Row="1" Grid.Column="3" BorderBrush="Black">
-                <Image Name="inv4Row2" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
-            </Border>
-
-            <!--Rangée 3 de l'inventaire-->
-            <Border BorderThickness="1" Grid.Row="2" Grid.Column="0" BorderBrush="Black">
-                <Image Name="inv1Row3" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
-            </Border>
-            <Border BorderThickness="1" Grid.Row="2" Grid.Column="1" BorderBrush="Black">
-                <Image Name="inv2Row3" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
-            </Border>
-            <Border BorderThickness="1" Grid.Row="2" Grid.Column="2" BorderBrush="Black">
-                <Image Name="inv3Row3" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
-            </Border>
-            <Border BorderThickness="1" Grid.Row="2" Grid.Column="3" BorderBrush="Black">
-                <Image Name="inv4Row3" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
-            </Border>
-
-            <!--Rangée 4 de l'inventaire-->
-            <Border BorderThickness="1" Grid.Row="3" Grid.Column="0" BorderBrush="Black">
-                <Image Name="inv1Row4" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
-            </Border>
-            <Border BorderThickness="1" Grid.Row="3" Grid.Column="1" BorderBrush="Black">
-                <Image Name="inv2Row4" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
-            </Border>
-            <Border BorderThickness="1" Grid.Row="3" Grid.Column="2" BorderBrush="Black">
-                <Image Name="inv3Row4" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
-            </Border>
-            <Border BorderThickness="1" Grid.Row="3" Grid.Column="3" BorderBrush="Black">
-                <Image Name="inv4Row4" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
-            </Border>
         </Grid>
         
         <!--Partie entre magasin et info perso/inventaire, etc. (titre de grid, or, etc.)-->
@@ -185,7 +129,7 @@
             <Label HorizontalAlignment="Left"  Content="Inventaire" Foreground="White"></Label>
             <StackPanel Margin="0,0,7,0" HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal">
                 <Label Content="Or: " Foreground="White"></Label>
-                <TextBox MinWidth="70" MaxHeight="24" IsEnabled="False"></TextBox>
+                <TextBox Name="txtbArgent" MinWidth="70" MaxHeight="24" IsEnabled="False" TextAlignment="Center"></TextBox>
             </StackPanel>
         </Grid>
 
@@ -262,7 +206,7 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <TextBlock TextWrapping="Wrap" HorizontalAlignment="Right" VerticalAlignment="Center" Text="Niveau: "></TextBlock>
-                    <TextBox Name="txtbNiveau" Grid.Column="1" IsEnabled="False" Margin="0,0,0,2" MinHeight="20" MinWidth="40" HorizontalAlignment="Left" MaxHeight="30"></TextBox>
+                    <TextBox Name="txtbNiveau" Grid.Column="1" IsEnabled="False" Margin="0,0,0,2" MinHeight="20" MinWidth="40" HorizontalAlignment="Left" MaxHeight="30" TextAlignment="Center"></TextBox>
                 </Grid>
                 <TextBlock Name="txtbProfession" Margin="5,0,0,0" HorizontalAlignment="Left" Grid.Column="1" Text="Profession" VerticalAlignment="Center"></TextBlock>
                 <TextBlock Grid.Row="1" TextWrapping="Wrap" Text="Force:" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
@@ -272,14 +216,14 @@
                 <TextBlock Grid.Row="5" TextWrapping="Wrap" Text="Défense:" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
                 
                 <!--Deuxième colonne-->
-                <TextBox  Name="txtbForce" Margin="2,0,0,0" Grid.Column="1" Grid.Row="1" IsEnabled="False" MinWidth="65" MaxHeight="30" HorizontalAlignment="Left"></TextBox>
-                <TextBox  Name="txtbEnergie" Margin="2,0,0,0" Grid.Column="1" Grid.Row="2" IsEnabled="False" MinWidth="65" MaxHeight="30" HorizontalAlignment="Left"></TextBox>
-                <TextBox  Name="txtbVie" Margin="2,0,0,0" Grid.Column="1" Grid.Row="3" IsEnabled="False" MinWidth="65" MaxHeight="30" HorizontalAlignment="Left"></TextBox>
-                <TextBox  Name="txtbVitesse" Margin="2,0,0,0" Grid.Column="1" Grid.Row="4" IsEnabled="False" MinWidth="65" MaxHeight="30" HorizontalAlignment="Left"></TextBox>
-                <TextBox  Name="txtbDefense" Margin="2,0,0,0" Grid.Column="1" Grid.Row="5" IsEnabled="False" MinWidth="65" MaxHeight="30" HorizontalAlignment="Left"></TextBox>
+                <TextBox  Name="txtbForce" Margin="2,0,0,0" Grid.Column="1" Grid.Row="1" IsEnabled="False" MinWidth="65" MaxHeight="30" HorizontalAlignment="Left" TextAlignment="Center"></TextBox>
+                <TextBox  Name="txtbEnergie" Margin="2,0,0,0" Grid.Column="1" Grid.Row="2" IsEnabled="False" MinWidth="65" MaxHeight="30" HorizontalAlignment="Left" TextAlignment="Center"></TextBox>
+                <TextBox  Name="txtbVie" Margin="2,0,0,0" Grid.Column="1" Grid.Row="3" IsEnabled="False" MinWidth="65" MaxHeight="30" HorizontalAlignment="Left" TextAlignment="Center"></TextBox>
+                <TextBox  Name="txtbVitesse" Margin="2,0,0,0" Grid.Column="1" Grid.Row="4" IsEnabled="False" MinWidth="65" MaxHeight="30" HorizontalAlignment="Left" TextAlignment="Center"></TextBox>
+                <TextBox  Name="txtbDefense" Margin="2,0,0,0" Grid.Column="1" Grid.Row="5" IsEnabled="False" MinWidth="65" MaxHeight="30" HorizontalAlignment="Left" TextAlignment="Center"></TextBox>
             </Grid>
             
-            <!--Barre de points de vie et barre de points d'énergie-->
+            <!--Barre de points de vie et barre de points d'énergie-->            
             <TextBox Name="txtbBarreVie" BorderBrush="Black" BorderThickness="1" Foreground="White" TextAlignment="Center" Grid.Row="1" Background="Green" Margin="5,0,5,0" MaxHeight="38" MaxWidth="300" Grid.ColumnSpan="2"></TextBox>
             <TextBox Name="txtbBarreEnergie" BorderBrush="Black" BorderThickness="1" Foreground="White" TextAlignment="Center" Grid.Row="2" Background="Blue" Margin="5,0,5,0" MaxHeight="38" MaxWidth="300" Grid.ColumnSpan="2"></TextBox>
         </Grid>  

@@ -142,7 +142,7 @@ namespace Combaxe___New.classes.services
             string image = @"resources\\images\\personnages\\"+nomPerso+".jpg";
 
             //On insert le personnage
-            string reqInsertPerso = "INSERT INTO Personnages (idProfession, idInventaire, idJoueur, idStatistique, nom, niveau, experience, vie, energie, image) VALUES ("+idProfession+"," + idInventaire + "," + VarGlobales.Joueur.idJoueur + "," + idStatistique + ",'" + nomPerso + "',1,0,"+viePersonnage+","+energiePersonnage+",'"+image+"')";
+            string reqInsertPerso = "INSERT INTO Personnages (idProfession, idInventaire, idJoueur, nom, niveau, experience, vie, energie, image) VALUES ("+idProfession+"," + idInventaire + "," + VarGlobales.Joueur.idJoueur + ",'" + nomPerso + "',1,0,"+viePersonnage+","+energiePersonnage+",'"+image+"')";
             bdCombaxe.Insertion(reqInsertPerso);
             idPersonnage = bdCombaxe.lastInsertId();
 
@@ -230,7 +230,6 @@ namespace Combaxe___New.classes.services
                 string requeteUpdate = "UPDATE Personnages SET vie = "+vie+", energie = "+energie+" WHERE idPersonnage = '" + VarGlobales.Personnage.IdPersonnage + "';";
 
                 bdCombaxe.maj(requeteUpdate);
-                consommationService.MAJConsommation();
 
                 VarGlobales.Personnage.Vie = vie;
                 VarGlobales.Personnage.Energie = energie;
@@ -242,6 +241,7 @@ namespace Combaxe___New.classes.services
 
                 bdCombaxe.maj(requeteUpdate);
             }
+            consommationService.MAJConsommation();
         }
         
         /// <summary>

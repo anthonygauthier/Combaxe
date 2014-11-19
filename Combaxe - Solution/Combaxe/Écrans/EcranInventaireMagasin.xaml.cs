@@ -23,6 +23,8 @@ namespace Combaxe___New.écrans
         public EcranInventaireMagasin()
         {
             InitializeComponent();
+            chargerPersonnage();
+            chargerEquipement();
         }
 
         private void btnRetour_Click_1(object sender, RoutedEventArgs e)
@@ -31,6 +33,68 @@ namespace Combaxe___New.écrans
             var MenuPrincipal = new EcranMenuPrincipal();
             MenuPrincipal.Show();
             this.Close();
+        }
+
+        /// <summary>
+        /// Fonciton qui charge le personnage (Son inventaire, les équipements portés et ses caractéristiques
+        /// </summary>
+        private void chargerPersonnage()
+        {
+            majCaracteristiques();
+            txtbArgent.Text = VarGlobales.Personnage.Inventaire.argent.ToString()+"$";
+            txtbNiveau.Text = VarGlobales.Personnage.Niveau.ToString();
+            txtbProfession.Text = VarGlobales.Personnage.profession.Nom.ToString();
+            
+        }
+
+        /// <summary>
+        /// Fonction qui va inscrire dans les champs de caractéristique les valeurs
+        /// </summary>
+        private void majCaracteristiques()
+        {
+            txtbForce.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur.ToString();
+            txtbEnergie.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur.ToString();
+            txtbVie.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur.ToString();
+            txtbVitesse.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur.ToString();
+            txtbDefense.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Defense].Valeur.ToString();
+            txtbBarreVie.Text = "Points de vie (PV): " + VarGlobales.Personnage.Vie.ToString() + "/" + VarGlobales.Personnage.VieMaximale.ToString();
+            txtbBarreEnergie.Text = "Points d'énergie (PE): " + VarGlobales.Personnage.Energie.ToString() + "/" + VarGlobales.Personnage.EnergieMaximale.ToString();
+        }
+
+        /// <summary>
+        /// Charge les equipements dans l'inventaire du personnage
+        /// </summary>
+        private void chargerEquipement()
+        {
+            Border border;
+            Label equipement;
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    border = new Border();
+                    border.BorderThickness = new Thickness(1);
+                    border.BorderBrush = Brushes.Black;
+                    border.Name = "border" + (i + j);
+                    Grid.SetColumn(border, j);
+                    Grid.SetRow(border, i);
+
+                    if (((i * 4)+j) < VarGlobales.Personnage.Inventaire.listeEquipement.Count())
+                    {
+                        equipement = new Label();
+                        equipement.ToolTip = "Nom: " + VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].Nom
+                                + "\n Dégat: " + VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].DegatMin+ " - " + VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].DegatMax
+                                + "\n Prix: " + Math.Round(VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].Prix/1.131416,2) + "$";
+                        equipement.Content = VarGlobales.Personnage.Inventaire.listeEquipement[(i*4) + j].Nom;
+                        equipement.Name = "btnEquipement"+((i*4) + j);
+                        Grid.SetColumn(equipement, j);
+                        Grid.SetRow(equipement, i);
+                        GridInventaire.Children.Add(equipement);
+                    }
+
+                    GridInventaire.Children.Add(border);
+                }
+            }
         }
     }
 }
