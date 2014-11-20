@@ -224,8 +224,8 @@
             </Grid>
             
             <!--Barre de points de vie et barre de points d'énergie-->            
-            <TextBox Name="txtbBarreVie" BorderBrush="Black" BorderThickness="1" Foreground="White" TextAlignment="Center" Grid.Row="1" Background="Green" Margin="5,0,5,0" MaxHeight="38" MaxWidth="300" Grid.ColumnSpan="2"></TextBox>
-            <TextBox Name="txtbBarreEnergie" BorderBrush="Black" BorderThickness="1" Foreground="White" TextAlignment="Center" Grid.Row="2" Background="Blue" Margin="5,0,5,0" MaxHeight="38" MaxWidth="300" Grid.ColumnSpan="2"></TextBox>
+            <TextBox IsReadOnly="True" Name="txtbBarreVie" BorderBrush="Black" BorderThickness="1" Foreground="White" TextAlignment="Center" Grid.Row="1" Background="Green" Margin="5,0,5,0" MaxHeight="38" MaxWidth="300" Grid.ColumnSpan="2"></TextBox>
+            <TextBox IsReadOnly="True" Name="txtbBarreEnergie" BorderBrush="Black" BorderThickness="1" Foreground="White" TextAlignment="Center" Grid.Row="2" Background="Blue" Margin="5,0,5,0" MaxHeight="38" MaxWidth="300" Grid.ColumnSpan="2"></TextBox>
         </Grid>  
         <!--Bouton pour retourner au menu principal-->
         <Button Style="{DynamicResource GlassButton}" Name="btnRetour" Click="btnRetour_Click_1" Content="Retour" Grid.Row="4" Grid.Column="2" MinWidth="100" MaxHeight="50" Margin="0,0,5,0" HorizontalAlignment="Right" Width="100"></Button>

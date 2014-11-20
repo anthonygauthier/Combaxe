@@ -447,9 +447,12 @@ namespace Combaxe___New.écrans
             if (verificationChamps())
             {
                 sauve(txtbNom.Text);
-                personnageService.CreerPersonnage(Int32.Parse(txtForce.Text), Int32.Parse(txtDefense.Text), Int32.Parse(txtVie.Text), Int32.Parse(txtEnergie.Text), Int32.Parse(txtVitesse.Text), profession, txtbNom.Text);
-                var choisirPerso = new EcranChangementPerso();
-                choisirPerso.Show();
+                int id = personnageService.CreerPersonnage(Int32.Parse(txtForce.Text), Int32.Parse(txtDefense.Text), Int32.Parse(txtVie.Text), Int32.Parse(txtEnergie.Text), Int32.Parse(txtVitesse.Text), profession, txtbNom.Text);
+                VarGlobales.Personnage = personnageService.selectionUnPersonnage(id);
+                VarGlobales.HeureConnexion = DateTime.Now;
+                VarGlobales.ChoixPersoFait = true;
+                var MenuPrincipal = new EcranMenuPrincipal();
+                MenuPrincipal.Show();
                 this.Close();
             }
         }

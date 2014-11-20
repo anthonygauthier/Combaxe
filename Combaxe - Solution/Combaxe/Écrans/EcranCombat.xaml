@@ -37,13 +37,14 @@
             </Grid>
 
         <Grid Grid.Row="1" Margin="5" >
-            <!--Image personnage-->
-            <Image Name="imgPerso"  HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform"></Image>
-            <!--<Grid>
-                <Label Name="lblPts" Content="10" HorizontalAlignment="Center" VerticalAlignment="Center" Panel.ZIndex="20"></Label>
-                <Image Name="imgEffets" Source="../images/pow.png" Panel.ZIndex="19" Stretch="None"></Image>
-            </Grid>-->
-
+                <Border CornerRadius="5">
+                    <!--Image personnage-->
+                    <Image Name="imgPerso"  HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform"></Image>
+                    <!--<Grid>
+                        <Label Name="lblPts" Content="10" HorizontalAlignment="Center" VerticalAlignment="Center" Panel.ZIndex="20"></Label>
+                        <Image Name="imgEffets" Source="../images/pow.png" Panel.ZIndex="19" Stretch="None"></Image>
+                    </Grid>-->
+                </Border>
         </Grid>
 
         <!--Barre de points de vie-->
@@ -104,7 +105,7 @@
                 </Border>
 
                 <!--Journal de combat-->
-                <Border BorderBrush="Black" Grid.Row="2" Margin="5" MinHeight="112" VerticalAlignment="Bottom" BorderThickness="1" >
+                <Border BorderBrush="Black" Grid.Row="2" Margin="5" BorderThickness="1" >
                     <TextBox  Name="txtAttaquesPerso" TextWrapping="Wrap" IsReadOnly="True" AcceptsReturn="True"></TextBox>
                 </Border>
 

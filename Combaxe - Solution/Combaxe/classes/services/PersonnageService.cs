@@ -119,7 +119,7 @@ namespace Combaxe___New.classes.services
         }
 
         //Méthode qui va créer le personnage - Anthony Gauthier 2014-10-24
-        public void CreerPersonnage(int valForce, int valDefense, int valVie, int valEnergie, int valVitesse, int idProfession, string nomPerso)
+        public int CreerPersonnage(int valForce, int valDefense, int valVie, int valEnergie, int valVitesse, int idProfession, string nomPerso)
         {
             InventaireService inventaireService = new InventaireService();
             StatistiqueService statistiqueService = new StatistiqueService();
@@ -162,6 +162,8 @@ namespace Combaxe___New.classes.services
             //On insert les statistiques et on sauvegarde le id
             statistiqueService.InsertionStatistiques(idPersonnage);
             idStatistique = bdCombaxe.lastInsertId();
+
+            return idPersonnage;
         }
 
         //Méthode qui va retourner si le personnage existe ou non (pour la création de personnage) - Anthony Gauthier 2014-10-24

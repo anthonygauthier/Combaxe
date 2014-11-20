@@ -183,5 +183,21 @@ namespace Combaxe___New.classes
                 return false;
             }
         }
+
+        /// <summary>
+        /// Fonction qui retourne si l'auberge est active ou non
+        /// </summary>
+        /// <returns>Si le personnage peut utiliser l'auberge on retourne true</returns>
+        public bool VerifierAuberge()
+        { 
+            if((this.Inventaire.argent > ((this.Niveau) * (this.Niveau))*20) && (this.Vie != this.VieMaximale))
+            {
+                return true;
+            }
+            else 
+            {
+                return false;
+            }
+        }
     }
 }

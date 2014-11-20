@@ -35,8 +35,6 @@ namespace Combaxe___New.classes
             cliqueBouton.Play();
         }
 
-
-
         public static bool Retour { get; set; }
     }
 }

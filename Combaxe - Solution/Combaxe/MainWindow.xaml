@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Combaxe - Connexion" MinHeight="350" MinWidth="525" Height="350" Width="525" WindowStartupLocation="CenterScreen" 
         KeyUp="btnConnexion_KeyUp_1" WindowStyle="None" WindowState="Maximized">
-    
+    <!--http://www.coolwallpapers.me/wandering-warrior/wandering-warrior-destkop-background/ - source -->
     <Window.Background>
         <ImageBrush ImageSource="./Images/background.png"></ImageBrush>
     </Window.Background>
