@@ -67,7 +67,7 @@
                 <TextBox IsEnabled="False" Margin="0,2" Name="txtbDmgMoyen" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" MaxHeight="40" MinWidth="70" MaxWidth="140"></TextBox>
 
                 <!--Bouton retour-->
-                <Button Name="btnRetour" Click="btnRetour_Click" Grid.Row="7" Grid.ColumnSpan="2" HorizontalAlignment="Center" Content="Retour" MinWidth="150" MaxHeight="50"></Button>
+                <Button Name="btnRetour" Style="{DynamicResource GlassButton}" Click="btnRetour_Click" Grid.Row="7" Grid.ColumnSpan="2" HorizontalAlignment="Center" Content="Retour" MinWidth="150" MaxHeight="50"></Button>
             
             </Grid>
         </Border>

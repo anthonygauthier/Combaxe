@@ -88,6 +88,7 @@ namespace Combaxe___New.écrans
                     if (nbLigne >= 3)
                     {
                         gridPerso3.Visibility = Visibility.Visible;
+                        btnCreerPerso.IsEnabled = false;
 
                         string profession = lstPerso[2].profession.Nom + " - Niveau: " + lstPerso[2].Niveau;
 

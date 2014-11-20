@@ -22,8 +22,8 @@
         <Label Foreground="White" HorizontalAlignment="Center" Content="Combaxe" FontFamily="Matura MT Script Capitals" FontSize="80" Grid.ColumnSpan="3"/>
         
         <!--Boutons-->
-        <Button Name="btnQuitter" Content="Quitter" Grid.Column="2" Grid.Row="2" MinHeight="40" MinWidth="100" MaxHeight="80" MaxWidth="150" VerticalAlignment="Center" Click="btnQuitter_Click" Height="40" Margin="0,5,0,4"></Button>
-        <Button Name="btnCreerCompte" Grid.Column="0" Grid.Row="2" MinHeight="40" MinWidth="100" MaxHeight="80" MaxWidth="150" Content="Créer un compte" VerticalAlignment="Center" Click="btnCreerCompte_Click" Height="40" Margin="0,5,0,4"></Button>
+        <Button Name="btnQuitter" FontSize="20" Style="{DynamicResource GlassButton}" Content="Quitter" Grid.Column="2" Grid.Row="2" MinHeight="40" MinWidth="100" MaxHeight="80" MaxWidth="150" VerticalAlignment="Center" Click="btnQuitter_Click" Height="40" Margin="0,5,0,4"></Button>
+        <Button Name="btnCreerCompte" FontSize="20" Style="{DynamicResource GlassButton}" Grid.Column="0" Grid.Row="2" MinHeight="40" MinWidth="100" MaxHeight="80" MaxWidth="150" Content="Créer un compte" VerticalAlignment="Center" Click="btnCreerCompte_Click" Height="40" Margin="0,5,0,4"></Button>
         
 
  
@@ -38,7 +38,7 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Button Name="btnConnexion" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" MinHeight="40" MinWidth="100" MaxHeight="80" MaxWidth="150" VerticalAlignment="Top" Content="Connexion" Click="btnConnexion_Click"></Button>
+            <Button Style="{DynamicResource GlassButton}" Name="btnConnexion" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" MinHeight="40" MinWidth="100" MaxHeight="80" MaxWidth="150" VerticalAlignment="Top" Content="Connexion" Click="btnConnexion_Click"></Button>
 
             <TextBox Loaded="txtbNomUsager_Loaded_1" MinWidth="150" Name="txtbNomUsager" Grid.Row="0" Grid.Column="1" BorderBrush="Black" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,7"/>
             <PasswordBox MinWidth="150" Name="pwdbMdp" Grid.Row="1" Grid.Column="1" BorderBrush="Black" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0"/>

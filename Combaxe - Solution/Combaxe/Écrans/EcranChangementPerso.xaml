@@ -33,11 +33,11 @@
                     <Image Name="imgPerso1" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"></Image>
 
                     <Border Grid.Row="0" Grid.Column="1" Margin="5" Background="White" CornerRadius="15">
-                        <Label Name="lblNomPerso1"></Label>
+                        <Label Name="lblNomPerso1" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
                     </Border>
 
                     <Border Grid.Row="1" Grid.Column="1" Margin="5" Background="White" CornerRadius="15">
-                        <Label Name="lblProfessionPerso1"></Label>
+                        <Label Name="lblProfessionPerso1" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
                     </Border>
                 </Grid>
             </Border>
@@ -56,11 +56,11 @@
                     <Image Name="imgPerso2" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"></Image>
 
                     <Border Grid.Row="0" Grid.Column="1" Margin="5" Background="White" CornerRadius="15">
-                        <Label Name="lblNomPerso2"></Label>
+                        <Label Name="lblNomPerso2" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
                     </Border>
 
                     <Border Grid.Row="1" Grid.Column="1" Margin="5" Background="White" CornerRadius="15">
-                        <Label Name="lblProfessionPerso2"></Label>
+                        <Label Name="lblProfessionPerso2" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
                     </Border>
                 </Grid>
             </Border>
@@ -79,11 +79,11 @@
                     <Image Name="imgPerso3" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"></Image>
 
                     <Border Grid.Row="0" Grid.Column="1" Margin="5" Background="White" CornerRadius="15">
-                        <Label Name="lblNomPerso3"></Label>
+                        <Label Name="lblNomPerso3" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
                     </Border>
 
                     <Border Grid.Row="1" Grid.Column="1" Margin="5" Background="White" CornerRadius="15">
-                        <Label Name="lblProfessionPerso3"></Label>
+                        <Label Name="lblProfessionPerso3" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
                     </Border>
                 </Grid>
             </Border>
@@ -92,8 +92,8 @@
 
         <!--Boutons-->
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" MaxHeight="45">
-            <Button Name="btnCreerPerso" Content="Créer personnage" Click="btnCreerPerso_Click"></Button>
-            <Button Name="btnRetour" Content="Retour" Margin="5,0,0,0" MinWidth="100" Click="btnRetour_Click"></Button>
+            <Button Style="{DynamicResource GlassButton}" Name="btnCreerPerso" Content="Créer personnage" Click="btnCreerPerso_Click"></Button>
+            <Button Style="{DynamicResource GlassButton}" Name="btnRetour" Content="Retour" Margin="5,0,0,0" MinWidth="100" Click="btnRetour_Click"></Button>
         </StackPanel>
     </Grid>
 </Window>
