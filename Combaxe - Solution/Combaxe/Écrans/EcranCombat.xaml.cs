@@ -37,6 +37,8 @@ namespace Combaxe___New.écrans
             chronometreCombat();
             StatistiqueService statsService = new StatistiqueService();
             statsService.miseAjourStatistiques("nombreDeCombat = nombreDeCombat+1");
+
+            //String valeur = effets.Source.ToString();
         }
 
         //On déclare les variables nécéssaires aux différents délais/timers - Anthony Gauthier

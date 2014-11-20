@@ -34,11 +34,16 @@
                     <Label Content="Niveau: " Name="lblNiveauPerso" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
                 </Border>
             </Grid>
-            
-            <!--Image personnage-->
-            <Border Background="White" Grid.Row="1" Margin="5" CornerRadius="5">
-                <Image Name="imgPerso"  HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform" ></Image>
-            </Border>
+
+            <Grid Grid.Row="1" Margin="5" >
+                <!--Image personnage-->
+                <Image Name="imgPerso"  HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform"></Image>
+                <!--<Grid>
+                    <Label Name="lblPts" Content="10" HorizontalAlignment="Center" VerticalAlignment="Center" Panel.ZIndex="20"></Label>
+                    <Image Name="imgEffets" Source="../images/pow.png" Panel.ZIndex="19" Stretch="None"></Image>
+                </Grid>-->
+                
+            </Grid>
             
             <!--Barre de points de vie-->
             <Border Name="brdViePerso"  Grid.Row="2" MaxHeight="50" Background="Green" BorderBrush="Black" BorderThickness="1" Margin="5,5,5,5"></Border>
@@ -160,8 +165,8 @@
             </Grid>
 
             <!--Image personnage-->
-            <Border Background="White" Grid.Row="1" Margin="5" CornerRadius="5">
-                <Image Name="imgEnnemi" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform"></Image>
+            <Border Grid.Row="1" Margin="5" CornerRadius="5">
+                <Image Name="imgEnnemi" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform" OpacityMask="White"></Image>
             </Border>
 
             <!--Barre de points de vie-->

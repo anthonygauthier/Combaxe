@@ -158,7 +158,11 @@ namespace Combaxe___New.écrans
             // on va chercher un personnage
             PersonnageService personnageService = new PersonnageService();
             VarGlobales.ChoixPersoFait = true;
+            // si un personnage est déjà connecté on veut enregistrer son temps de jeu
+            if(VarGlobales.Personnage != null)
+                VarGlobales.Personnage.Deconnexion();
             VarGlobales.Personnage = personnageService.selectionUnPersonnage(lstPerso[index].IdPersonnage);
+            VarGlobales.HeureConnexion = DateTime.Now;
             changerFenetre();
         }
 
