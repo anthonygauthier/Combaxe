@@ -224,6 +224,7 @@
   <ItemGroup />
   <ItemGroup>
     <Resource Include="images\paladin.png" />
+    <Resource Include="images\background_combat.png" />
     <Content Include="resources\media\clique.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
