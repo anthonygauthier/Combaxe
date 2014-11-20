@@ -20,7 +20,7 @@
 
         <!--StackPanel pour le bouton Retour-->
         <StackPanel Orientation="Vertical" Grid.Column="3" Grid.Row="2">
-            <Button Name="btnRetour" Content="Retour" Margin="0,30,5,0" MinHeight="30" MaxHeight="30" MaxWidth="99" Click="btnRetour_Click"></Button>
+            <Button Style="{DynamicResource GlassButton}" Name="btnRetour" Content="Retour" Margin="0,30,5,0" MinHeight="30" MaxHeight="30" MaxWidth="99" Click="btnRetour_Click"></Button>
         </StackPanel>
 
         <!--StackPanel pour les inputs de création de compte-->
@@ -32,7 +32,7 @@
 
         <!--StackPanel pour le bouton de connexion-->
         <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,142,0,10">
-            <Button Name="btnCreerCompte" HorizontalAlignment="Center" Content="Créer compte" MinWidth="90" MaxWidth="90" MinHeight="30" MaxHeight="30" Click="btnCreerCompte_Click"></Button>
+            <Button Style="{DynamicResource GlassButton}" Name="btnCreerCompte" HorizontalAlignment="Center" Content="Créer compte" MinWidth="90" MaxWidth="90" MinHeight="30" MaxHeight="30" Click="btnCreerCompte_Click"></Button>
         </StackPanel>
 
         <!--StackPanel pour les labels de connexion-->

@@ -26,16 +26,16 @@
 
         <!---Boutons du menu-->
         <Label Foreground="White" HorizontalAlignment="Center" Content="Menu Principal" FontFamily="Matura MT Script Capitals" FontSize="44" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <Button Name="btnCombat" Click="btnCombat_Click"  Grid.Row="1" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Combat" HorizontalAlignment="Stretch" Grid.ColumnSpan="4"></Button>
-        <Button Name="btnInventaire" Click="btnInventaire_Click_1" Grid.Row="2" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Inventaire et magasin" HorizontalAlignment="Stretch" Grid.ColumnSpan="4"></Button>
-        <Button Name="btnStatistiques" Click="btnStatistiques_Click_1" Grid.Row="3" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5" Content="Statistiques" HorizontalAlignment="Stretch" Grid.ColumnSpan="4"></Button>
-        <Button Name="btnTaverne" Grid.Row="4" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Auberge" HorizontalAlignment="Stretch" Grid.ColumnSpan="4" Click="btnTaverne_Click"></Button>
-        <Button Name="btnSupprimerPerso" Grid.Row="5" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Supprimer ce personnage" HorizontalAlignment="Stretch" Grid.ColumnSpan="4" Click="btnSupprimerPerso_Click_1"></Button>
-        <Button Name="btnChangerPerso" Grid.Row="6" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Changer de personnage" HorizontalAlignment="Stretch" Grid.ColumnSpan="4" Click="btnChangerPerso_Click"></Button>
-        <Button Name="btnDeconnexion" Grid.Row="7" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Déconnexion" HorizontalAlignment="Stretch" Grid.ColumnSpan="4" Click="btnDeconnexion_Click"></Button>
+        <Button Style="{DynamicResource GlassButton}" Name="btnCombat" Click="btnCombat_Click"  Grid.Row="1" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Combat" HorizontalAlignment="Stretch" Grid.ColumnSpan="4"></Button>
+        <Button Style="{DynamicResource GlassButton}" Name="btnInventaire" Click="btnInventaire_Click_1" Grid.Row="2" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Inventaire et magasin" HorizontalAlignment="Stretch" Grid.ColumnSpan="4"></Button>
+        <Button Style="{DynamicResource GlassButton}" Name="btnStatistiques" Click="btnStatistiques_Click_1" Grid.Row="3" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5" Content="Statistiques" HorizontalAlignment="Stretch" Grid.ColumnSpan="4"></Button>
+        <Button Style="{DynamicResource GlassButton}" Name="btnTaverne" Grid.Row="4" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Auberge" HorizontalAlignment="Stretch" Grid.ColumnSpan="4" Click="btnTaverne_Click"></Button>
+        <Button Style="{DynamicResource GlassButton}" Name="btnSupprimerPerso" Grid.Row="5" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Supprimer ce personnage" HorizontalAlignment="Stretch" Grid.ColumnSpan="4" Click="btnSupprimerPerso_Click_1"></Button>
+        <Button Style="{DynamicResource GlassButton}" Name="btnChangerPerso" Grid.Row="6" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Changer de personnage" HorizontalAlignment="Stretch" Grid.ColumnSpan="4" Click="btnChangerPerso_Click"></Button>
+        <Button Style="{DynamicResource GlassButton}" Name="btnDeconnexion" Grid.Row="7" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Déconnexion" HorizontalAlignment="Stretch" Grid.ColumnSpan="4" Click="btnDeconnexion_Click"></Button>
         
         <!--Boutons cachés-->
-        <Button Name="btnCampagne" Grid.Row="1" Grid.Column="1" Visibility="Hidden" HorizontalAlignment="Right" MinWidth="175"   MaxWidth="175" Content="Campagne"  MaxHeight="50" Margin="0,5,0,5" Click="btnCampagne_Click_1"></Button>
-        <Button Name="btnPartieRapide" Grid.Row="1" Grid.Column="2" Visibility="Hidden" HorizontalAlignment="Left" MinWidth="175" MaxWidth="175" Content="Partie Rapide" MaxHeight="50" Margin="0,5,0,5" Click="btnPartieRapide_Click_1"></Button>
+        <Button Style="{DynamicResource GlassButton}" Name="btnCampagne" Grid.Row="1" Grid.Column="1" Visibility="Hidden" HorizontalAlignment="Right" MinWidth="175"   MaxWidth="175" Content="Campagne"  MaxHeight="50" Margin="0,5,0,5" Click="btnCampagne_Click_1"></Button>
+        <Button Style="{DynamicResource GlassButton}" Name="btnPartieRapide" Grid.Row="1" Grid.Column="2" Visibility="Hidden" HorizontalAlignment="Left" MinWidth="175" MaxWidth="175" Content="Partie Rapide" MaxHeight="50" Margin="0,5,0,5" Click="btnPartieRapide_Click_1"></Button>
     </Grid>
 </Window>
