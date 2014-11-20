@@ -34,6 +34,7 @@ namespace Combaxe___New.classes
             profession = null;
             Vie = 0;
             Energie = 0;
+            VarGlobales.HeureConnexion = DateTime.Now;
         }
 
         /// <summary>
@@ -127,6 +128,15 @@ namespace Combaxe___New.classes
         /// </summary>
         public void Deconnexion()
         {
+            DateTime moment = DateTime.Now;
+            TimeSpan temps = moment - VarGlobales.HeureConnexion;
+
+            if (VarGlobales.Personnage != null)
+            {
+                StatistiqueService statsService = new StatistiqueService();
+                statsService.miseAjourStatistiques("tempsDeJeu = ADDTIME(tempsDeJeu, '" + temps + "')");
+            }
+
             this.IdPersonnage = 0;
             this.Nom = "";
             this.Niveau = 0;

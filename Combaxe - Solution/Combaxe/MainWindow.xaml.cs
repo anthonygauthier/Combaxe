@@ -178,6 +178,7 @@ namespace Combaxe___New
                 {
                     this.Opacity = 1;
                     this.IsEnabled = true;
+                    VarGlobales.ChoixPersoFait = false;
                     horloge.Stop();
                     this.Close();
                 }
@@ -185,6 +186,9 @@ namespace Combaxe___New
                 {
                     this.Opacity = 1;
                     this.IsEnabled = true;
+                    txtbNomUsager.Text = "";
+                    pwdbMdp.Password = "";
+                    VarGlobales.Retour = false;
                     horloge.Stop();
                 }
             }, Application.Current.Dispatcher);

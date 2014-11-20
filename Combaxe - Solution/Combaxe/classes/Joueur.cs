@@ -45,7 +45,6 @@ namespace Combaxe___New.classes
         {
             idJoueur = id;
             pseudo = user;
-            VarGlobales.HeureConnexion = DateTime.Now;
         }
 
         /// <summary>
@@ -63,17 +62,8 @@ namespace Combaxe___New.classes
         { 
             this.idJoueur = 0; // vaut 0 lorsque le joueur n'est pas connecté
             this.pseudo = "";
-            DateTime moment = DateTime.Now;
-            TimeSpan temps = moment - VarGlobales.HeureConnexion;
-
-            if (VarGlobales.Personnage !=null)
-            {
-                if (VarGlobales.Personnage.IdPersonnage > 0)
-                {
-                    StatistiqueService statsService = new StatistiqueService();
-                    statsService.miseAjourStatistiques("tempsDeJeu = ADDTIME(tempsDeJeu, '" + temps + "')");
-                }
-            }
+            if (VarGlobales.Personnage != null)
+                VarGlobales.Personnage.Deconnexion();
         }
 
         /// <summary>
