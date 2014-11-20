@@ -82,12 +82,14 @@ namespace Combaxe___New.écrans
         private void btnCampagne_Click_1(object sender, RoutedEventArgs e)
         {
             ouvrirEcranCombat();
+            VarGlobales.campagne = true;
         }
 
         //Méthode du bouton Partie Rapide - Anthony Gauthier 23/10/2014
         private void btnPartieRapide_Click_1(object sender, RoutedEventArgs e)
         {
             ouvrirEcranCombat();
+            VarGlobales.campagne = false;
         }
 
         //Méthode pour afficher l'écran de combat - Anthony Gauthier 23/10/2014

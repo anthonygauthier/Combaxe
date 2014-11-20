@@ -16,7 +16,7 @@ VALUES
 	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),3,'Dague rouillée',89.54,2,5),
 	((SELECT idModele FROM Modeles WHERE nom='Arme à une main'),3,'Baguette rouillée',89.54,2,5),
 	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),3,'Hache rouillée',134.30,3,6),
-	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),3,'Lance rouillé',134.30,3,6),
+	((SELECT idModele FROM Modeles WHERE nom='Arme à deux mains'),3,'Lance rouillée',134.30,3,6),
 /* FIN ROUILLÉ */
 
 /*DÉBUT MAGIQUE*/

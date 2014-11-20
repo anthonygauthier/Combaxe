@@ -15,6 +15,7 @@ namespace Combaxe___New.classes
     public class Personnage : Unite
     {
         public int IdPersonnage { get; set; }
+        public int IdCampagne { get; set; }
         public int Experience { get; set; }
         public int Vie { get; set; }
         public int Energie { get; set; }

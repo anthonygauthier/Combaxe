@@ -14,9 +14,8 @@ INSERT INTO Professions
 VALUES
 (
     'Magicien'
-,'Le magicien étudie différent type de magie, excluant la magie noire. Il contrôle les arcanes,
-le feu et l\'électricité. Il se sert de sorts pour attaquer son ennemi, mais aussi pour se protéger. Les sorts
-du magicien sont très puissant et efficaces, cependant, le magicien n\'est pas aussi solide physiquement qu\'un guerrier ou un paladin.'
+,'Le magicien étudie différent type de magie. Il se sert de sorts pour attaquer son ennemi, mais aussi pour se protéger. Les sorts
+du magicien sont très puissant, cependant, le magicien n\'est pas aussi solide physiquement qu\'un guerrier ou un paladin.'
 , 	'../images/magicien.png'
 );
 

@@ -25,6 +25,7 @@ namespace Combaxe___New.classes
         public static bool fermerModifCaracteristique { get; set; }
         public static bool aAssezEnergie { get; set; }
         public static bool ChoixPersoFait { get; set; }
+        public static bool campagne { get; set; }
 
         public static SoundPlayer sonPotion { get; set; }
         public static SoundPlayer cliqueBouton { get; set; }

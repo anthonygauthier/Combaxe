@@ -264,7 +264,14 @@ namespace Combaxe___New.écrans
         private void chargerEnnemi()
         {
             Ennemi ennemi = new Ennemi();
-            ennemi.ennemiAleatoire();
+            if(VarGlobales.campagne)
+            {
+                ennemi.boss();
+            }
+            else
+            {
+                ennemi.ennemiAleatoire();
+            }
             imgEnnemi.Source = VarGlobales.Ennemi.Image;
             lblNomEnnemi.Content = VarGlobales.Ennemi.Nom;
             lblNiveauEnnemi.Content = lblNiveauEnnemi.Content + VarGlobales.Ennemi.Niveau.ToString();
@@ -536,8 +543,22 @@ namespace Combaxe___New.écrans
                         MajBarreExperience((int)(brdMaxWidth.ActualWidth));
 
                         boutonClique = true;
-                        MessageBox.Show("Combat terminé, vous avez gagné !\n" + "Vous gagnez! " + expGagner + " points d'expérience!", "Statut", MessageBoxButton.OK, MessageBoxImage.Information);
-                       
+                        MessageBox.Show("Combat terminé, vous avez gagné !\n" + "Vous gagnez! " + expGagner + " points d'expérience, "+VarGlobales.Ennemi.Inventaire.argent+"$ ", "Statut", MessageBoxButton.OK, MessageBoxImage.Information);
+                        
+                        switch(VarGlobales.Ennemi.Inventaire.listeEquipement.Count())
+                        {
+                            case 1:
+                                MessageBox.Show("Vous avez gagné:\n "+VarGlobales.Ennemi.Inventaire.listeEquipement[0].Nom,"Statut", MessageBoxButton.OK, MessageBoxImage.Information);
+                                break;
+                            case 2:
+                                MessageBox.Show("Vous avez gagné:\n " + VarGlobales.Ennemi.Inventaire.listeEquipement[0].Nom + ",\n " + VarGlobales.Ennemi.Inventaire.listeEquipement[1].Nom, "Statut", MessageBoxButton.OK, MessageBoxImage.Information);
+                                break;
+                            case 3:
+                                MessageBox.Show("Vous avez gagné:\n " + VarGlobales.Ennemi.Inventaire.listeEquipement[0].Nom + ",\n" + VarGlobales.Ennemi.Inventaire.listeEquipement[1].Nom + ",\n" + VarGlobales.Ennemi.Inventaire.listeEquipement[2].Nom, "Statut", MessageBoxButton.OK, MessageBoxImage.Information);
+                                break;
+                            case 0:
+                                break;
+                        }
                         //Si l'expérience gagné est plus grande ou égale à l'expérience maximale, on monte de niveau
                         if (VarGlobales.aMonterNiveau == true)
                         {

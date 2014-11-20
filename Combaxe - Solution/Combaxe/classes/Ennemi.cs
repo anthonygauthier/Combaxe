@@ -40,9 +40,19 @@ namespace Combaxe___New.classes
         /// Fonction qui définit si un ennemi est un boss - Anthony Gauthier 02/10/2014
         /// </summary>
         /// <returns>valeur booléenne (true/false (1,0))</returns>
-        public bool estBoss()
-        { 
-            return false;
+        public void boss()
+        {
+            int nombreRange = 0;
+            EnnemiService ennemiService = new EnnemiService();
+            Ennemi ennemi = new Ennemi();
+            List<string>[] idBoss;
+            string reqBoss = "SELECT idEnnemi FROM Campagnes WHERE idCampagne = '"+VarGlobales.Personnage.IdCampagne+"';";
+            BdService bdCombaxe = new BdService();
+            idBoss = bdCombaxe.selection(reqBoss, 1, ref nombreRange);
+               
+            ennemi = ennemiService.RetrieveInfoEnnemi(idBoss[0][0]);
+
+            VarGlobales.Ennemi = ennemi;
         }
 
         /// <summary>

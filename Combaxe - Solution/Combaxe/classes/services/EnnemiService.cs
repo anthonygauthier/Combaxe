@@ -18,11 +18,20 @@ namespace Combaxe___New.classes.services
         /// <returns></returns>
         public Ennemi RetrieveInfoEnnemi(string idEnnemi)
         {
-            string selConnexion = "SELECT idEnnemi, idInventaire, nom, niveau, image FROM Ennemis WHERE idEnnemi = '" + idEnnemi + "' AND boss = false;";
+            string selConnexion;
+
+            if (VarGlobales.campagne)
+            {
+                selConnexion = "SELECT idEnnemi, nom, niveau, image FROM Ennemis WHERE idEnnemi = '" + idEnnemi + "' AND boss = true;";
+            }
+            else
+            {
+                selConnexion = "SELECT idEnnemi, nom, niveau, image FROM Ennemis WHERE idEnnemi = '" + idEnnemi + "' AND boss = false;";
+            }
             List<string>[] unEnnemi;
 
             int nombreRange = 0;
-            unEnnemi = bdCombaxe.selection(selConnexion, 5, ref nombreRange);
+            unEnnemi = bdCombaxe.selection(selConnexion, 4, ref nombreRange);
 
             //On va chercher les caractéristiques de l'ennemi
             CaracteristiqueService caracteristiqueService = new CaracteristiqueService();
@@ -46,7 +55,7 @@ namespace Combaxe___New.classes.services
             }
 
             //On insere les competences dans l'ennemi
-            Ennemi ennemi = new Ennemi(Convert.ToInt32(unEnnemi[0][0]), Convert.ToInt32(unEnnemi[0][3]), unEnnemi[0][4], unEnnemi[0][2],caracteristiques, lesCompetences, null);
+            Ennemi ennemi = new Ennemi(Convert.ToInt32(unEnnemi[0][0]), Convert.ToInt32(unEnnemi[0][2]), unEnnemi[0][3], unEnnemi[0][1],caracteristiques, lesCompetences, null);
 
             return ennemi;
         }

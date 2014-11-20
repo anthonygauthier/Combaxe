@@ -19,6 +19,7 @@ DROP TABLE IF EXISTS Consommations;
 DROP TABLE IF EXISTS TypesConsommations;
 DROP TABLE IF EXISTS EquipementsModeles;
 DROP TABLE IF EXISTS Modeles;
+DROP TABLE IF EXISTS Campagnes;
 DROP TABLE IF EXISTS Ennemis;
 DROP TABLE IF EXISTS Inventaires;
 DROP TABLE IF EXISTS Joueurs;
@@ -43,6 +44,13 @@ CREATE TABLE IF NOT EXISTS Ennemis
 ,	niveau INT NOT NULL DEFAULT 1
 ,	image VARCHAR(255)
 ,	boss BOOL DEFAULT FALSE
+);
+
+CREATE TABLE IF NOT EXISTS Campagnes
+(
+	idCampagne INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
+,	idEnnemi INT NOT NULL
+,	histoire VARCHAR(255)
 );
 
 CREATE TABLE IF NOT EXISTS Modeles
@@ -100,6 +108,7 @@ CREATE TABLE IF NOT EXISTS Personnages
 ,	idProfession INT NOT NULL
 ,	idInventaire INT NOT NULL
 ,	idJoueur INT NOT NULL
+,	idCampagne INT DEFAULT 1
 ,	nom VARCHAR(21) NOT NULL UNIQUE
 ,	niveau INT NOT NULL DEFAULT 1
 ,	experience INT NOT NULL DEFAULT 0
@@ -260,9 +269,13 @@ ALTER TABLE CompetencesEnnemis
 ADD CONSTRAINT CompetencesEnnemis_Ennemis_FK
 FOREIGN KEY (idEnnemi) REFERENCES Ennemis(idEnnemi);
 
-ALTER TABLE Ennemis
-ADD CONSTRAINT Ennemis_Inventaires_FK
-FOREIGN KEY (idInventaire) REFERENCES Inventaires(idInventaire);
+ALTER TABLE Campagnes
+ADD CONSTRAINT Campagnes_Ennemis_FK
+FOREIGN KEY (idEnnemi) REFERENCES Ennemis(idEnnemi);
+
+ALTER TABLE Personnages
+ADD CONSTRAINT Personnages_Campagnes_FK
+FOREIGN KEY (idCampagne) REFERENCES Campagnes(idCampagne);
 
 ALTER TABLE CaracteristiquesEnnemis
 ADD CONSTRAINT CaracteristiquesEnnemis_Ennemis_FK
