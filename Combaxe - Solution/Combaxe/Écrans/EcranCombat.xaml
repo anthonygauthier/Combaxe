@@ -21,7 +21,7 @@
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-            
+
             <!--Nom, niveau-->
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -36,7 +36,7 @@
                 </Border>
             </Grid>
 
-        <Grid Grid.Row="1" Margin="5" >
+            <Grid Grid.Row="1" Margin="5" >
                 <Border CornerRadius="5">
                     <!--Image personnage-->
                     <Image Name="imgPerso"  HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform"></Image>
@@ -45,18 +45,18 @@
                         <Image Name="imgEffets" Source="../images/pow.png" Panel.ZIndex="19" Stretch="None"></Image>
                     </Grid>-->
                 </Border>
-        </Grid>
+            </Grid>
 
-        <!--Barre de points de vie-->
+            <!--Barre de points de vie-->
             <Border Name="brdViePerso"  Grid.Row="2" MaxHeight="50" Background="Green" BorderBrush="Black" BorderThickness="1" Margin="5,5,5,5"></Border>
             <Label Name="lblViePerso" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"></Label>
             <Border Loaded="brdMaxWidth_Loaded" Grid.Row="2" Name="brdMaxWidth" MaxHeight="50" Background="Black" Panel.ZIndex="-1" BorderBrush="Black" BorderThickness="1" Margin="5"/>
-            
+
             <!--Barre de points d'énergie-->
             <Border Name="brdEnergiePerso" Grid.Row="3" MaxHeight="50" Background="Blue" BorderBrush="Black" BorderThickness="1" Margin="5,5,5,5"></Border>
             <Label Name="lblEnergiePerso" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"></Label>
             <Border  Grid.Row="3" MaxHeight="50" Background="Black" Panel.ZIndex="-1" BorderBrush="Black" BorderThickness="1" Margin="5"/>
-            
+
             <!--Bouton fuir-->
             <Grid Grid.Row="4">
                 <Grid.Resources>
@@ -69,7 +69,7 @@
                 <Button Style="{DynamicResource GlassButton}" Name="btnFuir" Content="Fuir" Click="btnFuir_Click" Grid.Column="1" Margin="5,5,5,5" ToolTip="Fuire le combat (Attention, l'ennemi vous attaquera une dernière fois)"></Button>
             </Grid>
         </Grid>
-        
+
         <!--Partie du milieu (actions, journal de combat, etc.)-->
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
@@ -83,7 +83,7 @@
             <!--Horloge de jeu-->
             <TextBlock Name="txtbHorloge" Grid.Row="1" VerticalAlignment="Center"  Panel.ZIndex="1" HorizontalAlignment="Center"></TextBlock>
             <ProgressBar Margin="5" Grid.Row="1"  Name="pbHorloge"></ProgressBar>
-            
+
             <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*"></ColumnDefinition>
@@ -114,7 +114,7 @@
                 </Border>
 
                 <Border BorderBrush="Black" Grid.Row="2" Grid.Column="3" Margin="5" BorderThickness="1" >
-                <TextBox  Name="txtAttaquesEnnemi" TextWrapping="Wrap" IsReadOnly="True" AcceptsReturn="True"></TextBox>
+                    <TextBox  Name="txtAttaquesEnnemi" TextWrapping="Wrap" IsReadOnly="True" AcceptsReturn="True"></TextBox>
                 </Border>
 
                 <Border BorderBrush="Black" Grid.Row="2" Grid.Column="2" Margin="5" BorderThickness="1" >
@@ -131,10 +131,10 @@
                 <Button Style="{DynamicResource GlassButton}" Name="btnChoisirActions" Content="Actions" Margin="2" MaxWidth="160" Click="btnChoisirActions_Click"></Button>
                 <Button Style="{DynamicResource GlassButton}" Name="btnItems" Content="Items" Grid.Column="1" Margin="2" MaxWidth="160" Click="btnItems_Click"></Button>
             </Grid>
-            
+
             <!--Actions-->
             <Grid Grid.Row="3">
-                    <Grid.ColumnDefinitions>
+                <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
@@ -146,13 +146,13 @@
                 <Button Name="btnAction3" Visibility="Hidden" Grid.Column="2" Margin="2" MaxHeight="120" Click="btnAction3_Click"></Button>
                 <Button Name="btnAction4" Visibility="Hidden" Grid.Column="3" Margin="2" MaxHeight="120" Click="btnAction4_Click"></Button>
             </Grid>
-            
+
             <!--Barre d'expérience-->
             <Border Grid.Row="4" MaxHeight="50" Background="Black" Panel.ZIndex="-1" BorderBrush="Black" BorderThickness="1" Margin="5"></Border>
             <Border Name="brdExperience" Grid.Row="4" MaxHeight="50" Background="Purple" Panel.ZIndex="1" BorderBrush="Black" BorderThickness="1" Margin="5"></Border>
             <Label Grid.Row="4" Name="lblExperiencePerso" Margin="0,0,0,-3" Panel.ZIndex="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"></Label>
         </Grid>
-        
+
         <!--Partie de l'ennemi-->
         <Grid Grid.Column="2">
             <Grid.RowDefinitions>
@@ -192,6 +192,7 @@
             <Border Name="brdEnergieEnnemi" Grid.Row="3" MaxHeight="50" Background="Blue" BorderBrush="Black" BorderThickness="1" Margin="5,5,5,5"></Border>
             <Label Name="lblEnergieEnnemi" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"></Label>
             <Border  Grid.Row="3" MaxHeight="50" Background="Black" Panel.ZIndex="-1" BorderBrush="Black" BorderThickness="1" Margin="5"/>
+            <Button Style="{DynamicResource GlassButton}" Content="Aide" HorizontalAlignment="right" Grid.Row="4" VerticalAlignment="Top" Margin="0,3,10,0" Click="Button_Click"/>
         </Grid>
     </Grid>
 </Window>
