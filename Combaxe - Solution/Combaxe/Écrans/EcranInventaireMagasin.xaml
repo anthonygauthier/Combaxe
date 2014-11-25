@@ -155,7 +155,9 @@
             </Grid.RowDefinitions>
             
             <Border Grid.Row="0" Grid.Column="0" BorderBrush="Black" BorderThickness="1" Margin="2"></Border>
-            <Border Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="2"></Border>
+            <Border Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="2">
+                <TextBox AllowDrop="True" Name="Tete" ></TextBox>
+            </Border>
             <Border Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="2"></Border>
             <Border Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="1" Margin="2"></Border>
             <Border Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="1" Margin="2"></Border>

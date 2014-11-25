@@ -544,7 +544,7 @@ namespace Combaxe___New.écrans
                         MajBarreExperience((int)(brdMaxWidth.ActualWidth));
 
                         boutonClique = true;
-                        MessageBox.Show("Combat terminé, vous avez gagné !\n" + "Vous gagnez! " + expGagner + " points d'expérience, "+VarGlobales.Ennemi.Inventaire.argent+"$ ", "Statut", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show("Combat terminé, vous avez gagné !\n" + "Vous gagnez! " + expGagner + " points d'expérience et "+Math.Round(VarGlobales.Ennemi.Inventaire.argent,2)+"$ ", "Statut", MessageBoxButton.OK, MessageBoxImage.Information);
                         
                         switch(VarGlobales.Ennemi.Inventaire.listeEquipement.Count())
                         {
@@ -1021,6 +1021,20 @@ namespace Combaxe___New.écrans
 
             }, Application.Current.Dispatcher);
             timer.Start();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string tourParTour = "But du jeu\nLe jeu se déroule tour par tour, celui qui est plus rapide débute le combat. Ensuite tour par tour les personnages s'affrontent en choisissant selon une stratégie des actions qui mèneront à la victoire.";
+            string action = "\n\nActions\nPour effectuer une action, vous devez cliquer sur le bouton 'actions', ensuite vous pouvez faire le choix de votre action. Pour plus d'information à propos de leurs effets, vous pouvez passer la souris sur l'action désirée et vous pourrez voir sa description.";
+            string items = "\n\nItems\nPour utiliser un objet qui aide le personnage, vous pouvez cliquer sur le bouton 'Items'. Ensuite si vous possédez préalablement des potions de vie ou de mana, vous allez pouvoir les utilisées. Pour connaitre leur effet, vous pouvez glisser votre souris sur la potion désirée";
+            string fuir = "\n\nFuir\nVous pouvez fuir un combat, cependant si l'ennemi est plus rapide que vous il vous inflige des dégâts supplémentaires. Sinon vous pouvez fuir librement.";
+            string personnage = "\n\nSection personnage\nCette section est la partie de gauche de l'écran. Tout ce qui se rapporte au personnage se retrouve de ce côté. Pour les actions, cette partie ce retrouve au centre.";
+            string ennemi = "\n\nSection ennemi\nCette section est la partie de droite de l'écran. Tout ce qui se rapporte à l'ennemi se retrouve de ce côté.";
+            string affichage = "\n\nJournal de combat\nLa partie de droite signifie le résultat de l'action du joueur. La partie de gauche signifie le résultat de l'action de l'ennemi.";
+            string energie = "\n\nÉnergie\nL'énergie se régénère de 5% à chaque tour, autant chez le joueur que l'ennemi.";
+
+            MessageBox.Show(tourParTour + action + items + fuir + personnage + ennemi + affichage + energie, "Aide", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }
