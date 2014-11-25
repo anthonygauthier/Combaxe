@@ -1034,7 +1034,14 @@ namespace Combaxe___New.écrans
             string affichage = "\n\nJournal de combat\nLa partie de droite signifie le résultat de l'action du joueur. La partie de gauche signifie le résultat de l'action de l'ennemi.";
             string energie = "\n\nÉnergie\nL'énergie se régénère de 5% à chaque tour, autant chez le joueur que l'ennemi.";
 
-            MessageBox.Show(tourParTour + action + items + fuir + personnage + ennemi + affichage + energie, "Aide", MessageBoxButton.OK, MessageBoxImage.Information);
+            this.IsEnabled = false;
+            horloge.Stop();
+
+            if(MessageBox.Show(tourParTour + action + items + fuir + personnage + ennemi + affichage + energie, "Aide Combat", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK)
+            { 
+                this.IsEnabled = true;
+                horloge.Start();
+            }
         }
     }
 }

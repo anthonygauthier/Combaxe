@@ -21,11 +21,6 @@
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-<<<<<<< HEAD
-            <Border Name="brdPersoActif" Grid.RowSpan="4" BorderBrush="Red" Visibility="Hidden" BorderThickness="1.5" Margin="2"></Border>
-=======
-
->>>>>>> origin/master
             <!--Nom, niveau-->
             <Grid>
                 <Grid.ColumnDefinitions>
