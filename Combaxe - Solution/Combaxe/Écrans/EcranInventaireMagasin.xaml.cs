@@ -67,7 +67,7 @@ namespace Combaxe___New.écrans
         private void chargerEquipement()
         {
             Border border;
-            Label equipement;
+            Image equipement;
             for (int i = 0; i < 4; i++)
             {
                 for (int j = 0; j < 4; j++)
@@ -81,12 +81,13 @@ namespace Combaxe___New.écrans
 
                     if (((i * 4)+j) < VarGlobales.Personnage.Inventaire.listeEquipement.Count())
                     {
-                        equipement = new Label();
+                        equipement = new Image();
                         equipement.ToolTip = "Nom: " + VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].Nom
                                 + "\n Dégat: " + VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].DegatMin+ " - " + VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].DegatMax
                                 + "\n Prix: " + Math.Round(VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].Prix/1.131416,2) + "$";
-                        equipement.Content = VarGlobales.Personnage.Inventaire.listeEquipement[(i*4) + j].Nom;
-                        equipement.Name = "btnEquipement"+((i*4) + j);
+                        equipement.Source = new BitmapImage(new Uri(VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].ImageUrl));
+                        equipement.Name = "equipement"+((i*4) + j);
+                        equipement.AllowDrop = true;
                         Grid.SetColumn(equipement, j);
                         Grid.SetRow(equipement, i);
                         GridInventaire.Children.Add(equipement);

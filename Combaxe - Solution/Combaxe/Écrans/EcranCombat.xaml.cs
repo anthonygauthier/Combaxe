@@ -545,7 +545,7 @@ namespace Combaxe___New.écrans
                         MajBarreExperience((int)(brdMaxWidth.ActualWidth));
 
                         boutonClique = true;
-                        MessageBox.Show("Combat terminé, vous avez gagné !\n" + "Vous gagnez! " + expGagner + " points d'expérience, "+VarGlobales.Ennemi.Inventaire.argent+"$ ", "Statut", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show("Combat terminé, vous avez gagné !\n" + "Vous gagnez! " + expGagner + " points d'expérience et "+Math.Round(VarGlobales.Ennemi.Inventaire.argent,2)+"$ ", "Statut", MessageBoxButton.OK, MessageBoxImage.Information);
                         
                         switch(VarGlobales.Ennemi.Inventaire.listeEquipement.Count())
                         {
