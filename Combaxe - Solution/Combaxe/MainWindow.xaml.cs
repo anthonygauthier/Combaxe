@@ -59,16 +59,6 @@ namespace Combaxe___New
             btnConnexionActive();
         }
 
-        //Méthode qui effectue la connexion lorsque "Enter" est pressé 24/10/2014
-        private void btnConnexion_KeyUp_1(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                btnConnexionActive();
-                e.Handled = true;
-            }
-        }
-
         //Méthode pour se connecter - Anthony Gauthier 09/10/2014
         private bool connexionCombaxe()
         {

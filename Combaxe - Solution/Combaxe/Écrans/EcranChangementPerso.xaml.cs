@@ -179,6 +179,7 @@ namespace Combaxe___New.écrans
             }
             else
             {
+                VarGlobales.ChoixPersoFait = true;
                 var EcranMenuPrincipal = new EcranMenuPrincipal();
                 EcranMenuPrincipal.Show();
                 VarGlobales.EstConnecte = false;

@@ -37,7 +37,6 @@ namespace Combaxe___New.écrans
             chronometreCombat();
             StatistiqueService statsService = new StatistiqueService();
             statsService.miseAjourStatistiques("nombreDeCombat = nombreDeCombat+1");
-
             //String valeur = effets.Source.ToString();
         }
 
@@ -736,11 +735,11 @@ namespace Combaxe___New.écrans
                     {
                         txtAttaquesPerso.Text += "Rapidité\n\n";
                         txtDmgPerso.Text += "<- \n\n";
-                        txtDmgEnnemi.Text += "\n";
-                        txtAttaquesEnnemi.Text += "\n";
+                        txtDmgEnnemi.Text += "\n\n\n";
+                        txtAttaquesEnnemi.Text += "\n\n\n";
                     }
                     actionBouton(btnClique);
-
+                    
                     /*Si l'ennemi est encore en vie, il va attaquer, mais on ajoute un délai pour faire comme si l'ennemi
                     Choisissais son attaque - Anthony Gauthier 2014-11-06*/
                     if(combat.VieEnnemi > 0)
@@ -754,10 +753,10 @@ namespace Combaxe___New.écrans
                     {
                         txtAttaquesEnnemi.Text += "Rapidité\n\n";
                         txtDmgEnnemi.Text += "->\n\n";
-                        txtDmgPerso.Text += "\n";
-                        txtAttaquesPerso.Text += "\n";
+                        txtDmgPerso.Text += "\n\n\n";
+                        txtAttaquesPerso.Text += "\n\n\n";
+                        DelaiAttaqueEnnemi();
                     }
-                    DelaiAttaqueEnnemi();
                     if(VarGlobales.Personnage.Vie > 0)
                         actionBouton(btnClique);
                 }
@@ -768,10 +767,17 @@ namespace Combaxe___New.écrans
             //À tous les 2 tours, on regénère un peu d'énergie au personnage.
             if(nbTour % 2 == 0)
             {
-                VarGlobales.Personnage.Energie = (int)((VarGlobales.Personnage.Energie) + (VarGlobales.Personnage.EnergieMaximale * 0.10));
+                VarGlobales.Personnage.Energie = (int)((VarGlobales.Personnage.Energie) + (VarGlobales.Personnage.EnergieMaximale * 0.05));
                 if (VarGlobales.Personnage.Energie >= VarGlobales.Personnage.EnergieMaximale)
                 {
                     VarGlobales.Personnage.Energie = VarGlobales.Personnage.EnergieMaximale;
+                }
+
+                //Et de l'ennemi aussi
+                combat.EnergieEnnemi = (int)((combat.EnergieEnnemi) + (combat.EnergieMaximale * 0.05));
+                if (combat.EnergieEnnemi >= combat.EnergieMaximale)
+                {
+                    combat.EnergieEnnemi = combat.EnergieMaximale;
                 }
             }
         }
@@ -988,19 +994,26 @@ namespace Combaxe___New.écrans
         {
             this.IsEnabled = false;
             TimeSpan secondes;
+            chronometreCombat();
+
+            Random rand = new Random();
+            int nbrRandom = rand.Next(3,9);
 
             secondes = TimeSpan.FromSeconds(0);
+            
 
             timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
+                brdEnnemiActif.Visibility = Visibility.Visible;
                 secondes = secondes.Add(TimeSpan.FromSeconds(1));
 
                 //Si le délai est terminé, on fait l'attaque de l'ennemi
-                if (secondes == TimeSpan.FromSeconds(1))
+                if (secondes == TimeSpan.FromSeconds(nbrRandom))
                 {
                     this.IsEnabled = true;
                     if(combat.VieEnnemi != 0)
                     {
+                        brdEnnemiActif.Visibility = Visibility.Hidden;
                         ActionEnnemi();
                     }
                     timer.Stop();

@@ -21,7 +21,7 @@
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-            
+            <Border Name="brdPersoActif" Grid.RowSpan="4" BorderBrush="Red" Visibility="Hidden" BorderThickness="1.5" Margin="2"></Border>
             <!--Nom, niveau-->
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -162,7 +162,15 @@
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-
+            <Border Name="brdEnnemiActif" Grid.RowSpan="4" Opacity="0.7" BorderBrush="Black" Visibility="Hidden" BorderThickness="2" Panel.ZIndex="-3">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Color="Black" Offset="0.0" />
+                        <GradientStop Color="Crimson" Offset="0.5" />
+                        <GradientStop Color="Red" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
             <!--Nom, niveau-->
             <Grid>
                 <Grid.ColumnDefinitions>

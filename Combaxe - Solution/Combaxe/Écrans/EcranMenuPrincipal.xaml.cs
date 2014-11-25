@@ -18,6 +18,7 @@ using Combaxe___New.écrans;
 using Combaxe___New.classes.services;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
+using System.Threading;
 
 namespace Combaxe___New.écrans
 {
@@ -30,7 +31,7 @@ namespace Combaxe___New.écrans
         public EcranMenuPrincipal()
         {
             InitializeComponent();
-
+            LoadPersonnage();
             btnTaverne.Content += " ("+montantAuberge.ToString()+" pièces d'or)";
             //On active le bouton taverne dépendemment de la vie et l'énergie actuelle du personnage
             if(VarGlobales.Personnage.VerifierAuberge())
@@ -48,6 +49,18 @@ namespace Combaxe___New.écrans
         DispatcherTimer clockPerso;
         TimeSpan temps;
         int montantAuberge = ((VarGlobales.Personnage.Niveau) * (VarGlobales.Personnage.Niveau)) * (20);
+
+        /// <summary>
+        /// Méthode qui charge les informations du personnage - Anthony Gauthier 25/11/2014
+        /// </summary>
+        private void LoadPersonnage()
+        { 
+            lblNomPerso.Content = VarGlobales.Personnage.Nom;
+            lblNiveau.Content = VarGlobales.Personnage.Niveau;
+            lblProfession.Content = VarGlobales.Personnage.profession.Nom;
+            lblVie.Content = "Points de vie (PV): " + VarGlobales.Personnage.Vie + "/" + VarGlobales.Personnage.VieMaximale;
+            lblEnergie.Content = "Points d'énergie (PE): " + VarGlobales.Personnage.Energie + "/" + VarGlobales.Personnage.EnergieMaximale;
+        }
 
         //Méthode du bouton Combat - Anthony Gauthier 23/10/2014
         private void btnCombat_Click(object sender, RoutedEventArgs e)
@@ -71,6 +84,7 @@ namespace Combaxe___New.écrans
             if (personnages == null)
             {
                 var creationPerso = new EcranCreationPersonnage();
+                VarGlobales.aPersonnage = false;
                 creationPerso.Show();
                 this.Close();
             }
@@ -252,6 +266,8 @@ namespace Combaxe___New.écrans
                     this.Opacity = 1;
                     this.IsEnabled = true;
                     btnTaverne.IsEnabled = false;
+                    MajBarreViePerso((int)(brdMaxWidth.ActualWidth));
+                    MajBarreEnergiePerso((int)(brdMaxWidth.ActualWidth));
 
                     if (this.WindowStyle != WindowStyle.None)
                     {
@@ -264,6 +280,93 @@ namespace Combaxe___New.écrans
             }, Application.Current.Dispatcher);
 
             horloge.Start();  
+        }
+
+        /// <summary>
+        /// Quand le joueur se fait attaquer, sa barre de vie se réduit - Anthony Gauthier 04/11/2014
+        /// </summary>
+        private void MajBarreViePerso(int max)
+        {
+            int poucentageVie = (VarGlobales.Personnage.Vie * 100) / VarGlobales.Personnage.VieMaximale;
+
+            int widthAjuste = max - ((max * poucentageVie) / 100);
+            brdViePerso.Margin = new Thickness(5, 5, widthAjuste, 5);
+            MajCouleurBarreVie(brdViePerso, VarGlobales.Personnage);
+        }
+
+        /// <summary>
+        /// Quand le joueur utilise un sort, sa barre d'énergie se réduit - Anthony Gauthier 05/11/2014
+        /// </summary>
+        private void MajBarreEnergiePerso(int max)
+        {
+            int pourcentageEnergie = (VarGlobales.Personnage.Energie * 100) / VarGlobales.Personnage.EnergieMaximale;
+
+            int widthAjuste = max - ((max * pourcentageEnergie) / 100);
+            brdEnergiePerso.Margin = new Thickness(5, 5, widthAjuste, 5);
+        }
+
+        /// <summary>
+        /// Met à jour la couleur des barres de vie de l'ennemi et du perso - Anthony Gauthier 05/11/2014 
+        /// </summary>
+        /// <param name="uneBordure">Recoit la barre a modifier</param>
+        private void MajCouleurBarreVie(Border uneBordure, object unObjet)
+        {
+            //Si l'objet passé est un personnage, on met à jour la couleur de la barre de vie du personnage
+            if (unObjet.GetType() == VarGlobales.Personnage.GetType())
+            {
+                //Si la vie du personnage est inférieur ou égale à 50%
+                if (VarGlobales.Personnage.Vie <= VarGlobales.Personnage.VieMaximale * 0.5)
+                {
+                    if (VarGlobales.Personnage.Vie <= VarGlobales.Personnage.VieMaximale * 0.25)
+                    {
+                        uneBordure.Background = Brushes.Red;
+                    }
+                    else
+                    {
+                        uneBordure.Background = Brushes.Yellow;
+                    }
+                }
+                else if (VarGlobales.Personnage.Vie > VarGlobales.Personnage.VieMaximale * 0.50)
+                {
+                    uneBordure.Background = Brushes.Green;
+                }
+            }
+        }
+
+        private void brdMaxWidth_Loaded(object sender, RoutedEventArgs e)
+        {
+            MajBarreViePerso((int)(brdMaxWidth.ActualWidth));
+            MajBarreEnergiePerso((int)(brdMaxWidth.ActualWidth));
+        }
+
+        private void btnAideMenuPrincipal_Click(object sender, RoutedEventArgs e)
+        {
+            this.IsEnabled = false;
+            if(MessageBox.Show("Aide \n -------- \n "
+            + "Bouton Combat \n -------- \n"
+            + "Lorsque vous cliquez sur le bouton Combat, deux nouveaux boutons s'affichent, soit 'Campange' et 'Partie Rapide'"
+            + "\n Un combat en mode campagne est un combat qui vous fait progresser au travers de l'histoire du jeu. Un combat en partie rapide fait simplement avancer votre personnage en général (niveau, items, etc.)"
+            + "\n \n Bouton Inventaire et Magasin"
+            + "\n --------"
+            + "\n Le bouton 'Inventaire et magasin' vous affiche l'inventaire de votre personnage et le magasin qui vous est offert."
+            + "\n \n Bouton Statistiques"
+            + "\n --------"
+            + "\n Le bouton 'Statistiques' vous affiche les statistiques reliées à votre personnage (temps de jeu, nombre de combat, nombre de victoire, etc.)"
+            + "\n \n Bouton Auberge"
+            + "\n --------"
+            + "\n Le bouton 'Auberge' (lorsqu'il est actif) vous permet de regénérer l'énergie et la vie de votre personnage, à un coût."
+            + "\n \n Bouton Supprimer ce personnage"
+            + "\n --------"
+            + "\n Le bouton 'Supprimer ce personnage' supprime tout simplement votre personnage."
+            + "\n \n Bouton Changer de personnage"
+            + "\n --------"
+            + "\n Le bouton 'Changer de personnage' affiche l'écran de changement de personnage et vous permet de changer de personnage sur le champ, ou d'en créer un nouveau."
+            + "\n \n Bouton Déconnexion"
+            + "\n --------"
+            + "\n Le bouton 'Déconnexion' vous déconnecte et vous ammène à l'écran de connexion.", "Aide Menu Principal", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK)
+            {
+                this.IsEnabled = true;
+            }
         }
     }
 }

@@ -8,7 +8,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="78*"/>
+            <ColumnDefinition Width="300*"/>
             <ColumnDefinition Width="170*"/>
             <ColumnDefinition Width="170*"/>
             <ColumnDefinition Width="78*"/>
@@ -25,17 +25,52 @@
         </Grid.RowDefinitions>
 
         <!---Boutons du menu-->
-        <Label Foreground="White" HorizontalAlignment="Center" Content="Menu Principal" FontFamily="Matura MT Script Capitals" FontSize="44" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <Button Style="{DynamicResource GlassButton}" Name="btnCombat" Click="btnCombat_Click"  Grid.Row="1" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Combat" HorizontalAlignment="Stretch" Grid.ColumnSpan="4"></Button>
-        <Button Style="{DynamicResource GlassButton}" Name="btnInventaire" Click="btnInventaire_Click_1" Grid.Row="2" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Inventaire et magasin" HorizontalAlignment="Stretch" Grid.ColumnSpan="4"></Button>
-        <Button Style="{DynamicResource GlassButton}" Name="btnStatistiques" Click="btnStatistiques_Click_1" Grid.Row="3" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5" Content="Statistiques" HorizontalAlignment="Stretch" Grid.ColumnSpan="4"></Button>
-        <Button Style="{DynamicResource GlassButton}" Name="btnTaverne" Grid.Row="4" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Auberge" HorizontalAlignment="Stretch" Grid.ColumnSpan="4" Click="btnTaverne_Click"></Button>
-        <Button Style="{DynamicResource GlassButton}" Name="btnSupprimerPerso" Grid.Row="5" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Supprimer ce personnage" HorizontalAlignment="Stretch" Grid.ColumnSpan="4" Click="btnSupprimerPerso_Click_1"></Button>
-        <Button Style="{DynamicResource GlassButton}" Name="btnChangerPerso" Grid.Row="6" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Changer de personnage" HorizontalAlignment="Stretch" Grid.ColumnSpan="4" Click="btnChangerPerso_Click"></Button>
-        <Button Style="{DynamicResource GlassButton}" Name="btnDeconnexion" Grid.Row="7" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Déconnexion" HorizontalAlignment="Stretch" Grid.ColumnSpan="4" Click="btnDeconnexion_Click"></Button>
+        <Label Foreground="White" HorizontalAlignment="Center" Content="Menu Principal" FontFamily="Matura MT Script Capitals" FontSize="44" Grid.Column="0" Grid.ColumnSpan="4"/>
+        <Button Style="{DynamicResource GlassButton}" Name="btnCombat" Click="btnCombat_Click" Grid.Column="1"  Grid.Row="1" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Combat" HorizontalAlignment="Stretch" Grid.ColumnSpan="2"></Button>
+        <Button Style="{DynamicResource GlassButton}" Name="btnInventaire" Grid.Column="1"  Click="btnInventaire_Click_1" Grid.Row="2" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Inventaire et magasin" HorizontalAlignment="Stretch" Grid.ColumnSpan="2"></Button>
+        <Button Style="{DynamicResource GlassButton}" Name="btnStatistiques" Grid.Column="1"  Click="btnStatistiques_Click_1" Grid.Row="3" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5" Content="Statistiques" HorizontalAlignment="Stretch" Grid.ColumnSpan="2"></Button>
+        <Button Style="{DynamicResource GlassButton}" Name="btnTaverne" Grid.Column="1"  Grid.Row="4" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Auberge" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Click="btnTaverne_Click"></Button>
+        <Button Style="{DynamicResource GlassButton}" Name="btnSupprimerPerso" Grid.Column="1"  Grid.Row="5" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Supprimer ce personnage" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Click="btnSupprimerPerso_Click_1"></Button>
+        <Button Style="{DynamicResource GlassButton}" Name="btnChangerPerso" Grid.Column="1"  Grid.Row="6" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Changer de personnage" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Click="btnChangerPerso_Click"></Button>
+        <Button Style="{DynamicResource GlassButton}" Name="btnDeconnexion" Grid.Column="1"  Grid.Row="7" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Déconnexion" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Click="btnDeconnexion_Click"></Button>
         
         <!--Boutons cachés-->
         <Button Style="{DynamicResource GlassButton}" Name="btnCampagne" Grid.Row="1" Grid.Column="1" Visibility="Hidden" HorizontalAlignment="Right" MinWidth="175"   MaxWidth="175" Content="Campagne"  MaxHeight="50" Margin="0,5,0,5" Click="btnCampagne_Click_1"></Button>
         <Button Style="{DynamicResource GlassButton}" Name="btnPartieRapide" Grid.Row="1" Grid.Column="2" Visibility="Hidden" HorizontalAlignment="Left" MinWidth="175" MaxWidth="175" Content="Partie Rapide" MaxHeight="50" Margin="0,5,0,5" Click="btnPartieRapide_Click_1"></Button>
+        <Border Margin="10,0,0,0" Grid.Row="1" Grid.Column="0" Grid.RowSpan="6" Background="Black" Opacity="0.7" CornerRadius="50"></Border>
+        <!--Information personnage-->
+        <Grid Margin="10,0,0,0" Grid.Row="1" Grid.Column="0" Grid.RowSpan="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Label Content="Nom:" FontFamily="Matura MT Script Capitals" Foreground="White" FontSize="25" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+            <Label Grid.Row="1" Content="Profession:" FontFamily="Matura MT Script Capitals" Foreground="White" FontSize="25" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+            <Label Grid.Row="2" Content="Niveau:" FontFamily="Matura MT Script Capitals" Foreground="White" FontSize="25" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+
+            <Label Name="lblNomPerso" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="25" FontFamily="Matura MT Script Capitals" Content="Test" Foreground="White"></Label>
+            <Label Name="lblProfession" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="25" FontFamily="Matura MT Script Capitals" Content="Test" Foreground="White"></Label>
+            <Image Name="imgProfession" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"></Image>
+            <Label Name="lblNiveau" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="25" FontFamily="Matura MT Script Capitals" Content="Test" Foreground="White"></Label>
+
+            <Border Name="brdMaxWidth" Loaded="brdMaxWidth_Loaded" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="10" Background="Black" BorderBrush="Black" BorderThickness="1" MaxHeight="40"></Border>
+            <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="10" Background="Black" BorderBrush="Black" BorderThickness="1" MaxHeight="40"></Border>
+
+            <Label Grid.Row="3" Panel.ZIndex="1" Grid.ColumnSpan="2" Name="lblVie" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center" FontSize="25" FontFamily="Matura MT Script Capitals"></Label>
+            <Label Grid.Row="4" Panel.ZIndex="1" Grid.ColumnSpan="2" Name="lblEnergie" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center" FontSize="25" FontFamily="Matura MT Script Capitals"></Label>
+
+            <Border Name="brdViePerso" Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="0" Margin="10" Background="Green" MaxHeight="40" BorderBrush="Black" BorderThickness="1"></Border>
+            <Border Name="brdEnergiePerso" Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="0" Margin="10" Background="Blue" MaxHeight="40" BorderBrush="Black" BorderThickness="1"></Border>
+        </Grid>
+        <Button Name="btnAideMenuPrincipal" Grid.Row="7" Style="{DynamicResource GlassButton}" Content="Aide" MaxHeight="50" MaxWidth="75" Margin="3" Click="btnAideMenuPrincipal_Click"></Button>
     </Grid>
 </Window>
