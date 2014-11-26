@@ -37,6 +37,7 @@ namespace Combaxe___New.écrans
             chronometreCombat();
             StatistiqueService statsService = new StatistiqueService();
             statsService.miseAjourStatistiques("nombreDeCombat = nombreDeCombat+1");
+            VerifierRapidite();
             //String valeur = effets.Source.ToString();
         }
 
@@ -51,6 +52,7 @@ namespace Combaxe___New.écrans
         // pour utliser les méthodes de combat, tommy gingras
         Combat combat;
         int nbTour = 0;
+        int boutonCliquer;
         List<int> tempsRecharge = null;
         
                 
@@ -84,6 +86,9 @@ namespace Combaxe___New.écrans
             btnAction4.ToolTip = afficherTooltip(3);
             btnChoisirActions.IsEnabled = false;
             btnItems.IsEnabled = true;
+
+            //Vérifie si le personnage a assez d'énergie pour ses actions
+            VerifierEnergie();
 
             tempsRecharge[0] = 0;
             if (tempsRecharge[1] > 0)
@@ -367,7 +372,8 @@ namespace Combaxe___New.écrans
             }
             
             if((btnChoisirActions.IsEnabled == false && estEnnemi == false))
-            { 
+            {
+                //On vérifie le temps de recharge de chaque action
                 if (tempsRecharge[1] > 0)
                 {
                     btnAction2.IsEnabled = false;
@@ -378,6 +384,7 @@ namespace Combaxe___New.écrans
                 {
                         btnAction2.Content = VarGlobales.Personnage.ListeCompetence[1].Nom;
                         btnAction2.IsEnabled = true;
+
                 }
 
                 if (tempsRecharge[2] > 0)
@@ -402,6 +409,9 @@ namespace Combaxe___New.écrans
                     btnAction4.IsEnabled = true;
                     btnAction4.Content = VarGlobales.Personnage.ListeCompetence[3].Nom;
                 }
+
+                //Vérifie si le personnage a assez d'énergie pour ses actions
+                VerifierEnergie();
             }
             else if ((estEnnemi == true && btnItems.IsEnabled == false))
             {
@@ -725,40 +735,26 @@ namespace Combaxe___New.écrans
                 txtAttaquesPerso.Text += "Temps écoulé\n\n";
                 txtDmgPerso.Text += "\n\n";
                 majInterface(false); // pour mettre a jour selon le nb tour
-                DelaiAttaqueEnnemi();
+                DelaiAttaqueEnnemi(false);
             }
             else // si combat habituel
             {
                 if (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur >= VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur)
                 {
-                    if(nbTour==0)
-                    {
-                        txtAttaquesPerso.Text += "Rapidité\n\n";
-                        txtDmgPerso.Text += "<- \n\n";
-                        txtDmgEnnemi.Text += "\n\n\n";
-                        txtAttaquesEnnemi.Text += "\n\n\n";
-                    }
                     actionBouton(btnClique);
                     
                     /*Si l'ennemi est encore en vie, il va attaquer, mais on ajoute un délai pour faire comme si l'ennemi
                     Choisissais son attaque - Anthony Gauthier 2014-11-06*/
                     if(combat.VieEnnemi > 0)
                     {
-                        DelaiAttaqueEnnemi();
+                        DelaiAttaqueEnnemi(false);
                     }
                 }
                 else
                 {
-                    if (nbTour == 0)
-                    {
-                        txtAttaquesEnnemi.Text += "Rapidité\n\n";
-                        txtDmgEnnemi.Text += "->\n\n";
-                        txtDmgPerso.Text += "\n\n\n";
-                        txtAttaquesPerso.Text += "\n\n\n";
-                        DelaiAttaqueEnnemi();
-                    }
-                    if(VarGlobales.Personnage.Vie > 0)
-                        actionBouton(btnClique);
+                    boutonCliquer = btnClique;
+                    DelaiAttaqueEnnemi(true);
+                    
                 }
             }
             
@@ -990,7 +986,7 @@ namespace Combaxe___New.écrans
         /// lorsqu'on réactive, l'ennemi attaque. La désactivation permet aussi à ce que le joueur ne puisse 
         /// tricher et attaquer pendant le délai. - Anthony Gauthier 2014/11/06
         /// </summary>
-        private void DelaiAttaqueEnnemi()
+        private void DelaiAttaqueEnnemi(bool rapiditePerso)
         {
             this.IsEnabled = false;
             TimeSpan secondes;
@@ -1015,6 +1011,11 @@ namespace Combaxe___New.écrans
                     {
                         brdEnnemiActif.Visibility = Visibility.Hidden;
                         ActionEnnemi();
+                        if(rapiditePerso == true)
+                        {
+                            if (VarGlobales.Personnage.Vie > 0)
+                                actionBouton(boutonCliquer);
+                        }
                     }
                     timer.Stop();
                 }
@@ -1041,6 +1042,61 @@ namespace Combaxe___New.écrans
             { 
                 this.IsEnabled = true;
                 horloge.Start();
+            }
+        }
+
+        /// <summary>
+        /// Méthode qui vérifie et désactive les actions dont le personnage n'a pas assez d'énergie
+        /// </summary>
+        private void VerifierEnergie()
+        {
+            if (btnChoisirActions.IsEnabled == false)
+            {
+                //On vérifie si le personnage a assez d'énergie pour faire l'action
+                if (VarGlobales.Personnage.ListeCompetence[1].EnergieUtilise > VarGlobales.Personnage.Energie)
+                {
+                    btnAction2.IsEnabled = false;
+                    btnAction2.Content += "\n" + VarGlobales.Personnage.ListeCompetence[1].EnergieUtilise + " PE requis";
+                }
+
+                if (VarGlobales.Personnage.ListeCompetence[2].EnergieUtilise > VarGlobales.Personnage.Energie)
+                {
+                    btnAction3.IsEnabled = false;
+                    btnAction3.Content += "\n" +VarGlobales.Personnage.ListeCompetence[2].EnergieUtilise + " PE requis";
+                }
+
+                if (VarGlobales.Personnage.ListeCompetence[3].EnergieUtilise > VarGlobales.Personnage.Energie)
+                {
+                    btnAction4.IsEnabled = false;
+                    btnAction4.Content += "\n" + VarGlobales.Personnage.ListeCompetence[3].EnergieUtilise + " PE requis";
+                }
+            }
+        }
+
+        /// <summary>
+        /// Fonction qui détermine qui est plus rapide entre l'ennemi et le personnage
+        /// </summary>
+        private void VerifierRapidite()
+        { 
+            if (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur >= VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur)
+            {
+                if(nbTour==0)
+                {
+                    txtAttaquesPerso.Text += "Rapidité\n\n";
+                    txtDmgPerso.Text += "<- \n\n";
+                    txtDmgEnnemi.Text += "\n\n\n";
+                    txtAttaquesEnnemi.Text += "\n\n\n";
+                }
+            }
+            else
+            {
+                if (nbTour == 0)
+                {
+                    txtAttaquesEnnemi.Text += "Rapidité\n\n";
+                    txtDmgEnnemi.Text += "->\n\n";
+                    txtDmgPerso.Text += "\n\n\n";
+                    txtAttaquesPerso.Text += "\n\n\n";
+                }
             }
         }
     }

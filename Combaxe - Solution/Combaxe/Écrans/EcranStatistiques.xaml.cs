@@ -39,14 +39,14 @@ namespace Combaxe___New.écrans
             
             Statistique stats = new Statistique();
             stats = serviceStat.SelectionStatsPersonnage("idPersonnage = " + VarGlobales.Personnage.IdPersonnage);
-            
-            txtbDefaite.Text = stats.nombreDefaites.ToString();
-            txtbDmgMoyen.Text= stats.moyenneDommage.ToString();
-            txtbDmgTotal.Text = stats.dommageTotal.ToString();
-            txtbNbrAttaque.Text = stats.nombreAttaque.ToString();
-            txtbNbrCombat.Text = stats.nombreDeCombat.ToString();
-            txtbTempsJeu.Text = stats.tempsDeJeu.ToString();
-            txtbVictoire.Text = stats.nombreVictoires.ToString();
+
+            txtbDefaite.Content = stats.nombreDefaites.ToString();
+            txtbDmgMoyen.Content = stats.moyenneDommage.ToString();
+            txtbDmgTotal.Content = stats.dommageTotal.ToString();
+            txtbNbrAttaque.Content = stats.nombreAttaque.ToString();
+            txtbNbrCombat.Content = stats.nombreDeCombat.ToString();
+            txtbTempsJeu.Content = stats.tempsDeJeu.ToString();
+            txtbVictoire.Content = stats.nombreVictoires.ToString();
             // on les affiches
 
         }

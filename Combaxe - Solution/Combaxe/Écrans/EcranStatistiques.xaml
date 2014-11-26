@@ -20,8 +20,8 @@
         <Label Foreground="White" Name="lblTitre" Grid.ColumnSpan="3" HorizontalAlignment="Center" Content="Statistiques" FontFamily="Matura MT Script Capitals" FontSize="44"/>
 
         <!--Grid avec les champs et le bouton retour-->
-        <Border Grid.Row="1" Grid.Column="1" Background="White" CornerRadius="50">
-            <Grid Margin="10">
+        <Border Grid.Row="1" Grid.Column="1" Background="Black" Opacity="0.5" CornerRadius="50" Panel.ZIndex="-5"></Border>
+            <Grid Margin="10" Grid.Row="1" Grid.Column="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
@@ -39,37 +39,36 @@
 
 
                 <!--Temps de jeu-->
-                <Label Content="Temps de jeu:" VerticalAlignment="Center" HorizontalAlignment="Right"></Label>
-                <TextBox IsEnabled="False" Margin="0,2" Name="txtbTempsJeu" Grid.Column="1" HorizontalAlignment="Left" MinWidth="70" MaxHeight="40" MaxWidth="140"></TextBox>
+                <Label FontFamily="Matura MT Script Capitals" FontSize="20" Content="Temps de jeu:" VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Right"></Label>
+                <Label Foreground="White" FontFamily="Matura MT Script Capitals" FontSize="20" IsEnabled="False" Margin="0,2" Name="txtbTempsJeu" Grid.Column="1" HorizontalAlignment="Left" MinWidth="70" MaxHeight="40" MaxWidth="140"></Label>
                 
                 <!--Nombre de combats-->
-                <Label Content="Nombre de combats:" VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Right"></Label>
-                <TextBox IsEnabled="False" Margin="0,2" Name="txtbNbrCombat" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" MaxHeight="40" MinWidth="70" MaxWidth="140"></TextBox>
+                <Label FontFamily="Matura MT Script Capitals" FontSize="20" Content="Nombre de combats:" VerticalAlignment="Center" Foreground="White" Grid.Row="1" HorizontalAlignment="Right"></Label>
+                <Label Foreground="White" FontFamily="Matura MT Script Capitals" FontSize="20" IsEnabled="False" Margin="0,2" Name="txtbNbrCombat" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" MaxHeight="40" MinWidth="70" MaxWidth="140"></Label>
                 
                 <!--Victoires-->
-                <Label Content="Victoires:" VerticalAlignment="Center" Grid.Row="2" HorizontalAlignment="Right"></Label>
-                <TextBox IsEnabled="False" Margin="0,2" Name="txtbVictoire" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" MaxHeight="40" MinWidth="70" MaxWidth="140"></TextBox>
+                <Label FontFamily="Matura MT Script Capitals" FontSize="20" Content="Victoires:" VerticalAlignment="Center" Grid.Row="2" Foreground="White" HorizontalAlignment="Right"></Label>
+                <Label Foreground="White" FontFamily="Matura MT Script Capitals" FontSize="20" IsEnabled="False" Margin="0,2" Name="txtbVictoire" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" MaxHeight="40" MinWidth="70" MaxWidth="140"></Label>
                 
                 <!--Défaites-->
-                <Label Content="Défaites:" VerticalAlignment="Center" Grid.Row="3" HorizontalAlignment="Right"></Label>
-                <TextBox IsEnabled="False" Margin="0,2" Name="txtbDefaite" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" MaxHeight="40" MinWidth="70" MaxWidth="140"></TextBox>
+                <Label FontFamily="Matura MT Script Capitals" FontSize="20" Content="Défaites:" VerticalAlignment="Center" Grid.Row="3" Foreground="White" HorizontalAlignment="Right"></Label>
+                <Label Foreground="White" FontFamily="Matura MT Script Capitals" FontSize="20" IsEnabled="False" Margin="0,2" Name="txtbDefaite" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" MaxHeight="40" MinWidth="70" MaxWidth="140"></Label>
 
                 <!--Dommage total-->
-                <Label Content="Dommage total:" VerticalAlignment="Center" Grid.Row="4" HorizontalAlignment="Right"></Label>
-                <TextBox IsEnabled="False" Margin="0,2" Name="txtbDmgTotal" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" MaxHeight="40" MinWidth="70" MaxWidth="140"></TextBox>
+                <Label FontFamily="Matura MT Script Capitals" FontSize="20" Content="Dommage total:" VerticalAlignment="Center" Grid.Row="4" Foreground="White" HorizontalAlignment="Right"></Label>
+                <Label Foreground="White" FontFamily="Matura MT Script Capitals" FontSize="20" IsEnabled="False" Margin="0,2" Name="txtbDmgTotal" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" MaxHeight="40" MinWidth="70" MaxWidth="140"></Label>
 
                 <!--Nombre d'attaques-->
-                <Label Content="Nombre d'attaques:" VerticalAlignment="Center" Grid.Row="5" HorizontalAlignment="Right"></Label>
-                <TextBox IsEnabled="False" Margin="0,2" Name="txtbNbrAttaque" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" MaxHeight="40" MinWidth="70" MaxWidth="140"></TextBox>
+                <Label FontFamily="Matura MT Script Capitals" FontSize="20" Content="Nombre d'attaques:" VerticalAlignment="Center" Grid.Row="5" Foreground="White" HorizontalAlignment="Right"></Label>
+                <Label Foreground="White" FontFamily="Matura MT Script Capitals" FontSize="20" IsEnabled="False" Margin="0,2" Name="txtbNbrAttaque" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" MaxHeight="40" MinWidth="70" MaxWidth="140"></Label>
                 
                 <!--Dommage moyen-->
-                <Label Content="Dommage moyen:" VerticalAlignment="Center" Grid.Row="6" HorizontalAlignment="Right"></Label>
-                <TextBox IsEnabled="False" Margin="0,2" Name="txtbDmgMoyen" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" MaxHeight="40" MinWidth="70" MaxWidth="140"></TextBox>
+                <Label FontFamily="Matura MT Script Capitals" FontSize="20" Content="Dommage moyen:" VerticalAlignment="Center" Grid.Row="6" Foreground="White" HorizontalAlignment="Right"></Label>
+                <Label Foreground="White" FontFamily="Matura MT Script Capitals" FontSize="20" IsEnabled="False" Margin="0,2" Name="txtbDmgMoyen" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" MaxHeight="40" MinWidth="70" MaxWidth="140"></Label>
 
                 <!--Bouton retour-->
                 <Button Name="btnRetour" Style="{DynamicResource GlassButton}" Click="btnRetour_Click" Grid.Row="7" Grid.ColumnSpan="2" HorizontalAlignment="Center" Content="Retour" MinWidth="150" MaxHeight="50"></Button>
             
             </Grid>
-        </Border>
     </Grid>
 </Window>
