@@ -168,12 +168,12 @@ VALUES
 );
 /* FIN COMPÉTENCES Harfanghei */
 
-/* COMPÉTENCES ARKANOK */
+/* COMPÉTENCES ARKANOS */
 INSERT INTO CompetencesEnnemis
 (idEnnemi, idCompetence)
 VALUES
 (
-    (SELECT idEnnemi FROM Ennemis WHERE nom='Arkanok')
+    (SELECT idEnnemi FROM Ennemis WHERE nom='Arkanos')
 ,(SELECT idCompetence FROM Competences WHERE nom='Attaque physique')
 );
 
@@ -181,7 +181,7 @@ INSERT INTO CompetencesEnnemis
 (idEnnemi, idCompetence)
 VALUES
 (
-    (SELECT idEnnemi FROM Ennemis WHERE nom='Arkanok')
+    (SELECT idEnnemi FROM Ennemis WHERE nom='Arkanos')
 ,(SELECT idCompetence FROM Competences WHERE nom='Coup démoniaque')
 );
 
@@ -189,7 +189,7 @@ INSERT INTO CompetencesEnnemis
 (idEnnemi, idCompetence)
 VALUES
 (
-    (SELECT idEnnemi FROM Ennemis WHERE nom='Arkanok')
+    (SELECT idEnnemi FROM Ennemis WHERE nom='Arkanos')
 ,(SELECT idCompetence FROM Competences WHERE nom='Rituel de guérison')
 );
 
@@ -197,10 +197,10 @@ INSERT INTO CompetencesEnnemis
 (idEnnemi, idCompetence)
 VALUES
 (
-    (SELECT idEnnemi FROM Ennemis WHERE nom='Arkanok')
+    (SELECT idEnnemi FROM Ennemis WHERE nom='Arkanos')
 ,(SELECT idCompetence FROM Competences WHERE nom='Coup des dieux corrompus')
 );
-/* FIN COMPÉTENCES ARKANOK */
+/* FIN COMPÉTENCES ARKANOS */
 
 /* DÉBUT COMPÉTENCES ENNEMI A-H*/
 INSERT INTO CompetencesEnnemis

@@ -17,6 +17,7 @@ namespace Combaxe___New.classes.services
         InventaireService inventaireService = new InventaireService();
         CaracteristiqueService caracteristiqueService = new CaracteristiqueService();
         ConsommationService consommationService = new ConsommationService();
+        EquipementService equipementService = new EquipementService();
 
         /// <summary>
         /// Pour récupérer toutes les données des personnages d'un joueur, Tommy Gingras
@@ -290,6 +291,61 @@ namespace Combaxe___New.classes.services
             {
                 return 0;
             }
+        }
+
+        public void MAJEquipementPersonnage(List<Equipement> lstEquipement)
+        {
+            List<Equipement> ancienneLstEquipement = new List<Equipement>();
+            string reqInsert;
+            string reqDelete;
+            bool existe;
+
+            //On va chercher la liste d'équipement que le personnage avait équipé
+            ancienneLstEquipement = equipementService.retrieveEquipementUtilise(VarGlobales.Personnage.IdPersonnage);
+
+            //On compare l'ancienne liste avec la nouvelle 
+            //si l'équipement dans l'ancien n'est plus dans la nouvelle, on la retire de la bd
+            for (int i = 0; i < ancienneLstEquipement.Count(); i++)
+            {
+                existe = false;
+                for (int j = 0; j < lstEquipement.Count(); j++)
+                {
+                    if (ancienneLstEquipement[i].IdEquipement == lstEquipement[j].IdEquipement)
+                    {
+                        existe = true;
+                    }
+                }
+
+                if (existe == false)
+                {
+                    reqDelete = "DELETE FROM EquipementsPersonnages WHERE idPersonnage ='" + VarGlobales.Personnage.IdPersonnage + "' AND idEquipement ='" + ancienneLstEquipement[i].IdEquipement + "';";
+                    bdCombaxe.maj(reqDelete);
+                }
+            }
+
+            //On compare la nouvelle liste avec l'ancienne
+            //si l'équipement dans la nouvelle n'est pas dans l'ancienne, on l'ajoute à la bd
+            for (int i = 0; i < lstEquipement.Count(); i++)
+            {
+                existe = false;
+                if (ancienneLstEquipement.Count() != 0)
+                {
+                    for (int j = 0; j < ancienneLstEquipement.Count(); j++)
+                    {
+                        if (ancienneLstEquipement[j].IdEquipement == lstEquipement[i].IdEquipement)
+                        {
+                            existe = true;
+                        }
+                    }
+                }
+
+                if (existe == false)
+                {
+                    reqInsert = "INSERT INTO EquipementsPersonnages (idPersonnage,idEquipement) VALUES ('" + VarGlobales.Personnage.IdPersonnage + "','" + lstEquipement[i].IdEquipement + "');";
+                    bdCombaxe.Insertion(reqInsert);
+                }
+            }
+            return;
         }
     }
 }

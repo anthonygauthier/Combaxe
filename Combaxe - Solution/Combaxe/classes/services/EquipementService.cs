@@ -89,7 +89,7 @@ namespace Combaxe___New.classes.services
             lstEquipement = bdCombaxe.selection(selEquipementUtilise, 1, ref nombreRange);
 
             //Si l'inventaire n'est pas vide
-            if (lstEquipement.Count() != 1)
+            if (lstEquipement[0][0] != "")
             {
                 string selEquipement;
                 for (int i = 0; i < lstEquipement.Count(); i++)
@@ -97,10 +97,10 @@ namespace Combaxe___New.classes.services
                     //On va chercher les idEquipementModele des équipements qui sont portés par le personnage
                     //En donnant le idEquipementModele à la fonction retrieveEquipementModele, on reçoit les informations de l'équipement désiré
                     selEquipement = "SELECT idEquipementModele FROM Equipements WHERE idEquipement = '" + lstEquipement[i][0] + "';";
-                    lstEquipementModele = bdCombaxe.selection(selEquipementUtilise, 1, ref nombreRange);
-
+                    lstEquipementModele = bdCombaxe.selection(selEquipement, 1, ref nombreRange);
+                    
                     //On ajoute l'équipement à lstEquipementUtilise
-                    lstEquipementUtilise.Add(retrieveEquipementModele(Convert.ToInt32(lstEquipementModele[i][0]), Convert.ToInt32(lstEquipement[i][0])));
+                    lstEquipementUtilise.Add(retrieveEquipementModele(Convert.ToInt32(lstEquipementModele[0][0]), Convert.ToInt32(lstEquipement[i][0])));
                 }
             }
             return lstEquipementUtilise;

@@ -81,7 +81,7 @@ namespace Combaxe___New.classes
 
 
             Random aleatoire = new Random();
-            int idEnnemiAleatoire = aleatoire.Next(0, tousEnnemi.Count());
+            int idEnnemiAleatoire = aleatoire.Next(0, 1);
             Ennemi ennemi;
             ennemi = ennemiService.RetrieveInfoEnnemi(tousEnnemi[idEnnemiAleatoire][0]);
             ennemi = NiveauEnnemi(ennemi);
@@ -207,7 +207,7 @@ namespace Combaxe___New.classes
             if (energieRestante>competence.EnergieUtilise)
             {
                 //Si la compétence est une compétence de guérison et si la vie restante + le minimum de vie que la compétence peut régénérer est plus petit ou égal au maximum de vie
-                if (competence.NomTypeCompetence == TypeCompetence.Support.ToString() && (vieRestante + competence.ValeurMin) <= Convert.ToInt32((this.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20) / 3.1416))
+                if ((competence.NomTypeCompetence == TypeCompetence.Support.ToString() || competence.NomTypeCompetence == TypeCompetence.Defensive.ToString()) && (vieRestante + competence.ValeurMin) <= Convert.ToInt32((this.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20) / 3.1416))
                 {
                     pourcentageChange = rand.Next(1,61);
                 }

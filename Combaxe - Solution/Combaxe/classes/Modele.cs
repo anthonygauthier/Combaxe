@@ -8,6 +8,18 @@ namespace Combaxe___New.classes
 {
     public class Modele
     {
+        public enum Modeles : int
+        {
+            ArmeUneMain=1,
+            ArmeDeuxMains=2,
+            Bouclier=3,
+            Casque=4,
+            Épaulette=5,
+            Plastron=6,
+            Bottes=7,
+            Pantalon=8
+        }
+
         public int IdModele { get; set; }
         public string Nom { get; set; }
         public bool DeuxMains { get; set; }

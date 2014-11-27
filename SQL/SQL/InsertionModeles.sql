@@ -2,7 +2,7 @@
 (nom, deuxMains)
 VALUES
 (
-    'Arme à une main'
+    'ArmeUneMain'
 ,FALSE
 );
 
@@ -10,7 +10,7 @@ INSERT INTO Modeles
 (nom, deuxMains)
 VALUES
 (
-    'Arme à deux mains'
+    'ArmeDeuxMains'
 ,TRUE
 );
 

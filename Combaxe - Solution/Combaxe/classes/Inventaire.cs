@@ -44,28 +44,6 @@ namespace Combaxe___New.classes
         }
 
         /// <summary>
-        /// Méthode pour ajouter une pièce d'équipement à l'inventaire - Anthony Gauthier 02/10/2014
-        /// </summary>
-        public void MAJEquipementInventaire(List<Equipement> lstEquipement)
-        {
-            List<Equipement> ancienLstEquipement = new List<Equipement>();
-            string selectInventaireEquipement;
-            string reqInsert;
-            BdService bdCombaxe = new BdService();
-
-            for (int i = 0; i < lstEquipement.Count(); i++)
-			{
-			    selectInventaireEquipement = "SELECT idInventaireEquipement FROM InventairesEquipements WHERE idInventaire='"+ this.idInventaire +"' AND idEquipement = '"+lstEquipement[i].IdEquipement+"';";
-
-                if(selectInventaireEquipement[1].ToString()=="")
-                {
-                    bdCombaxe.Insertion(selectInventaireEquipement);
-                }
-			}
-            return;
-        }
-
-        /// <summary>
         /// Méthode pour modifier la quantité d'un équipement de l'inventaire - Anthony Gauthier 02/10/2014
         /// </summary>
         public void ModifierQuantite()

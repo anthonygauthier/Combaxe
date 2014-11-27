@@ -230,7 +230,7 @@ INSERT INTO CaracteristiquesEnnemis
 VALUES
 (
     (SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force')
-,(SELECT idEnnemi FROM Ennemis WHERE nom='Arkanok')
+,(SELECT idEnnemi FROM Ennemis WHERE nom='Arkanos')
 ,67
 );
 
@@ -239,7 +239,7 @@ INSERT INTO CaracteristiquesEnnemis
 VALUES
 (
     (SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense')
-,(SELECT idEnnemi FROM Ennemis WHERE nom='Arkanok')
+,(SELECT idEnnemi FROM Ennemis WHERE nom='Arkanos')
 ,82
 );
 
@@ -248,7 +248,7 @@ INSERT INTO CaracteristiquesEnnemis
 VALUES
 (
     (SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie')
-,(SELECT idEnnemi FROM Ennemis WHERE nom='Arkanok')
+,(SELECT idEnnemi FROM Ennemis WHERE nom='Arkanos')
 ,72
 );
 
@@ -257,7 +257,7 @@ INSERT INTO CaracteristiquesEnnemis
 VALUES
 (
     (SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse')
-,(SELECT idEnnemi FROM Ennemis WHERE nom='Arkanok')
+,(SELECT idEnnemi FROM Ennemis WHERE nom='Arkanos')
 ,61
 );
 
@@ -266,7 +266,7 @@ INSERT INTO CaracteristiquesEnnemis
 VALUES
 (
     (SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
-,(SELECT idEnnemi FROM Ennemis WHERE nom='Arkanok')
+,(SELECT idEnnemi FROM Ennemis WHERE nom='Arkanos')
 ,59
 );
 /* FIN CARACTERISTIQUE BOSS */
