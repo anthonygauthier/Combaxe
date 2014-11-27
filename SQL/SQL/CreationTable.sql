@@ -189,7 +189,6 @@ CREATE TABLE IF NOT EXISTS EquipementsPersonnages
     idEquipementPersonnage INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
 ,	idEquipement INT NOT NULL
 ,	idPersonnage INT NOT NULL
-,	idModele INT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Effets
