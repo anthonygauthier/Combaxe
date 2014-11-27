@@ -38,6 +38,7 @@ namespace Combaxe___New.écrans
             StatistiqueService statsService = new StatistiqueService();
             statsService.miseAjourStatistiques("nombreDeCombat = nombreDeCombat+1");
             VerifierRapidite();
+            EmphasePersonnage();
             //String valeur = effets.Source.ToString();
         }
 
@@ -623,7 +624,9 @@ namespace Combaxe___New.écrans
         { 
             int vitessePersonnage = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur;
             int vitesseEnnemi = VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur;
+
             horloge.Stop();
+
             //Si la vitesse de l'ennemi est plus rapide que celle du joueur, on inflige des dégâts
             if (vitesseEnnemi >= vitessePersonnage)
             {
@@ -730,6 +733,7 @@ namespace Combaxe___New.écrans
 
         private void DeroulementCombat(int btnClique)
         {
+            EmphasePersonnage();
             if(temps == TimeSpan.FromSeconds(0))
             {
                 txtAttaquesPerso.Text += "Temps écoulé\n\n";
@@ -996,11 +1000,26 @@ namespace Combaxe___New.écrans
             int nbrRandom = rand.Next(3,9);
 
             secondes = TimeSpan.FromSeconds(0);
-            
 
             timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
+                //On met l'emphase sur l'ennemi en grisant les choses du personnage
                 brdEnnemiActif.Visibility = Visibility.Visible;
+                brdPersoActif.Visibility = Visibility.Hidden;
+                imgPerso.Opacity = 0.5;
+                brdEnergiePerso.Opacity = 0.5;
+                brdViePerso.Opacity = 0.5;
+                brdExperience.Opacity = 0.5;
+                lblNiveauPerso.Opacity = 0.5;
+                lblNomPerso.Opacity = 0.5;
+
+                //On ramenne les info de l'ennemi normalement
+                imgEnnemi.Opacity = 1;
+                brdEnergieEnnemi.Opacity = 1;
+                brdVieEnnemi.Opacity = 1;
+                lblNiveauEnnemi.Opacity = 1;
+                lblNomEnnemi.Opacity = 1;
+
                 secondes = secondes.Add(TimeSpan.FromSeconds(1));
 
                 //Si le délai est terminé, on fait l'attaque de l'ennemi
@@ -1010,12 +1029,20 @@ namespace Combaxe___New.écrans
                     if(combat.VieEnnemi != 0)
                     {
                         brdEnnemiActif.Visibility = Visibility.Hidden;
+                        imgPerso.Opacity = 1;
+                        brdEnergiePerso.Opacity = 1;
+                        brdViePerso.Opacity = 1;
+                        brdExperience.Opacity = 1;
+                        lblNiveauPerso.Opacity = 1;
+                        lblNomPerso.Opacity = 1;
+
                         ActionEnnemi();
                         if(rapiditePerso == true)
                         {
                             if (VarGlobales.Personnage.Vie > 0)
                                 actionBouton(boutonCliquer);
                         }
+                        EmphasePersonnage();
                     }
                     timer.Stop();
                 }
@@ -1098,6 +1125,20 @@ namespace Combaxe___New.écrans
                     txtAttaquesPerso.Text += "\n\n\n";
                 }
             }
+        }
+
+
+        /// <summary>
+        /// Met l'emphase sur le personnage lorsque c'est son tour - Anthony Gauthier 27 Nov. 2014
+        /// </summary>
+        private void EmphasePersonnage()
+        {
+            imgEnnemi.Opacity = 0.5;
+            brdEnergieEnnemi.Opacity = 0.5;
+            brdVieEnnemi.Opacity = 0.5;
+            lblNiveauEnnemi.Opacity = 0.5;
+            lblNomEnnemi.Opacity = 0.5;
+            brdPersoActif.Visibility = Visibility.Visible;
         }
     }
 }

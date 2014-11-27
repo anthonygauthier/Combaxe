@@ -26,13 +26,48 @@
 
         <!---Boutons du menu-->
         <Label Foreground="White" HorizontalAlignment="Center" Content="Menu Principal" FontFamily="Matura MT Script Capitals" FontSize="44" Grid.Column="0" Grid.ColumnSpan="4"/>
-        <Button Style="{DynamicResource GlassButton}" Name="btnCombat" Click="btnCombat_Click" Grid.Column="1"  Grid.Row="1" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Combat" HorizontalAlignment="Stretch" Grid.ColumnSpan="2"></Button>
-        <Button Style="{DynamicResource GlassButton}" Name="btnInventaire" Grid.Column="1"  Click="btnInventaire_Click_1" Grid.Row="2" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Inventaire et magasin" HorizontalAlignment="Stretch" Grid.ColumnSpan="2"></Button>
-        <Button Style="{DynamicResource GlassButton}" Name="btnStatistiques" Grid.Column="1"  Click="btnStatistiques_Click_1" Grid.Row="3" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5" Content="Statistiques" HorizontalAlignment="Stretch" Grid.ColumnSpan="2"></Button>
-        <Button Style="{DynamicResource GlassButton}" Name="btnTaverne" Grid.Column="1"  Grid.Row="4" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Auberge" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Click="btnTaverne_Click"></Button>
-        <Button Style="{DynamicResource GlassButton}" Name="btnSupprimerPerso" Grid.Column="1"  Grid.Row="5" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Supprimer ce personnage" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Click="btnSupprimerPerso_Click_1"></Button>
-        <Button Style="{DynamicResource GlassButton}" Name="btnChangerPerso" Grid.Column="1"  Grid.Row="6" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Changer de personnage" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Click="btnChangerPerso_Click"></Button>
-        <Button Style="{DynamicResource GlassButton}" Name="btnDeconnexion" Grid.Column="1"  Grid.Row="7" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5"  Content="Déconnexion" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Click="btnDeconnexion_Click"></Button>
+        <Button Style="{DynamicResource GlassButton}" Name="btnCombat" Click="btnCombat_Click" Grid.Column="1"  Grid.Row="1" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5" HorizontalAlignment="Stretch" Grid.ColumnSpan="2">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label Foreground="White">Combat</Label>
+                <Image Source="..\images\icones\combat.png"></Image>
+            </StackPanel>
+        </Button>
+        <Button Style="{DynamicResource GlassButton}" Name="btnInventaire" Grid.Column="1"  Click="btnInventaire_Click_1" Grid.Row="2" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5" HorizontalAlignment="Stretch" Grid.ColumnSpan="2">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label Foreground="White">Inventaire et magasin</Label>
+                <Image Source="..\images\icones\backpack.png"></Image>
+            </StackPanel>
+        </Button>
+        <Button Style="{DynamicResource GlassButton}" Name="btnStatistiques" Grid.Column="1"  Click="btnStatistiques_Click_1" Grid.Row="3" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5" HorizontalAlignment="Stretch" Grid.ColumnSpan="2">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label Foreground="White">Statistiques</Label>
+                <Image Source="..\images\icones\graph.png"></Image>
+            </StackPanel>
+        </Button>
+        <Button Style="{DynamicResource GlassButton}" Name="btnTaverne" Grid.Column="1"  Grid.Row="4" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Click="btnTaverne_Click">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label Name="lblAuberge" Foreground="White" Content="Auberge"></Label>
+                <Image Source="..\images\icones\auberge.png"></Image>
+            </StackPanel>
+        </Button>
+        <Button Style="{DynamicResource GlassButton}" Name="btnSupprimerPerso" Grid.Column="1"  Grid.Row="5" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Click="btnSupprimerPerso_Click_1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label Foreground="White">Supprimer personnage</Label>
+                <Image Source="..\images\icones\delete.png"></Image>
+            </StackPanel>
+        </Button>
+        <Button Style="{DynamicResource GlassButton}" Name="btnChangerPerso" Grid.Column="1"  Grid.Row="6" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Click="btnChangerPerso_Click">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label Foreground="White">Changer de personnage</Label>
+                <Image Source="..\images\icones\changerPerso.png"></Image>
+            </StackPanel>
+        </Button>
+        <Button Style="{DynamicResource GlassButton}" Name="btnDeconnexion" Grid.Column="1"  Grid.Row="7" MinWidth="250" MaxWidth="350" MaxHeight="50" Margin="0,5,0,5" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Click="btnDeconnexion_Click">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label Foreground="White">Déconnexion</Label>
+                <Image Source="..\images\icones\deconnexion.png"></Image>
+            </StackPanel>
+        </Button>
         
         <!--Boutons cachés-->
         <Button Style="{DynamicResource GlassButton}" Name="btnCampagne" Grid.Row="1" Grid.Column="1" Visibility="Hidden" HorizontalAlignment="Right" MinWidth="175"   MaxWidth="175" Content="Campagne"  MaxHeight="50" Margin="0,5,0,5" Click="btnCampagne_Click_1"></Button>

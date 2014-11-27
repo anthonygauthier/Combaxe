@@ -36,13 +36,13 @@
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
             <TextBox Name="txtbNom" MaxLength="20" GotKeyboardFocus="txtbNom_GotKeyboardFocus" TextAlignment="Center" FontSize="20" Text="Nom du personnage" VerticalAlignment="Stretch" Margin="5,5,5,5" MaxHeight="45" Grid.ColumnSpan="3"/>
-            <Button Grid.Row="1" HorizontalAlignment="Stretch"  Name="btnGuerrier" Click="btnGuerrier_Click" Content="Guerrier"/>
-            <Button Grid.Row="1" HorizontalAlignment="Stretch"  Name="btnPaladin" Click="btnPaladin_Click" Content="Paladin" Grid.Column="1"/>
-            <Button Grid.Row="1" HorizontalAlignment="Stretch"  Name="btnMagicien" Click="btnMagicien_Click" Content="Magicien" Grid.Column="2"/>
+            <Button Style="{DynamicResource GlassButton}" Grid.Row="1" HorizontalAlignment="Stretch"  Name="btnGuerrier" Click="btnGuerrier_Click" Content="Guerrier"/>
+            <Button Style="{DynamicResource GlassButton}" Grid.Row="1" HorizontalAlignment="Stretch"  Name="btnPaladin" Click="btnPaladin_Click" Content="Paladin" Grid.Column="1"/>
+            <Button Style="{DynamicResource GlassButton}" Grid.Row="1" HorizontalAlignment="Stretch"  Name="btnMagicien" Click="btnMagicien_Click" Content="Magicien" Grid.Column="2"/>
         </Grid>
 
         <!--Description de la profession-->
-        <TextBox Name="txtbDescriptionProf" TextAlignment="Justify" Grid.Row="1" Grid.Column="1" Text="Description de la profession" IsEnabled="False" Margin="1,35,5,0"></TextBox>
+        <TextBox Name="txtbDescriptionProf" TextAlignment="Justify" Grid.Row="1" Grid.Column="1" Text="Description de la profession" IsEnabled="False" Margin="1,35,75,0"></TextBox>
 
         <!--Grid pour les caractéristiques-->
         <Label Grid.Row="2" Grid.RowSpan="2" FontSize="25" FontFamily="Matura MT Script Capitals" Content="Caracteristiques" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Center"/>

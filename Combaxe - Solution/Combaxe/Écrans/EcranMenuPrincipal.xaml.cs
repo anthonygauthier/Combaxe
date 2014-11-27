@@ -32,7 +32,7 @@ namespace Combaxe___New.écrans
         {
             InitializeComponent();
             LoadPersonnage();
-            btnTaverne.Content += " ("+montantAuberge.ToString()+" pièces d'or)";
+            lblAuberge.Content += " ("+montantAuberge.ToString()+" pièces d'or)";
             //On active le bouton taverne dépendemment de la vie et l'énergie actuelle du personnage
             if(VarGlobales.Personnage.VerifierAuberge())
             {
@@ -157,6 +157,7 @@ namespace Combaxe___New.écrans
         {
             VarGlobales.playClique();
             VarGlobales.EstConnecte = true;
+            
             var choixPerso = new EcranChangementPerso();
             choixPerso.Show();
 
