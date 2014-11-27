@@ -39,7 +39,6 @@ namespace Combaxe___New
         //Méthode pour se rendre à l'écran de création de compte - Anthony Gauthier 09/10/2014
         private void btnCreerCompte_Click(object sender, RoutedEventArgs e)
         {
-            VarGlobales.playClique();
             var creationCompte = new EcranCreationCompte();
             creationCompte.Show();
             this.Close();
@@ -48,14 +47,12 @@ namespace Combaxe___New
         //Méthode pour quitter le jeu - Anthony Gauthier 09/10/2014
         private void btnQuitter_Click(object sender, RoutedEventArgs e)
         {
-            VarGlobales.playClique();
             this.Close();
         }
 
         //Méthode du bouton pour se connecter - Anthony Gauthier 09/10/2014
         private void btnConnexion_Click(object sender, RoutedEventArgs e)
         {
-            VarGlobales.playClique();
             btnConnexionActive();
         }
 
@@ -135,10 +132,6 @@ namespace Combaxe___New
             //Son des potions
             VarGlobales.sonPotion = new SoundPlayer("./resources/media/potion.wav");
             VarGlobales.sonPotion.Load();
-
-            //Son de clique de bouton
-            VarGlobales.cliqueBouton = new SoundPlayer("./resources/media/clique.wav");
-            VarGlobales.cliqueBouton.Load();
         }
 
         public void ChoixPerso()

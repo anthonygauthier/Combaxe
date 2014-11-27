@@ -53,7 +53,6 @@ namespace Combaxe___New.écrans
         //Méthode lorsque le bouton Guerrier est cliqué
         private void btnGuerrier_Click(object sender, RoutedEventArgs e)
         {
-            VarGlobales.playClique();
             //Va chercher les caractéristiques de bases du guerrier
             List<string>[] caracteristiquesGuer = caracteristiqueService.RetrieveCaracteristiqueBase(btnGuerrier.Content.ToString());
 
@@ -75,7 +74,6 @@ namespace Combaxe___New.écrans
         //Méthode lorsque le bouton Paladin est cliqué
         private void btnPaladin_Click(object sender, RoutedEventArgs e)
         {
-            VarGlobales.playClique();
             //Va chercher les caractéristiques de bases du paladin
             List<string>[] caracteristiquesPal = caracteristiqueService.RetrieveCaracteristiqueBase(btnPaladin.Content.ToString());
 
@@ -97,7 +95,6 @@ namespace Combaxe___New.écrans
         //Méthode lorsque le bouton Magicien est cliqué
         private void btnMagicien_Click(object sender, RoutedEventArgs e)
         {
-            VarGlobales.playClique();
             //Va chercher les caractéristiques de bases du magicien
             List<string>[] caracteristiquesMagi = caracteristiqueService.RetrieveCaracteristiqueBase(btnMagicien.Content.ToString());
 
@@ -162,7 +159,6 @@ namespace Combaxe___New.écrans
         //Méthode qui effectue tous les changements nécéssaire lorsqu'un bouton PLUS a été cliqué
         private void btnPlusClique()
         {
-            VarGlobales.playClique();
             //Si le nombre de points restants est égale à 0
             if (txtbPointsRestants.Text == "0")
             {
@@ -187,7 +183,6 @@ namespace Combaxe___New.écrans
         //Méthode qui effectue tous les changements nécéssaire lorsqu'un bouton MOINS a été cliqué
         private void btnMoinsClique()
         {
-            VarGlobales.playClique();
             if (btnPlusForce.IsEnabled == false)
             {
                 enableBtnPlus();
@@ -443,7 +438,6 @@ namespace Combaxe___New.écrans
         //Méthode qui est activé lorsque le bouton "Créer personnage" est cliqué
         private void btnCreerPerso_Click(object sender, RoutedEventArgs e)
         {
-            VarGlobales.playClique();
             if (verificationChamps())
             {
                 sauve(txtbNom.Text);
@@ -460,7 +454,6 @@ namespace Combaxe___New.écrans
         //Méthode qui effectue le comportement du bouton retour
         private void btnRetour_Click(object sender, RoutedEventArgs e)
         {
-            VarGlobales.playClique();
             //Si le joueur a des personnages, on le retourne à l'écran de choix du personnage
             if (VarGlobales.aPersonnage)
             {

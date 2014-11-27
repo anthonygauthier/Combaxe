@@ -29,7 +29,6 @@ namespace Combaxe___New.écrans
 
         private void btnRetour_Click_1(object sender, RoutedEventArgs e)
         {
-            VarGlobales.playClique();
             var MenuPrincipal = new EcranMenuPrincipal();
             MenuPrincipal.Show();
             this.Close();

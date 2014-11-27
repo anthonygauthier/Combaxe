@@ -43,6 +43,7 @@
                                 <Setter Property="Background" Value="White"/>
                                 <Setter Property="BorderBrush" Value="Teal"/>
                                 <Setter Property="Foreground" Value="Gray"/>
+                                <Setter Property="Opacity" Value="0.5"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Foreground" Value="LightBlue"></Setter>
@@ -62,68 +63,30 @@
             </Setter>
         </Style>
 
-        <!-- Boutons Menu Principal -->
-
-        <!--Combat-->
-        <Style x:Key="CombatButton" TargetType="{x:Type Button}">
-            <Setter Property="FontSize" Value="24" />
-            <Setter Property="Foreground" Value="White" />
-            <Setter Property="FontFamily" Value="Matura MT Script Capitals" />
-            <Setter Property="Background" Value="Transparent" />
+        <Style x:Key="TextBoxTransparent" TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="Transparent"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="Panel.ZIndex" Value="5"></Setter>
+            <Setter Property="TextAlignment" Value="Center"></Setter>
+            <Setter Property="TextWrapping" Value="Wrap"></Setter>
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="IsReadOnly" Value="True"></Setter>
+            <Setter Property="AcceptsReturn" Value="True"></Setter>
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border x:Name="ButtonBorder" 
-                  CornerRadius="15" 
-                  BorderThickness="2,2,2,2" 
-                  Background="#AA000000"  
-                  BorderBrush="#99FFFFFF"
-                  RenderTransformOrigin="0.5,0.5">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="1.7*"/>
-                                </Grid.RowDefinitions>
-                                <Border Grid.Row="0" CornerRadius="23,23,0,0">
-                                    <Border.Background>
-                                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                                            <GradientStop Color="#08FFFFFF" Offset="0"/>
-                                            <GradientStop Color="#88FFFFFF" Offset="1"/>
-                                        </LinearGradientBrush>
-                                    </Border.Background>
-                                </Border>
-                                <StackPanel>
-                                <ContentPresenter x:Name="ButtonContentPresenter"
-                                VerticalAlignment="Center"  
-                                Grid.RowSpan="2" 
-                                HorizontalAlignment="Center"/>
-                                    <Image Source=".\images\icones\combat.png"></Image>
-                                </StackPanel>
-                            </Grid>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsEnabled" Value="False">
-                                <Setter Property="Background" Value="White"/>
-                                <Setter Property="BorderBrush" Value="Teal"/>
-                                <Setter Property="Foreground" Value="Gray"/>
-                            </Trigger>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Foreground" Value="LightBlue"></Setter>
-                            </Trigger>
-                            <Trigger Property="IsPressed" Value="True">
-                                <Setter Property="RenderTransform" TargetName="ButtonBorder">
-                                    <Setter.Value>
-                                        <TransformGroup>
-                                            <ScaleTransform ScaleX="0.9" ScaleY="0.9"/>
-                                        </TransformGroup>
-                                    </Setter.Value>
-                                </Setter>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid>
+                            <Border BorderBrush="White" Panel.ZIndex="-1" BorderThickness="1" CornerRadius="5" Background="Black" Opacity="0.5"></Border>
+                            <ScrollViewer Margin="0" x:Name="PART_ContentHost"/>
+                        </Grid>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="Transparent"></Setter>
+                </Trigger>
+            </Style.Triggers>
         </Style>
-        
     </Application.Resources>
 </Application>

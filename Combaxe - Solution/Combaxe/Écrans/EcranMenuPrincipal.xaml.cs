@@ -37,11 +37,11 @@ namespace Combaxe___New.écrans
             if(VarGlobales.Personnage.VerifierAuberge())
             {
                 btnTaverne.IsEnabled = true;
-                
             }
             else
             {
                 btnTaverne.IsEnabled = false;
+                lblAuberge.Foreground = Brushes.Gray;
             }
         }
 
@@ -65,7 +65,6 @@ namespace Combaxe___New.écrans
         //Méthode du bouton Combat - Anthony Gauthier 23/10/2014
         private void btnCombat_Click(object sender, RoutedEventArgs e)
         {
-            VarGlobales.playClique();
             btnCampagne.Visibility = Visibility.Visible;
             btnPartieRapide.Visibility = Visibility.Visible;
             btnCombat.Visibility = Visibility.Hidden;
@@ -76,7 +75,6 @@ namespace Combaxe___New.écrans
         {
             VarGlobales.ChoixPersoFait = false;
             VarGlobales.Retour = false;
-            VarGlobales.playClique();
             VarGlobales.Personnage.Supprimer();
             /* on vérifie si il reste de joueurs */
             PersonnageService personnageService = new PersonnageService();
@@ -146,7 +144,6 @@ namespace Combaxe___New.écrans
         //Méthode pour afficher l'écran de combat - Anthony Gauthier 23/10/2014
         private void ouvrirEcranCombat()
         {
-            VarGlobales.playClique();
             var EcranCombat = new EcranCombat();
             EcranCombat.Show();
             this.Close();
@@ -155,7 +152,6 @@ namespace Combaxe___New.écrans
         //Méthode pour afficher l'écran de changement de personnage - Anthony Gauthier 23/10/2014
         private void btnChangerPerso_Click(object sender, RoutedEventArgs e)
         {
-            VarGlobales.playClique();
             VarGlobales.EstConnecte = true;
             
             var choixPerso = new EcranChangementPerso();
@@ -199,7 +195,6 @@ namespace Combaxe___New.écrans
         //Méthode pour se déconnecter - Anthony Gauthier 23/10/2014
         private void btnDeconnexion_Click(object sender, RoutedEventArgs e)
         {
-            VarGlobales.playClique();
             var connexion = new MainWindow();
             connexion.Show();
             this.Close();
@@ -209,7 +204,6 @@ namespace Combaxe___New.écrans
         //Méthode pour aller à l'inventaire - Anthony Gauthier 23/10/2014
         private void btnInventaire_Click_1(object sender, RoutedEventArgs e)
         {
-            VarGlobales.playClique();
             var ecranInventaireMagasin = new EcranInventaireMagasin();
             ecranInventaireMagasin.Show();
             this.Close();
@@ -218,7 +212,6 @@ namespace Combaxe___New.écrans
         //Méthode pour aller voir les statistiques - Anthony Gauthier 23/10/2014
         private void btnStatistiques_Click_1(object sender, RoutedEventArgs e)
         {
-            VarGlobales.playClique();
             var ecranStats = new EcranStatistiques();
             ecranStats.Show();
             this.Close();
@@ -227,7 +220,6 @@ namespace Combaxe___New.écrans
         //Méthode pour aller à la taverne - Anthony Gauthier 30/10/2014
         private void btnTaverne_Click(object sender, RoutedEventArgs e)
         {
-            VarGlobales.playClique();
             var Repos = new EcranRepos();
             PersonnageService persoService = new PersonnageService();
             InventaireService inventaireServ = new InventaireService();
@@ -362,6 +354,54 @@ namespace Combaxe___New.écrans
             {
                 this.IsEnabled = true;
             }
+        }
+
+        /// <summary>
+        /// Fonction qui ajoute la couleur dans le texte des bouton, elle fait ce que le style fait avec les autres boutons
+        /// Mais qui n'était pas possible avec ces boutons dotés de StackPanel comme contenu.
+        /// </summary>
+        /// <param name="sender">Objet reçu par la fonction (dans ce cas, un label)</param>
+        /// <param name="e"></param>
+        private void Label_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if(sender == btnSupprimerPerso) 
+                lblSupprimer.Foreground = Brushes.LightBlue;
+            else if(sender == btnChangerPerso)
+                lblChangerPerso.Foreground = Brushes.LightBlue;
+            else if (sender == btnCombat)
+                lblCombat.Foreground = Brushes.LightBlue;
+            else if (sender == btnStatistiques)
+                lblStats.Foreground = Brushes.LightBlue;
+            else if (sender == btnInventaire)
+                lblInventaire.Foreground = Brushes.LightBlue;
+            else if (sender == btnTaverne)
+                lblAuberge.Foreground = Brushes.LightBlue;
+            else if (sender == btnDeconnexion)
+                lblDeconnexion.Foreground = Brushes.LightBlue;
+        }
+
+        /// <summary>
+        /// Fonction qui enlève la couleur dans le texte des bouton, elle fait ce que le style fait avec les autres boutons
+        /// Mais qui n'était pas possible avec ces boutons dotés de StackPanel comme contenu.
+        /// </summary>
+        /// <param name="sender">Objet reçu par la fonction (dans ce cas, un label)</param>
+        /// <param name="e"></param>
+        private void Label_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (sender == btnSupprimerPerso)
+                lblSupprimer.Foreground = Brushes.White;
+            else if (sender == btnChangerPerso)
+                lblChangerPerso.Foreground = Brushes.White;
+            else if (sender == btnCombat)
+                lblCombat.Foreground = Brushes.White;
+            else if (sender == btnStatistiques)
+                lblStats.Foreground = Brushes.White;
+            else if (sender == btnInventaire)
+                lblInventaire.Foreground = Brushes.White;
+            else if (sender == btnTaverne)
+                lblAuberge.Foreground = Brushes.White;
+            else if (sender == btnDeconnexion)
+                lblDeconnexion.Foreground = Brushes.White;
         }
     }
 }

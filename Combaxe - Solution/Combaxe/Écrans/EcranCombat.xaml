@@ -88,8 +88,8 @@
             </Grid.RowDefinitions>
 
             <!--Horloge de jeu-->
-            <TextBlock Name="txtbHorloge" Grid.Row="1" VerticalAlignment="Center"  Panel.ZIndex="1" HorizontalAlignment="Center"></TextBlock>
-            <ProgressBar Margin="5" Grid.Row="1"  Name="pbHorloge"></ProgressBar>
+            <TextBlock Name="txtbHorloge" Grid.Row="1" Foreground="Black" FontFamily="Matura MT Script Capitals" FontSize="24" VerticalAlignment="Center"  Panel.ZIndex="1" HorizontalAlignment="Center"></TextBlock>
+            <ProgressBar Margin="5" Grid.Row="1" Background="#FF979393"  Name="pbHorloge"></ProgressBar>
 
             <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
@@ -108,21 +108,10 @@
                 <Label FontSize="26" Name="lblNomPerso" FontFamily="Matura MT Script Capitals" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0" Grid.ColumnSpan="2"></Label>
 
                 <!--Journal de combat-->
-                <Border BorderBrush="Black" Grid.Row="2" Margin="5" BorderThickness="1" >
-                    <TextBox  Name="txtAttaquesPerso" TextWrapping="Wrap" IsReadOnly="True" AcceptsReturn="True" Grid.Row="2"></TextBox>
-                </Border>
-
-                <Border BorderBrush="Black" Grid.Row="2" Grid.Column="1" Margin="5" BorderThickness="1" >
-                    <TextBox  Name="txtDmgPerso" TextWrapping="Wrap" IsReadOnly="True" AcceptsReturn="True"></TextBox>
-                </Border>
-
-                <Border BorderBrush="Black" Grid.Row="2" Grid.Column="3" Margin="5" BorderThickness="1" >
-                    <TextBox  Name="txtAttaquesEnnemi" TextWrapping="Wrap" IsReadOnly="True" AcceptsReturn="True"></TextBox>
-                </Border>
-
-                <Border BorderBrush="Black" Grid.Row="2" Grid.Column="2" Margin="5" BorderThickness="1" >
-                    <TextBox  Name="txtDmgEnnemi" TextWrapping="Wrap" IsReadOnly="True" AcceptsReturn="True"></TextBox>
-                </Border>
+                <TextBox  Name="txtAttaquesPerso" Style="{DynamicResource TextBoxTransparent}"  Grid.Row="2"></TextBox>
+                <TextBox  Name="txtDmgPerso" Style="{DynamicResource TextBoxTransparent}" Grid.Row="2" Grid.Column="1" ></TextBox>
+                <TextBox  Name="txtAttaquesEnnemi" Style="{DynamicResource TextBoxTransparent}" Grid.Row="2" Grid.Column="3"></TextBox>
+                <TextBox  Name="txtDmgEnnemi" Style="{DynamicResource TextBoxTransparent}" Grid.Row="2" Grid.Column="2"></TextBox>
             </Grid>
             <!--Boutons d'actions-->
             <Grid Grid.Row="2">

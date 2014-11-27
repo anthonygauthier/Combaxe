@@ -31,7 +31,6 @@ namespace Combaxe___New
 
         private void btnRetour_Click(object sender, RoutedEventArgs e)
         {
-            VarGlobales.playClique();
             var connexion = new MainWindow();
             connexion.Show();
             this.Close();
@@ -40,7 +39,6 @@ namespace Combaxe___New
         //Méthode losrque le bouton de confirmation de création de compte est appuyé - William Themens 19/10/2014
         private void btnCreerCompte_Click(object sender, RoutedEventArgs e)
         {
-            VarGlobales.playClique();
             if(verificationChamps())
             {
                 JoueurService joueurService = new JoueurService();
