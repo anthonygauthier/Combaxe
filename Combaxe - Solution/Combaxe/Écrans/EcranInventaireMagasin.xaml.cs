@@ -42,12 +42,8 @@ namespace Combaxe___New.écrans
 
         private void btnRetour_Click_1(object sender, RoutedEventArgs e)
         {
-<<<<<<< HEAD
-=======
             personnageService.MAJEquipementPersonnage(equipementUtilise);
             inventaireService.MAJEquipementInventaire(equipementInventaire);
-            VarGlobales.playClique();
->>>>>>> origin/master
             var MenuPrincipal = new EcranMenuPrincipal();
             MenuPrincipal.Show();
             this.Close();
