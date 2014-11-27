@@ -46,7 +46,8 @@
 
         <!--Grid pour les caractéristiques-->
         <Label Grid.Row="2" Grid.RowSpan="2" FontSize="25" FontFamily="Matura MT Script Capitals" Content="Caracteristiques" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-        <Grid Background="White" Grid.Row="3" MaxWidth="340" Margin="5">
+        <Border Background="Black" Opacity="0.5" Grid.Row="3"  CornerRadius="5" Margin="5" MaxWidth="340"></Border>
+        <Grid Background="Transparent" Grid.Row="3" MaxWidth="340" Margin="5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -59,35 +60,35 @@
                 <ColumnDefinition Width="137*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <!--Force-->
-            <Label HorizontalAlignment="Right" VerticalAlignment="Center" Content="Force:" Grid.Row="0" Grid.Column="0" Height="24" Width="41"></Label>
+            <Label FontFamily="Matura MT Script Capitals" FontSize="16" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Force:" Grid.Row="0" Grid.Column="0"></Label>
             <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
                 <Button Style="{DynamicResource GlassButton}" Name="btnMoinsForce" Content="-" MinWidth="30" MaxHeight="40" Click="btnMoinsForce_Click"></Button>
                 <TextBox Text="0" Name="txtForce" IsEnabled="False" MinWidth="50" MaxHeight="40" TextAlignment="Center"></TextBox>
                 <Button Style="{DynamicResource GlassButton}" Name="btnPlusForce" Content="+" MinWidth="30" MaxHeight="40" Click="btnPlusForce_Click"></Button>
             </StackPanel>
             <!--Énergie-->
-            <Label HorizontalAlignment="Right" VerticalAlignment="Center" Content="Énergie:" Grid.Row="1" Grid.Column="0" Height="24" Width="52"></Label>
+            <Label FontFamily="Matura MT Script Capitals" FontSize="16" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Énergie:" Grid.Row="1" Grid.Column="0"></Label>
             <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
                 <Button Style="{DynamicResource GlassButton}" Name="btnMoinsEnergie" Content="-" MinWidth="30" MaxHeight="40" Click="btnMoinsEnergie_Click"></Button>
                 <TextBox Text="0" Name="txtEnergie" IsEnabled="False" MinWidth="50" MaxHeight="40" TextAlignment="Center"></TextBox>
                 <Button Style="{DynamicResource GlassButton}" Name="btnPlusEnergie" Content="+" MinWidth="30" MaxHeight="40" Click="btnPlusEnergie_Click"></Button>
             </StackPanel>
             <!--Vie-->
-            <Label HorizontalAlignment="Right" VerticalAlignment="Center" Content="Vie:" Grid.Row="2" Grid.Column="0" Height="24" Width="29"></Label>
+            <Label FontFamily="Matura MT Script Capitals" FontSize="16" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Vie:" Grid.Row="2" Grid.Column="0"></Label>
             <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
                 <Button Style="{DynamicResource GlassButton}" Name="btnMoinsVie" Content="-" MinWidth="30" MaxHeight="40" Click="btnMoinsVie_Click"></Button>
                 <TextBox Text="0" Name="txtVie" IsEnabled="False" MinWidth="50" MaxHeight="40" TextAlignment="Center"></TextBox>
                 <Button Style="{DynamicResource GlassButton}" Name="btnPlusVie" Content="+" MinWidth="30" MaxHeight="40" Click="btnPlusVie_Click"></Button>
             </StackPanel>
             <!--Vitesse-->
-            <Label HorizontalAlignment="Right" VerticalAlignment="Center" Content="Vitesse:" Grid.Row="3" Grid.Column="0" Height="24" Width="50"></Label>
+            <Label FontFamily="Matura MT Script Capitals" FontSize="16" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Vitesse:" Grid.Row="3" Grid.Column="0"></Label>
             <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
                 <Button Style="{DynamicResource GlassButton}" Name="btnMoinsVitesse" Content="-" MinWidth="30" MaxHeight="40" Click="btnMoinsVitesse_Click"></Button>
                 <TextBox Text="0" Name="txtVitesse" IsEnabled="False" MinWidth="50" MaxHeight="40" TextAlignment="Center"></TextBox>
                 <Button Style="{DynamicResource GlassButton}" Name="btnPlusVitesse" Content="+" MinWidth="30" MaxHeight="40" Click="btnPlusVitesse_Click"></Button>
             </StackPanel>
             <!--Défense-->
-            <Label HorizontalAlignment="Right" VerticalAlignment="Center" Content="Défense:" Grid.Row="4" Grid.Column="0" Height="24" Width="55"></Label>
+            <Label FontFamily="Matura MT Script Capitals" FontSize="16" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Défense:" Grid.Row="4" Grid.Column="0"></Label>
             <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal">
                 <Button Style="{DynamicResource GlassButton}" Name="btnMoinsDefense" Content="-" MinWidth="30" MaxHeight="40" Click="btnMoinsDefense_Click"></Button>
                 <TextBox Text="0" Name="txtDefense" IsEnabled="False" MinWidth="50" MaxHeight="40" TextAlignment="Center"></TextBox>

@@ -225,6 +225,13 @@
   <ItemGroup>
     <Resource Include="images\paladin.png" />
     <Resource Include="images\background_combat.png" />
+    <Resource Include="images\icones\auberge.png" />
+    <Resource Include="images\icones\backpack.png" />
+    <Resource Include="images\icones\changerPerso.png" />
+    <Resource Include="images\icones\combat.png" />
+    <Resource Include="images\icones\deconnexion.png" />
+    <Resource Include="images\icones\delete.png" />
+    <Resource Include="images\icones\graph.png" />
     <Content Include="resources\media\clique.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

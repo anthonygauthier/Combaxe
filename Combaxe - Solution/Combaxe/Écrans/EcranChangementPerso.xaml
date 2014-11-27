@@ -14,7 +14,6 @@
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-
             <!--Grid pour le perso 1-->
             <Border Name="border1">
                 <Grid Name="gridPerso1" Grid.Row="0" Grid.Column="0" Margin="5" MouseEnter="GridPerso1_MouseEnter" MouseLeave="gridPerso1_MouseLeave" MouseUp="gridPerso1_MouseUp">

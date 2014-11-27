@@ -155,7 +155,6 @@ namespace Combaxe___New.écrans
 
         private void LoadPerso(int index)
         {
-            VarGlobales.playClique();
             // on va chercher un personnage
             PersonnageService personnageService = new PersonnageService();
             VarGlobales.ChoixPersoFait = true;
@@ -169,7 +168,6 @@ namespace Combaxe___New.écrans
 
         private void btnRetour_Click(object sender, RoutedEventArgs e)
         {
-            VarGlobales.playClique();
             if (!VarGlobales.EstConnecte)
             {
                 VarGlobales.Retour = true;
@@ -182,14 +180,12 @@ namespace Combaxe___New.écrans
                 VarGlobales.ChoixPersoFait = true;
                 var EcranMenuPrincipal = new EcranMenuPrincipal();
                 EcranMenuPrincipal.Show();
-                VarGlobales.EstConnecte = false;
                 this.Close();
             }
         }
 
         private void btnCreerPerso_Click(object sender, RoutedEventArgs e)
         {
-            VarGlobales.playClique();
             var creationPerso = new EcranCreationPersonnage();
             creationPerso.Show();
             this.Close();

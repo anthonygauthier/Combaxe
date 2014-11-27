@@ -28,12 +28,6 @@ namespace Combaxe___New.classes
         public static bool campagne { get; set; }
 
         public static SoundPlayer sonPotion { get; set; }
-        public static SoundPlayer cliqueBouton { get; set; }
-
-        public static void playClique()
-        {
-            cliqueBouton.Play();
-        }
 
         public static bool Retour { get; set; }
     }

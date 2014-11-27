@@ -60,14 +60,12 @@ namespace Combaxe___New.écrans
         //Méthode du bouton pour fuir un combat - Anthony Gauthier 23/10/2014
         private void btnFuir_Click(object sender, RoutedEventArgs e)
         {
-            VarGlobales.playClique();
             fuiteDuJoueur();
         }
 
         //Méthode qui affiche tous les actions lorsque le bouton Action est cliqué - Anthony Gauthier 23/10/2014
         private void btnChoisirActions_Click(object sender, RoutedEventArgs e)
         {
-            VarGlobales.playClique();
             btnAction2.IsEnabled = true;
             btnAction3.IsEnabled = true;
 
@@ -113,7 +111,6 @@ namespace Combaxe___New.écrans
         //Méthode qui affiche les boutons items lorsque le bouton Items est cliqué - Anthony Gauthier 23/10/2014
         private void btnItems_Click(object sender, RoutedEventArgs e)
         {
-            VarGlobales.playClique();
             btnAction2.Visibility = Visibility.Visible;
 
             btnAction2.Content = "Potion de vie ("+VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Quantite+")";
@@ -145,7 +142,6 @@ namespace Combaxe___New.écrans
 
         private void btnAction1_Click(object sender, RoutedEventArgs e)
         {
-            VarGlobales.playClique();
             //Tommy gingras
             boutonClique = true;
             DeroulementCombat(0); 
@@ -153,7 +149,6 @@ namespace Combaxe___New.écrans
 
         private void btnAction2_Click(object sender, RoutedEventArgs e)
         {
-            VarGlobales.playClique();
             boutonClique = true;
             //tommy gingras
             if (btnChoisirActions.IsEnabled == true)
@@ -166,7 +161,6 @@ namespace Combaxe___New.écrans
 
         private void btnAction3_Click(object sender, RoutedEventArgs e)
         {
-            VarGlobales.playClique();
             boutonClique = true;
             //tommy gingras
             if (btnChoisirActions.IsEnabled == true)
@@ -179,7 +173,6 @@ namespace Combaxe___New.écrans
 
         private void btnAction4_Click(object sender, RoutedEventArgs e)
         {
-            VarGlobales.playClique();
             boutonClique = true;
             //tommy gingras
             DeroulementCombat(3); 
@@ -512,6 +505,11 @@ namespace Combaxe___New.écrans
                             txtAttaquesPerso.Text += VarGlobales.Personnage.ListeCompetence[num].Nom + "\n\n";
                             txtDmgPerso.Text += valeur.ToString() + "\n\n"; ;
                         }
+                        else
+                        {
+                            txtAttaquesPerso.Text += "\n\n";
+                            txtDmgPerso.Text += "Esquive" + "\n\n"; ;
+                        }
                     }
                     else
                     {
@@ -695,6 +693,11 @@ namespace Combaxe___New.écrans
                     txtAttaquesEnnemi.Text += VarGlobales.Ennemi.ListeCompetence[num].Nom + "\n\n";
                     txtDmgEnnemi.Text += valeur.ToString() + "\n\n";
                 }
+                else
+                {
+                    txtAttaquesEnnemi.Text += "\n\n";
+                    txtDmgEnnemi.Text += "Esquive \n\n";
+                }
             }
             else
             {
@@ -767,14 +770,14 @@ namespace Combaxe___New.écrans
             //À tous les 2 tours, on regénère un peu d'énergie au personnage.
             if(nbTour % 2 == 0)
             {
-                VarGlobales.Personnage.Energie = (int)((VarGlobales.Personnage.Energie) + (VarGlobales.Personnage.EnergieMaximale * 0.05));
+                VarGlobales.Personnage.Energie = (int)((VarGlobales.Personnage.Energie) + (VarGlobales.Personnage.EnergieMaximale * 0.10));
                 if (VarGlobales.Personnage.Energie >= VarGlobales.Personnage.EnergieMaximale)
                 {
                     VarGlobales.Personnage.Energie = VarGlobales.Personnage.EnergieMaximale;
                 }
 
                 //Et de l'ennemi aussi
-                combat.EnergieEnnemi = (int)((combat.EnergieEnnemi) + (combat.EnergieMaximale * 0.05));
+                combat.EnergieEnnemi = (int)((combat.EnergieEnnemi) + (combat.EnergieMaximale * 0.10));
                 if (combat.EnergieEnnemi >= combat.EnergieMaximale)
                 {
                     combat.EnergieEnnemi = combat.EnergieMaximale;
