@@ -707,6 +707,7 @@ namespace Combaxe___New.écrans
                     combat.VieEnnemi = combat.VieMaximale;
                 }
                 combat.EnergieEnnemi -= VarGlobales.Ennemi.ListeCompetence[num].EnergieUtilise;
+                txtAttaquesEnnemi.Text += VarGlobales.Ennemi.ListeCompetence[num].Nom + "\n\n";
                 txtDmgEnnemi.Text += "+"+ valeur.ToString() + " PV \n\n";
             }
             // on vérifie quel est le type de compétence
