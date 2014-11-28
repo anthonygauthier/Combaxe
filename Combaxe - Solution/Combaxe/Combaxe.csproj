@@ -81,6 +81,7 @@
     <Compile Include="classes\Consommation.cs" />
     <Compile Include="classes\Modele.cs" />
     <Compile Include="classes\services\BdService.cs" />
+    <Compile Include="classes\services\CampagneService.cs" />
     <Compile Include="classes\services\CaracteristiqueService.cs" />
     <Compile Include="classes\services\CompetenceService.cs" />
     <Compile Include="classes\services\ConsommationService.cs" />

@@ -57,13 +57,19 @@ namespace Combaxe___New.classes.services
         /// Fonction qui va chercher la progression du personnage dans la campagne - Anthony Gauthier 
         /// </summary>
         /// <returns></returns>
-        public void RetrieveInfoCampagneJoueur()
+        public void RetrieveInfoCampagnePerso()
         {
             string reqSelect = "SELECT idCampagne FROM Personnages WHERE idPersonnage = "+VarGlobales.Personnage.IdPersonnage+";";
             int nbLigne = 0;
             List<string>[] lstCampagne = bdCombaxe.selection(reqSelect, 1, ref nbLigne);
 
             VarGlobales.Personnage.IdCampagne = Convert.ToInt32(lstCampagne[0][0]);
+        }
+
+        public void MajCampagnePerso()
+        {
+            string reqMaj = "UPDATE Personnages SET idCampagne = idCampagne+1 WHERE idPersonnage = "+VarGlobales.Personnage.IdPersonnage+";";
+            bdCombaxe.maj(reqMaj);
         }
 
         /// <summary>

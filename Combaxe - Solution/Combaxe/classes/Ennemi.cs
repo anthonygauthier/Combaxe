@@ -42,10 +42,6 @@ namespace Combaxe___New.classes
         /// <returns>valeur booléenne (true/false (1,0))</returns>
         public void boss()
         {
-            //On va chercher la progression du joueur dans la campagne
-            PersonnageService persoService = new PersonnageService();
-            persoService.RetrieveInfoCampagneJoueur();
-
             int nombreRange = 0;
             EnnemiService ennemiService = new EnnemiService();
             Ennemi ennemi = new Ennemi();

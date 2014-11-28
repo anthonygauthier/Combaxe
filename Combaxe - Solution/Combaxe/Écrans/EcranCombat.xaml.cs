@@ -46,6 +46,7 @@ namespace Combaxe___New.écrans
         DispatcherTimer horloge; //Pour le chronomètre
         DispatcherTimer timer; //Pour le délai d'attaque de l'ennemi 
         DispatcherTimer tempsCaracteristiques; //Pour la page de l'écran de caractéristiques
+
         TimeSpan temps; //Temps pour le chronomètre
 
         bool boutonClique = false;
@@ -267,6 +268,17 @@ namespace Combaxe___New.écrans
             if(VarGlobales.campagne)
             {
                 ennemi.boss();
+
+                //On affiche l'histoire relié au boss.
+                this.IsEnabled = false;
+                CampagneService campagneService = new CampagneService();
+                string histoire = campagneService.RetrieveHistoire("début");
+
+                if (MessageBox.Show(histoire, "Histoire campagne", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK)
+                {
+                    //On réactive la fenêtre et le combat commence.
+                    this.IsEnabled = true;
+                }
             }
             else
             {
@@ -553,12 +565,12 @@ namespace Combaxe___New.écrans
                         MajBarreExperience((int)(brdMaxWidth.ActualWidth));
 
                         boutonClique = true;
-                        MessageBox.Show("Combat terminé, vous avez gagné !\n" + "Vous gagnez! " + expGagner + " points d'expérience et "+Math.Round(VarGlobales.Ennemi.Inventaire.argent,2)+"$ ", "Statut", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show("Combat terminé, vous avez gagné !\n" + "Vous gagnez " + expGagner + " points d'expérience et "+Math.Round(VarGlobales.Ennemi.Inventaire.argent,2)+"$ ", "Statut", MessageBoxButton.OK, MessageBoxImage.Information);
                         
                         switch(VarGlobales.Ennemi.Inventaire.listeEquipement.Count())
                         {
                             case 1:
-                                MessageBox.Show("Vous avez gagné:\n "+VarGlobales.Ennemi.Inventaire.listeEquipement[0].Nom,"Statut", MessageBoxButton.OK, MessageBoxImage.Information);
+                                MessageBox.Show("Vous avez gagné:\n "+VarGlobales.Ennemi.Inventaire.listeEquipement[0].Nom,"Butin", MessageBoxButton.OK, MessageBoxImage.Information);
                                 break;
                             case 2:
                                 MessageBox.Show("Vous avez gagné:\n " + VarGlobales.Ennemi.Inventaire.listeEquipement[0].Nom + ",\n " + VarGlobales.Ennemi.Inventaire.listeEquipement[1].Nom, "Statut", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -665,6 +677,28 @@ namespace Combaxe___New.écrans
         {
             horloge.Stop();
             var EcranMenuPrincipal = new EcranMenuPrincipal();
+
+            if (VarGlobales.campagne && combat.VieEnnemi <= 0)
+            {
+                CampagneService campService = new CampagneService();
+                string HistoireFin = campService.RetrieveHistoire("fin");
+
+                if (MessageBox.Show(HistoireFin,"Histoire Campagne",MessageBoxButton.OK,MessageBoxImage.Information) == MessageBoxResult.OK)
+                {
+                    //On met à jour la campagne du joueur.
+                    PersonnageService persoService = new PersonnageService();
+                    persoService.MajCampagnePerso();
+
+                    if (VarGlobales.Personnage.IdCampagne == 7)
+                    { 
+                        //TODO. Définir qu'est-ce que la récompense suite à avoir tuer Arkanos.
+                    }
+
+                    //On affiche le menu principal
+                    EcranMenuPrincipal.Show();
+                    this.Close();
+                }
+            }
             EcranMenuPrincipal.Show();
             this.Close();
         }

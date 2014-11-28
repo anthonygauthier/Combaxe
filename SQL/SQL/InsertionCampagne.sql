@@ -2,8 +2,8 @@ INSERT INTO Campagnes
 (idEnnemi, histoireDebut, histoireFin)
 VALUES(
 (SELECT idEnnemi FROM Ennemis WHERE nom='Azazel')
-, 'Lors de la recherche pour trouver Arkanos, vous apercevez une générale de l’armée des enfers, Azazel. Cette magicienne de l’ombre spécialisée dans le contrôle de l’esprit communiquait avec l’un de ses messagers. Il vous faut ce message.'
-, 'Une fois avoir vaincu Azazel, vous prenez le message et rechercha des informations. Le message lui dit l’emplacement où se trouvait le campement du groupe d’Arkanos.'
+, 'Lors de la recherche pour trouver Arkanos, vous apercevez une générale de l’armée des enfers, Azazel. Cette magicienne de l’ombre spécialisée dans le contrôle de l’esprit communique avec l’un de ses messagers. Il vous faut ce message.'
+, 'Une fois avoir vaincu Azazel, vous prenez le message et recherchez des informations. Le message vous dit l’emplacement où se trouve le campement du groupe d’Arkanos.'
 );
 
 INSERT INTO Campagnes
@@ -43,5 +43,5 @@ INSERT INTO Campagnes
 VALUES(
 (SELECT idEnnemi FROM Ennemis WHERE nom='Arkanos')
 ,  'Arkanos: "SUFFIT! Je vais vous éliminez par moi même, sale rat!"'
-,  'L\'énergie qui émane de la défaite d\'Arkanos vous trouble. Vous y êtes arrivé, vous avez battu l\'armée des enfers. Vous prenez Combaxe et retourner voir les Dieux avec.'
+,  'L\'énergie qui émane de la défaite d\'Arkanos vous trouble, mais vous y êtes arrivé, vous avez battu l\'armée des enfers. Vous prenez "Combaxe" et retourner voir les Dieux avec la hache.'
 );

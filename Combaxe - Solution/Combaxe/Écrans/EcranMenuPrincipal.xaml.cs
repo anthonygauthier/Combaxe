@@ -54,7 +54,7 @@ namespace Combaxe___New.écrans
         /// Méthode qui charge les informations du personnage - Anthony Gauthier 25/11/2014
         /// </summary>
         private void LoadPersonnage()
-        { 
+        {
             lblNomPerso.Content = VarGlobales.Personnage.Nom;
             lblNiveau.Content = VarGlobales.Personnage.Niveau;
             lblProfession.Content = VarGlobales.Personnage.profession.Nom;
@@ -65,6 +65,16 @@ namespace Combaxe___New.écrans
         //Méthode du bouton Combat - Anthony Gauthier 23/10/2014
         private void btnCombat_Click(object sender, RoutedEventArgs e)
         {
+            //On va chercher la progression du joueur dans la campagne
+            PersonnageService persoService = new PersonnageService();
+            persoService.RetrieveInfoCampagnePerso();
+
+            if(VarGlobales.Personnage.IdCampagne == 7)
+            {
+                //Si le personnage a terminé la campagne, on désactive le bouton campagne
+                btnCampagne.IsEnabled = false;
+            }
+
             btnCampagne.Visibility = Visibility.Visible;
             btnPartieRapide.Visibility = Visibility.Visible;
             btnCombat.Visibility = Visibility.Hidden;
