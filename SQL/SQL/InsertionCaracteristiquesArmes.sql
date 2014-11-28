@@ -3,7 +3,7 @@
 VALUES
 (
     (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Force')
-,(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Épée de pratique')
+,	(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Épée de pratique')
 ,2
 );
 
@@ -364,14 +364,13 @@ VALUES
 );
 
 /* FIN MAGIQUE */
-
 /* DÉBUT ÉLÉMENTALE */
 INSERT INTO CaracteristiquesEquipementsModeles
 (idCaracteristique, idEquipementModele, valeur)
 VALUES
 ( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Force'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Épée élémentale'), 12),
 ( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vie'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Épée élémentale'), 6),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vie'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Bâton élémentale'), 12),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vie'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Bâton élémental'), 12),
 ( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Énergie'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Bâton élémental'), 6),
 ( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vitesse'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Marteau élémental'), 6),
 ( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Force'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Marteau élémental'), 3),
@@ -388,47 +387,47 @@ VALUES
 
 /* FIN ÉLÉMENTALE */
 
-/* DÉBUT BRONZE */
+/* DÉBUT de bronze */
 
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Force'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Épée bronze'), 14),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vie'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Épée bronze'), 7),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vie'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Bâton bronze'), 14),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Énergie'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Bâton bronze'), 7),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vitesse'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Marteau bronze'), 7),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Force'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Marteau bronze'), 4),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Défense'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Bouclier bronze'), 7),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vie'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Bouclier bronze'), 4),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Force'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Dague bronze'), 7),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vitesse'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Dague bronze'), 4),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Énergie'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Baguette bronze'), 7),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vitesse'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Baguette bronze'), 4),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Force'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Hache bronze'), 14),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Défense'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Hache bronze'), 7),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Force'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Lance bronze'), 14),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vie'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Lance bronze'), 7),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Force'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Épée de bronze'), 14),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vie'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Épée de bronze'), 7),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vie'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Bâton de bronze'), 14),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Énergie'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Bâton de bronze'), 7),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vitesse'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Marteau de bronze'), 7),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Force'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Marteau de bronze'), 4),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Défense'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Bouclier de bronze'), 7),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vie'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Bouclier de bronze'), 4),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Force'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Dague de bronze'), 7),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vitesse'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Dague de bronze'), 4),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Énergie'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Baguette de bronze'), 7),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vitesse'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Baguette de bronze'), 4),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Force'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Hache de bronze'), 14),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Défense'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Hache de bronze'), 7),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Force'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Lance de bronze'), 14),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vie'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Lance de bronze'), 7),
 
-/* FIN BRONZE */
+/* FIN de bronze */
 
-/* DÉBUT FER */
+/* DÉBUT de fer */
 
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Force'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Épée fer'), 18),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vie'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Épée fer'), 9),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vie'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Bâton fer'), 18),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Énergie'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Bâton fer'), 9),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vitesse'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Marteau fer'), 9),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Force'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Marteau fer'), 5),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Défense'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Bouclier fer'), 9),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vie'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Bouclier fer'), 5),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Force'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Dague fer'), 9),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vitesse'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Dague fer'), 5),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Énergie'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Baguette fer'), 9),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vitesse'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Baguette fer'), 5),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Force'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Hache fer'), 18),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Défense'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Hache fer'), 9),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Force'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Lance fer'), 18),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vie'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Lance fer'), 9),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Force'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Épée de fer'), 18),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vie'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Épée de fer'), 9),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vie'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Bâton de fer'), 18),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Énergie'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Bâton de fer'), 9),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vitesse'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Marteau de fer'), 9),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Force'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Marteau de fer'), 5),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Défense'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Bouclier de fer'), 9),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vie'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Bouclier de fer'), 5),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Force'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Dague de fer'), 9),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vitesse'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Dague de fer'), 5),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Énergie'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Baguette de fer'), 9),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vitesse'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Baguette de fer'), 5),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Force'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Hache de fer'), 18),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Défense'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Hache de fer'), 9),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Force'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Lance de fer'), 18),
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vie'), (SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Lance de fer'), 9),
 
-/* FIN FER */
+/* FIN de fer */
 
 /* DÉBUT ENCHANTÉE */
 

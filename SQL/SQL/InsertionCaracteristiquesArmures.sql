@@ -130,7 +130,7 @@ INSERT INTO CaracteristiquesEquipementsModeles
 VALUES
 (
     (SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
-,(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Épaulettes de tissu')
+,(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Épaulières de tissu')
 ,1
 );
 
@@ -139,7 +139,7 @@ INSERT INTO CaracteristiquesEquipementsModeles
 VALUES
 (
     (SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse')
-,(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Épaulettes de tissu')
+,(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Épaulières de tissu')
 ,1
 );
 
@@ -348,7 +348,7 @@ INSERT INTO CaracteristiquesEquipementsModeles
 VALUES
 (
     (SELECT idCaracteristique FROM Caracteristiques WHERE nom='Énergie')
-,(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Épaulettes de tissu renforcé')
+,(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Épaulières de tissu renforcé')
 ,3
 );
 
@@ -357,7 +357,7 @@ INSERT INTO CaracteristiquesEquipementsModeles
 VALUES
 (
     (SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse')
-,(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Épaulettes de tissu renforcé')
+,(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Épaulières de tissu renforcé')
 ,3
 );
 
