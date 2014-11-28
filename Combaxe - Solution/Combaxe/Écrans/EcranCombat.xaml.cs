@@ -519,7 +519,7 @@ namespace Combaxe___New.écrans
                         }
                         else
                         {
-                            txtAttaquesPerso.Text += "\n\n";
+                            txtAttaquesPerso.Text += VarGlobales.Personnage.ListeCompetence[num].Nom + "\n\n";
                             txtDmgPerso.Text += "Esquive" + "\n\n"; ;
                         }
                     }
@@ -729,7 +729,7 @@ namespace Combaxe___New.écrans
                 }
                 else
                 {
-                    txtAttaquesEnnemi.Text += "\n\n";
+                    txtAttaquesEnnemi.Text += VarGlobales.Ennemi.ListeCompetence[num].Nom + "\n\n";
                     txtDmgEnnemi.Text += "Esquive \n\n";
                 }
             }
@@ -830,8 +830,15 @@ namespace Combaxe___New.écrans
             MajBarreExperience((int)(brdMaxWidth.ActualWidth));
             //On donne l'expérience au joueur - Anthony Gauthier 30/10/2014
             txtAttaquesPerso.Text += "Victoire!\n\n ";
-            txtDmgPerso.Text += "+"+ experienceGagner.ToString() + " XP \n\n";
-            VarGlobales.Personnage.Experience = VarGlobales.Personnage.Experience + experienceGagner;
+            if (VarGlobales.Personnage.Niveau < 20)
+            {
+                txtDmgPerso.Text += "+" + experienceGagner.ToString() + " XP \n\n";
+                VarGlobales.Personnage.Experience = VarGlobales.Personnage.Experience + experienceGagner;
+            }
+            else
+            {
+                VarGlobales.Personnage.Experience = VarGlobales.Personnage.ExperienceMaximale-1;
+            }
 
             //Si l'expérience gagné est plus grande ou égale à l'expérience maximale, on monte de niveau
             if (combat.NiveauSuperieur())
@@ -873,10 +880,14 @@ namespace Combaxe___New.écrans
 
                 EcranCar.Show();
             }
-            else
-            { 
+            else if (VarGlobales.Personnage.Niveau < 20)
+            {
                 persoService.MiseAJourExperience();
                 lblExperiencePerso.Content = VarGlobales.Personnage.Experience.ToString() + "/" + VarGlobales.Personnage.ExperienceMaximale.ToString();
+            }
+            else
+            {
+                lblExperiencePerso.Content = "Niveau Maximum";
             }
             StatistiqueService statsService = new StatistiqueService();
             statsService.miseAjourStatistiques("victoire = victoire + 1");
@@ -891,8 +902,11 @@ namespace Combaxe___New.écrans
 
             //On retire l'expérience au joueur - Anthony Gauthier 30/10/2014
             txtAttaquesPerso.Text += "Défaite!\n\n ";
-            txtDmgPerso.Text += "-"+ experiencePerdu.ToString() + " XP \n\n";
-            VarGlobales.Personnage.Experience = VarGlobales.Personnage.Experience - experiencePerdu;
+            if (VarGlobales.Personnage.Niveau < 20)
+            {
+                txtDmgPerso.Text += "-"+ experiencePerdu.ToString() + " XP \n\n";
+                VarGlobales.Personnage.Experience = VarGlobales.Personnage.Experience - experiencePerdu;
+            }
 
             //Si l'expérience perdu est plus petite ou égale à 0, on gèle l'expérience du joueur à 0
             if (VarGlobales.Personnage.Experience <= 0)
@@ -901,7 +915,15 @@ namespace Combaxe___New.écrans
             }
 
             persoService.MiseAJourExperience();
-            lblExperiencePerso.Content = VarGlobales.Personnage.Experience.ToString() + "/" + VarGlobales.Personnage.ExperienceMaximale.ToString();
+
+            if (VarGlobales.Personnage.Niveau < 20)
+            {
+                lblExperiencePerso.Content = VarGlobales.Personnage.Experience.ToString() + "/" + VarGlobales.Personnage.ExperienceMaximale.ToString();
+            }
+            else 
+            {
+                lblExperiencePerso.Content = "Niveau Maximum";
+            }
         }
 
         /// <summary>
@@ -945,10 +967,17 @@ namespace Combaxe___New.écrans
         /// <param name="max"></param>
         private void MajBarreExperience(int max)
         {
-            int pourcentageExp = (VarGlobales.Personnage.Experience * 100) / VarGlobales.Personnage.ExperienceMaximale;
+            if (VarGlobales.Personnage.Niveau < 20)
+            {
+                int pourcentageExp = (VarGlobales.Personnage.Experience * 100) / VarGlobales.Personnage.ExperienceMaximale;
 
-            int widthAjuste = max - ((max * pourcentageExp) / 100);
-            brdExperience.Margin = new Thickness(5, 5, widthAjuste, 5);
+                int widthAjuste = max - ((max * pourcentageExp) / 100);
+                brdExperience.Margin = new Thickness(5, 5, widthAjuste, 5);
+            }
+            else
+            {
+                lblExperiencePerso.Content = "Niveau Maximum";
+            }
         }
 
         /// <summary>
