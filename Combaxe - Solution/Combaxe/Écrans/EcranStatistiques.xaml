@@ -20,7 +20,7 @@
         <Label Foreground="White" Name="lblTitre" Grid.ColumnSpan="3" HorizontalAlignment="Center" Content="Statistiques" FontFamily="Matura MT Script Capitals" FontSize="44"/>
 
         <!--Grid avec les champs et le bouton retour-->
-        <Border Grid.Row="1" Grid.Column="1" Background="Black" Opacity="0.5" CornerRadius="50" Panel.ZIndex="-5"></Border>
+        <Border Grid.Row="1" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="Black" Opacity="0.5" CornerRadius="50" Panel.ZIndex="-5"></Border>
             <Grid Margin="10" Grid.Row="1" Grid.Column="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>

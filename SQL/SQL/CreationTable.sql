@@ -50,8 +50,8 @@ CREATE TABLE IF NOT EXISTS Campagnes
 (
 	idCampagne INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL
 ,	idEnnemi INT NOT NULL
-,	histoireDebut BLOB
-,	histoireFin BLOB
+,	histoireDebut VARCHAR(255)
+,	histoireFin VARCHAR(255)
 );
 
 CREATE TABLE IF NOT EXISTS Modeles

@@ -37,7 +37,7 @@ namespace Combaxe___New.classes.abstraites
             if (File.Exists(System.AppDomain.CurrentDomain.BaseDirectory + lien))
                 Image = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + lien, UriKind.RelativeOrAbsolute)); // fait par tommy gingras
             else
-                Image = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "//resources//images//personnages//towel.jpg", UriKind.RelativeOrAbsolute)); // fait par tommy gingras
+                Image = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "//resources//images//personnages//perso.jpg", UriKind.RelativeOrAbsolute)); // fait par tommy gingras
             ListeCaracteristique = lstCar;
             ListeCompetence = lstComp;
             Inventaire = inv;

@@ -23,7 +23,7 @@ namespace Combaxe___New.écrans
 
     
     /// <summary>
-    /// Interaction logic for EcranCombat.xaml
+    /// Interaction logique pour EcranCombat.xaml
     /// </summary>
     public partial class EcranCombat : Window
     {
@@ -729,8 +729,8 @@ namespace Combaxe___New.écrans
                 VarGlobales.Personnage.Mort(nbTour, horloge, xpPerdu);
                 menuPrincipal();
             }
-            txtAttaquesPerso.ScrollToEnd();
-            txtDmgPerso.ScrollToEnd();
+            txtAttaquesEnnemi.ScrollToEnd();
+            txtDmgEnnemi.ScrollToEnd();
             //On redémarre l'horloge de combat
             chronometreCombat();
         }

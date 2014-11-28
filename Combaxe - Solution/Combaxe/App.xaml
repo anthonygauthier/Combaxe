@@ -63,7 +63,8 @@
             </Setter>
         </Style>
 
-        <Style x:Key="TextBoxTransparent" TargetType="{x:Type TextBox}">
+        <!--TextBox ReadOnly de combat- Anthony Gauthier 27 Nov. 2014 -->
+        <Style x:Key="TextBoxCombat" TargetType="{x:Type TextBox}">
             <Setter Property="Background" Value="Transparent"></Setter>
             <Setter Property="Foreground" Value="White"></Setter>
             <Setter Property="Panel.ZIndex" Value="5"></Setter>
@@ -75,6 +76,56 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid>
+                            <Border BorderBrush="White" Panel.ZIndex="-1" BorderThickness="1" CornerRadius="5" Background="Black" Opacity="0.5"></Border>
+                            <ScrollViewer Margin="0" x:Name="PART_ContentHost"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="Transparent"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!--TextBox Actif (input) - Anthony Gauthier 27 Nov. 2014 -->
+        <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="Transparent"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="Panel.ZIndex" Value="5"></Setter>
+            <Setter Property="TextAlignment" Value="Left"></Setter>
+            <Setter Property="TextWrapping" Value="Wrap"></Setter>
+            <Setter Property="MinHeight" Value="20"></Setter>
+            <Setter Property="CaretBrush" Value="White"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid>
+                            <Border BorderBrush="White" Panel.ZIndex="-1" BorderThickness="1" CornerRadius="5" Background="Black" Opacity="0.5"></Border>
+                            <ScrollViewer Margin="0" x:Name="PART_ContentHost"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="Transparent"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
+        <!--Password Box - Anthony Gauthier 27 Nov. 2014 -->
+        <Style x:Key="PassBoxStyle" TargetType="{x:Type PasswordBox}">
+            <Setter Property="Background" Value="Transparent"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="Panel.ZIndex" Value="5"></Setter>
+            <Setter Property="MinHeight" Value="20"></Setter>
+            <Setter Property="CaretBrush" Value="White"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type PasswordBox}">
                         <Grid>
                             <Border BorderBrush="White" Panel.ZIndex="-1" BorderThickness="1" CornerRadius="5" Background="Black" Opacity="0.5"></Border>
                             <ScrollViewer Margin="0" x:Name="PART_ContentHost"/>

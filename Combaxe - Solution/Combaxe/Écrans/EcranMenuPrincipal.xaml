@@ -72,7 +72,7 @@
         <!--Boutons cachés-->
         <Button Style="{DynamicResource GlassButton}" Name="btnCampagne" Grid.Row="1" Grid.Column="1" Visibility="Hidden" HorizontalAlignment="Right" MinWidth="175"   MaxWidth="175" Content="Campagne"  MaxHeight="50" Margin="0,5,0,5" Click="btnCampagne_Click_1"></Button>
         <Button Style="{DynamicResource GlassButton}" Name="btnPartieRapide" Grid.Row="1" Grid.Column="2" Visibility="Hidden" HorizontalAlignment="Left" MinWidth="175" MaxWidth="175" Content="Partie Rapide" MaxHeight="50" Margin="0,5,0,5" Click="btnPartieRapide_Click_1"></Button>
-        <Border Margin="10,0,0,0" Grid.Row="1" Grid.Column="0" Grid.RowSpan="6" Background="Black" Opacity="0.7" CornerRadius="50"></Border>
+        <Border Margin="10,0,0,0" Grid.Row="1" Grid.Column="0" Grid.RowSpan="6" BorderBrush="White" BorderThickness="1" Background="Black" Opacity="0.7" CornerRadius="50"></Border>
         <!--Information personnage-->
         <Grid Margin="10,0,0,0" Grid.Row="1" Grid.Column="0" Grid.RowSpan="6">
             <Grid.ColumnDefinitions>

@@ -25,9 +25,9 @@
 
         <!--StackPanel pour les inputs de création de compte-->
         <StackPanel Grid.Row="1" Grid.Column="2" Margin="0,5" Orientation="Vertical">
-            <TextBox Name="txtbNomUsager" BorderBrush="Black"></TextBox>
-            <PasswordBox Name="pwdboxMdp" BorderBrush="Black" Margin="0,14"/>
-            <PasswordBox Name="pwdbConfirmMdp" BorderBrush="Black"/>
+            <TextBox Style="{DynamicResource TextBoxStyle}" Name="txtbNomUsager" BorderBrush="Black"></TextBox>
+            <PasswordBox Style="{DynamicResource PassBoxStyle}" Name="pwdboxMdp" BorderBrush="Black" Margin="0,14"/>
+            <PasswordBox Style="{DynamicResource PassBoxStyle}" Name="pwdbConfirmMdp" BorderBrush="Black"/>
         </StackPanel>
 
         <!--StackPanel pour le bouton de connexion-->

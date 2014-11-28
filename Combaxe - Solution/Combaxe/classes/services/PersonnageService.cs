@@ -54,6 +54,19 @@ namespace Combaxe___New.classes.services
         }
 
         /// <summary>
+        /// Fonction qui va chercher la progression du personnage dans la campagne - Anthony Gauthier 
+        /// </summary>
+        /// <returns></returns>
+        public void RetrieveInfoCampagneJoueur()
+        {
+            string reqSelect = "SELECT idCampagne FROM Personnages WHERE idPersonnage = "+VarGlobales.Personnage.IdPersonnage+";";
+            int nbLigne = 0;
+            List<string>[] lstCampagne = bdCombaxe.selection(reqSelect, 1, ref nbLigne);
+
+            VarGlobales.Personnage.IdCampagne = Convert.ToInt32(lstCampagne[0][0]);
+        }
+
+        /// <summary>
         /// On veut sélectionner un personnage selon son ID, Tommy Gingras
         /// </summary>
         /// <param name="id">le id du personnage désirée</param>

@@ -261,6 +261,8 @@ namespace Combaxe___New.écrans
                     btnTaverne.IsEnabled = false;
                     MajBarreViePerso((int)(brdMaxWidth.ActualWidth));
                     MajBarreEnergiePerso((int)(brdMaxWidth.ActualWidth));
+                    lblVie.Content = VarGlobales.Personnage.VieMaximale;
+                    lblEnergie.Content = VarGlobales.Personnage.EnergieMaximale;
 
                     if (this.WindowStyle != WindowStyle.None)
                     {

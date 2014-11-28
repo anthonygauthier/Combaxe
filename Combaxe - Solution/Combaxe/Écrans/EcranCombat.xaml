@@ -103,15 +103,17 @@
                     <RowDefinition Height="4*"></RowDefinition>
                 </Grid.RowDefinitions>
 
+                <Border Grid.Column="2" Grid.ColumnSpan="2" BorderBrush="White" BorderThickness="1" CornerRadius="5" Margin="5" Background="Black" Opacity="0.5"></Border>
                 <Label FontSize="26" Name="lblNomEnnemi" FontFamily="Matura MT Script Capitals" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.ColumnSpan="2"></Label>
 
+                <Border Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="White" BorderThickness="1" CornerRadius="5" Margin="5" Background="Black" Opacity="0.5"></Border>
                 <Label FontSize="26" Name="lblNomPerso" FontFamily="Matura MT Script Capitals" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0" Grid.ColumnSpan="2"></Label>
 
                 <!--Journal de combat-->
-                <TextBox  Name="txtAttaquesPerso" Style="{DynamicResource TextBoxTransparent}"  Grid.Row="2"></TextBox>
-                <TextBox  Name="txtDmgPerso" Style="{DynamicResource TextBoxTransparent}" Grid.Row="2" Grid.Column="1" ></TextBox>
-                <TextBox  Name="txtAttaquesEnnemi" Style="{DynamicResource TextBoxTransparent}" Grid.Row="2" Grid.Column="3"></TextBox>
-                <TextBox  Name="txtDmgEnnemi" Style="{DynamicResource TextBoxTransparent}" Grid.Row="2" Grid.Column="2"></TextBox>
+                <TextBox  Name="txtAttaquesPerso" Style="{DynamicResource TextBoxCombat}"  Grid.Row="2"></TextBox>
+                <TextBox  Name="txtDmgPerso" Style="{DynamicResource TextBoxCombat}" Grid.Row="2" Grid.Column="1" ></TextBox>
+                <TextBox  Name="txtAttaquesEnnemi" Style="{DynamicResource TextBoxCombat}" Grid.Row="2" Grid.Column="3"></TextBox>
+                <TextBox  Name="txtDmgEnnemi" Style="{DynamicResource TextBoxCombat}" Grid.Row="2" Grid.Column="2"></TextBox>
             </Grid>
             <!--Boutons d'actions-->
             <Grid Grid.Row="2">

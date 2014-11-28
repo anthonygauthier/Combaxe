@@ -25,7 +25,8 @@
         </StackPanel>
 
         <!--Grid pour le magasin-->
-        <Grid Background="White" Name="GridMagasin" Grid.Row="1" Grid.ColumnSpan="3" Margin="5">
+        <Border Grid.Row="1" Grid.ColumnSpan="3" BorderBrush="White" BorderThickness="1" CornerRadius="5" Margin="2" Background="Black" Opacity="0.5"></Border>
+        <Grid Background="Transparent" Name="GridMagasin" Grid.Row="1" Grid.ColumnSpan="3" Margin="5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
@@ -109,7 +110,8 @@
         </Grid>
         
         <!--Grid pour l'inventaire-->
-        <Grid Name="GridInventaire" Grid.Row="3" Background="White" Margin="5">
+        <Border Grid.Row="3" BorderBrush="White" BorderThickness="1" CornerRadius="5" Margin="5" Background="Black" Opacity="0.5"></Border>
+        <Grid Name="GridInventaire" Grid.Row="3" Background="Transparent" Margin="5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
@@ -129,7 +131,7 @@
             <Label HorizontalAlignment="Left"  Content="Inventaire" Foreground="White"></Label>
             <StackPanel Margin="0,0,7,0" HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal">
                 <Label Content="Or: " Foreground="White"></Label>
-                <TextBox Name="txtbArgent" MinWidth="70" MaxHeight="24" IsEnabled="False" TextAlignment="Center"></TextBox>
+                <TextBox Style="{DynamicResource TextBoxCombat}" Name="txtbArgent" MinWidth="70" MaxHeight="24" IsEnabled="False" TextAlignment="Center"></TextBox>
             </StackPanel>
         </Grid>
 
@@ -142,7 +144,8 @@
         </Grid>
 
         <!--Grid pour l'équipement équipé-->
-        <Grid Name="GridEquiper" Grid.Row="3" Grid.Column="1" Margin="5" Background="White">
+        <Border Grid.Row="3" Grid.Column="1" BorderBrush="White" BorderThickness="1" CornerRadius="5" Background="Black" Opacity="0.5"></Border>
+        <Grid Name="GridEquiper" Grid.Row="3" Grid.Column="1" Margin="5" Background="Transparent">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
@@ -166,7 +169,7 @@
         </Grid>
         
         <!--Grid pour les caractéristiques-->
-        <Grid Name="GridCaracteristiques" Grid.Row="3" Grid.Column="2" Margin="5" Background="White">
+        <Grid Name="GridCaracteristiques" Grid.Row="3" Grid.Column="2" Margin="5" Background="Transparent">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="55*"/>
                 <ColumnDefinition Width="122*"/>
@@ -178,6 +181,7 @@
             </Grid.RowDefinitions>
             
             <!--Grid pour niveau et profession-->
+            <Border Grid.ColumnSpan="2" BorderBrush="White" BorderThickness="1" CornerRadius="5" Background="Black" Opacity="0.5"></Border>
             <Grid Grid.ColumnSpan="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
@@ -198,22 +202,22 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Right" VerticalAlignment="Center" Text="Niveau: "></TextBlock>
-                    <TextBox Name="txtbNiveau" Grid.Column="1" IsEnabled="False" Margin="0,0,0,2" MinHeight="20" MinWidth="40" HorizontalAlignment="Left" MaxHeight="30" TextAlignment="Center"></TextBox>
+                    <TextBlock Foreground="White" TextWrapping="Wrap" HorizontalAlignment="Right" VerticalAlignment="Center" Text="Niveau: "></TextBlock>
+                    <TextBox Style="{DynamicResource TextBoxCombat}" Name="txtbNiveau" Grid.Column="1" IsEnabled="False" Margin="0,0,0,2" MinHeight="20" MinWidth="40" HorizontalAlignment="Left" MaxHeight="30" TextAlignment="Center"></TextBox>
                 </Grid>
-                <TextBlock Name="txtbProfession" Margin="5,0,0,0" HorizontalAlignment="Left" Grid.Column="1" Text="Profession" VerticalAlignment="Center"></TextBlock>
-                <TextBlock Grid.Row="1" TextWrapping="Wrap" Text="Force:" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
-                <TextBlock Grid.Row="2" TextWrapping="Wrap" Text="Énergie:" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
-                <TextBlock Grid.Row="3" TextWrapping="Wrap" Text="Vie:" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
-                <TextBlock Grid.Row="4" TextWrapping="Wrap" Text="Vitesse:" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
-                <TextBlock Grid.Row="5" TextWrapping="Wrap" Text="Défense:" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Foreground="White"  Name="txtbProfession" Margin="5,0,0,0" HorizontalAlignment="Left" Grid.Column="1" Text="Profession" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Foreground="White"  Grid.Row="1" TextWrapping="Wrap" Text="Force:" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Foreground="White"  Grid.Row="2" TextWrapping="Wrap" Text="Énergie:" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Foreground="White"  Grid.Row="3" TextWrapping="Wrap" Text="Vie:" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Foreground="White"  Grid.Row="4" TextWrapping="Wrap" Text="Vitesse:" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Foreground="White"  Grid.Row="5" TextWrapping="Wrap" Text="Défense:" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
                 
                 <!--Deuxième colonne-->
-                <TextBox  Name="txtbForce" Margin="2,0,0,0" Grid.Column="1" Grid.Row="1" IsEnabled="False" MinWidth="65" MaxHeight="30" HorizontalAlignment="Left" TextAlignment="Center"></TextBox>
-                <TextBox  Name="txtbEnergie" Margin="2,0,0,0" Grid.Column="1" Grid.Row="2" IsEnabled="False" MinWidth="65" MaxHeight="30" HorizontalAlignment="Left" TextAlignment="Center"></TextBox>
-                <TextBox  Name="txtbVie" Margin="2,0,0,0" Grid.Column="1" Grid.Row="3" IsEnabled="False" MinWidth="65" MaxHeight="30" HorizontalAlignment="Left" TextAlignment="Center"></TextBox>
-                <TextBox  Name="txtbVitesse" Margin="2,0,0,0" Grid.Column="1" Grid.Row="4" IsEnabled="False" MinWidth="65" MaxHeight="30" HorizontalAlignment="Left" TextAlignment="Center"></TextBox>
-                <TextBox  Name="txtbDefense" Margin="2,0,0,0" Grid.Column="1" Grid.Row="5" IsEnabled="False" MinWidth="65" MaxHeight="30" HorizontalAlignment="Left" TextAlignment="Center"></TextBox>
+                <TextBox Style="{DynamicResource TextBoxCombat}"  Name="txtbForce" Margin="2,0,0,0" Grid.Column="1" Grid.Row="1" IsEnabled="False" MinWidth="65" MaxHeight="30" HorizontalAlignment="Left" TextAlignment="Center"></TextBox>
+                <TextBox Style="{DynamicResource TextBoxCombat}"  Name="txtbEnergie" Margin="2,0,0,0" Grid.Column="1" Grid.Row="2" IsEnabled="False" MinWidth="65" MaxHeight="30" HorizontalAlignment="Left" TextAlignment="Center"></TextBox>
+                <TextBox Style="{DynamicResource TextBoxCombat}"  Name="txtbVie" Margin="2,0,0,0" Grid.Column="1" Grid.Row="3" IsEnabled="False" MinWidth="65" MaxHeight="30" HorizontalAlignment="Left" TextAlignment="Center"></TextBox>
+                <TextBox Style="{DynamicResource TextBoxCombat}"  Name="txtbVitesse" Margin="2,0,0,0" Grid.Column="1" Grid.Row="4" IsEnabled="False" MinWidth="65" MaxHeight="30" HorizontalAlignment="Left" TextAlignment="Center"></TextBox>
+                <TextBox Style="{DynamicResource TextBoxCombat}"  Name="txtbDefense" Margin="2,0,0,0" Grid.Column="1" Grid.Row="5" IsEnabled="False" MinWidth="65" MaxHeight="30" HorizontalAlignment="Left" TextAlignment="Center"></TextBox>
             </Grid>
             
             <!--Barre de points de vie et barre de points d'énergie-->            

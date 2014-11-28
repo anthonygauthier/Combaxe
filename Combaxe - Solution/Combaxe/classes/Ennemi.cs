@@ -42,6 +42,10 @@ namespace Combaxe___New.classes
         /// <returns>valeur booléenne (true/false (1,0))</returns>
         public void boss()
         {
+            //On va chercher la progression du joueur dans la campagne
+            PersonnageService persoService = new PersonnageService();
+            persoService.RetrieveInfoCampagneJoueur();
+
             int nombreRange = 0;
             EnnemiService ennemiService = new EnnemiService();
             Ennemi ennemi = new Ennemi();
@@ -81,7 +85,7 @@ namespace Combaxe___New.classes
 
 
             Random aleatoire = new Random();
-            int idEnnemiAleatoire = aleatoire.Next(0, 1);
+            int idEnnemiAleatoire = aleatoire.Next(0, 31); //Fix d'un bug ou on recevait seulement l'ange déchu comme monstre - Anthony Gauthier 27 Nov. 2014
             Ennemi ennemi;
             ennemi = ennemiService.RetrieveInfoEnnemi(tousEnnemi[idEnnemiAleatoire][0]);
             ennemi = NiveauEnnemi(ennemi);
