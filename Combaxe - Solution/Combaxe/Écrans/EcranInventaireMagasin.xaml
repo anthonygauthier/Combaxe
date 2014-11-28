@@ -220,9 +220,13 @@
                 <TextBox Style="{DynamicResource TextBoxCombat}"  Name="txtbDefense" Margin="2,0,0,0" Grid.Column="1" Grid.Row="5" IsEnabled="False" MinWidth="65" MaxHeight="30" HorizontalAlignment="Left" TextAlignment="Center"></TextBox>
             </Grid>
             
-            <!--Barre de points de vie et barre de points d'énergie-->            
-            <TextBox IsReadOnly="True" Name="txtbBarreVie" BorderBrush="Black" BorderThickness="1" Foreground="White" TextAlignment="Center" Grid.Row="1" Background="Green" Margin="5,0,5,0" MaxHeight="38" MaxWidth="300" Grid.ColumnSpan="2"></TextBox>
-            <TextBox IsReadOnly="True" Name="txtbBarreEnergie" BorderBrush="Black" BorderThickness="1" Foreground="White" TextAlignment="Center" Grid.Row="2" Background="Blue" Margin="5,0,5,0" MaxHeight="38" MaxWidth="300" Grid.ColumnSpan="2"></TextBox>
+            <!--Barre de points de vie et barre de points d'énergie-->
+            <Border Name="brdMaxWidth" Loaded="brdMaxWidth_Loaded" Background="Black" Grid.Row="1" Grid.ColumnSpan="2"></Border>
+            <Border Background="Black" Grid.Row="2" Grid.ColumnSpan="2"></Border>
+            <Border Name="brdViePerso" Grid.Row="1" Background="Green" Grid.ColumnSpan="2" Margin="2"></Border>
+            <Border Name="brdEnergiePerso" Grid.Row="2" Background="Blue" Grid.ColumnSpan="2" Margin="2"></Border>
+            <Label Name="txtViePerso" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+            <Label Name="txtEnergiePerso" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
         </Grid>  
         <!--Bouton pour retourner au menu principal-->
         <Button Style="{DynamicResource GlassButton}" Name="btnRetour" Click="btnRetour_Click_1" Content="Retour" Grid.Row="4" Grid.Column="2" MinWidth="100" MaxHeight="50" Margin="0,0,5,0" HorizontalAlignment="Right" Width="100"></Button>

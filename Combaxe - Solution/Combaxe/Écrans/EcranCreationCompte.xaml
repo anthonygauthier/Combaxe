@@ -32,7 +32,7 @@
 
         <!--StackPanel pour le bouton de connexion-->
         <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,142,0,10">
-            <Button Style="{DynamicResource GlassButton}" Name="btnCreerCompte" HorizontalAlignment="Center" Content="Créer compte" MinWidth="90" MaxWidth="90" MinHeight="30" MaxHeight="30" Click="btnCreerCompte_Click"></Button>
+            <Button Style="{DynamicResource GlassButton}" Name="btnCreerCompte" HorizontalAlignment="Center" Content="Créer compte" MinWidth="150" MaxWidth="150" MinHeight="35" MaxHeight="30" Click="btnCreerCompte_Click"></Button>
         </StackPanel>
 
         <!--StackPanel pour les labels de connexion-->

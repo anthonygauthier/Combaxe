@@ -41,13 +41,19 @@ namespace Combaxe___New
         {
             if(verificationChamps())
             {
-                JoueurService joueurService = new JoueurService();
-                joueurService.CreerJoueur(txtbNomUsager.Text,pwdboxMdp.Password);
-                MessageBox.Show("Compte créé avec succès!", "Création de compte", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                var connexion = new MainWindow();
-                connexion.Show();
-                this.Close();
-                
+                if(VarGlobales.connexion)
+                { 
+                    JoueurService joueurService = new JoueurService();
+                    joueurService.CreerJoueur(txtbNomUsager.Text,pwdboxMdp.Password);
+                    MessageBox.Show("Compte créé avec succès!", "Création de compte", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    var connexion = new MainWindow();
+                    connexion.Show();
+                    this.Close();
+                }
+                else
+                { 
+                    MessageBox.Show("Aucune connexion trouvée, veuillez vérifier votre fichier App.config.", "Erreur connexion", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
 

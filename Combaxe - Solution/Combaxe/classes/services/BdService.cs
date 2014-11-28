@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using MySql.Data.MySqlClient;
+using Combaxe___New.classes;
 
 namespace MiniBD
 {
@@ -47,7 +48,7 @@ namespace MiniBD
             }
             catch 
             {
-                 MessageBox.Show("Erreur d'ouverture de connexion");
+                VarGlobales.connexion = false;
                 return false;
             }
         }
