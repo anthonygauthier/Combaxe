@@ -27,10 +27,11 @@ namespace Combaxe___New.écrans
         private Image dragImage;
         private Point startDragPoint;
         private Uri url = new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "resources/images/objets/coffre.png", UriKind.RelativeOrAbsolute);
-        private List<Equipement> equipementInventaire = new List<Equipement>();
+        private List<Equipement> equipementInventaire = null;
         private List<Equipement> equipementUtilise = VarGlobales.Personnage.Inventaire.listeEquipementUtilise;
         private const int MAXEQUIPEMENTPORTE = 8;
         private const int MARGIN = 2;
+        private List<Caracteristique> lstCaracteristiqueEquipement = VarGlobales.lstCaracteristiqueEquipement;
 
         public EcranInventaireMagasin()
         {
@@ -65,11 +66,11 @@ namespace Combaxe___New.écrans
         /// </summary>
         private void majCaracteristiques()
         {
-            txtbForce.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur.ToString();
-            txtbEnergie.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur.ToString();
-            txtbVie.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur.ToString();
-            txtbVitesse.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur.ToString();
-            txtbDefense.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Defense].Valeur.ToString();
+            txtbForce.Text = (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur + lstCaracteristiqueEquipement[(int)Caracteristiques.Force].Valeur).ToString();
+            txtbEnergie.Text = (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur + lstCaracteristiqueEquipement[(int)Caracteristiques.Energie].Valeur).ToString();
+            txtbVie.Text = (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur + lstCaracteristiqueEquipement[(int)Caracteristiques.Vie].Valeur).ToString();
+            txtbVitesse.Text = (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur + lstCaracteristiqueEquipement[(int)Caracteristiques.Vitesse].Valeur).ToString();
+            txtbDefense.Text = (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Defense].Valeur + lstCaracteristiqueEquipement[(int)Caracteristiques.Defense].Valeur).ToString();
             txtbBarreVie.Text = "Points de vie (PV): " + VarGlobales.Personnage.Vie.ToString() + "/" + VarGlobales.Personnage.VieMaximale.ToString();
             txtbBarreEnergie.Text = "Points d'énergie (PE): " + VarGlobales.Personnage.Energie.ToString() + "/" + VarGlobales.Personnage.EnergieMaximale.ToString();
         }
@@ -122,8 +123,9 @@ namespace Combaxe___New.écrans
         {
             Border border;
             Image equipement;
-            if (equipementInventaire.Count() == 0)
+            if (equipementInventaire == null)
             {
+                equipementInventaire = new List<Equipement>();
                 for (int i = 0; i < 4; i++)
                 {
                     for (int j = 0; j < 4; j++)
@@ -140,8 +142,15 @@ namespace Combaxe___New.écrans
                             equipement = new Image();
                             equipement.Name = "e" + VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].IdEquipement.ToString();
                             equipement.ToolTip = "Nom: " + VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].Nom
-                                    + "\n Dégat: " + VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].DegatMin + " - " + VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].DegatMax
-                                    + "\n Prix: " + Math.Round(VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].Prix / 1.131416, 2) + "$\n";
+                            + "\n Dégat: " + VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].DegatMin + " - " + VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].DegatMax;
+                            for (int k = 0; k < VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].lstCaracteristique.Count(); i++)
+                            {
+                                if (VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].lstCaracteristique[k].Valeur != 0)
+                                {
+                                    equipement.ToolTip += "\n" + VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].lstCaracteristique[k].Nom + ": " + VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].lstCaracteristique[k].Valeur;
+                                }
+                            }
+                            equipement.ToolTip += "\n Prix: " + Math.Round(VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].Prix / 1.131416, 2) + "$\n";
                             equipement.Source = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].ImageUrl, UriKind.RelativeOrAbsolute));
                             equipement.Tag = VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].IdEquipement;
                             equipement.PreviewMouseMove += equipement_PreviewMouseMove;
@@ -177,8 +186,15 @@ namespace Combaxe___New.écrans
                         {
                             equipement = new Image();
                             equipement.ToolTip = "Nom: " + equipementInventaire[(i * 4) + j].Nom
-                                    + "\n Dégat: " + equipementInventaire[(i * 4) + j].DegatMin + " - " + equipementInventaire[(i * 4) + j].DegatMax
-                                    + "\n Prix: " + Math.Round(equipementInventaire[(i * 4) + j].Prix / 1.131416, 2) + "$\n";
+                            + "\n Dégat: " + equipementInventaire[(i * 4) + j].DegatMin + " - " + equipementInventaire[(i * 4) + j].DegatMax;
+                            for (int k = 0; k < VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].lstCaracteristique.Count(); i++)
+                            {
+                                if (VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].lstCaracteristique[k].Valeur != 0)
+                                {
+                                    equipement.ToolTip += "\n" + VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].lstCaracteristique[k].Nom + ": " + VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].lstCaracteristique[k].Valeur;
+                                }
+                            }
+                            equipement.ToolTip += "\n Prix: " + Math.Round(equipementInventaire[(i * 4) + j].Prix / 1.131416, 2) + "$\n";
                             equipement.Source = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + equipementInventaire[(i * 4) + j].ImageUrl, UriKind.RelativeOrAbsolute));
                             equipement.Tag = equipementInventaire[(i * 4) + j].IdEquipement;
                             equipement.PreviewMouseMove += equipement_PreviewMouseMove;
@@ -423,6 +439,15 @@ namespace Combaxe___New.écrans
                             equipement.ToolTip += "\n Dégat: " + leEquipement.DegatMin + " - " + leEquipement.DegatMax;
                     }
 
+                    for (int i = 0; i < leEquipement.lstCaracteristique.Count(); i++)
+                    {
+                        if(leEquipement.lstCaracteristique[i].Valeur != 0)
+                        {
+                            equipement.ToolTip += "\n" + leEquipement.lstCaracteristique[i].Nom + ": " + leEquipement.lstCaracteristique[i].Valeur;
+                            lstCaracteristiqueEquipement[i].Valeur += leEquipement.lstCaracteristique[i].Valeur;
+                        }
+                    }
+
                     if (span == "row")
                     {
                         Grid.SetRowSpan(equipement, 2);
@@ -467,6 +492,14 @@ namespace Combaxe___New.écrans
                 equipement.HorizontalAlignment = HorizontalAlignment.Center;
             }
             GridEquiper.Children.Add(equipement);
+        }
+
+        private void caracteristiqueEquipement()
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                
+            }
         }
     }
 }

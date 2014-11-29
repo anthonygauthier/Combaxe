@@ -10,12 +10,14 @@ namespace Combaxe___New.classes
     public class Equipement
     {
         public int IdEquipement;
+        public int IdEquipementModele;
         public Modele Modele;
         public string Nom;
         public string ImageUrl;
         public double Prix;
         public int DegatMin;
         public int DegatMax;
+        public List<Caracteristique> lstCaracteristique;
 
         /// <summary>
         /// Constructeur de base - Anthony Gauthier 02/10/2014
@@ -23,12 +25,14 @@ namespace Combaxe___New.classes
         public Equipement()
         {
             IdEquipement = 0;
+            IdEquipementModele = 0;
             Modele = null;
             Nom = "";
             ImageUrl = "";
             Prix = 0;
             DegatMin = 0;
             DegatMax = 0;
+            lstCaracteristique = new List<Caracteristique>();
         }
 
         /// <summary>
@@ -40,15 +44,17 @@ namespace Combaxe___New.classes
         /// <param name="pr">prix de l'équipement</param>
         /// <param name="min">degatMinimum</param>
         /// <param name="max">degatMaximum</param>
-        public Equipement(int id, Modele m, string n, string uri, double pr, int min, int max)
+        public Equipement(int id, int idM, Modele m, string n, string uri, double pr, int min, int max, List<Caracteristique> c)
         {
             IdEquipement = id;
+            IdEquipementModele = idM;
             Modele = m;
             Nom = n;
             ImageUrl = uri;
             Prix = pr;
             DegatMin = min;
             DegatMax = max;
+            lstCaracteristique = c;
         }
     }
 }

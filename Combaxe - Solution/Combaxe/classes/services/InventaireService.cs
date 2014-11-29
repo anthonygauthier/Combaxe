@@ -33,6 +33,13 @@ namespace Combaxe___New.classes.services
             List<Equipement> equipementUtilise = new List<Equipement>();
             List<Consommation> lstConsommation = new List<Consommation>();
             int nombreRange = 0;
+            VarGlobales.lstCaracteristiqueEquipement = new List<Caracteristique>();
+
+            VarGlobales.lstCaracteristiqueEquipement.Add(new Caracteristique((int)Caracteristiques.Force, 0, Caracteristiques.Force.ToString()));
+            VarGlobales.lstCaracteristiqueEquipement.Add(new Caracteristique((int)Caracteristiques.Defense, 0, Caracteristiques.Defense.ToString()));
+            VarGlobales.lstCaracteristiqueEquipement.Add(new Caracteristique((int)Caracteristiques.Energie, 0, Caracteristiques.Energie.ToString()));
+            VarGlobales.lstCaracteristiqueEquipement.Add(new Caracteristique((int)Caracteristiques.Vie, 0, Caracteristiques.Vie.ToString()));
+            VarGlobales.lstCaracteristiqueEquipement.Add(new Caracteristique((int)Caracteristiques.Vitesse, 0, Caracteristiques.Vitesse.ToString()));
 
             string reqInventaire = "SELECT argent FROM Inventaires WHERE idInventaire = '"+idInventaire+"';";
             contenuInventaire = bdCombaxe.selection(reqInventaire, 1, ref nombreRange);
