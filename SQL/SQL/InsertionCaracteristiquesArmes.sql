@@ -123,7 +123,7 @@ VALUES
 ((SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Force'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Lance magique'),8),
 ((SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Défense'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Lance magique'),0),
 ((SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Énergie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Lance magique'),0),
-((SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Lance magique'),0);
+((SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Lance magique'),0),
 /* FIN MAGIQUE */
 
 /* DÉBUT ÉLÉMENTALE */
@@ -173,7 +173,7 @@ VALUES
 ( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vitesse'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Lance élémentale'), 6),
 ( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Défense'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Lance élémentale'), 0),
 ( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Énergie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Lance élémentale'), 0),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='vie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Lance élémentale'), 0);
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='vie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Lance élémentale'), 0),
 /* FIN ÉLÉMENTALE */
 
 /* DÉBUT DE BRONZE */
@@ -223,7 +223,7 @@ VALUES
 ( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vitesse'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Lance de bronze'), 7),
 ( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Défense'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Lance de bronze'), 0),
 ( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Lance de bronze'), 0),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Énergie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Lance de bronze'), 0);
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Énergie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Lance de bronze'), 0),
 /* FIN DE BRONZE */
 
 /* DÉBUT DE FER */
@@ -273,7 +273,7 @@ VALUES
 ( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vitesse'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Lance de fer'), 9),
 ( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Défense'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Lance de fer'), 0),
 ( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Vie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Lance de fer'), 0),
-( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Énergie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Lance de fer'), 0);
+( (SELECT idCaracteristique FROM  Caracteristiques WHERE nom='Énergie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Lance de fer'), 0),
 /* FIN DE FER */
 
 /* DÉBUT ENCHANTÉE */

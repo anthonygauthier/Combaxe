@@ -184,7 +184,7 @@ VALUES
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers magiques'),4),
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers magiques'),0),
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers magiques'),0),
-((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers magiques'),0);
+((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers magiques'),0),
 /* FIN MAGIQUE */
 
 /* DÉBUT MAILLE */
@@ -246,7 +246,7 @@ VALUES
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers de maille'),6),
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers de maille'),0),
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers de maille'),0),
-((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers de maille'),0);
+((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers de maille'),0),
 /* FIN MAILLE */
 
 /* DÉBUT BRONZE */
@@ -308,7 +308,7 @@ VALUES
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers de bronze'),7),
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers de bronze'),0),
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers de bronze'),0),
-((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers de bronze'),0);
+((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers de bronze'),0),
 /* FIN BRONZE */
 
 /* DÉBUT FER */
@@ -370,7 +370,7 @@ VALUES
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers de fer'),9),
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers de fer'),0),
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers de fer'),0),
-((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers de fer'),0);
+((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers de fer'),0),
 /* FIN FER */
 
 /* DÉBUT ENCHANTÉ */
@@ -432,7 +432,7 @@ VALUES
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers enchantés'),10),
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers enchantés'),0),
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers enchantés'),0),
-((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers enchantés'),0);
+((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers enchantés'),0),
 /* FIN ENCHANTÉ */
 
 /* DÉBUT MAUDIT */
@@ -494,7 +494,7 @@ VALUES
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers maudits'),12),
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers maudits'),0),
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers maudits'),0),
-((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers maudits'),0);
+((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers maudits'),0),
 /* FIN MAUDIT */
 
 /* DÉBUT SACRÉ */
@@ -556,7 +556,7 @@ VALUES
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers sacrés'),13),
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers sacrés'),0),
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers sacrés'),0),
-((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers sacrés'),0);
+((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers sacrés'),0),
 /* FIN SACRÉ */
 
 /* DÉBUT OR */
@@ -618,7 +618,7 @@ VALUES
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers en or'),15),
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers en or'),0),
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers en or'),0),
-((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers en or'),0);
+((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers en or'),0),
 /* FIN OR */
 
 /* DÉBUT HÉROÏQUE */
@@ -680,7 +680,7 @@ VALUES
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers héroïques'),16),
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers héroïques'),0),
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers héroïques'),0),
-((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers héroïques'),0);
+((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers héroïques'),0),
 /* FIN HÉROÏQUE */
 
 /* DÉBUT LÉGENDAIRE */
@@ -742,7 +742,7 @@ VALUES
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers légendaires'),18),
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers légendaires'),0),
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers légendaires'),0),
-((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers légendaires'),0);
+((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers légendaires'),0),
 /* FIN LÉGENDAIRE */
 
 /* DÉBUT DIAMANT */
@@ -804,7 +804,7 @@ VALUES
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vitesse'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers de diamant'),19),
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Force'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers de diamant'),0),
 ((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Défense'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers de diamant'),0),
-((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers de diamant'),0);
+((SELECT idCaracteristique FROM Caracteristiques WHERE nom='Vie'),(SELECT idEquipementModele FROM EquipementsModeles WHERE nom='Souliers de diamant'),0),
 /* FIN DIAMANT */
 
 /* DÉBUT CÉLESTE */
