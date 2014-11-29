@@ -66,6 +66,7 @@ namespace Combaxe___New.écrans
         /// </summary>
         private void majCaracteristiques()
         {
+<<<<<<< HEAD
             txtbForce.Text = (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur + lstCaracteristiqueEquipement[(int)Caracteristiques.Force].Valeur).ToString();
             txtbEnergie.Text = (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur + lstCaracteristiqueEquipement[(int)Caracteristiques.Energie].Valeur).ToString();
             txtbVie.Text = (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur + lstCaracteristiqueEquipement[(int)Caracteristiques.Vie].Valeur).ToString();
@@ -73,6 +74,15 @@ namespace Combaxe___New.écrans
             txtbDefense.Text = (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Defense].Valeur + lstCaracteristiqueEquipement[(int)Caracteristiques.Defense].Valeur).ToString();
             txtbBarreVie.Text = "Points de vie (PV): " + VarGlobales.Personnage.Vie.ToString() + "/" + VarGlobales.Personnage.VieMaximale.ToString();
             txtbBarreEnergie.Text = "Points d'énergie (PE): " + VarGlobales.Personnage.Energie.ToString() + "/" + VarGlobales.Personnage.EnergieMaximale.ToString();
+=======
+            txtbForce.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur.ToString();
+            txtbEnergie.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur.ToString();
+            txtbVie.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur.ToString();
+            txtbVitesse.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur.ToString();
+            txtbDefense.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Defense].Valeur.ToString();
+            txtViePerso.Content = "Points de vie (PV): " + VarGlobales.Personnage.Vie.ToString() + "/" + VarGlobales.Personnage.VieMaximale.ToString();
+            txtEnergiePerso.Content = "Points d'énergie (PE): " + VarGlobales.Personnage.Energie.ToString() + "/" + VarGlobales.Personnage.EnergieMaximale.ToString();
+>>>>>>> origin/master
         }
 
         private void chargerEquipementPorte()
@@ -494,6 +504,7 @@ namespace Combaxe___New.écrans
             GridEquiper.Children.Add(equipement);
         }
 
+<<<<<<< HEAD
         private void caracteristiqueEquipement()
         {
             for (int i = 0; i < 5; i++)
@@ -501,5 +512,63 @@ namespace Combaxe___New.écrans
                 
             }
         }
+=======
+        /// <summary>
+        /// Quand le joueur se fait attaquer, sa barre de vie se réduit - Anthony Gauthier 04/11/2014
+        /// </summary>
+        private void MajBarreViePerso(int max)
+        {
+            int poucentageVie = (VarGlobales.Personnage.Vie * 100) / VarGlobales.Personnage.VieMaximale;
+
+            int widthAjuste = max - ((max * poucentageVie) / 100);
+            brdViePerso.Margin = new Thickness(2, 2, widthAjuste, 2);
+            MajCouleurBarreVie(brdViePerso, VarGlobales.Personnage);
+        }
+
+        /// <summary>
+        /// Quand le joueur utilise un sort, sa barre d'énergie se réduit - Anthony Gauthier 05/11/2014
+        /// </summary>
+        private void MajBarreEnergiePerso(int max)
+        {
+            int pourcentageEnergie = (VarGlobales.Personnage.Energie * 100) / VarGlobales.Personnage.EnergieMaximale;
+
+            int widthAjuste = max - ((max * pourcentageEnergie) / 100);
+            brdEnergiePerso.Margin = new Thickness(2, 2, widthAjuste, 2);
+        }
+
+        /// <summary>
+        /// Met à jour la couleur des barres de vie de l'ennemi et du perso - Anthony Gauthier 05/11/2014 
+        /// </summary>
+        /// <param name="uneBordure">Recoit la barre a modifier</param>
+        private void MajCouleurBarreVie(Border uneBordure, object unObjet)
+        {
+            //Si l'objet passé est un personnage, on met à jour la couleur de la barre de vie du personnage
+            if (unObjet.GetType() == VarGlobales.Personnage.GetType())
+            {
+                //Si la vie du personnage est inférieur ou égale à 50%
+                if (VarGlobales.Personnage.Vie <= VarGlobales.Personnage.VieMaximale * 0.5)
+                {
+                    if (VarGlobales.Personnage.Vie <= VarGlobales.Personnage.VieMaximale * 0.25)
+                    {
+                        uneBordure.Background = Brushes.Red;
+                    }
+                    else
+                    {
+                        uneBordure.Background = Brushes.Yellow;
+                    }
+                }
+                else if (VarGlobales.Personnage.Vie > VarGlobales.Personnage.VieMaximale * 0.50)
+                {
+                    uneBordure.Background = Brushes.Green;
+                }
+            }
+        }
+
+        private void brdMaxWidth_Loaded(object sender, RoutedEventArgs e)
+        {
+            MajBarreViePerso((int)(brdMaxWidth.ActualWidth));
+            MajBarreEnergiePerso((int)(brdMaxWidth.ActualWidth));
+        }
+>>>>>>> origin/master
     }
 }
