@@ -102,7 +102,7 @@ VALUES
     ((SELECT idModele FROM Modeles WHERE nom='Casque'),12,'Casque maudit',5447.53,'resources/images/objets/casque.png'),
     ((SELECT idModele FROM Modeles WHERE nom='Casque'),12,'Couronne maudite',5447.53,'resources/images/objets/couronne.png'),
     ((SELECT idModele FROM Modeles WHERE nom='Bottes'),12,'Bottes maudites',5447.53,'resources/images/objets/bottes.png'),
-    ((SELECT idModele FROM Modeles WHERE nom='Bottes'),12,'Souliers maudites',5447.53,'resources/images/objets/soulier.png'),
+    ((SELECT idModele FROM Modeles WHERE nom='Bottes'),12,'Souliers maudits',5447.53,'resources/images/objets/soulier.png'),
 /* FIN MAUDIT */
 
 /* DÉBUT SACRÉ */

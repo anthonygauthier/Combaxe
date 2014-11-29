@@ -49,3 +49,4 @@ C:\Users\Anthony\Desktop\Combaxe\Combaxe - Solution\Combaxe\obj\Release\Combaxe_
 C:\Users\Anthony\Desktop\Combaxe\Combaxe - Solution\Combaxe\obj\Release\Combaxe.csproj.GenerateResource.Cache
 C:\Users\Anthony\Desktop\Combaxe\Combaxe - Solution\Combaxe\obj\Release\Combaxe.exe
 C:\Users\Anthony\Desktop\Combaxe\Combaxe - Solution\Combaxe\obj\Release\Combaxe.pdb
+C:\Users\Anthony\Desktop\Combaxe\Combaxe - Solution\Combaxe\obj\Release\App.baml
