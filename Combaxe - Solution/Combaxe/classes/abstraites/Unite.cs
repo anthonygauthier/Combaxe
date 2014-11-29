@@ -42,5 +42,15 @@ namespace Combaxe___New.classes.abstraites
             ListeCompetence = lstComp;
             Inventaire = inv;
         }
+
+        public Unite(string n, int niv, string lien)
+        {
+            Nom = n;
+            Niveau = niv;
+            if (File.Exists(System.AppDomain.CurrentDomain.BaseDirectory + lien))
+                Image = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + lien, UriKind.RelativeOrAbsolute)); // fait par tommy gingras
+            else
+                Image = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "//resources//images//personnages//perso.jpg", UriKind.RelativeOrAbsolute)); // fait par tommy gingras
+        }
     }
 }

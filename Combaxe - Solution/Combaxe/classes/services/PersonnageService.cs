@@ -24,25 +24,20 @@ namespace Combaxe___New.classes.services
         /// </summary>
         /// <returns>Liste de toutes les données des personnages</returns>
         public List<Personnage> RetrieveInfoPerso(){
-            string reqSelect = ecrireSelect("estActif = TRUE AND idJoueur = '" + VarGlobales.Joueur.idJoueur+"'", "idPersonnage, nom, niveau, experience, vie, energie, image, idProfession");
+            string reqSelect = ecrireSelect("estActif = TRUE AND idJoueur = '" + VarGlobales.Joueur.idJoueur+"'", "idPersonnage, nom, niveau, image, idProfession");
             int nbLigne = 0;
-            List<string>[] lstPerso = bdCombaxe.selection(reqSelect, 8, ref nbLigne);
+            List<string>[] lstPerso = bdCombaxe.selection(reqSelect, 5, ref nbLigne);
 
             if(nbLigne != 0){
                 List<Personnage> lstPersonnage = new List<Personnage>();
-                List<Caracteristique> lstCar = new List<Caracteristique>();
                 Profession prof;
                 
                 if(lstPerso.Count() != 0){
                     for (int i = 0; i < lstPerso.Count(); i++) 
                     {
-                        /* aller chercher leurs caractéristiques */
-                        lstCar = caracteristiqueService.RetrieveCaracteristique(lstPerso[i][0], true);
-                        prof = professionService.RetrieveIdProfessionAvecId(Convert.ToInt32(lstPerso[i][7]));
-                            
-                        Personnage perso = new Personnage(Convert.ToInt32(lstPerso[i][0]), lstPerso[i][1], Convert.ToInt32(lstPerso[i][2]), Convert.ToInt32(lstPerso[i][3]), Convert.ToInt32(lstPerso[i][4]), Convert.ToInt32(lstPerso[i][5]), lstPerso[i][6], lstCar, prof, null, null);
+                        prof = professionService.RetrieveIdProfessionAvecId(Convert.ToInt32(lstPerso[i][4]));
+                        Personnage perso = new Personnage(Convert.ToInt32(lstPerso[i][0]), lstPerso[i][1].ToString(), Convert.ToInt32(lstPerso[i][2]), prof, lstPerso[i][3].ToString());
                         lstPersonnage.Add(perso);
-                        lstCar = new List<Caracteristique>();
                      }
                 }
                 return lstPersonnage;

@@ -61,6 +61,13 @@ namespace Combaxe___New.classes
             ExperienceMaximale = (int)((((this.Niveau * 10) * (this.Niveau * 10) + 10) * 3.1416));
         }
 
+        public Personnage(int id, string n, int niv, Profession prof, string lien)
+            : base(n,niv,lien)
+        {
+            IdPersonnage = id;
+            profession = prof;
+        }
+
         /// <summary>
         /// Méthode pour supprimer un personnage - Anthony Gauthier 02/10/2014
         /// </summary>
