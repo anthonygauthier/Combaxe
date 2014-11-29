@@ -56,8 +56,8 @@ namespace Combaxe___New.classes
             Energie = mana;
             profession = prof;
             //Vie, Énergie maximale et Expérience maximum - Anthony Gauthier 30/10/2014
-            VieMaximale = Convert.ToInt32(((lstCar[(int)Caracteristiques.Vie].Valeur)*20)/3.1416);
-            EnergieMaximale = Convert.ToInt32(((lstCar[(int)Caracteristiques.Energie].Valeur) * 10) / 3.1416);
+            VieMaximale = Convert.ToInt32(((lstCar[(int)Caracteristiques.Vie].Valeur+VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Vie].Valeur)*20)/3.1416);
+            EnergieMaximale = Convert.ToInt32(((lstCar[(int)Caracteristiques.Energie].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Energie].Valeur) * 10) / 3.1416);
             ExperienceMaximale = (int)((((this.Niveau * 10) * (this.Niveau * 10) + 10) * 3.1416));
         }
 

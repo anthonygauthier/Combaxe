@@ -31,5 +31,7 @@ namespace Combaxe___New.classes
         public static SoundPlayer sonPotion { get; set; }
 
         public static bool Retour { get; set; }
+
+        public static List<Caracteristique> lstCaracteristiqueEquipement { get; set; }
     }
 }

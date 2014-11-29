@@ -35,7 +35,7 @@ namespace Combaxe___New.classes.services
         /// </summary>
         /// <param name="idEnnemi">Permet de savoir les caractéristiques de quel ennemi qui est désirées</param>
         /// <returns></returns>
-        public List<Caracteristique> RetrieveCaracteristique(string id, bool estPersonnage)
+        public List<Caracteristique> RetrieveCaracteristique(string id, Object objet)
         {
             List<Caracteristique> mesCaracteristiques = new List<Caracteristique>();
             Caracteristique caracteristique;
@@ -62,15 +62,19 @@ namespace Combaxe___New.classes.services
                         break;
                 }
 
-                string requete;
+                string requete = "";
 
-                if (estPersonnage == true)
+                if (objet == typeof(Personnage))
                 {
                     requete = "SELECT idCaracteristique, valeur FROM CaracteristiquesPersonnages WHERE idPersonnage = '" + id + "' AND idCaracteristique = (SELECT idCaracteristique FROM Caracteristiques WHERE nom = '" + nom + "' );";
                 }
-                else
+                else if (objet == typeof(Ennemi))
                 {
                     requete = "SELECT idCaracteristique, valeur FROM CaracteristiquesEnnemis WHERE idEnnemi = '" + id + "' AND idCaracteristique = (SELECT idCaracteristique FROM Caracteristiques WHERE nom = '" + nom + "' );";
+                }
+                else if (objet == typeof(Equipement))
+                {
+                    requete = "SELECT idCaracteristique, valeur FROM CaracteristiquesEquipementsModeles WHERE idEquipementModele = '" + id + "' AND idCaracteristique = (SELECT idCaracteristique FROM Caracteristiques WHERE nom = '" + nom + "' );";
                 }
                 List<string>[] uneCaracteristique;
                 int nombreRange = 0;

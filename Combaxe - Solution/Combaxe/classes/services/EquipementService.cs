@@ -11,6 +11,7 @@ namespace Combaxe___New.classes.services
     {
         BdService bdCombaxe = new BdService();
         ModeleService modeleService = new ModeleService();
+        CaracteristiqueService caracteristiqueService = new CaracteristiqueService();
 
         /// <summary>
         /// Fonction qui va chercher les informations d'un equipement.
@@ -23,6 +24,7 @@ namespace Combaxe___New.classes.services
             Equipement unEquipement = new Equipement();
             Modele modele = new Modele();
             List<string>[] lstEquipement;
+            List<Caracteristique> lstCaracteristique = new List<Caracteristique>();
             int nombreRange = 0;
 
             //On fait un select dans la bd pour trouver les informations de l'equipementModele
@@ -31,9 +33,10 @@ namespace Combaxe___New.classes.services
 
             //On va chercher le modele d'équipement
             modele = modeleService.retreiveModele(Convert.ToInt32(lstEquipement[0][0]));
+            lstCaracteristique = caracteristiqueService.RetrieveCaracteristique(idEquipementModele.ToString(), typeof(Equipement));
 
             //On créer l'équipement et on le retourne
-            unEquipement = new Equipement(idEquipement, modele, lstEquipement[0][1], lstEquipement[0][2], Convert.ToDouble(lstEquipement[0][3]), Convert.ToInt32(lstEquipement[0][4]), Convert.ToInt32(lstEquipement[0][5]));
+            unEquipement = new Equipement(idEquipement, idEquipementModele, modele, lstEquipement[0][1], lstEquipement[0][2], Convert.ToDouble(lstEquipement[0][3]), Convert.ToInt32(lstEquipement[0][4]), Convert.ToInt32(lstEquipement[0][5]), lstCaracteristique);
             return unEquipement;
         }
 
@@ -54,7 +57,7 @@ namespace Combaxe___New.classes.services
             lstEquipement = bdCombaxe.selection(selEquipementInventaire, 1, ref nombreRange);
 
             //Si l'inventaire n'est pas vide
-            if (lstEquipement.Count() != 1)
+            if (lstEquipement.Count() != 0 && lstEquipement[0][0]!="")
             {
                 string selEquipement;
                 
@@ -101,6 +104,31 @@ namespace Combaxe___New.classes.services
                     
                     //On ajoute l'équipement à lstEquipementUtilise
                     lstEquipementUtilise.Add(retrieveEquipementModele(Convert.ToInt32(lstEquipementModele[0][0]), Convert.ToInt32(lstEquipement[i][0])));
+                }
+
+                for (int i = 0; i < lstEquipementUtilise.Count(); i++)
+                {
+                    for (int j = 0; j < 5; j++)
+                    {
+                        switch(j)
+                        {
+                            case (int)Caracteristiques.Force:
+                                VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Force].Valeur += lstEquipementUtilise[i].lstCaracteristique[j].Valeur;
+                                break;
+                            case (int)Caracteristiques.Defense:
+                                VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Defense].Valeur += lstEquipementUtilise[i].lstCaracteristique[j].Valeur;
+                                break;
+                            case (int)Caracteristiques.Energie:
+                                VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Energie].Valeur += lstEquipementUtilise[i].lstCaracteristique[j].Valeur;
+                                break;
+                            case (int)Caracteristiques.Vie:
+                                VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Vie].Valeur += lstEquipementUtilise[i].lstCaracteristique[j].Valeur;
+                                break;
+                            case (int)Caracteristiques.Vitesse:
+                                VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Vitesse].Valeur += lstEquipementUtilise[i].lstCaracteristique[j].Valeur;
+                                break;
+                        }
+                    }
                 }
             }
             return lstEquipementUtilise;
