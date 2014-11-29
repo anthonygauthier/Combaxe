@@ -44,6 +44,7 @@ namespace MiniBD
             try
             {
                 connexion.Open();
+                VarGlobales.connexion = true;
                 return true;
             }
             catch 
