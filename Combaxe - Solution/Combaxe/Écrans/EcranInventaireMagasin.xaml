@@ -128,19 +128,19 @@
         
         <!--Partie entre magasin et info perso/inventaire, etc. (titre de grid, or, etc.)-->
         <Grid Grid.Row="2" VerticalAlignment="Bottom" Height="26">
-            <Label HorizontalAlignment="Left"  Content="Inventaire" Foreground="White"></Label>
+            <Label FontSize="14" FontFamily="Matura MT Script Capitals" HorizontalAlignment="Left"  Content="Inventaire" Foreground="White"></Label>
             <StackPanel Margin="0,0,7,0" HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal">
-                <Label Content="Or: " Foreground="White"></Label>
+                <Label FontSize="14" FontFamily="Matura MT Script Capitals" Content="Or: " Foreground="White"></Label>
                 <TextBox Style="{DynamicResource TextBoxCombat}" Name="txtbArgent" MinWidth="70" MaxHeight="24" IsEnabled="False" TextAlignment="Center"></TextBox>
             </StackPanel>
         </Grid>
 
         <Grid Grid.Row="2" Grid.Column="1" VerticalAlignment="Bottom" Height="26">
-            <Label Content="Équipement vêtu" Foreground="White"></Label>
+            <Label FontSize="14" FontFamily="Matura MT Script Capitals" Content="Équipement vêtu" Foreground="White"></Label>
         </Grid>
 
         <Grid Grid.Row="2" Grid.Column="2" VerticalAlignment="Bottom" Height="26">
-            <Label Content="Caractéristiques" Foreground="White"></Label>
+            <Label FontSize="14" Grid.Row="2" Grid.Column="2" FontFamily="Matura MT Script Capitals" Content="Caractéristiques" Foreground="White"></Label>
         </Grid>
 
         <!--Grid pour l'équipement équipé-->
@@ -221,12 +221,12 @@
             </Grid>
             
             <!--Barre de points de vie et barre de points d'énergie-->
-            <Border Name="brdMaxWidth" Loaded="brdMaxWidth_Loaded" Background="Black" Grid.Row="1" Grid.ColumnSpan="2"></Border>
-            <Border Background="Black" Grid.Row="2" Grid.ColumnSpan="2"></Border>
-            <Border Name="brdViePerso" Grid.Row="1" Background="Green" Grid.ColumnSpan="2" Margin="2"></Border>
-            <Border Name="brdEnergiePerso" Grid.Row="2" Background="Blue" Grid.ColumnSpan="2" Margin="2"></Border>
-            <Label Name="txtViePerso" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
-            <Label Name="txtEnergiePerso" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+            <Border Name="brdMaxWidth" Loaded="brdMaxWidth_Loaded" Opacity="0.5" Background="Black"  Grid.Row="1" BorderBrush="White" BorderThickness="1" Grid.ColumnSpan="2"></Border>
+            <Border Background="Black" Grid.Row="2" Grid.ColumnSpan="2" Opacity="0.5" BorderBrush="White" BorderThickness="1"></Border>
+            <Border BorderBrush="Black" BorderThickness="1" Name="brdViePerso" Grid.Row="1" Background="Green" Grid.ColumnSpan="2" Margin="2"></Border>
+            <Border BorderBrush="Black" BorderThickness="1" Name="brdEnergiePerso" Grid.Row="2" Background="Blue" Grid.ColumnSpan="2" Margin="2"></Border>
+            <Label FontFamily="Matura MT Script Capitals" FontSize="16" Name="txtViePerso" Grid.Row="1" Grid.ColumnSpan="2" Panel.ZIndex="5" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+            <Label FontFamily="Matura MT Script Capitals" FontSize="16" Name="txtEnergiePerso" Grid.Row="2" Grid.ColumnSpan="2" Panel.ZIndex="5" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
         </Grid>  
         <!--Bouton pour retourner au menu principal-->
         <Button Style="{DynamicResource GlassButton}" Name="btnRetour" Click="btnRetour_Click_1" Content="Retour" Grid.Row="4" Grid.Column="2" MinWidth="100" MaxHeight="50" Margin="0,0,5,0" HorizontalAlignment="Right" Width="100"></Button>

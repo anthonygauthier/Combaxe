@@ -103,6 +103,10 @@ namespace Combaxe___New.classes
                 niveauMin = 1;
             }
             int niveauMax = VarGlobales.Personnage.Niveau+2;
+            if (niveauMax > 20)
+            {
+                niveauMax = 20;
+            }
             Random rand = new Random();
             int niveau = rand.Next(niveauMin, niveauMax);
 

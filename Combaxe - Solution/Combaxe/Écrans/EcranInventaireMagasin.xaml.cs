@@ -131,7 +131,8 @@ namespace Combaxe___New.écrans
                     {
                         border = new Border();
                         border.BorderThickness = new Thickness(1);
-                        border.BorderBrush = Brushes.Black;
+                        border.CornerRadius = new CornerRadius(5);
+                        border.BorderBrush = Brushes.White;
                         border.Name = "border" + (i + j);
                         Grid.SetColumn(border, j);
                         Grid.SetRow(border, i);
@@ -175,7 +176,8 @@ namespace Combaxe___New.écrans
                     {
                         border = new Border();
                         border.BorderThickness = new Thickness(1);
-                        border.BorderBrush = Brushes.Black;
+                        border.CornerRadius = new CornerRadius(5);
+                        border.BorderBrush = Brushes.White;
                         border.Name = "border" + (i + j);
                         Grid.SetColumn(border, j);
                         Grid.SetRow(border, i);
@@ -283,8 +285,10 @@ namespace Combaxe___New.écrans
             chargerEquipementInventaire();
             chargerEquipementPorte();
             VarGlobales.lstCaracteristiqueEquipement = lstCaracteristiqueEquipement;
-            MajBarreEnergiePerso(Convert.ToInt32(((VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur + lstCaracteristiqueEquipement[(int)Caracteristiques.Energie].Valeur) * 20) / 3.1416));
-            MajBarreViePerso(Convert.ToInt32(((VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur + lstCaracteristiqueEquipement[(int)Caracteristiques.Vie].Valeur) * 20) / 3.1416));
+            VarGlobales.Personnage.VieMaximale = Convert.ToInt32(((VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur + lstCaracteristiqueEquipement[(int)Caracteristiques.Vie].Valeur) * 20) / 3.1416);
+            VarGlobales.Personnage.EnergieMaximale = Convert.ToInt32(((VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur + lstCaracteristiqueEquipement[(int)Caracteristiques.Energie].Valeur) * 20) / 3.1416);
+            MajBarreEnergiePerso((int)(brdMaxWidth.ActualWidth));
+            MajBarreViePerso((int)(brdMaxWidth.ActualWidth));
         }
 
         void equipement_PreviewMouseMove(object sender, MouseEventArgs e)
@@ -359,6 +363,9 @@ namespace Combaxe___New.écrans
         private void borderEquipementPorte()
         {
             Border border=new Border();
+            border.CornerRadius = new CornerRadius(5);
+            border.BorderBrush = Brushes.White;
+            border.BorderThickness = new Thickness(1);
 
             //ÉPAULE
             //(Border border, int colonne, int rangée, string span)
@@ -401,7 +408,8 @@ namespace Combaxe___New.écrans
             Thickness margin;
             border = new Border();
             border.BorderThickness = new Thickness(1);
-            border.BorderBrush = Brushes.Black;
+            border.CornerRadius = new CornerRadius(5);
+            border.BorderBrush = Brushes.White;
             margin = border.Margin;
             margin.Left = MARGIN;
             margin.Bottom = MARGIN;
@@ -542,8 +550,7 @@ namespace Combaxe___New.écrans
         /// </summary>
         private void MajBarreViePerso(int max)
         {
-            int poucentageVie = (VarGlobales.Personnage.Vie * 100) / max;
-            VarGlobales.Personnage.VieMaximale = max;
+            int poucentageVie = (VarGlobales.Personnage.Vie * 100) / VarGlobales.Personnage.VieMaximale;
 
             int widthAjuste = max - ((max * poucentageVie) / 100);
             brdViePerso.Margin = new Thickness(2, 2, widthAjuste, 2);
@@ -556,8 +563,7 @@ namespace Combaxe___New.écrans
         /// </summary>
         private void MajBarreEnergiePerso(int max)
         {
-            int pourcentageEnergie = (VarGlobales.Personnage.Energie * 100) / max;
-            VarGlobales.Personnage.EnergieMaximale = max;
+            int pourcentageEnergie = (VarGlobales.Personnage.Energie * 100) / VarGlobales.Personnage.EnergieMaximale;
 
             int widthAjuste = max - ((max * pourcentageEnergie) / 100);
             brdEnergiePerso.Margin = new Thickness(2, 2, widthAjuste, 2);
