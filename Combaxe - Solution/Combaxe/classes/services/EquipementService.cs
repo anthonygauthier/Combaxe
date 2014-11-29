@@ -106,6 +106,11 @@ namespace Combaxe___New.classes.services
                     lstEquipementUtilise.Add(retrieveEquipementModele(Convert.ToInt32(lstEquipementModele[0][0]), Convert.ToInt32(lstEquipement[i][0])));
                 }
 
+                if(VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Force].Valeur==0
+                    && VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Defense].Valeur == 0
+                    && VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Energie].Valeur == 0
+                    && VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Vie].Valeur == 0
+                    && VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Vitesse].Valeur == 0)
                 for (int i = 0; i < lstEquipementUtilise.Count(); i++)
                 {
                     for (int j = 0; j < 5; j++)

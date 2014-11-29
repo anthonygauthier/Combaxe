@@ -32,11 +32,11 @@ namespace Combaxe___New.écrans
         private void modifierChampCaracteristiques()
         { 
             txtbPointsRestants.Text = "5";
-            txtDefense.Text = VarGlobales.Personnage.ListeCaracteristique[(int) Caracteristiques.Defense].Valeur.ToString();
-            txtVitesse.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur.ToString();
-            txtForce.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur.ToString();
-            txtVie.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur.ToString();
-            txtEnergie.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur.ToString();
+            txtDefense.Text = (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Defense].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Defense].Valeur).ToString();
+            txtVitesse.Text = (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Vitesse].Valeur).ToString();
+            txtForce.Text = (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Force].Valeur).ToString();
+            txtVie.Text = (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Vie].Valeur).ToString();
+            txtEnergie.Text = (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Energie].Valeur).ToString();
         }
 
         //Méthode pour disable les boutons moins de caractéristiques
@@ -158,10 +158,10 @@ namespace Combaxe___New.écrans
         private void btnMoinsForce_Click(object sender, RoutedEventArgs e)
         {
             //Si la force est égale à 0, on désactive le bouton immédiatement et on remet la valeur à 0
-            if (txtForce.Text == VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur.ToString())
+            if (txtForce.Text == (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Force].Valeur).ToString())
             {
                 btnMoinsForce.IsEnabled = false;
-                txtForce.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur.ToString();
+                txtForce.Text = (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Force].Valeur).ToString();
             }
             else
             {
@@ -183,10 +183,10 @@ namespace Combaxe___New.écrans
         private void btnMoinsEnergie_Click(object sender, RoutedEventArgs e)
         {
             //Si la énergie est égale à 0, on désactive le bouton immédiatement et on remet la valeur à 0
-            if (txtEnergie.Text == VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur.ToString())
+            if (txtEnergie.Text == (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Energie].Valeur).ToString())
             {
                 btnMoinsEnergie.IsEnabled = false;
-                txtEnergie.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur.ToString();
+                txtEnergie.Text = (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Energie].Valeur).ToString();
             }
             else
             {
@@ -208,10 +208,10 @@ namespace Combaxe___New.écrans
         private void btnMoinsVie_Click(object sender, RoutedEventArgs e)
         {
             //Si la vie est égale à 0, on désactive le bouton immédiatement et on remet la valeur à 0
-            if (txtVie.Text == VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur.ToString())
+            if (txtVie.Text == (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Vie].Valeur).ToString())
             {
                 btnMoinsVie.IsEnabled = false;
-                txtVie.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur.ToString();
+                txtVie.Text = (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Vie].Valeur).ToString();
             }
             else
             {
@@ -233,10 +233,10 @@ namespace Combaxe___New.écrans
         private void btnMoinsVitesse_Click(object sender, RoutedEventArgs e)
         {
             //Si la vie est égale à 0, on désactive le bouton immédiatement et on remet la valeur à 0
-            if (txtVitesse.Text == VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur.ToString())
+            if (txtVitesse.Text == (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Vitesse].Valeur).ToString())
             {
                 btnMoinsVitesse.IsEnabled = false;
-                txtVitesse.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur.ToString();
+                txtVitesse.Text = (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Vitesse].Valeur).ToString();
             }
             else
             {
@@ -259,10 +259,10 @@ namespace Combaxe___New.écrans
         private void btnMoinsDefense_Click(object sender, RoutedEventArgs e)
         {
             //Si la vie est égale à 0, on désactive le bouton immédiatement et on remet la valeur à 0
-            if (txtDefense.Text == VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Defense].Valeur.ToString())
+            if (txtDefense.Text == (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Defense].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Defense].Valeur).ToString())
             {
                 btnMoinsDefense.IsEnabled = false;
-                txtDefense.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Defense].Valeur.ToString();
+                txtDefense.Text = (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Defense].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Defense].Valeur).ToString();
             }
             else
             {
@@ -290,7 +290,7 @@ namespace Combaxe___New.écrans
             int nombre = convertirEnIntPlus(txtForce.Text);
             txtForce.Text = nombre.ToString();
 
-            if (txtForce.Text != VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur.ToString())
+            if (txtForce.Text != (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Force].Valeur).ToString())
             {
                 btnMoinsForce.IsEnabled = true;
             }
@@ -307,7 +307,7 @@ namespace Combaxe___New.écrans
             int nombre = convertirEnIntPlus(txtEnergie.Text);
             txtEnergie.Text = nombre.ToString();
 
-            if (txtEnergie.Text != VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur.ToString())
+            if (txtEnergie.Text != (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Energie].Valeur).ToString())
             {
                 btnMoinsEnergie.IsEnabled = true;
             }
@@ -323,7 +323,7 @@ namespace Combaxe___New.écrans
             int nombre = convertirEnIntPlus(txtVie.Text);
             txtVie.Text = nombre.ToString();
 
-            if (txtVie.Text != VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur.ToString())
+            if (txtVie.Text != (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Vie].Valeur).ToString())
             {
                 btnMoinsVie.IsEnabled = true;
             }
@@ -339,7 +339,7 @@ namespace Combaxe___New.écrans
             int nombre = convertirEnIntPlus(txtVitesse.Text);
             txtVitesse.Text = nombre.ToString();
 
-            if (txtVitesse.Text != VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur.ToString())
+            if (txtVitesse.Text != (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Vitesse].Valeur).ToString())
             {
                 btnMoinsVitesse.IsEnabled = true;
             }
@@ -355,7 +355,7 @@ namespace Combaxe___New.écrans
             int nombre = convertirEnIntPlus(txtDefense.Text);
             txtDefense.Text = nombre.ToString();
 
-            if (txtDefense.Text != VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Defense].Valeur.ToString())
+            if (txtDefense.Text != (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Defense].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Defense].Valeur).ToString())
             {
                 btnMoinsDefense.IsEnabled = true;
             }
@@ -364,7 +364,7 @@ namespace Combaxe___New.écrans
         private void btnModifier_Click(object sender, RoutedEventArgs e)
         {
             CaracteristiqueService carService = new CaracteristiqueService();
-            carService.MiseAJourCaracteristiques(Convert.ToInt32(txtForce.Text), Convert.ToInt32(txtVitesse.Text), Convert.ToInt32(txtEnergie.Text), Convert.ToInt32(txtVie.Text), Convert.ToInt32(txtDefense.Text));
+            carService.MiseAJourCaracteristiques(Convert.ToInt32(txtForce.Text) - VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Force].Valeur, Convert.ToInt32(txtVitesse.Text) - VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Vitesse].Valeur, Convert.ToInt32(txtEnergie.Text) - VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Energie].Valeur, Convert.ToInt32(txtVie.Text) - VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Vie].Valeur, Convert.ToInt32(txtDefense.Text) - VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Defense].Valeur);
             
             if (MessageBox.Show("Les caracétristiques de votre personnage ont été mises à jour avec succès!", "Nouvelle caractéristiques", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK) 
             {

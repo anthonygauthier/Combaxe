@@ -35,16 +35,8 @@ namespace Combaxe___New.classes.services
                 if(lstPerso.Count() != 0){
                     for (int i = 0; i < lstPerso.Count(); i++) 
                     {
-<<<<<<< HEAD
                         prof = professionService.RetrieveIdProfessionAvecId(Convert.ToInt32(lstPerso[i][4]));
                         Personnage perso = new Personnage(Convert.ToInt32(lstPerso[i][0]), lstPerso[i][1].ToString(), Convert.ToInt32(lstPerso[i][2]), prof, lstPerso[i][3].ToString());
-=======
-                        /* aller chercher leurs caractéristiques */
-                        lstCar = caracteristiqueService.RetrieveCaracteristique(lstPerso[i][0], typeof(Personnage));
-                        prof = professionService.RetrieveIdProfessionAvecId(Convert.ToInt32(lstPerso[i][7]));
-                            
-                        Personnage perso = new Personnage(Convert.ToInt32(lstPerso[i][0]), lstPerso[i][1], Convert.ToInt32(lstPerso[i][2]), Convert.ToInt32(lstPerso[i][3]), Convert.ToInt32(lstPerso[i][4]), Convert.ToInt32(lstPerso[i][5]), lstPerso[i][6], lstCar, prof, null, null);
->>>>>>> origin/master
                         lstPersonnage.Add(perso);
                      }
                 }

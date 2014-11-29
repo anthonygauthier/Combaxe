@@ -26,7 +26,6 @@ namespace Combaxe___New.écrans
 
         private Image dragImage;
         private Point startDragPoint;
-        private Uri url = new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "resources/images/objets/coffre.png", UriKind.RelativeOrAbsolute);
         private List<Equipement> equipementInventaire = null;
         private List<Equipement> equipementUtilise = VarGlobales.Personnage.Inventaire.listeEquipementUtilise;
         private const int MAXEQUIPEMENTPORTE = 8;
@@ -143,7 +142,7 @@ namespace Combaxe___New.écrans
                             equipement.Name = "e" + VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].IdEquipement.ToString();
                             equipement.ToolTip = "Nom: " + VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].Nom
                             + "\n Dégat: " + VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].DegatMin + " - " + VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].DegatMax;
-                            for (int k = 0; k < VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].lstCaracteristique.Count(); i++)
+                            for (int k = 0; k < VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].lstCaracteristique.Count(); k++)
                             {
                                 if (VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].lstCaracteristique[k].Valeur != 0)
                                 {
@@ -185,9 +184,10 @@ namespace Combaxe___New.écrans
                         if (((i * 4) + j) < equipementInventaire.Count())
                         {
                             equipement = new Image();
+                            equipement.Name = "e" + equipementInventaire[(i * 4) + j].IdEquipement.ToString();
                             equipement.ToolTip = "Nom: " + equipementInventaire[(i * 4) + j].Nom
                             + "\n Dégat: " + equipementInventaire[(i * 4) + j].DegatMin + " - " + equipementInventaire[(i * 4) + j].DegatMax;
-                            for (int k = 0; k < VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].lstCaracteristique.Count(); i++)
+                            for (int k = 0; k < VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].lstCaracteristique.Count(); k++)
                             {
                                 if (VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].lstCaracteristique[k].Valeur != 0)
                                 {
@@ -256,21 +256,35 @@ namespace Combaxe___New.écrans
             //trouve et va chercher les informations de l'équipement porté
             for (int i = 0; i < equipementUtilise.Count; i++)
             {
-                if (equipementUtilise[i].Modele.IdModele == unEquipementInventaire.Modele.IdModele)
+                if (equipementUtilise[i].Modele.IdModele == unEquipementInventaire.Modele.IdModele || (equipementUtilise[i].Modele.IdModele == (int)Modele.Modeles.ArmeUneMain && (int)Modele.Modeles.ArmeDeuxMains == unEquipementInventaire.Modele.IdModele) || (equipementUtilise[i].Modele.IdModele == (int)Modele.Modeles.ArmeDeuxMains && (int)Modele.Modeles.ArmeUneMain == unEquipementInventaire.Modele.IdModele))
                 {
                     unEquipementPorte = equipementUtilise[i];
                     //Supprime l'équipement de la liste d'équipement porté
                     equipementUtilise.RemoveAt(i);
                     //On ajoute unEquipementPorte dans la liste d'equipementInventaire
                     equipementInventaire.Add(unEquipementPorte);
+
+                    for (int j = 0; j < unEquipementInventaire.lstCaracteristique.Count(); j++)
+                    {
+                        lstCaracteristiqueEquipement[j].Valeur = lstCaracteristiqueEquipement[j].Valeur - unEquipementPorte.lstCaracteristique[j].Valeur;
+                    }
                     break;
                 }
             }
+
             //On ajoute unEquipementInventaire dans la liste d'equipementUtilise
             equipementUtilise.Add(unEquipementInventaire);
 
+            for (int i = 0; i < unEquipementInventaire.lstCaracteristique.Count(); i++)
+            {
+                    lstCaracteristiqueEquipement[i].Valeur += unEquipementInventaire.lstCaracteristique[i].Valeur;
+            }
+
             chargerEquipementInventaire();
             chargerEquipementPorte();
+            VarGlobales.lstCaracteristiqueEquipement = lstCaracteristiqueEquipement;
+            MajBarreEnergiePerso(Convert.ToInt32(((VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur + lstCaracteristiqueEquipement[(int)Caracteristiques.Energie].Valeur) * 20) / 3.1416));
+            MajBarreViePerso(Convert.ToInt32(((VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur + lstCaracteristiqueEquipement[(int)Caracteristiques.Vie].Valeur) * 20) / 3.1416));
         }
 
         void equipement_PreviewMouseMove(object sender, MouseEventArgs e)
@@ -286,7 +300,7 @@ namespace Combaxe___New.écrans
                 {
                     if (dragImage!=null)
                     {
-                        if (dragImage.Source.ToString() != url.ToString())
+                        if (dragImage.Name != "")
                         {
                             DataObject data = new DataObject(typeof(ImageSource), dragImage.Source);
                             DragDrop.DoDragDrop(dragImage, data, DragDropEffects.Move);
@@ -301,7 +315,7 @@ namespace Combaxe___New.écrans
             Image dropImage = e.Source as Image;
             Image tempo = new Image();
             tempo.Tag = dragImage.Tag;
-            if (dropImage.Source.ToString() != url.ToString())
+            if (dropImage.Name != "")
             {
                 if (!estDansInventaire((int)dropImage.Tag))
                 {
@@ -316,6 +330,7 @@ namespace Combaxe___New.écrans
             {
                 equiperEquipement((int)dragImage.Tag);
             }
+            majCaracteristiques();
             VarGlobales.Personnage.Inventaire.listeEquipement = equipementInventaire;
             VarGlobales.Personnage.Inventaire.listeEquipementUtilise = equipementUtilise;
         }
@@ -444,7 +459,6 @@ namespace Combaxe___New.écrans
                         if(leEquipement.lstCaracteristique[i].Valeur != 0)
                         {
                             equipement.ToolTip += "\n" + leEquipement.lstCaracteristique[i].Nom + ": " + leEquipement.lstCaracteristique[i].Valeur;
-                            lstCaracteristiqueEquipement[i].Valeur += leEquipement.lstCaracteristique[i].Valeur;
                         }
                     }
 
@@ -462,19 +476,49 @@ namespace Combaxe___New.écrans
                 }
                 else
                 {
-                    imageBase(column, row, span);
+                    imageBase(idModele, column, row, span);
                 }
             }
             else
             {
-                imageBase(column, row, span);
+                imageBase(idModele, column, row, span);
             }
         }
 
-        private void imageBase(int column, int row, string span)
+        /// <summary>
+        /// Fonction qui insère les images de base dans le grid si celui-ci ne possède pas d'équipement
+        /// </summary>
+        /// <param name="idModele">Le idModele servira à savoir quel image mettre</param>
+        /// <param name="column">La colonne où se trouve la case du grid</param>
+        /// <param name="row">La rangée où se trouve la case du grid</param>
+        /// <param name="span">Permet de savoir s'il y a un rowspan ou un columnspan</param>
+        private void imageBase(int idModele, int column, int row, string span)
         {
             Image equipement = new Image();
-            equipement.Source = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "resources/images/objets/coffre.png", UriKind.RelativeOrAbsolute));
+            switch(idModele)
+            {
+                case (int)Modele.Modeles.ArmeUneMain:
+                    equipement.Source = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "resources/images/objets/epeeDefault.png", UriKind.RelativeOrAbsolute));
+                    break;
+                case (int)Modele.Modeles.Bottes:
+                    equipement.Source = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "resources/images/objets/bottesDefault.png", UriKind.RelativeOrAbsolute));
+                    break;
+                case (int)Modele.Modeles.Bouclier:
+                    equipement.Source = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "resources/images/objets/bouclierDefault.png", UriKind.RelativeOrAbsolute));
+                    break;
+                case (int)Modele.Modeles.Casque:
+                    equipement.Source = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "resources/images/objets/casqueDefault.png", UriKind.RelativeOrAbsolute));
+                    break;
+                case (int)Modele.Modeles.Épaulette:
+                    equipement.Source = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "resources/images/objets/epauletteDefault.png", UriKind.RelativeOrAbsolute));
+                    break;
+                case (int)Modele.Modeles.Pantalon:
+                    equipement.Source = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "resources/images/objets/pantsDefault.png", UriKind.RelativeOrAbsolute));
+                    break;
+                case (int)Modele.Modeles.Plastron:
+                    equipement.Source = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "resources/images/objets/plateDefault.png", UriKind.RelativeOrAbsolute));
+                    break;
+            }
             equipement.AllowDrop = true;
             equipement.PreviewMouseMove += equipement_PreviewMouseMove;
             equipement.Drop += equipement_Drop;
@@ -498,11 +542,13 @@ namespace Combaxe___New.écrans
         /// </summary>
         private void MajBarreViePerso(int max)
         {
-            int poucentageVie = (VarGlobales.Personnage.Vie * 100) / VarGlobales.Personnage.VieMaximale;
+            int poucentageVie = (VarGlobales.Personnage.Vie * 100) / max;
+            VarGlobales.Personnage.VieMaximale = max;
 
             int widthAjuste = max - ((max * poucentageVie) / 100);
             brdViePerso.Margin = new Thickness(2, 2, widthAjuste, 2);
             MajCouleurBarreVie(brdViePerso, VarGlobales.Personnage);
+            txtViePerso.Content = "Points de vie (PV): " + VarGlobales.Personnage.Vie.ToString() + "/" + VarGlobales.Personnage.VieMaximale.ToString();
         }
 
         /// <summary>
@@ -510,10 +556,12 @@ namespace Combaxe___New.écrans
         /// </summary>
         private void MajBarreEnergiePerso(int max)
         {
-            int pourcentageEnergie = (VarGlobales.Personnage.Energie * 100) / VarGlobales.Personnage.EnergieMaximale;
+            int pourcentageEnergie = (VarGlobales.Personnage.Energie * 100) / max;
+            VarGlobales.Personnage.EnergieMaximale = max;
 
             int widthAjuste = max - ((max * pourcentageEnergie) / 100);
             brdEnergiePerso.Margin = new Thickness(2, 2, widthAjuste, 2);
+            txtEnergiePerso.Content = "Points d'énergie (PE): " + VarGlobales.Personnage.Energie.ToString() + "/" + VarGlobales.Personnage.EnergieMaximale.ToString();
         }
 
         /// <summary>

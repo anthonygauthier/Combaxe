@@ -326,17 +326,17 @@ namespace Combaxe___New.écrans
             
             if (VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence == TypeCompetence.Physique.ToString())
             { // Attaque physique
-                // Min dégât + 31.416%/2.2 * points de caractéristique de force
-                // Max dégât + 31.416%/2.2 * des points de caractéristique de force
-                int valeurMin = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMin * 0.31416 / 2.2 * VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur);
-                int valeurMax = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMax * 0.31416 / 2.2 * VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur);
+                // Min dégât + 31.416%/2.2 * (points de caractéristique de force + points de caractéristique de force des équipements)
+                // Max dégât + 31.416%/2.2 * (des points de caractéristique de force + points de caractéristique de force des équipements)
+                int valeurMin = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMin * 0.31416 / 2.2 * (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int) Caracteristiques.Force].Valeur));
+                int valeurMax = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMax * 0.31416 / 2.2 * (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int) Caracteristiques.Force].Valeur));
                 content = "\nDégât : " + valeurMin + " - " + valeurMax;
             }
             else if (VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence == TypeCompetence.Defensive.ToString())
             { // Defense
                 // point de défense *1.5/3.1416
-                int valeurMin = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMin + VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * 1.5 / 3.1416);
-                int valeurMax = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMax + VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur * 1.5 / 3.1416);
+                int valeurMin = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMin + (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int) Caracteristiques.Energie].Valeur) * 1.5 / 3.1416);
+                int valeurMax = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMax + (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Energie].Valeur) * 1.5 / 3.1416);
                 content = "\nRésistance au dégât : " + valeurMin + " - " + valeurMax;
             }
             else if (VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence == TypeCompetence.Magique.ToString())
@@ -344,15 +344,15 @@ namespace Combaxe___New.écrans
                 // o	Min = Min dégât pouvoir + 31.416%/2 * des points de caractéristique d’énergie
                 // o	Max = Max dégât pouvoir + 31.416%/2 * des points de caractéristique d’énergie
 
-                int valeurMin = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMin* 0.31416 / 2.2 * VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur);
-                int valeurMax = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMax* 0.31416 / 2.2 * VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur);
+                int valeurMin = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMin* 0.31416 / 2.2 * (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int) Caracteristiques.Energie].Valeur));
+                int valeurMax = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMax* 0.31416 / 2.2 * (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int) Caracteristiques.Energie].Valeur));
                 content = "\nDégât : " + valeurMin + " - " + valeurMax;
             }
             else if (VarGlobales.Personnage.ListeCompetence[num].NomTypeCompetence == TypeCompetence.Support.ToString())
             { // support
                 //((point de caractéristique de vie)*20)/3.1416
-                int valeurMin = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMin + VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20 / 3.1416);
-                int valeurMax = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMax + VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur * 20 / 3.1416);
+                int valeurMin = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMin + (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int) Caracteristiques.Vie].Valeur) * 20 / 3.1416);
+                int valeurMax = Convert.ToInt32(VarGlobales.Personnage.ListeCompetence[num].ValeurMax + (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int) Caracteristiques.Vie].Valeur) * 20 / 3.1416);
                 content = "\nRégénération : " + valeurMin + " - " + valeurMax;
             }
             return content;
@@ -632,7 +632,7 @@ namespace Combaxe___New.écrans
         /// </summary>
         private void fuiteDuJoueur()
         { 
-            int vitessePersonnage = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur;
+            int vitessePersonnage = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Vitesse].Valeur;
             int vitesseEnnemi = VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur;
 
             horloge.Stop();
@@ -781,7 +781,7 @@ namespace Combaxe___New.écrans
             }
             else // si combat habituel
             {
-                if (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur >= VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur)
+                if (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Vitesse].Valeur >= VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur)
                 {
                     actionBouton(btnClique);
                     
@@ -1172,7 +1172,7 @@ namespace Combaxe___New.écrans
         /// </summary>
         private void VerifierRapidite()
         { 
-            if (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur >= VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur)
+            if (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Vitesse].Valeur >= VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur)
             {
                 if(nbTour==0)
                 {
