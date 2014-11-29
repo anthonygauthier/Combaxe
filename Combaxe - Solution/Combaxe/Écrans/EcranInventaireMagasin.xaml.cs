@@ -66,23 +66,13 @@ namespace Combaxe___New.écrans
         /// </summary>
         private void majCaracteristiques()
         {
-<<<<<<< HEAD
             txtbForce.Text = (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur + lstCaracteristiqueEquipement[(int)Caracteristiques.Force].Valeur).ToString();
             txtbEnergie.Text = (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur + lstCaracteristiqueEquipement[(int)Caracteristiques.Energie].Valeur).ToString();
             txtbVie.Text = (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur + lstCaracteristiqueEquipement[(int)Caracteristiques.Vie].Valeur).ToString();
             txtbVitesse.Text = (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur + lstCaracteristiqueEquipement[(int)Caracteristiques.Vitesse].Valeur).ToString();
             txtbDefense.Text = (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Defense].Valeur + lstCaracteristiqueEquipement[(int)Caracteristiques.Defense].Valeur).ToString();
-            txtbBarreVie.Text = "Points de vie (PV): " + VarGlobales.Personnage.Vie.ToString() + "/" + VarGlobales.Personnage.VieMaximale.ToString();
-            txtbBarreEnergie.Text = "Points d'énergie (PE): " + VarGlobales.Personnage.Energie.ToString() + "/" + VarGlobales.Personnage.EnergieMaximale.ToString();
-=======
-            txtbForce.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Force].Valeur.ToString();
-            txtbEnergie.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur.ToString();
-            txtbVie.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur.ToString();
-            txtbVitesse.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur.ToString();
-            txtbDefense.Text = VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Defense].Valeur.ToString();
             txtViePerso.Content = "Points de vie (PV): " + VarGlobales.Personnage.Vie.ToString() + "/" + VarGlobales.Personnage.VieMaximale.ToString();
             txtEnergiePerso.Content = "Points d'énergie (PE): " + VarGlobales.Personnage.Energie.ToString() + "/" + VarGlobales.Personnage.EnergieMaximale.ToString();
->>>>>>> origin/master
         }
 
         private void chargerEquipementPorte()
@@ -503,16 +493,6 @@ namespace Combaxe___New.écrans
             }
             GridEquiper.Children.Add(equipement);
         }
-
-<<<<<<< HEAD
-        private void caracteristiqueEquipement()
-        {
-            for (int i = 0; i < 5; i++)
-            {
-                
-            }
-        }
-=======
         /// <summary>
         /// Quand le joueur se fait attaquer, sa barre de vie se réduit - Anthony Gauthier 04/11/2014
         /// </summary>
@@ -569,6 +549,5 @@ namespace Combaxe___New.écrans
             MajBarreViePerso((int)(brdMaxWidth.ActualWidth));
             MajBarreEnergiePerso((int)(brdMaxWidth.ActualWidth));
         }
->>>>>>> origin/master
     }
 }
