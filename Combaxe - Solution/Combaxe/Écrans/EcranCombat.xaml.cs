@@ -20,8 +20,6 @@ using System.Media;
 
 namespace Combaxe___New.écrans
 {
-
-    
     /// <summary>
     /// Interaction logique pour EcranCombat.xaml
     /// </summary>
@@ -216,9 +214,13 @@ namespace Combaxe___New.écrans
                     DeroulementCombat(-1);
                 }
                 //Si l'horloge atteint "0", ou l'ennemi est mort, ou le personnage est mort : on arrête le cadran
-                else if (combat.VieEnnemi <= 0 || VarGlobales.Personnage.Vie == 0)
+                else if (combat.VieEnnemi <= 0 || VarGlobales.etaitMort == true)
                 {
-                    horloge.Stop();  
+                    horloge.Stop(); 
+                    if(timer != null)
+                        timer.Stop();
+
+                    VarGlobales.etaitMort = false;
                 }
                 //Sinon, on ajoute du temps à l'horloge
                 else
@@ -492,8 +494,9 @@ namespace Combaxe___New.écrans
                     // on calcul la valeur qui est effectué
                     tempsRecharge[num] = VarGlobales.Personnage.ListeCompetence[num].TempsRecarge + 1;
                     bool estCritique = false;
-                    int valMin = VarGlobales.Personnage.ListeCompetence[num].ValeurMin;
-                    int valMax = VarGlobales.Personnage.ListeCompetence[num].ValeurMax;
+                    int valMin = 0;
+                    int valMax = 0;
+                    
                     bool cibleEnnemi = true;
                     bool esquive = false;
 
@@ -656,6 +659,7 @@ namespace Combaxe___New.écrans
                     DefaitePersonnage();
                     MajBarreExperience((int)(brdMaxWidth.ActualWidth));
                     VarGlobales.Personnage.Mort(nbTour, horloge, xpPerdu);
+                    VarGlobales.etaitMort = true;
                     menuPrincipal();
                 }
                 else if(MessageBox.Show("Vous fuyez le combat, mais le monstre est plus rapide que vous et a eu le temps de vous attaquer une dernière fois pour " + dommageInflige + " de dégâts.", "Fuite", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK)
@@ -675,6 +679,11 @@ namespace Combaxe___New.écrans
         /// </summary>
         private void menuPrincipal()
         {
+            if(timer != null)
+            { 
+                timer.Stop();
+            }
+
             horloge.Stop();
             var EcranMenuPrincipal = new EcranMenuPrincipal();
 
@@ -705,6 +714,7 @@ namespace Combaxe___New.écrans
 
         private void ActionEnnemi()
         {
+            horloge.Stop();
             // on calcul la valeur qui est effectué
             int num = VarGlobales.Ennemi.AI(combat.VieEnnemi,combat.EnergieEnnemi);
             bool estCritique = false;
@@ -761,6 +771,7 @@ namespace Combaxe___New.écrans
                 DefaitePersonnage();
                 MajBarreExperience((int)(brdMaxWidth.ActualWidth));
                 VarGlobales.Personnage.Mort(nbTour, horloge, xpPerdu);
+                VarGlobales.etaitMort = true;
                 menuPrincipal();
             }
             txtAttaquesEnnemi.ScrollToEnd();
@@ -775,6 +786,7 @@ namespace Combaxe___New.écrans
             if(temps == TimeSpan.FromSeconds(0))
             {
                 txtAttaquesPerso.Text += "Temps écoulé\n\n";
+                horloge.Stop();
                 txtDmgPerso.Text += "\n\n";
                 majInterface(false); // pour mettre a jour selon le nb tour
                 DelaiAttaqueEnnemi(false);
@@ -898,6 +910,9 @@ namespace Combaxe___New.écrans
         /// </summary>
         private void ExperienceDefaite(int experiencePerdu)
         {
+            horloge.Stop();
+            timer.Stop();
+
             PersonnageService persoService = new PersonnageService();
 
             //On retire l'expérience au joueur - Anthony Gauthier 30/10/2014
@@ -1092,6 +1107,7 @@ namespace Combaxe___New.écrans
                 //Si le délai est terminé, on fait l'attaque de l'ennemi
                 if (secondes == TimeSpan.FromSeconds(nbrRandom))
                 {
+                    timer.Stop();
                     this.IsEnabled = true;
                     if(combat.VieEnnemi != 0)
                     {
@@ -1111,7 +1127,6 @@ namespace Combaxe___New.écrans
                         }
                         EmphasePersonnage();
                     }
-                    timer.Stop();
                 }
 
             }, Application.Current.Dispatcher);

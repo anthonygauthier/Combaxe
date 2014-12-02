@@ -550,6 +550,9 @@ namespace Combaxe___New.écrans
         /// </summary>
         private void MajBarreViePerso(int max)
         {
+            if (VarGlobales.Personnage.Vie > VarGlobales.Personnage.VieMaximale)
+                VarGlobales.Personnage.Vie = VarGlobales.Personnage.VieMaximale;
+
             int poucentageVie = (VarGlobales.Personnage.Vie * 100) / VarGlobales.Personnage.VieMaximale;
 
             int widthAjuste = max - ((max * poucentageVie) / 100);
@@ -563,6 +566,9 @@ namespace Combaxe___New.écrans
         /// </summary>
         private void MajBarreEnergiePerso(int max)
         {
+            if (VarGlobales.Personnage.Energie > VarGlobales.Personnage.EnergieMaximale)
+                VarGlobales.Personnage.Energie = VarGlobales.Personnage.EnergieMaximale;
+
             int pourcentageEnergie = (VarGlobales.Personnage.Energie * 100) / VarGlobales.Personnage.EnergieMaximale;
 
             int widthAjuste = max - ((max * pourcentageEnergie) / 100);
