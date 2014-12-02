@@ -72,7 +72,6 @@ namespace Combaxe___New.classes.services
                 }
                 
             }
-
             return profession;
         }
     }

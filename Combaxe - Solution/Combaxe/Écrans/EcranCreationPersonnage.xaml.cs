@@ -58,6 +58,7 @@ namespace Combaxe___New.écrans
 
             //Change la description
             txtbDescriptionProf.Text = professionService.selectionDescription(btnGuerrier.Content.ToString());
+            descriptionCaracteristique("Guerrier");
 
             //Change les caractéristiques pour les caractéristiques proposées pour paladin
             txtForce.Text = caracteristiquesGuer[0][0];
@@ -79,6 +80,7 @@ namespace Combaxe___New.écrans
 
             //Change la description
             txtbDescriptionProf.Text = professionService.selectionDescription(btnPaladin.Content.ToString());
+            descriptionCaracteristique("Paladin");
 
             //Change les caractéristiques pour les caractéristiques proposées pour paladin
             txtForce.Text = caracteristiquesPal[0][0];
@@ -100,6 +102,7 @@ namespace Combaxe___New.écrans
 
             //Change la description
             txtbDescriptionProf.Text = professionService.selectionDescription(btnMagicien.Content.ToString());
+            descriptionCaracteristique("Magicien");
 
             //Change les caractéristiques pour les caractéristiques proposées pour magicien
             txtForce.Text = caracteristiquesMagi[0][0];
@@ -621,6 +624,52 @@ namespace Combaxe___New.écrans
             else
             {
                 _personnageDessin.Strokes.Remove(selectedStrokes);
+            }
+        }
+
+        /// <summary>
+        /// Fonction qui affiche les compétences d'une profession et comment optimiser son efficacité - Anthony Gauthier
+        /// </summary>
+        /// <param name="nomProfession">Recoit le nom de la profession</param>
+        private void descriptionCaracteristique(string nomProfession)
+        { 
+            List<Competence> lstCompetence;
+            CompetenceService compService = new CompetenceService();
+            CaracteristiqueService carService = new CaracteristiqueService();
+            int id = professionService.RetrieveIdProfession(nomProfession);
+
+            lstCompetence = compService.RetrieveCompetenceUnPersonnage(id);
+            txtbDescriptionProf.Text += "\n\n";
+
+            txtbDescriptionProf.Text += "Description caractéristique\n";
+            txtbDescriptionProf.Text += "-------------------------------------------------\n";
+            txtbDescriptionProf.Text += Caracteristiques.Force.ToString() + ": Augmente les dégâts infligés par les compétences physiques.\n";
+            txtbDescriptionProf.Text += Caracteristiques.Vie.ToString() + ": Augmente les points de vie du personnage.\n";
+            txtbDescriptionProf.Text += Caracteristiques.Vitesse.ToString() + ": Définit qui commence un combat, augment les chances d'esquive et de coups critiques.\n";
+            txtbDescriptionProf.Text += Caracteristiques.Defense.ToString() + ": Augmente la réduction des dégâts qui vous sont infligés.\n";
+            txtbDescriptionProf.Text += Caracteristiques.Energie.ToString() + ": Augmente les dégâts infligés par les compétences magiques.\n\n";
+            
+            txtbDescriptionProf.Text += "Compétences et optimisation des caractéristiques\n";
+            txtbDescriptionProf.Text += "-------------------------------------------------\n";
+            txtbDescriptionProf.Text += lstCompetence[0].Nom + ": Inflige quelques dégâts physiques - Efficacité augmenté par la force.\n";
+
+            switch(nomProfession)
+            {
+                case "Guerrier":
+                    txtbDescriptionProf.Text += lstCompetence[1].Nom + ": Restore des points de vie - Efficacité augmenté par l'énergie.\n";
+                    txtbDescriptionProf.Text += lstCompetence[2].Nom + ": Inflige beaucoup de dégâts physiques - Efficacité augmenté par la force.\n";
+                    txtbDescriptionProf.Text += lstCompetence[3].Nom + ": Inflige énormément de dégâts physiques - Efficacité augmenté par la force.\n";
+                    break;
+                case "Magicien":
+                    txtbDescriptionProf.Text += lstCompetence[1].Nom + ": Inflige beaucoup de dégâts magiques - Efficacité augmenté par l'énergie.\n";
+                    txtbDescriptionProf.Text += lstCompetence[2].Nom + ": Restore des points de vie - Efficacité augmenté par l'énergie.\n";
+                    txtbDescriptionProf.Text += lstCompetence[3].Nom + ": Inflige énormément de dégâts magiques - Efficacité augmenté par l'énergie.\n";
+                    break;
+                case "Paladin":
+                    txtbDescriptionProf.Text += lstCompetence[1].Nom + ": Inflige beaucoup de dégâts magiques - Efficacité augmenté par l'énergie.\n";
+                    txtbDescriptionProf.Text += lstCompetence[2].Nom + ": Restore des points de vie - Efficacité augmenté par l'énergie.\n";
+                    txtbDescriptionProf.Text += lstCompetence[3].Nom + ": Inflige énormément de dégâts magiques - Efficacité augmenté par l'énergie.\n";
+                    break;
             }
         }
     }

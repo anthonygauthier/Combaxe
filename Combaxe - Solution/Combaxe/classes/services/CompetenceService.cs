@@ -66,7 +66,6 @@ namespace Combaxe___New.classes.services
                 }
             }
 
-
             return ListCompetences;
         }
 

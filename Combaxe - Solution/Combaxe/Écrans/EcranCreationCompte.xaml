@@ -44,7 +44,7 @@
 
         <!-- StackPanel pour le label de creer compte-->
         <StackPanel Grid.Row="0" Grid.ColumnSpan="4" Orientation="Vertical">
-            <Label Foreground="White" HorizontalAlignment="Center" Content="Creer Compte" FontFamily="Matura MT Script Capitals" FontSize="44" Margin="118,0,123,0" MinWidth="280"/>
+            <Label Foreground="White" HorizontalAlignment="Center" Content="Créer Compte" FontFamily="Matura MT Script Capitals" FontSize="44" Margin="118,0,123,0" MinWidth="280"/>
         </StackPanel>
     </Grid>
 </Window>
