@@ -113,6 +113,9 @@
     <Compile Include="écrans\EcranMenuPrincipal.xaml.cs">
       <DependentUpon>EcranMenuPrincipal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="écrans\EcranOption.xaml.cs">
+      <DependentUpon>EcranOption.xaml</DependentUpon>
+    </Compile>
     <Compile Include="écrans\EcranRepos.xaml.cs">
       <DependentUpon>EcranRepos.xaml</DependentUpon>
     </Compile>
@@ -173,6 +176,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="écrans\EcranOption.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="écrans\EcranRepos.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -208,7 +215,9 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\background.png" />

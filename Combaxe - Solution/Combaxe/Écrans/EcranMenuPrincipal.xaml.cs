@@ -421,5 +421,52 @@ namespace Combaxe___New.écrans
             else if (sender == btnDeconnexion)
                 lblDeconnexion.Foreground = Brushes.White;
         }
+
+        /// <summary>
+        /// Fonction pour l'option du délai de combat de l'ennemi
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnOptionDelaiCombat_Click_1(object sender, RoutedEventArgs e)
+        {
+            var EcranOption = new EcranOption();
+
+            this.Opacity = 0.5;
+            this.IsEnabled = false;
+            this.Focusable = false;
+            //Si le jeu n'est pas fullscreen
+            if (this.WindowStyle != WindowStyle.None)
+            {
+                this.WindowStyle = WindowStyle.None;
+                this.ResizeMode = ResizeMode.NoResize;
+            }
+
+            EcranOption.Show();
+
+            //On initialise un timer égal à celui du progress bar de l'écran de repos pour déterminer quand nous allons rendre la fenêtre utilisable à nouveau
+            temps = TimeSpan.FromSeconds(9999999999);
+
+            horloge = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            {
+                //On enleve du temps au timer
+                temps = temps.Add(TimeSpan.FromSeconds(-1));
+
+                if (VarGlobales.Retour == true)
+                {
+                    this.Opacity = 1;
+                    this.IsEnabled = true;
+                    VarGlobales.Retour = false;
+
+                    if (this.WindowStyle != WindowStyle.None)
+                    {
+                        this.WindowStyle = WindowStyle.SingleBorderWindow;
+                        this.ResizeMode = ResizeMode.CanResize;
+                        horloge.Stop();
+                    }
+                }
+            }, Application.Current.Dispatcher);
+
+            horloge.Start();  
+        }
     }
 }

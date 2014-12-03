@@ -106,6 +106,7 @@
             <Border Name="brdViePerso" Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="0" Margin="10" Background="Green" MaxHeight="40" BorderBrush="Black" BorderThickness="1"></Border>
             <Border Name="brdEnergiePerso" Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="0" Margin="10" Background="Blue" MaxHeight="40" BorderBrush="Black" BorderThickness="1"></Border>
         </Grid>
-        <Button Name="btnAideMenuPrincipal" Grid.Row="7" Style="{DynamicResource GlassButton}" Content="Aide" MaxHeight="50" MaxWidth="75" Margin="3" Click="btnAideMenuPrincipal_Click"></Button>
+        <Button Name="btnAideMenuPrincipal" Grid.Row="7" Style="{DynamicResource GlassButton}" Content="Aide" HorizontalAlignment="Left" MaxHeight="50" MaxWidth="100" Margin="10,5,5,5" Click="btnAideMenuPrincipal_Click"></Button>
+        <Button Name="btnOptionDelaiCombat" Grid.Row="7" Style="{DynamicResource GlassButton}" MaxHeight="50" Margin="5" Content="Options combat" HorizontalAlignment="Right" Click="btnOptionDelaiCombat_Click_1"></Button>
     </Grid>
 </Window>

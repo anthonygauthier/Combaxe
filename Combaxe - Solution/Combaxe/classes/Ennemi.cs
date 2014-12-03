@@ -81,7 +81,7 @@ namespace Combaxe___New.classes
 
 
             Random aleatoire = new Random();
-            int idEnnemiAleatoire = aleatoire.Next(1, 25); //Fix d'un bug ou on recevait seulement l'ange déchu comme monstre - Anthony Gauthier 27 Nov. 2014
+            int idEnnemiAleatoire = aleatoire.Next(0, 24); //Fix d'un bug ou on recevait seulement l'ange déchu comme monstre - Anthony Gauthier 27 Nov. 2014
             Ennemi ennemi;
             ennemi = ennemiService.RetrieveInfoEnnemi(tousEnnemi[idEnnemiAleatoire][0]);
             ennemi = NiveauEnnemi(ennemi);

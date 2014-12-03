@@ -27,10 +27,12 @@ namespace Combaxe___New.classes
         public static bool ChoixPersoFait { get; set; }
         public static bool campagne { get; set; }
         public static bool connexion { get; set; }
+        public static bool Retour { get; set; }
 
         public static SoundPlayer sonPotion { get; set; }
 
-        public static bool Retour { get; set; }
+        public static int delaiMin { get; set; }
+        public static int delaiMax { get; set; }
 
         public static List<Caracteristique> lstCaracteristiqueEquipement { get; set; }
     }

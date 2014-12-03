@@ -62,31 +62,53 @@ namespace Combaxe___New.écrans
             fuiteDuJoueur();
         }
 
-        //Méthode qui affiche tous les actions lorsque le bouton Action est cliqué - Anthony Gauthier 23/10/2014
-        private void btnChoisirActions_Click(object sender, RoutedEventArgs e)
+        private void btnPotionEnergie_Click(object sender, RoutedEventArgs e)
         {
-            btnAction2.IsEnabled = true;
-            btnAction3.IsEnabled = true;
+            boutonClique = true;
+            DeroulementCombat(5);
+        }
 
-            //On affiche les quatres buotons d'actions
-            btnAction1.Visibility = Visibility.Visible;
-            btnAction2.Visibility = Visibility.Visible;
-            btnAction3.Visibility = Visibility.Visible;
-            btnAction4.Visibility = Visibility.Visible;
-            //tommy gingras
+        private void btnPotionVie_Click(object sender, RoutedEventArgs e)
+        {
+            boutonClique = true;
+            DeroulementCombat(4);
+        }
+
+        /// <summary>
+        /// Fonction qui rempli les boutons au loading the l'écran
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Loaded_1(object sender, RoutedEventArgs e)
+        {
+            //On charge les boutons de potions
+            btnPotionVie.Content = "Potion de vie (" + VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Quantite + ")";
+            btnPotionEnergie.Content = "Potion d'énergie (" + VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Energie].Quantite + ")";
+            btnPotionVie.ToolTip = "Cette potion régénère 30% de votre vie";
+            btnPotionEnergie.ToolTip = "Cette potion régénère 30% de votre énergie";
+
+            if (VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Quantite == 0)
+            {
+                btnPotionVie.IsEnabled = false;
+            }
+            if (VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Energie].Quantite == 0)
+            {
+                btnPotionEnergie.IsEnabled = false;
+            }
+
+            //On charge les boutons de compétence
+            //Vérifie si le personnage a assez d'énergie pour ses actions
+            VerifierEnergie();
+
             btnAction1.Content = VarGlobales.Personnage.ListeCompetence[0].Nom;
             btnAction2.Content = VarGlobales.Personnage.ListeCompetence[1].Nom;
             btnAction3.Content = VarGlobales.Personnage.ListeCompetence[2].Nom;
             btnAction4.Content = VarGlobales.Personnage.ListeCompetence[3].Nom;
+
             btnAction1.ToolTip = afficherTooltip(0);
             btnAction2.ToolTip = afficherTooltip(1);
             btnAction3.ToolTip = afficherTooltip(2);
             btnAction4.ToolTip = afficherTooltip(3);
-            btnChoisirActions.IsEnabled = false;
-            btnItems.IsEnabled = true;
-
-            //Vérifie si le personnage a assez d'énergie pour ses actions
-            VerifierEnergie();
 
             tempsRecharge[0] = 0;
             if (tempsRecharge[1] > 0)
@@ -107,38 +129,6 @@ namespace Combaxe___New.écrans
 
         }
 
-        //Méthode qui affiche les boutons items lorsque le bouton Items est cliqué - Anthony Gauthier 23/10/2014
-        private void btnItems_Click(object sender, RoutedEventArgs e)
-        {
-            btnAction2.Visibility = Visibility.Visible;
-
-            btnAction2.Content = "Potion de vie ("+VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Quantite+")";
-            btnAction3.Content = "Potion d'énergie (" + VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Energie].Quantite + ")";
-            btnAction2.ToolTip = "Cette potion régénère 30% de votre vie";
-            btnAction3.ToolTip = "Cette potion régénère 30% de votre énergie";
-            btnAction2.IsEnabled = true;
-            btnAction3.IsEnabled = true;
-            btnAction3.Visibility = Visibility.Visible;
-
-            if(btnAction3.Visibility == Visibility.Visible)
-            {
-                btnAction1.Visibility = Visibility.Hidden;
-                btnAction4.Visibility = Visibility.Hidden;
-            }
-            if (VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Quantite==0)
-            {
-                btnAction2.IsEnabled = false;
-            }
-            if (VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Energie].Quantite == 0)
-            {
-                btnAction3.IsEnabled = false;
-            }
-            
-            btnItems.IsEnabled = false;
-            btnChoisirActions.IsEnabled = true;
-        }
-
-
         private void btnAction1_Click(object sender, RoutedEventArgs e)
         {
             //Tommy gingras
@@ -150,24 +140,14 @@ namespace Combaxe___New.écrans
         {
             boutonClique = true;
             //tommy gingras
-            if (btnChoisirActions.IsEnabled == true)
-            {
-                DeroulementCombat(4);
-            }
-            else
-                DeroulementCombat(1); 
+            DeroulementCombat(1); 
         }
 
         private void btnAction3_Click(object sender, RoutedEventArgs e)
         {
             boutonClique = true;
             //tommy gingras
-            if (btnChoisirActions.IsEnabled == true)
-            {
-                DeroulementCombat(5);
-            }
-            else
-                DeroulementCombat(2); 
+            DeroulementCombat(2); 
         }
 
         private void btnAction4_Click(object sender, RoutedEventArgs e)
@@ -379,7 +359,7 @@ namespace Combaxe___New.écrans
                 lblViePerso.Content = "Points de vie (PV): " + VarGlobales.Personnage.Vie + "/" + VarGlobales.Personnage.VieMaximale;
             }
             
-            if((btnChoisirActions.IsEnabled == false && estEnnemi == false))
+            if(estEnnemi == false)
             {
                 //On vérifie le temps de recharge de chaque action
                 if (tempsRecharge[1] > 0)
@@ -421,18 +401,18 @@ namespace Combaxe___New.écrans
                 //Vérifie si le personnage a assez d'énergie pour ses actions
                 VerifierEnergie();
             }
-            else if ((estEnnemi == true && btnItems.IsEnabled == false))
+            else if (estEnnemi == true)
             {
-                btnAction2.Content = "Potion de vie (" + VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Quantite + ")";
-                btnAction3.Content = "Potion d'énergie (" + VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Energie].Quantite + ")";
+                btnPotionVie.Content = "Potion de vie (" + VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Quantite + ")";
+                btnPotionEnergie.Content = "Potion d'énergie (" + VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Energie].Quantite + ")";
 
                 if (VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Quantite == 0)
                 {
-                    btnAction2.IsEnabled = false;
+                    btnPotionVie.IsEnabled = false;
                 }
                 if (VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Energie].Quantite == 0)
                 {
-                    btnAction3.IsEnabled = false;
+                    btnPotionEnergie.IsEnabled = false;
                 }
             }
             MajBarreEnergiePerso((int)(brdMaxWidth.ActualWidth));
@@ -452,8 +432,6 @@ namespace Combaxe___New.écrans
                 if(VarGlobales.Personnage.Vie > VarGlobales.Personnage.VieMaximale)
                     VarGlobales.Personnage.Vie = VarGlobales.Personnage.VieMaximale;
 
-                txtAttaquesPerso.Text += "Potion vie\n\n";
-
                 txtDmgPerso.Text += "+"+ VarGlobales.Personnage.VieMaximale * 30 / 100+ " PV \n\n";
 
                 VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Quantite -= 1;
@@ -465,12 +443,15 @@ namespace Combaxe___New.écrans
                 if(VarGlobales.Personnage.Energie > VarGlobales.Personnage.EnergieMaximale)
                     VarGlobales.Personnage.Energie = VarGlobales.Personnage.EnergieMaximale;
                 VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Energie].Quantite -= 1;
-                txtAttaquesPerso.Text += "Potion énergie \n\n";
 
                 txtDmgPerso.Text += "+" + VarGlobales.Personnage.EnergieMaximale * 30 / 100 + " PE \n\n";
 
                 majInterface(true);
             }
+            txtAttaquesPerso.ScrollToEnd();
+            txtAttaquesPerso.Text += "\n";
+            txtDmgPerso.ScrollToEnd();
+            txtDmgPerso.Text += "\n";
             VarGlobales.sonPotion.Play();
         }
         /// <summary>
@@ -517,8 +498,7 @@ namespace Combaxe___New.écrans
                                 combat.VieEnnemi = 0;
                             }
                             VarGlobales.Personnage.Energie -= VarGlobales.Personnage.ListeCompetence[num].EnergieUtilise;
-                            txtAttaquesPerso.Text += VarGlobales.Personnage.ListeCompetence[num].Nom + "\n\n";
-                            txtDmgPerso.Text += valeur.ToString() + "\n\n"; ;
+                            txtDmgPerso.Text += valeur.ToString() + " dégâts\n\n"; ;
                         }
                         else
                         {
@@ -533,7 +513,6 @@ namespace Combaxe___New.écrans
                             VarGlobales.Personnage.Vie = VarGlobales.Personnage.VieMaximale;
 
                         VarGlobales.Personnage.Energie -= VarGlobales.Personnage.ListeCompetence[num].EnergieUtilise;
-                        txtAttaquesPerso.Text += VarGlobales.Personnage.ListeCompetence[num].Nom + "\n\n";
                         txtDmgPerso.Text += "+"+ valeur.ToString()+" PV \n\n";
                     }
 
@@ -621,12 +600,10 @@ namespace Combaxe___New.écrans
                         }
                     } 
                 }
-                else
-                {
-                        
-                }
                 txtAttaquesPerso.ScrollToEnd();
+                txtAttaquesPerso.Text += "\n";
                 txtDmgPerso.ScrollToEnd();
+                txtDmgPerso.Text += "\n";
             }
         }
 
@@ -735,7 +712,7 @@ namespace Combaxe___New.écrans
                     VarGlobales.Personnage.Vie -= valeur;
                     combat.EnergieEnnemi -= VarGlobales.Ennemi.ListeCompetence[num].EnergieUtilise;
                     txtAttaquesEnnemi.Text += VarGlobales.Ennemi.ListeCompetence[num].Nom + "\n\n";
-                    txtDmgEnnemi.Text += valeur.ToString() + "\n\n";
+                    txtDmgEnnemi.Text += valeur.ToString() + " dégâts\n\n";
                 }
                 else
                 {
@@ -775,7 +752,9 @@ namespace Combaxe___New.écrans
                 menuPrincipal();
             }
             txtAttaquesEnnemi.ScrollToEnd();
+            txtAttaquesEnnemi.Text += "\n";
             txtDmgEnnemi.ScrollToEnd();
+            txtDmgEnnemi.Text += "\n";
             //On redémarre l'horloge de combat
             chronometreCombat();
         }
@@ -795,6 +774,8 @@ namespace Combaxe___New.écrans
             {
                 if (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Vitesse].Valeur >= VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur)
                 {
+                    //On affiche tout de suite l'attaque choisie par le joueur
+                    txtAttaquesPerso.Text += VarGlobales.Personnage.ListeCompetence[btnClique].Nom + "\n\n";
                     actionBouton(btnClique);
                     
                     /*Si l'ennemi est encore en vie, il va attaquer, mais on ajoute un délai pour faire comme si l'ennemi
@@ -806,6 +787,14 @@ namespace Combaxe___New.écrans
                 }
                 else
                 {
+                    //On affiche tout de suite l'attaque choisie par le joueur
+                    if (btnClique != 4 && btnClique != 5)
+                        txtAttaquesPerso.Text += VarGlobales.Personnage.ListeCompetence[btnClique].Nom + "\n\n";
+                    else if(btnClique == 4)
+                        txtAttaquesPerso.Text += "Potion vie\n\n";
+                    else if(btnClique == 5)
+                        txtAttaquesPerso.Text += "Potion d'énergie\n\n";
+
                     boutonCliquer = btnClique;
                     DelaiAttaqueEnnemi(true);
                     
@@ -911,7 +900,8 @@ namespace Combaxe___New.écrans
         private void ExperienceDefaite(int experiencePerdu)
         {
             horloge.Stop();
-            timer.Stop();
+            if(timer != null)
+                timer.Stop();
 
             PersonnageService persoService = new PersonnageService();
 
@@ -1074,17 +1064,23 @@ namespace Combaxe___New.écrans
         /// </summary>
         private void DelaiAttaqueEnnemi(bool rapiditePerso)
         {
-            this.IsEnabled = false;
-            TimeSpan secondes;
-            chronometreCombat();
-
-            Random rand = new Random();
-            int nbrRandom = rand.Next(3,9);
-
-            secondes = TimeSpan.FromSeconds(0);
-
-            timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            //Si le délai est mis à 0, l'ennemi attaque directement
+            if (VarGlobales.delaiMin == 0 && VarGlobales.delaiMax == 0)
             {
+                ActionEnnemi();
+                if (rapiditePerso == true)
+                {
+                    if (VarGlobales.Personnage.Vie > 0)
+                        actionBouton(boutonCliquer);
+                }
+            }
+            //Sinon, on fait le délai
+            else
+            {
+                this.IsEnabled = false;
+                TimeSpan secondes;
+                chronometreCombat();
+
                 //On met l'emphase sur l'ennemi en grisant les choses du personnage
                 brdEnnemiActif.Visibility = Visibility.Visible;
                 brdPersoActif.Visibility = Visibility.Hidden;
@@ -1102,35 +1098,43 @@ namespace Combaxe___New.écrans
                 lblNiveauEnnemi.Opacity = 1;
                 lblNomEnnemi.Opacity = 1;
 
-                secondes = secondes.Add(TimeSpan.FromSeconds(1));
+                Random rand = new Random();
+                int nbrRandom = rand.Next(VarGlobales.delaiMin, VarGlobales.delaiMax);
 
-                //Si le délai est terminé, on fait l'attaque de l'ennemi
-                if (secondes == TimeSpan.FromSeconds(nbrRandom))
+                secondes = TimeSpan.FromSeconds(0);
+
+                timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
                 {
-                    timer.Stop();
-                    this.IsEnabled = true;
-                    if(combat.VieEnnemi != 0)
+                    secondes = secondes.Add(TimeSpan.FromSeconds(1));
+
+                    //Si le délai est terminé, on fait l'attaque de l'ennemi
+                    if (secondes == TimeSpan.FromSeconds(nbrRandom))
                     {
-                        brdEnnemiActif.Visibility = Visibility.Hidden;
-                        imgPerso.Opacity = 1;
-                        brdEnergiePerso.Opacity = 1;
-                        brdViePerso.Opacity = 1;
-                        brdExperience.Opacity = 1;
-                        lblNiveauPerso.Opacity = 1;
-                        lblNomPerso.Opacity = 1;
-
-                        ActionEnnemi();
-                        if(rapiditePerso == true)
+                        timer.Stop();
+                        this.IsEnabled = true;
+                        if (combat.VieEnnemi != 0)
                         {
-                            if (VarGlobales.Personnage.Vie > 0)
-                                actionBouton(boutonCliquer);
-                        }
-                        EmphasePersonnage();
-                    }
-                }
+                            brdEnnemiActif.Visibility = Visibility.Hidden;
+                            imgPerso.Opacity = 1;
+                            brdEnergiePerso.Opacity = 1;
+                            brdViePerso.Opacity = 1;
+                            brdExperience.Opacity = 1;
+                            lblNiveauPerso.Opacity = 1;
+                            lblNomPerso.Opacity = 1;
 
-            }, Application.Current.Dispatcher);
-            timer.Start();
+                            ActionEnnemi();
+                            if (rapiditePerso == true)
+                            {
+                                if (VarGlobales.Personnage.Vie > 0)
+                                    actionBouton(boutonCliquer);
+                            }
+                            EmphasePersonnage();
+                        }
+                    }
+
+                }, Application.Current.Dispatcher);
+                timer.Start();
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -1159,26 +1163,23 @@ namespace Combaxe___New.écrans
         /// </summary>
         private void VerifierEnergie()
         {
-            if (btnChoisirActions.IsEnabled == false)
+            //On vérifie si le personnage a assez d'énergie pour faire l'action
+            if (VarGlobales.Personnage.ListeCompetence[1].EnergieUtilise > VarGlobales.Personnage.Energie)
             {
-                //On vérifie si le personnage a assez d'énergie pour faire l'action
-                if (VarGlobales.Personnage.ListeCompetence[1].EnergieUtilise > VarGlobales.Personnage.Energie)
-                {
-                    btnAction2.IsEnabled = false;
-                    btnAction2.Content += "\n" + VarGlobales.Personnage.ListeCompetence[1].EnergieUtilise + " PE requis";
-                }
+                btnAction2.IsEnabled = false;
+                btnAction2.Content += "\n" + VarGlobales.Personnage.ListeCompetence[1].EnergieUtilise + " PE requis";
+            }
 
-                if (VarGlobales.Personnage.ListeCompetence[2].EnergieUtilise > VarGlobales.Personnage.Energie)
-                {
-                    btnAction3.IsEnabled = false;
-                    btnAction3.Content += "\n" +VarGlobales.Personnage.ListeCompetence[2].EnergieUtilise + " PE requis";
-                }
+            if (VarGlobales.Personnage.ListeCompetence[2].EnergieUtilise > VarGlobales.Personnage.Energie)
+            {
+                btnAction3.IsEnabled = false;
+                btnAction3.Content += "\n" +VarGlobales.Personnage.ListeCompetence[2].EnergieUtilise + " PE requis";
+            }
 
-                if (VarGlobales.Personnage.ListeCompetence[3].EnergieUtilise > VarGlobales.Personnage.Energie)
-                {
-                    btnAction4.IsEnabled = false;
-                    btnAction4.Content += "\n" + VarGlobales.Personnage.ListeCompetence[3].EnergieUtilise + " PE requis";
-                }
+            if (VarGlobales.Personnage.ListeCompetence[3].EnergieUtilise > VarGlobales.Personnage.Energie)
+            {
+                btnAction4.IsEnabled = false;
+                btnAction4.Content += "\n" + VarGlobales.Personnage.ListeCompetence[3].EnergieUtilise + " PE requis";
             }
         }
 
@@ -1191,7 +1192,7 @@ namespace Combaxe___New.écrans
             {
                 if(nbTour==0)
                 {
-                    txtAttaquesPerso.Text += "Rapidité\n\n";
+                    txtAttaquesPerso.Text += "Premier a attaquer\n\n";
                     txtDmgPerso.Text += "<- \n\n";
                     txtDmgEnnemi.Text += "\n\n\n";
                     txtAttaquesEnnemi.Text += "\n\n\n";
@@ -1201,7 +1202,7 @@ namespace Combaxe___New.écrans
             {
                 if (nbTour == 0)
                 {
-                    txtAttaquesEnnemi.Text += "Rapidité\n\n";
+                    txtAttaquesEnnemi.Text += "Premier a attaquer\n\n";
                     txtDmgEnnemi.Text += "->\n\n";
                     txtDmgPerso.Text += "\n\n\n";
                     txtAttaquesPerso.Text += "\n\n\n";
