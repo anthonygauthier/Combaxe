@@ -46,6 +46,7 @@ namespace Combaxe___New.écrans
         DispatcherTimer horloge; //Pour le chronomètre
         DispatcherTimer timer; //Pour le délai d'attaque de l'ennemi 
         DispatcherTimer tempsCaracteristiques; //Pour la page de l'écran de caractéristiques
+        DispatcherTimer aideTimer;
 
         TimeSpan temps; //Temps pour le chronomètre
 
@@ -1149,23 +1150,45 @@ namespace Combaxe___New.écrans
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string tourParTour = "But du jeu\nLe jeu se déroule tour par tour, celui qui est plus rapide débute le combat. Ensuite tour par tour les personnages s'affrontent en choisissant selon une stratégie des actions qui mèneront à la victoire.";
-            string action = "\n\nActions\nPour effectuer une action, vous devez cliquer sur le bouton 'actions', ensuite vous pouvez faire le choix de votre action. Pour plus d'information à propos de leurs effets, vous pouvez passer la souris sur l'action désirée et vous pourrez voir sa description.";
-            string items = "\n\nItems\nPour utiliser un objet qui aide le personnage, vous pouvez cliquer sur le bouton 'Items'. Ensuite si vous possédez préalablement des potions de vie ou de mana, vous allez pouvoir les utilisées. Pour connaitre leur effet, vous pouvez glisser votre souris sur la potion désirée";
-            string fuir = "\n\nFuir\nVous pouvez fuir un combat, cependant si l'ennemi est plus rapide que vous il vous inflige des dégâts supplémentaires. Sinon vous pouvez fuir librement.";
-            string personnage = "\n\nSection personnage\nCette section est la partie de gauche de l'écran. Tout ce qui se rapporte au personnage se retrouve de ce côté. Pour les actions, cette partie ce retrouve au centre.";
-            string ennemi = "\n\nSection ennemi\nCette section est la partie de droite de l'écran. Tout ce qui se rapporte à l'ennemi se retrouve de ce côté.";
-            string affichage = "\n\nJournal de combat\nLa partie de droite signifie le résultat de l'action du joueur. La partie de gauche signifie le résultat de l'action de l'ennemi.";
-            string energie = "\n\nÉnergie\nL'énergie se régénère de 5% à chaque tour, autant chez le joueur que l'ennemi.";
-
-            this.IsEnabled = false;
             horloge.Stop();
 
-            if(MessageBox.Show(tourParTour + action + items + fuir + personnage + ennemi + affichage + energie, "Aide Combat", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK)
-            { 
-                this.IsEnabled = true;
-                horloge.Start();
+            TimeSpan tempsAide;
+            VarGlobales.endroitAide = "Combat";
+            var EcranAide = new EcranAide();
+
+            tempsAide = TimeSpan.FromSeconds(999999);
+           
+
+            this.Opacity = 0.5;
+            this.IsEnabled = false;
+            this.Focusable = false;
+            //Si le jeu n'est pas fullscreen
+            if (this.WindowStyle != WindowStyle.None)
+            {
+                this.WindowStyle = WindowStyle.None;
+                this.ResizeMode = ResizeMode.NoResize;
             }
+
+            
+            EcranAide.Show();
+
+            aideTimer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            {
+                //On enleve du temps au timer
+                tempsAide = tempsAide.Add(TimeSpan.FromSeconds(-1));
+
+                if (VarGlobales.QuitterAide == true)
+                {
+                    this.Opacity = 1;
+                    this.IsEnabled = true;
+                    this.Focusable = true;
+                    VarGlobales.QuitterAide = false;
+                    horloge.Start();
+                    aideTimer.Stop();
+                }
+            }, Application.Current.Dispatcher);
+
+            aideTimer.Start();
         }
 
         /// <summary>

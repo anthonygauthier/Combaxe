@@ -95,6 +95,9 @@
     <Compile Include="classes\services\StatistiqueService.cs" />
     <Compile Include="classes\VarGlobales.cs" />
     <Compile Include="classes\Effet.cs" />
+    <Compile Include="écrans\EcranAide.xaml.cs">
+      <DependentUpon>EcranAide.xaml</DependentUpon>
+    </Compile>
     <Compile Include="écrans\EcranCaracteristiques.xaml.cs">
       <DependentUpon>EcranCaracteristiques.xaml</DependentUpon>
     </Compile>
@@ -120,6 +123,10 @@
       <DependentUpon>EcranRepos.xaml</DependentUpon>
     </Compile>
     <Compile Include="écrans\EcranStatistiques.xaml.cs" />
+    <Page Include="écrans\EcranAide.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="écrans\EcranCaracteristiques.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

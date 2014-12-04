@@ -47,6 +47,7 @@ namespace Combaxe___New.écrans
 
         DispatcherTimer horloge;
         DispatcherTimer clockPerso;
+        DispatcherTimer aideTimer;
         TimeSpan temps;
         int montantAuberge = ((VarGlobales.Personnage.Niveau) * (VarGlobales.Personnage.Niveau)) * (20);
 
@@ -353,26 +354,41 @@ namespace Combaxe___New.écrans
 
         private void btnAideMenuPrincipal_Click(object sender, RoutedEventArgs e)
         {
+            TimeSpan tempsAide;
+            VarGlobales.endroitAide = "Menu principal";
+            var EcranAide = new EcranAide();
+
+            tempsAide = TimeSpan.FromSeconds(999999);
+           
+            this.Opacity = 0.5;
             this.IsEnabled = false;
-            if(MessageBox.Show(
-            "Bouton Combat"
-            + "\nLorsque vous cliquez sur le bouton Combat, deux nouveaux boutons s'affichent, soit 'Campange' et 'Partie Rapide'."
-            + "Un combat en mode campagne est un combat qui vous fait progresser au travers de l'histoire du jeu. Un combat en partie rapide fait simplement avancer votre personnage en général (niveau, items, etc.)"
-            + "\n\n Bouton Inventaire et Magasin"
-            + "\n Le bouton 'Inventaire et magasin' vous affiche l'inventaire de votre personnage et le magasin qui vous est offert."
-            + "\n\n Bouton Statistiques"
-            + "\n Le bouton 'Statistiques' vous affiche les statistiques reliées à votre personnage (temps de jeu, nombre de combat, nombre de victoire, etc.)"
-            + "\n\n Bouton Auberge"
-            + "\n Le bouton 'Auberge' (lorsqu'il est actif) vous permet de regénérer l'énergie et la vie de votre personnage, à un coût."
-            + "\n\n Bouton Supprimer ce personnage"
-            + "\n Le bouton 'Supprimer ce personnage' supprime tout simplement votre personnage."
-            + "\n\n Bouton Changer de personnage"
-            + "\n Le bouton 'Changer de personnage' affiche l'écran de changement de personnage et vous permet de changer de personnage sur le champ, ou d'en créer un nouveau."
-            + "\n\n Bouton Déconnexion"
-            + "\n Le bouton 'Déconnexion' vous déconnecte et vous ammène à l'écran de connexion.", "Aide Menu Principal", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK)
+            this.Focusable = false;
+            //Si le jeu n'est pas fullscreen
+            if (this.WindowStyle != WindowStyle.None)
             {
-                this.IsEnabled = true;
+                this.WindowStyle = WindowStyle.None;
+                this.ResizeMode = ResizeMode.NoResize;
             }
+
+            
+            EcranAide.Show();
+
+            aideTimer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            {
+                //On enleve du temps au timer
+                temps = temps.Add(TimeSpan.FromSeconds(-1));
+
+                if (VarGlobales.QuitterAide == true)
+                {
+                    this.Opacity = 1;
+                    this.IsEnabled = true;
+                    this.Focusable = true;
+                    VarGlobales.QuitterAide = false;
+                    aideTimer.Stop();
+                }
+            }, Application.Current.Dispatcher);
+
+            aideTimer.Start();
         }
 
         /// <summary>

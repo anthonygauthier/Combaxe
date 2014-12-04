@@ -17,6 +17,7 @@ using Combaxe___New.classes.services;
 using System.Text.RegularExpressions;
 using System.IO;
 using System.Windows.Ink;
+using System.Windows.Threading;
 
 namespace Combaxe___New.écrans
 {
@@ -38,6 +39,8 @@ namespace Combaxe___New.écrans
         PersonnageService personnageService = new PersonnageService();
         ProfessionService professionService = new ProfessionService();
         CaracteristiqueService caracteristiqueService = new CaracteristiqueService();
+
+        DispatcherTimer aideTimer;
         int profession = 0;
 
         //----------------------------------MÉTHODES---------------------------------
@@ -721,6 +724,50 @@ namespace Combaxe___New.écrans
             else
                 ib.ImageSource = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "//resources//images//personnages//defaut.png", UriKind.RelativeOrAbsolute)); // fait par tommy gingras
             return ib;
+        }
+
+        /// <summary>
+        /// Fonction pour afficher l'aide en ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAide_Click(object sender, RoutedEventArgs e)
+        {
+            TimeSpan tempsAide;
+            VarGlobales.endroitAide = "Caracteristiques";
+            var EcranAide = new EcranAide();
+
+            tempsAide = TimeSpan.FromSeconds(999999);
+
+            this.Opacity = 0.5;
+            this.IsEnabled = false;
+            this.Focusable = false;
+            //Si le jeu n'est pas fullscreen
+            if (this.WindowStyle != WindowStyle.None)
+            {
+                this.WindowStyle = WindowStyle.None;
+                this.ResizeMode = ResizeMode.NoResize;
+            }
+
+
+            EcranAide.Show();
+
+            aideTimer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            {
+                //On enleve du temps au timer
+                tempsAide = tempsAide.Add(TimeSpan.FromSeconds(-1));
+
+                if (VarGlobales.QuitterAide == true)
+                {
+                    this.Opacity = 1;
+                    this.IsEnabled = true;
+                    this.Focusable = true;
+                    VarGlobales.QuitterAide = false;
+                    aideTimer.Stop();
+                }
+            }, Application.Current.Dispatcher);
+
+            aideTimer.Start();
         }
 
     }
