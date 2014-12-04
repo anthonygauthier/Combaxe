@@ -242,6 +242,9 @@
     <Resource Include="images\icones\deconnexion.png" />
     <Resource Include="images\icones\delete.png" />
     <Resource Include="images\icones\graph.png" />
+    <Resource Include="images\defaut.png" />
+    <Resource Include="images\guerrier.png" />
+    <Resource Include="images\mage.png" />
     <Content Include="resources\media\clique.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
