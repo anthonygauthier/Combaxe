@@ -42,7 +42,7 @@
         </Grid>
 
         <!--Description de la profession-->
-        <TextBox ScrollViewer.VerticalScrollBarVisibility="Auto" Style="{DynamicResource TextBoxCombat}" Name="txtbDescriptionProf" TextAlignment="Justify" Grid.Row="1" Grid.Column="1" Text="Description de la profession" IsEnabled="True" IsReadOnly="True" Margin="1,35,75,0"></TextBox>
+        <TextBox ScrollViewer.VerticalScrollBarVisibility="Auto" Style="{DynamicResource TextBoxCombat}" Name="txtbDescriptionProf" TextAlignment="Justify" Grid.Row="1" Grid.Column="1" IsEnabled="True" IsReadOnly="True" Margin="1,35,75,0"></TextBox>
 
         <!--Grid pour les caractéristiques-->
         <Label Grid.Row="2" Grid.RowSpan="2" Margin="0,10,0,0" FontSize="25" FontFamily="Matura MT Script Capitals" Content="Caracteristiques" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Center"/>
@@ -116,11 +116,8 @@
                 <Button Style="{DynamicResource GlassButton}" FontSize="20" Name="btnRectangle" Content="Rectangle" Click="btnRectangle_Click"/>
                 <Button Style="{DynamicResource GlassButton}" FontSize="20" Name="btnEllipse" Content="Ellipse" Click="btnEllipse_Click"/>
                 <Button Style="{DynamicResource GlassButton}" FontSize="20" Name="btnToutSupprimer" Content="Suppresion" Click="toutSupprimer_Click"/>
-            </StackPanel>
-
-            <!--StackPanel pour boutons droite-->
-            <StackPanel Orientation="Vertical" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <Button Style="{DynamicResource GlassButton}" FontSize="20" x:Name="btnImageGuerrier" Content="Guerrier" Click="btnImageGuerrier_Click" Width="100"/>
+                
+                <Button Margin="0,25,0,0" Style="{DynamicResource GlassButton}" FontSize="20" x:Name="btnImageGuerrier" Content="Guerrier" Click="btnImageGuerrier_Click" Width="100"/>
                 <Button Style="{DynamicResource GlassButton}" FontSize="20" x:Name="btnImagePaladin" Content="Paladin" Click="btnImagePaladin_Click" Width="100"/>
                 <Button Style="{DynamicResource GlassButton}" FontSize="20" x:Name="btnImageMage" Content="Mage" Click="btnImageMage_Click" Width="100" />
             </StackPanel>

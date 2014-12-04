@@ -448,6 +448,7 @@ namespace Combaxe___New.écrans
 
                 majInterface(true);
             }
+            
             txtAttaquesPerso.ScrollToEnd();
             txtAttaquesPerso.Text += "\n";
             txtDmgPerso.ScrollToEnd();
@@ -775,11 +776,15 @@ namespace Combaxe___New.écrans
                 if (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Vitesse].Valeur >= VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur)
                 {
                     if(btnClique != 4 && btnClique != 5)
-                    { 
                         //On affiche tout de suite l'attaque choisie par le joueur
                         txtAttaquesPerso.Text += VarGlobales.Personnage.ListeCompetence[btnClique].Nom + "\n\n";
-                        actionBouton(btnClique);
-                    }
+                    else if (btnClique == 4)
+                        txtAttaquesPerso.Text += "Potion de vie\n\n"; //Correction faute ortographe - Anthony Gauthier
+                    else if (btnClique == 5)
+                        txtAttaquesPerso.Text += "Potion d'énergie\n\n";
+
+                    actionBouton(btnClique);
+                    
                     
                     /*Si l'ennemi est encore en vie, il va attaquer, mais on ajoute un délai pour faire comme si l'ennemi
                     Choisissais son attaque - Anthony Gauthier 2014-11-06*/

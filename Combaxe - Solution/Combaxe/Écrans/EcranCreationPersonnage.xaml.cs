@@ -56,8 +56,10 @@ namespace Combaxe___New.écrans
             //Va chercher les caractéristiques de bases du guerrier
             List<string>[] caracteristiquesGuer = caracteristiqueService.RetrieveCaracteristiqueBase(btnGuerrier.Content.ToString());
 
+            txtbDescriptionProf.Text += "Description de la profession\n";
+            txtbDescriptionProf.Text += "-------------------------------------------------\n";
             //Change la description
-            txtbDescriptionProf.Text = professionService.selectionDescription(btnGuerrier.Content.ToString());
+            txtbDescriptionProf.Text += professionService.selectionDescription(btnGuerrier.Content.ToString());
             descriptionCaracteristique("Guerrier");
 
             //Change les caractéristiques pour les caractéristiques proposées pour paladin
@@ -78,8 +80,10 @@ namespace Combaxe___New.écrans
             //Va chercher les caractéristiques de bases du paladin
             List<string>[] caracteristiquesPal = caracteristiqueService.RetrieveCaracteristiqueBase(btnPaladin.Content.ToString());
 
+            txtbDescriptionProf.Text += "Description de la profession\n";
+            txtbDescriptionProf.Text += "-------------------------------------------------\n";
             //Change la description
-            txtbDescriptionProf.Text = professionService.selectionDescription(btnPaladin.Content.ToString());
+            txtbDescriptionProf.Text += professionService.selectionDescription(btnPaladin.Content.ToString());
             descriptionCaracteristique("Paladin");
 
             //Change les caractéristiques pour les caractéristiques proposées pour paladin
@@ -100,8 +104,10 @@ namespace Combaxe___New.écrans
             //Va chercher les caractéristiques de bases du magicien
             List<string>[] caracteristiquesMagi = caracteristiqueService.RetrieveCaracteristiqueBase(btnMagicien.Content.ToString());
 
+            txtbDescriptionProf.Text += "Description de la profession\n";
+            txtbDescriptionProf.Text += "-------------------------------------------------\n";
             //Change la description
-            txtbDescriptionProf.Text = professionService.selectionDescription(btnMagicien.Content.ToString());
+            txtbDescriptionProf.Text += professionService.selectionDescription(btnMagicien.Content.ToString());
             descriptionCaracteristique("Magicien");
 
             //Change les caractéristiques pour les caractéristiques proposées pour magicien

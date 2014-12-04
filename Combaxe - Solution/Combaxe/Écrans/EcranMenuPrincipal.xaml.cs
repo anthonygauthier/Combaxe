@@ -83,6 +83,7 @@ namespace Combaxe___New.écrans
         //Méthode du bouton Supprimer personnage - Anthony Gauthier 23/10/2014
         private void btnSupprimerPerso_Click_1(object sender, RoutedEventArgs e)
         {
+            VarGlobales.aSupprimerPersonnage = true;
             VarGlobales.ChoixPersoFait = false;
             VarGlobales.Retour = false;
             VarGlobales.Personnage.Supprimer();

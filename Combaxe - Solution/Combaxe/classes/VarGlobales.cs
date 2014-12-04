@@ -28,6 +28,7 @@ namespace Combaxe___New.classes
         public static bool campagne { get; set; }
         public static bool connexion { get; set; }
         public static bool Retour { get; set; }
+        public static bool aSupprimerPersonnage { get; set; }
 
         public static SoundPlayer sonPotion { get; set; }
 
