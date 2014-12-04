@@ -24,6 +24,8 @@ namespace Combaxe___New.écrans
         public EcranOption()
         {
             InitializeComponent();
+            txtbMax.Text = ((VarGlobales.delaiMax) - 1).ToString();
+            txtbMin.Text = VarGlobales.delaiMin.ToString();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -31,7 +33,7 @@ namespace Combaxe___New.écrans
             if(verificationNumerique())
             {
                 VarGlobales.delaiMin = Convert.ToInt32(txtbMin.Text);
-                VarGlobales.delaiMax = Convert.ToInt32(txtbMax.Text);
+                VarGlobales.delaiMax = Convert.ToInt32(txtbMax.Text)+1;
                 VarGlobales.Retour = true;
                 this.Close();
             }
@@ -53,9 +55,29 @@ namespace Combaxe___New.écrans
                 if(MessageBox.Show("La valeur maximale doit être numérique.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error) == MessageBoxResult.OK);
                     return false;
             }
+            else if (txtbMin.Text == "")
+            { 
+                if(MessageBox.Show("La valeur minimal ne peut pas être vide.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error) == MessageBoxResult.OK);
+                    return false;
+            }
+            else if (txtbMax.Text == "")
+            { 
+                if(MessageBox.Show("La valeur maximale doit être numérique.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error) == MessageBoxResult.OK);
+                    return false;
+            }
+            else if (Convert.ToInt32(txtbMin.Text) > Convert.ToInt32(txtbMax.Text))
+            {
+                if(MessageBox.Show("La valeur minimale ne peut pas être plus grande que la valeur maximale.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error) == MessageBoxResult.OK);
+                    return false;
+            }
+            else if (Convert.ToInt32(txtbMax.Text) < Convert.ToInt32(txtbMin.Text))
+            {
+                if(MessageBox.Show("La valeur maximale ne peut pas être plus petite que la valeur minimale.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error) == MessageBoxResult.OK);
+                    return false;
+            }
             else
             {
-                if(MessageBox.Show("Valeurs modifiées avec succès.", "Succès", MessageBoxButton.OK, MessageBoxImage.Error) == MessageBoxResult.OK);
+                if(MessageBox.Show("Valeurs modifiées avec succès.", "Succès", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK);
                     return true;
             }
         }

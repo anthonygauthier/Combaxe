@@ -774,9 +774,12 @@ namespace Combaxe___New.écrans
             {
                 if (VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur + VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Vitesse].Valeur >= VarGlobales.Ennemi.ListeCaracteristique[(int)Caracteristiques.Vitesse].Valeur)
                 {
-                    //On affiche tout de suite l'attaque choisie par le joueur
-                    txtAttaquesPerso.Text += VarGlobales.Personnage.ListeCompetence[btnClique].Nom + "\n\n";
-                    actionBouton(btnClique);
+                    if(btnClique != 4 && btnClique != 5)
+                    { 
+                        //On affiche tout de suite l'attaque choisie par le joueur
+                        txtAttaquesPerso.Text += VarGlobales.Personnage.ListeCompetence[btnClique].Nom + "\n\n";
+                        actionBouton(btnClique);
+                    }
                     
                     /*Si l'ennemi est encore en vie, il va attaquer, mais on ajoute un délai pour faire comme si l'ennemi
                     Choisissais son attaque - Anthony Gauthier 2014-11-06*/
@@ -791,7 +794,7 @@ namespace Combaxe___New.écrans
                     if (btnClique != 4 && btnClique != 5)
                         txtAttaquesPerso.Text += VarGlobales.Personnage.ListeCompetence[btnClique].Nom + "\n\n";
                     else if(btnClique == 4)
-                        txtAttaquesPerso.Text += "Potion vie\n\n";
+                        txtAttaquesPerso.Text += "Potion de vie\n\n"; //Correction faute ortographe - Anthony Gauthier
                     else if(btnClique == 5)
                         txtAttaquesPerso.Text += "Potion d'énergie\n\n";
 
@@ -1192,7 +1195,7 @@ namespace Combaxe___New.écrans
             {
                 if(nbTour==0)
                 {
-                    txtAttaquesPerso.Text += "Premier a attaquer\n\n";
+                    txtAttaquesPerso.Text += "Premier à attaquer\n\n";
                     txtDmgPerso.Text += "<- \n\n";
                     txtDmgEnnemi.Text += "\n\n\n";
                     txtAttaquesEnnemi.Text += "\n\n\n";
@@ -1202,7 +1205,7 @@ namespace Combaxe___New.écrans
             {
                 if (nbTour == 0)
                 {
-                    txtAttaquesEnnemi.Text += "Premier a attaquer\n\n";
+                    txtAttaquesEnnemi.Text += "Premier à attaquer\n\n";
                     txtDmgEnnemi.Text += "->\n\n";
                     txtDmgPerso.Text += "\n\n\n";
                     txtAttaquesPerso.Text += "\n\n\n";
