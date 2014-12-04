@@ -672,5 +672,50 @@ namespace Combaxe___New.écrans
                     break;
             }
         }
+
+        /// <summary>
+        /// Bouton pour mettre l'image du guerrier, tommy gingras
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnImageGuerrier_Click(object sender, RoutedEventArgs e)
+        {
+            _personnageDessin.Background = assignerImage("//resources//images//personnages//guerrier.png");
+        }
+
+        /// <summary>
+        /// Bouton pour mettre l'image du paladin, tommy gingras
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnImagePaladin_Click(object sender, RoutedEventArgs e)
+        {
+
+            _personnageDessin.Background = assignerImage("//resources//images//personnages//paladin.png");
+
+        }
+
+        /// <summary>
+        /// Bouton pour mettre l'image du mage, tommy gingras
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnImageMage_Click(object sender, RoutedEventArgs e)
+        {
+            _personnageDessin.Background = assignerImage("//resources//images//personnages//mage.png");
+
+        }
+
+        private ImageBrush assignerImage(string lien)
+        {
+            ImageBrush ib = new ImageBrush();
+            Directory.CreateDirectory("resources\\images\\personnages");
+            if (File.Exists(System.AppDomain.CurrentDomain.BaseDirectory + lien))
+                ib.ImageSource = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + lien, UriKind.RelativeOrAbsolute)); // fait par tommy gingras
+            else
+                ib.ImageSource = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "//resources//images//personnages//defaut.png", UriKind.RelativeOrAbsolute)); // fait par tommy gingras
+            return ib;
+        }
+
     }
 }
