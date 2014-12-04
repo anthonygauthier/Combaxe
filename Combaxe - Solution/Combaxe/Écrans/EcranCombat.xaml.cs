@@ -1249,6 +1249,7 @@ namespace Combaxe___New.écrans
         /// </summary>
         private void EmphasePersonnage()
         {
+            majInterface(false);
             imgEnnemi.Opacity = 0.5;
             brdEnergieEnnemi.Opacity = 0.5;
             brdVieEnnemi.Opacity = 0.5;
