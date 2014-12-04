@@ -37,7 +37,9 @@ namespace Combaxe___New.écrans
             statsService.miseAjourStatistiques("nombreDeCombat = nombreDeCombat+1");
             VerifierRapidite();
             EmphasePersonnage();
+            ChangerBackground();
             //String valeur = effets.Source.ToString();
+
         }
 
         //On déclare les variables nécéssaires aux différents délais/timers - Anthony Gauthier
@@ -1230,6 +1232,29 @@ namespace Combaxe___New.écrans
             lblNiveauEnnemi.Opacity = 0.5;
             lblNomEnnemi.Opacity = 0.5;
             brdPersoActif.Visibility = Visibility.Visible;
+        }
+
+        /// <summary>
+        /// Fonction qui change l'image de background pendant la campagne
+        /// </summary>
+        private void ChangerBackground()
+        {
+            if(VarGlobales.campagne)
+            { 
+                //On change le background en fonction du boss - Anthony Gauthier
+                if (VarGlobales.Personnage.IdCampagne == 1)
+                {
+                    this.Background = new ImageBrush(new BitmapImage(new Uri((System.AppDomain.CurrentDomain.BaseDirectory + "//resources//images//background//background_azazel.png"), UriKind.RelativeOrAbsolute)));
+                }
+                else if (VarGlobales.Personnage.IdCampagne == 2)
+                {
+                    this.Background = new ImageBrush(new BitmapImage(new Uri((System.AppDomain.CurrentDomain.BaseDirectory + "//resources//images//background//background_campagne_army.png.png"), UriKind.RelativeOrAbsolute)));
+                }
+                else if (VarGlobales.Personnage.IdCampagne >= 3)
+                {
+                    this.Background = new ImageBrush(new BitmapImage(new Uri((System.AppDomain.CurrentDomain.BaseDirectory + "//resources//images//background//background_campagne_mort.png.png"), UriKind.RelativeOrAbsolute)));
+                }
+            }
         }
     }
 }

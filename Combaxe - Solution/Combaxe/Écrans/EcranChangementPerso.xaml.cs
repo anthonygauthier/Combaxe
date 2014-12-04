@@ -148,7 +148,8 @@ namespace Combaxe___New.écrans
         private void mouseEnter(Border uneBordure)
         {
             uneBordure.BorderThickness = new Thickness(1);
-            uneBordure.BorderBrush = Brushes.Red;
+            uneBordure.CornerRadius = new CornerRadius(5);
+            uneBordure.BorderBrush = Brushes.White;
         }
         private void mouseLeave(Border uneBordure)
         {
