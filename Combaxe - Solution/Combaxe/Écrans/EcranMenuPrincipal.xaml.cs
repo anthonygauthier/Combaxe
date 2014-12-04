@@ -271,8 +271,8 @@ namespace Combaxe___New.écrans
                     btnTaverne.IsEnabled = false;
                     MajBarreViePerso((int)(brdMaxWidth.ActualWidth));
                     MajBarreEnergiePerso((int)(brdMaxWidth.ActualWidth));
-                    lblVie.Content = VarGlobales.Personnage.VieMaximale;
-                    lblEnergie.Content = VarGlobales.Personnage.EnergieMaximale;
+                    lblVie.Content = "Points de vie (PV): "+VarGlobales.Personnage.VieMaximale;
+                    lblEnergie.Content = "Points d'énergie (PE): " + VarGlobales.Personnage.EnergieMaximale;
 
                     if (this.WindowStyle != WindowStyle.None)
                     {
