@@ -249,16 +249,15 @@
     <Resource Include="images\icones\deconnexion.png" />
     <Resource Include="images\icones\delete.png" />
     <Resource Include="images\icones\graph.png" />
-<<<<<<< HEAD
+
     <Resource Include="piece.png" />
-=======
     <Resource Include="images\defaut.png" />
     <Resource Include="images\guerrier.png" />
     <Resource Include="images\mage.png" />
     <Resource Include="images\background_azazel.png" />
     <Resource Include="images\background_campagne_army.png" />
     <Resource Include="images\background_campagne_mort.png" />
->>>>>>> origin/master
+
     <Content Include="resources\media\clique.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

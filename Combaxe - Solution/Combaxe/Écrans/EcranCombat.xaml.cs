@@ -1272,11 +1272,11 @@ namespace Combaxe___New.écrans
                 }
                 else if (VarGlobales.Personnage.IdCampagne == 2)
                 {
-                    this.Background = new ImageBrush(new BitmapImage(new Uri((System.AppDomain.CurrentDomain.BaseDirectory + "//resources//images//background//background_campagne_army.png.png"), UriKind.RelativeOrAbsolute)));
+                    this.Background = new ImageBrush(new BitmapImage(new Uri((System.AppDomain.CurrentDomain.BaseDirectory + "//resources//images//background//background_campagne_army.png"), UriKind.RelativeOrAbsolute)));
                 }
                 else if (VarGlobales.Personnage.IdCampagne >= 3)
                 {
-                    this.Background = new ImageBrush(new BitmapImage(new Uri((System.AppDomain.CurrentDomain.BaseDirectory + "//resources//images//background//background_campagne_mort.png.png"), UriKind.RelativeOrAbsolute)));
+                    this.Background = new ImageBrush(new BitmapImage(new Uri((System.AppDomain.CurrentDomain.BaseDirectory + "//resources//images//background//background_campagne_mort.png"), UriKind.RelativeOrAbsolute)));
                 }
             }
         }

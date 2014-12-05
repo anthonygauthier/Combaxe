@@ -39,11 +39,7 @@ namespace Combaxe___New.classes
         public static int delaiMax { get; set; }
 
         public static List<Caracteristique> lstCaracteristiqueEquipement { get; set; }
-<<<<<<< HEAD
-        public static List<Equipement> lstEquipementMagasin { get; set; }
-=======
 
-        
->>>>>>> origin/master
+        public static List<Equipement> lstEquipementMagasin { get; set; }
     }
 }
