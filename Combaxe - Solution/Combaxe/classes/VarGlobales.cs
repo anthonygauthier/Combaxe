@@ -33,5 +33,6 @@ namespace Combaxe___New.classes
         public static bool Retour { get; set; }
 
         public static List<Caracteristique> lstCaracteristiqueEquipement { get; set; }
+        public static List<Equipement> lstEquipementMagasin { get; set; }
     }
 }

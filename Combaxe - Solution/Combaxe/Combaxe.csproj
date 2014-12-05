@@ -233,6 +233,7 @@
     <Resource Include="images\icones\deconnexion.png" />
     <Resource Include="images\icones\delete.png" />
     <Resource Include="images\icones\graph.png" />
+    <Resource Include="piece.png" />
     <Content Include="resources\media\clique.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

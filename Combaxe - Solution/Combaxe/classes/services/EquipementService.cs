@@ -36,7 +36,16 @@ namespace Combaxe___New.classes.services
             lstCaracteristique = caracteristiqueService.RetrieveCaracteristique(idEquipementModele.ToString(), typeof(Equipement));
 
             //On créer l'équipement et on le retourne
-            unEquipement = new Equipement(idEquipement, idEquipementModele, modele, lstEquipement[0][1], lstEquipement[0][2], Convert.ToDouble(lstEquipement[0][3]), Convert.ToInt32(lstEquipement[0][4]), Convert.ToInt32(lstEquipement[0][5]), lstCaracteristique);
+            //
+            if (idEquipement != -1)
+            {
+                unEquipement = new Equipement(idEquipement, idEquipementModele, modele, lstEquipement[0][1], lstEquipement[0][2], Convert.ToDouble(lstEquipement[0][3]), Convert.ToInt32(lstEquipement[0][4]), Convert.ToInt32(lstEquipement[0][5]), lstCaracteristique);
+            }
+            else
+            {
+                unEquipement = new Equipement( idEquipementModele, modele, lstEquipement[0][1], lstEquipement[0][2], Convert.ToDouble(lstEquipement[0][3]), Convert.ToInt32(lstEquipement[0][4]), Convert.ToInt32(lstEquipement[0][5]), lstCaracteristique);
+            }
+                
             return unEquipement;
         }
 
@@ -146,24 +155,24 @@ namespace Combaxe___New.classes.services
         /// <returns>Une liste d'équipement</returns>
         public List<Equipement> retrieveEquipements(int niveau, int idEquipement)
         {
-            List<Equipement> lstEquipementButin = new List<Equipement>();
-            List<string>[] lstEquipement;
+            List<Equipement> lstEquipement = new List<Equipement>();
+            List<string>[] lstIdEquipement;
             int nombreRange = 0;
 
             //Selectionne les idEquipementModele des équipements recherchés
             string selEquipement = "SELECT idEquipementModele FROM EquipementsModeles WHERE niveauEquipement = '" + niveau + "';";
-            lstEquipement=bdCombaxe.selection(selEquipement,1,ref nombreRange);
+            lstIdEquipement=bdCombaxe.selection(selEquipement,1,ref nombreRange);
 
             //Si la liste n'est pas vide
-            if (lstEquipement.Count() != 1)
+            if (lstIdEquipement.Count() != 1)
             {
-                for (int i = 0; i < lstEquipement.Count(); i++)
+                for (int i = 0; i < lstIdEquipement.Count(); i++)
                 {
                     //On ajoute l'équipement à lstEquipementButin
-                    lstEquipementButin.Add(retrieveEquipementModele(Convert.ToInt32(lstEquipement[i][0]), idEquipement));
+                    lstEquipement.Add(retrieveEquipementModele(Convert.ToInt32(lstIdEquipement[i][0]), idEquipement));
                 }
             }
-            return lstEquipementButin;
+            return lstEquipement;
         }
 
         public int insertEquipement(int idEquipementModele)
@@ -171,6 +180,40 @@ namespace Combaxe___New.classes.services
             string reqInsertEquipement = "INSERT INTO Equipements(idEquipementModele) VALUES ('" + idEquipementModele + "');";
             bdCombaxe.Insertion(reqInsertEquipement);
             return bdCombaxe.lastInsertId();
+        }
+
+        /// <summary>
+        /// Fonction qui va chercher les idEquipementModele des équipements selon leur niveau
+        /// </summary>
+        /// <param name="niveau">Le niveau de l'équipement recherché</param>
+        /// <returns>La liste des idEquipementModele</returns>
+        public List<string>[] retrieveIdEquipementModeleParNiveau(int niveau)
+        {
+            int nombreRange = 0;
+            List<string>[] lstEquipement;
+
+            string selEquipement = "SELECT idEquipementModele FROM EquipementsModeles WHERE niveauEquipement = '" + niveau + "';";
+            lstEquipement = bdCombaxe.selection(selEquipement, 1, ref nombreRange);
+
+            //Si la liste d'équipement est vide, on retrieve tous les équipements qui sont inferieur de 1 du niveau de l'ennemi
+            if (lstEquipement[0][0] == "")
+            {
+                selEquipement = "SELECT idEquipementModele FROM EquipementsModeles WHERE niveauEquipement = '" + (niveau - 1) + "';";
+                lstEquipement = bdCombaxe.selection(selEquipement, 1, ref nombreRange);
+            }
+
+            return lstEquipement;
+        }
+
+        public List<string>[] retrieveAllIdEquipementModele()
+        {
+            int nombreRange = 0;
+            List<string>[] lstEquipement;
+
+            string selEquipement = "SELECT idEquipementModele FROM EquipementsModeles;";
+            lstEquipement = bdCombaxe.selection(selEquipement, 1, ref nombreRange);
+
+            return lstEquipement;
         }
     }
 }

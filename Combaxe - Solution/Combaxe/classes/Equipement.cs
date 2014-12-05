@@ -56,5 +56,25 @@ namespace Combaxe___New.classes
             DegatMax = max;
             lstCaracteristique = c;
         }
+
+        /// <summary>
+        /// Constructeur paramétré si l'équipement n'est pas mit en jeu - William Themens
+        /// </summary>
+        /// <param name="n">nom de l'équipement</param>
+        /// <param name="uri">url de l'image</param>
+        /// <param name="pr">prix de l'équipement</param>
+        /// <param name="min">degatMinimum</param>
+        /// <param name="max">degatMaximum</param>
+        public Equipement(int idM, Modele m, string n, string uri, double pr, int min, int max, List<Caracteristique> c)
+        {
+            IdEquipementModele = idM;
+            Modele = m;
+            Nom = n;
+            ImageUrl = uri;
+            Prix = pr;
+            DegatMin = min;
+            DegatMax = max;
+            lstCaracteristique = c;
+        }
     }
 }

@@ -23,13 +23,20 @@ namespace Combaxe___New.écrans
     {
         PersonnageService personnageService = new PersonnageService();
         InventaireService inventaireService = new InventaireService();
+        EquipementService equipementService = new EquipementService();
+        ConsommationService consomationService = new ConsommationService();
+
+        private const int MAXEQUIPEMENTPORTE = 8;
+        private const int MAXEQUIPEMENTINVENTAIRE = 16;
+        private const int MARGIN = 2;
+        private const int RANGEEMAGASIN = 2;
+        private const int COLONNEMAGASIN = 3;
 
         private Image dragImage;
         private Point startDragPoint;
         private List<Equipement> equipementInventaire = null;
         private List<Equipement> equipementUtilise = VarGlobales.Personnage.Inventaire.listeEquipementUtilise;
-        private const int MAXEQUIPEMENTPORTE = 8;
-        private const int MARGIN = 2;
+        private List<Equipement> equipementMagasin = new List<Equipement>();
         private List<Caracteristique> lstCaracteristiqueEquipement = VarGlobales.lstCaracteristiqueEquipement;
 
         public EcranInventaireMagasin()
@@ -38,12 +45,15 @@ namespace Combaxe___New.écrans
             chargerPersonnage();
             chargerEquipementInventaire();
             chargerEquipementPorte();
+            genererMagasin();
         }
 
         private void btnRetour_Click_1(object sender, RoutedEventArgs e)
         {
             personnageService.MAJEquipementPersonnage(equipementUtilise);
             inventaireService.MAJEquipementInventaire(equipementInventaire);
+            inventaireService.MAJArgent();
+            consomationService.MAJConsommation();
             var MenuPrincipal = new EcranMenuPrincipal();
             MenuPrincipal.Show();
             this.Close();
@@ -74,6 +84,9 @@ namespace Combaxe___New.écrans
             txtEnergiePerso.Content = "Points d'énergie (PE): " + VarGlobales.Personnage.Energie.ToString() + "/" + VarGlobales.Personnage.EnergieMaximale.ToString();
         }
 
+        /// <summary>
+        /// Fonction qui charge les équipements qui sont portés par le personnage
+        /// </summary>
         private void chargerEquipementPorte()
         {
             Image equipement = new Image(); ;
@@ -150,7 +163,7 @@ namespace Combaxe___New.écrans
                                     equipement.ToolTip += "\n" + VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].lstCaracteristique[k].Nom + ": " + VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].lstCaracteristique[k].Valeur;
                                 }
                             }
-                            equipement.ToolTip += "\n Prix: " + Math.Round(VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].Prix / 1.131416, 2) + "$\n";
+                            equipement.ToolTip += "\n Prix: " + Math.Round(VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].Prix / 1.131416, 2) + "$";
                             equipement.Source = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].ImageUrl, UriKind.RelativeOrAbsolute));
                             equipement.Tag = VarGlobales.Personnage.Inventaire.listeEquipement[(i * 4) + j].IdEquipement;
                             equipement.PreviewMouseMove += equipement_PreviewMouseMove;
@@ -242,6 +255,7 @@ namespace Combaxe___New.écrans
         {
             Equipement unEquipementPorte = new Equipement();
             Equipement unEquipementInventaire = new Equipement();
+            int positionInventaire = 0;
 
             //trouve et va chercher les informations de l'équipement de l'inventaire
             for (int i = 0; i < equipementInventaire.Count; i++)
@@ -249,8 +263,8 @@ namespace Combaxe___New.écrans
                 if(equipementInventaire[i].IdEquipement==idEquipementInventaire)
                 {
                     unEquipementInventaire = equipementInventaire[i];
-                    //Supprime l'équipement de la liste d'équipement de l'inventaire
-                    equipementInventaire.RemoveAt(i);
+                    positionInventaire = i;
+                    
                     break;
                 }
             }
@@ -258,31 +272,101 @@ namespace Combaxe___New.écrans
             //trouve et va chercher les informations de l'équipement porté
             for (int i = 0; i < equipementUtilise.Count; i++)
             {
-                if (equipementUtilise[i].Modele.IdModele == unEquipementInventaire.Modele.IdModele || (equipementUtilise[i].Modele.IdModele == (int)Modele.Modeles.ArmeUneMain && (int)Modele.Modeles.ArmeDeuxMains == unEquipementInventaire.Modele.IdModele) || (equipementUtilise[i].Modele.IdModele == (int)Modele.Modeles.ArmeDeuxMains && (int)Modele.Modeles.ArmeUneMain == unEquipementInventaire.Modele.IdModele))
+                if (equipementUtilise[i].Modele.IdModele == unEquipementInventaire.Modele.IdModele
+                    || (equipementUtilise[i].Modele.IdModele == (int)Modele.Modeles.ArmeDeuxMains && (int)Modele.Modeles.ArmeUneMain == unEquipementInventaire.Modele.IdModele)
+                    || (equipementUtilise[i].Modele.IdModele == (int)Modele.Modeles.ArmeDeuxMains && (int)Modele.Modeles.Bouclier == unEquipementInventaire.Modele.IdModele))
                 {
                     unEquipementPorte = equipementUtilise[i];
                     //Supprime l'équipement de la liste d'équipement porté
                     equipementUtilise.RemoveAt(i);
+                    equipementUtilise.Add(unEquipementInventaire);
+                    //Supprime l'équipement de la liste d'équipement de l'inventaire
+                    equipementInventaire.RemoveAt(positionInventaire);
                     //On ajoute unEquipementPorte dans la liste d'equipementInventaire
                     equipementInventaire.Add(unEquipementPorte);
 
                     for (int j = 0; j < unEquipementInventaire.lstCaracteristique.Count(); j++)
                     {
                         lstCaracteristiqueEquipement[j].Valeur = lstCaracteristiqueEquipement[j].Valeur - unEquipementPorte.lstCaracteristique[j].Valeur;
+                        lstCaracteristiqueEquipement[j].Valeur = lstCaracteristiqueEquipement[j].Valeur + unEquipementInventaire.lstCaracteristique[j].Valeur;
                     }
                     break;
                 }
+                else if((equipementUtilise[i].Modele.IdModele == (int)Modele.Modeles.ArmeUneMain && (int)Modele.Modeles.ArmeDeuxMains == unEquipementInventaire.Modele.IdModele)
+                    || (equipementUtilise[i].Modele.IdModele == (int)Modele.Modeles.Bouclier && (int)Modele.Modeles.ArmeDeuxMains == unEquipementInventaire.Modele.IdModele))
+                {
+                    Equipement deuxiemeEquipementPorte = new Equipement();
+                    int position = 0;
+                    for (int j = 0; j < equipementUtilise.Count; j++)
+                    {
+                        if((equipementUtilise[i].Modele.IdModele == (int)Modele.Modeles.ArmeUneMain && equipementUtilise[j].Modele.IdModele == (int)Modele.Modeles.Bouclier && (int)Modele.Modeles.ArmeDeuxMains == unEquipementInventaire.Modele.IdModele)
+                            || (equipementUtilise[i].Modele.IdModele == (int)Modele.Modeles.Bouclier && equipementUtilise[j].Modele.IdModele == (int)Modele.Modeles.ArmeUneMain && (int)Modele.Modeles.ArmeDeuxMains == unEquipementInventaire.Modele.IdModele))
+                        {
+                            deuxiemeEquipementPorte = equipementUtilise[j];
+                            position = j;
+                            break;
+                        }
+                    }
+                    if (deuxiemeEquipementPorte.Nom != "")
+                    {
+                        if (equipementInventaire.Count == MAXEQUIPEMENTINVENTAIRE)
+                        {
+                            if (MessageBox.Show("Votre inventaire est plein, veuillez libérer une case de votre inventaire", "Inventaire plein", MessageBoxButton.OK, MessageBoxImage.Error) == MessageBoxResult.OK)
+                            {
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            unEquipementPorte = equipementUtilise[i];
+                            //Supprime l'équipement de la liste d'équipement de l'inventaire
+                            equipementInventaire.RemoveAt(positionInventaire);
+                            //Supprime l'équipement de la liste d'équipement porté
+                            if (i < position)
+                            {
+                                equipementUtilise.RemoveAt(i);
+                                equipementUtilise.RemoveAt(position - 1);
+                            }
+                            else
+                            {
+                                equipementUtilise.RemoveAt(position);
+                                equipementUtilise.RemoveAt(i - 1);
+                            }
+                            equipementUtilise.Add(unEquipementInventaire);
+                            //On ajoute unEquipementPorte dans la liste d'equipementInventaire
+                            equipementInventaire.Add(unEquipementPorte);
+                            equipementInventaire.Add(deuxiemeEquipementPorte);
+
+                            for (int j = 0; j < unEquipementInventaire.lstCaracteristique.Count(); j++)
+                            {
+                                lstCaracteristiqueEquipement[j].Valeur = lstCaracteristiqueEquipement[j].Valeur - unEquipementPorte.lstCaracteristique[j].Valeur;
+                                lstCaracteristiqueEquipement[j].Valeur = lstCaracteristiqueEquipement[j].Valeur - deuxiemeEquipementPorte.lstCaracteristique[j].Valeur;
+                                lstCaracteristiqueEquipement[j].Valeur = lstCaracteristiqueEquipement[j].Valeur + unEquipementInventaire.lstCaracteristique[j].Valeur;
+                            }
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        unEquipementPorte = equipementUtilise[i];
+                        //Supprime l'équipement de la liste d'équipement porté
+                        equipementUtilise.RemoveAt(i);
+                        equipementUtilise.Add(unEquipementInventaire);
+                        //Supprime l'équipement de la liste d'équipement de l'inventaire
+                        equipementInventaire.RemoveAt(positionInventaire);
+                        //On ajoute unEquipementPorte dans la liste d'equipementInventaire
+                        equipementInventaire.Add(unEquipementPorte);
+
+                        for (int j = 0; j < unEquipementInventaire.lstCaracteristique.Count(); j++)
+                        {
+                            lstCaracteristiqueEquipement[j].Valeur = lstCaracteristiqueEquipement[j].Valeur - unEquipementPorte.lstCaracteristique[j].Valeur;
+                            lstCaracteristiqueEquipement[j].Valeur = lstCaracteristiqueEquipement[j].Valeur + unEquipementInventaire.lstCaracteristique[j].Valeur;
+                        }
+                        break;
+                    }
+                }
             }
 
-            //On ajoute unEquipementInventaire dans la liste d'equipementUtilise
-            equipementUtilise.Add(unEquipementInventaire);
-
-            for (int i = 0; i < unEquipementInventaire.lstCaracteristique.Count(); i++)
-            {
-                    lstCaracteristiqueEquipement[i].Valeur += unEquipementInventaire.lstCaracteristique[i].Valeur;
-            }
-
-            chargerEquipementInventaire();
             chargerEquipementPorte();
             VarGlobales.lstCaracteristiqueEquipement = lstCaracteristiqueEquipement;
             VarGlobales.Personnage.VieMaximale = Convert.ToInt32(((VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur + lstCaracteristiqueEquipement[(int)Caracteristiques.Vie].Valeur) * 20) / 3.1416);
@@ -319,21 +403,29 @@ namespace Combaxe___New.écrans
             Image dropImage = e.Source as Image;
             Image tempo = new Image();
             tempo.Tag = dragImage.Tag;
+
+            //Si l'image qui se situe à l'endroit où l'on veut se déplacer ne porte pas de nom, ça signifie que
+            //L'équipement qui est draguer veut être équipé et qu'il n'y a pas déjà un équipement de se modèle qui est porté.
             if (dropImage.Name != "")
             {
-                if (!estDansInventaire((int)dropImage.Tag))
+                //Si le nom de l'image sur laquel on dropper l'équipement est "Vendre", ça signifie que l'équipement veut être vendu
+                if (dropImage.Name == "Vendre")
                 {
-                    equiperEquipement((int)dragImage.Tag);
+                    vendreEquipement((int)dragImage.Tag);
                 }
                 else
                 {
-                    chargerEquipementInventaire();
+                    if (!estDansInventaire((int)dropImage.Tag))
+                    {
+                        equiperEquipement((int)dragImage.Tag);
+                    }
                 }
             }
             else
             {
                 equiperEquipement((int)dragImage.Tag);
             }
+            chargerEquipementInventaire();
             majCaracteristiques();
             VarGlobales.Personnage.Inventaire.listeEquipement = equipementInventaire;
             VarGlobales.Personnage.Inventaire.listeEquipementUtilise = equipementUtilise;
@@ -400,7 +492,7 @@ namespace Combaxe___New.écrans
         /// Fonction qui créer le border de l'équipement équipé et l'insère dans le gridÉquiper
         /// </summary>
         /// <param name="border">Le border</param>
-        /// <param name="column">Son colonne du grid</param>
+        /// <param name="column">Sa colonne du grid</param>
         /// <param name="row">La rangée du grid</param>
         /// <param name="span">String qui dit si le span est avec la row ou avec le column</param>
         private void borderEquipementUtilise(Border border, int column, int row, string span)
@@ -433,6 +525,14 @@ namespace Combaxe___New.écrans
             GridEquiper.Children.Add(border);
         }
 
+        /// <summary>
+        /// Insère une image dans le grid des équipements portés par le personnage
+        /// </summary>
+        /// <param name="equipement">L'image où les attributs doivent être ajoutés</param>
+        /// <param name="idModele">Le idModele où l'équipement doit être ajouté</param>
+        /// <param name="column">La colonne du grid</param>
+        /// <param name="row">La rangée du grid</param>
+        /// <param name="span">S'il y a un rowspan ou un columnspan</param>
         private void attribueImage(Image equipement, int idModele, int column, int row, string span)
         {
             if (equipementUtilise.Count != 0)
@@ -603,5 +703,97 @@ namespace Combaxe___New.écrans
             MajBarreViePerso((int)(brdMaxWidth.ActualWidth));
             MajBarreEnergiePerso((int)(brdMaxWidth.ActualWidth));
         }
+
+        #region Magasin
+
+        /// <summary>
+        /// Fonction qui génère le magasin
+        /// </summary>
+        private void genererMagasin()
+        {
+            insererMagasin();
+        }
+
+        /// <summary>
+        /// Fonction qui insère des équipements dans le magasin
+        /// </summary>
+        private void insererMagasin()
+        {
+            Image vendre = new Image();
+            vendre.Source = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "resources/images/objets/piece.png", UriKind.RelativeOrAbsolute));
+            vendre.ToolTip = "Glissez l'équipement que vous désirez vendre";
+            vendre.Name = "Vendre";
+            vendre.AllowDrop = true;
+            vendre.Drop += equipement_Drop;
+            Grid.SetColumn(vendre, 0);
+            Grid.SetRow(vendre, 1);
+            Grid.SetRowSpan(vendre, 2);
+            GridMagasin.Children.Add(vendre);
+
+            Image boutonPotionVie = new Image();
+            boutonPotionVie.Source = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "resources/images/objets/potionVie.png", UriKind.RelativeOrAbsolute));
+            boutonPotionVie.Name = "btnPotionVie";
+            boutonPotionVie.ToolTip = "Prix : " + VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Prix + "$";
+            boutonPotionVie.MouseLeftButtonUp += boutonPotionVie_MouseLeftButtonUp;
+            Grid.SetColumn(boutonPotionVie, 1);
+            Grid.SetRow(boutonPotionVie, 1);
+            GridMagasin.Children.Add(boutonPotionVie);
+
+            Image boutonPotionEnergie = new Image();
+            boutonPotionEnergie.Source = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "resources/images/objets/potionMana.png", UriKind.RelativeOrAbsolute));
+            boutonPotionEnergie.Name = "btnPotionEnergie";
+            boutonPotionEnergie.ToolTip = "Prix : " + VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Energie].Prix + "$";
+            boutonPotionEnergie.MouseLeftButtonUp += boutonPotionEnergie_MouseLeftButtonUp;
+            Grid.SetColumn(boutonPotionEnergie, 2);
+            Grid.SetRow(boutonPotionEnergie, 1);
+            GridMagasin.Children.Add(boutonPotionEnergie);
+
+            lblVendreEquipement.Content = "Vendre équipement";
+            lblAcheterPotionVie.Content = "Acheter des potions de vie";
+            lblAcheterPotionEnergie.Content = "Acheter des potions d'énergie";
+            nombrePotionVie.Content = VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Quantite+ " potions de vie en inventaire";
+            nombrePotionEnergie.Content = VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Energie].Quantite + " potions d'énergie en inventaire";
+
+        }
+
+        void boutonPotionEnergie_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            VarGlobales.Personnage.Inventaire.argent -= VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Energie].Prix;
+            VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Energie].Quantite += 1;
+            nombrePotionEnergie.Content = VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Energie].Quantite + " potions d'énergie en inventaire";
+            txtbArgent.Text = VarGlobales.Personnage.Inventaire.argent.ToString() + "$";
+        }
+
+        void boutonPotionVie_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            VarGlobales.Personnage.Inventaire.argent -= VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Prix;
+            VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Quantite += 1;
+            nombrePotionVie.Content = VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Quantite + " potions de vie en inventaire";
+            txtbArgent.Text = VarGlobales.Personnage.Inventaire.argent.ToString() + "$";
+        }
+
+        /// <summary>
+        /// Fonction qui permet de vendre un équipement
+        /// </summary>
+        /// <param name="idEquipementInventaire">Le id de l'équipement qui est vendu</param>
+        private void vendreEquipement(int idEquipementInventaire)
+        {
+            //On trouve l'équipement dans l'inventaire avec son id
+            for (int i = 0; i < equipementInventaire.Count; i++)
+            {
+                if(equipementInventaire[i].IdEquipement == idEquipementInventaire)
+                {
+                    //On ajoute l'argent reçu pour avoir vendu l'équipement
+                    VarGlobales.Personnage.Inventaire.argent += Math.Round(equipementInventaire[i].Prix/ 1.131416, 2);
+                    txtbArgent.Text = VarGlobales.Personnage.Inventaire.argent.ToString() + "$";
+                    //On retire l'équipement de la liste d'équipement inventaire
+                    equipementInventaire.RemoveAt(i);
+                    VarGlobales.Personnage.Inventaire.listeEquipement = equipementInventaire;
+                    break;
+                }
+            }
+        }
+
+        #endregion
     }
 }

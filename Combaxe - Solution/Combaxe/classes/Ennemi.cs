@@ -241,20 +241,11 @@ namespace Combaxe___New.classes
             List<string>[] lstEquipement;
             List<int> noEquipementModeleButin = new List<int>() ;//Variable qui détiendra les idEquipementModele des équipements qui se retrouveront dans le butin
             Random rand = new Random();
-            int nombreRange = 0;
             int nombreEquipement = 0;
             int noEquipementModele;
             List<int> idEquipement = new List<int>();
 
-            string selEquipement = "SELECT idEquipementModele FROM EquipementsModeles WHERE niveauEquipement = '" + VarGlobales.Ennemi.Niveau + "';";
-            lstEquipement = bdCombaxe.selection(selEquipement, 1, ref nombreRange);
-
-            //Si la liste d'équipement est vide, on retrieve tous les équipements qui sont inferieur de 1 du niveau de l'ennemi
-            if(lstEquipement[0][0] == "")
-            {
-                selEquipement = "SELECT idEquipementModele FROM EquipementsModeles WHERE niveauEquipement = '" + (VarGlobales.Ennemi.Niveau-1) + "';";
-                lstEquipement = bdCombaxe.selection(selEquipement, 1, ref nombreRange);
-            }
+            lstEquipement = equipementService.retrieveIdEquipementModeleParNiveau(VarGlobales.Ennemi.Niveau);
             //Random entre 0 et 4 pour savoir le nombre d'equipement qui seront dans le butin
             int nombreButin;
             switch (VarGlobales.Personnage.Inventaire.listeEquipement.Count())
@@ -269,7 +260,7 @@ namespace Combaxe___New.classes
                     nombreButin = 0;
                     break;
                 default:
-                    nombreButin = 2;//rand.Next(4);
+                    nombreButin = rand.Next(4);
                     break;
             }
 
