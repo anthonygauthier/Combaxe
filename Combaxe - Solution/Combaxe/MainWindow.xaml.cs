@@ -29,6 +29,9 @@ namespace Combaxe___New
         {
             InitializeComponent();
             LoadMedias();
+
+            VarGlobales.delaiMin = 3;
+            VarGlobales.delaiMax = 9;
         }
         TimeSpan temps;
         DispatcherTimer horloge;

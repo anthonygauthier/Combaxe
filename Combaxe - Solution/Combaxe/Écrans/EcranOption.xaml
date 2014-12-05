@@ -1,0 +1,27 @@
+﻿<Window x:Class="Combaxe___New.écrans.EcranOption"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="EcranOption" Height="150" Width="300" WindowStyle="None" Background="Black" Opacity="0.8" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Topmost="True">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.ColumnSpan="2" Content="Options" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" FontFamily="Matura MT Script Capitals" ></Label>
+        
+        <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Délai attaque ennemi: " Foreground="White"></Label>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Foreground="White" Content="Min:"></Label>
+            <TextBox Name="txtbMin" MaxLength="2" MinWidth="25" Margin="0,0,5,0"></TextBox>
+            <Label Foreground="White" Content="Max:"></Label>
+            <TextBox Name="txtbMax" MaxLength="2" MinWidth="25" Margin="0,0,5,0"></TextBox>
+        </StackPanel>
+        
+        <Button Style="{DynamicResource GlassButton}" Grid.Row="2" HorizontalAlignment="Center" Content="Modifier" Grid.ColumnSpan="2" Click="Button_Click_1"></Button>
+    </Grid>
+</Window>

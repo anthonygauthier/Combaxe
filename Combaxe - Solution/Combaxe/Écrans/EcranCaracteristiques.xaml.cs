@@ -366,7 +366,7 @@ namespace Combaxe___New.écrans
             CaracteristiqueService carService = new CaracteristiqueService();
             carService.MiseAJourCaracteristiques(Convert.ToInt32(txtForce.Text) - VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Force].Valeur, Convert.ToInt32(txtVitesse.Text) - VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Vitesse].Valeur, Convert.ToInt32(txtEnergie.Text) - VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Energie].Valeur, Convert.ToInt32(txtVie.Text) - VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Vie].Valeur, Convert.ToInt32(txtDefense.Text) - VarGlobales.lstCaracteristiqueEquipement[(int)Caracteristiques.Defense].Valeur);
             
-            if (MessageBox.Show("Les caracétristiques de votre personnage ont été mises à jour avec succès!", "Nouvelle caractéristiques", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK) 
+            if (MessageBox.Show("Les caractétristiques de votre personnage ont été mises à jour avec succès!", "Nouvelle caractéristiques", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK) 
             {
                 VarGlobales.fermerModifCaracteristique = true;
             }

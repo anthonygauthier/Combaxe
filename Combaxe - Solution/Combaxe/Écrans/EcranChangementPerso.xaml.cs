@@ -31,6 +31,9 @@ namespace Combaxe___New.écrans
         {
             InitializeComponent();
             SelectionnerPersonnages();
+
+            if(VarGlobales.aSupprimerPersonnage == true)
+                btnRetour.IsEnabled = false;
         }
 
         private void SelectionnerPersonnages()
@@ -145,7 +148,8 @@ namespace Combaxe___New.écrans
         private void mouseEnter(Border uneBordure)
         {
             uneBordure.BorderThickness = new Thickness(1);
-            uneBordure.BorderBrush = Brushes.Red;
+            uneBordure.CornerRadius = new CornerRadius(5);
+            uneBordure.BorderBrush = Brushes.White;
         }
         private void mouseLeave(Border uneBordure)
         {
@@ -156,6 +160,7 @@ namespace Combaxe___New.écrans
         private void LoadPerso(int index)
         {
             // on va chercher un personnage
+            VarGlobales.aSupprimerPersonnage = false;
             PersonnageService personnageService = new PersonnageService();
             VarGlobales.ChoixPersoFait = true;
             // si un personnage est déjà connecté on veut enregistrer son temps de jeu

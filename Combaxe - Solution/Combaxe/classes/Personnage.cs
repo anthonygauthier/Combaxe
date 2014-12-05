@@ -163,16 +163,15 @@ namespace Combaxe___New.classes
 
         public void Mort(int nbrTour, DispatcherTimer chrono, int expPerdu)
         {
+            chrono.Stop();
             PersonnageService persoService = new PersonnageService();
             this.Vie = 0;
-            
+
             if (MessageBox.Show("Combat terminé...\n Vous êtes mort et avez perdu " + expPerdu + " points d'expérience.\n", "Défaite...", MessageBoxButton.OK, MessageBoxImage.Exclamation) == MessageBoxResult.OK)
             {
                 Regeneration();
                 persoService.MAJVieEnergie(true);
-                chrono.Stop();
             }
-            
         }
 
         /// <summary>

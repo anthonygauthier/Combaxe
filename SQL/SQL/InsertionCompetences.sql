@@ -303,7 +303,7 @@ VALUES
 ,25
 ,25
 ,4
-,'Lance une boule de feu à l\'ennemi. '
+,'Lance une décharge électrique à l\'ennemi. '
 );
 
 INSERT INTO Competences
@@ -327,8 +327,8 @@ VALUES
     (SELECT idTypeCompetence FROM TypesCompetences WHERE nom='Support')
 ,NULL
 ,'Prière de guérison'
+,3
 ,7
-,10
 ,5
 ,3
 ,'Implore les dieux pour le guérir de ses douleurs et lui donner de la vie. '

@@ -370,7 +370,7 @@ namespace Combaxe___New.écrans
             chargerEquipementPorte();
             VarGlobales.lstCaracteristiqueEquipement = lstCaracteristiqueEquipement;
             VarGlobales.Personnage.VieMaximale = Convert.ToInt32(((VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Vie].Valeur + lstCaracteristiqueEquipement[(int)Caracteristiques.Vie].Valeur) * 20) / 3.1416);
-            VarGlobales.Personnage.EnergieMaximale = Convert.ToInt32(((VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur + lstCaracteristiqueEquipement[(int)Caracteristiques.Energie].Valeur) * 20) / 3.1416);
+            VarGlobales.Personnage.EnergieMaximale = Convert.ToInt32(((VarGlobales.Personnage.ListeCaracteristique[(int)Caracteristiques.Energie].Valeur + lstCaracteristiqueEquipement[(int)Caracteristiques.Energie].Valeur) * 10) / 3.1416);
             MajBarreEnergiePerso((int)(brdMaxWidth.ActualWidth));
             MajBarreViePerso((int)(brdMaxWidth.ActualWidth));
         }
@@ -650,6 +650,9 @@ namespace Combaxe___New.écrans
         /// </summary>
         private void MajBarreViePerso(int max)
         {
+            if (VarGlobales.Personnage.Vie > VarGlobales.Personnage.VieMaximale)
+                VarGlobales.Personnage.Vie = VarGlobales.Personnage.VieMaximale;
+
             int poucentageVie = (VarGlobales.Personnage.Vie * 100) / VarGlobales.Personnage.VieMaximale;
 
             int widthAjuste = max - ((max * poucentageVie) / 100);
@@ -663,6 +666,9 @@ namespace Combaxe___New.écrans
         /// </summary>
         private void MajBarreEnergiePerso(int max)
         {
+            if (VarGlobales.Personnage.Energie > VarGlobales.Personnage.EnergieMaximale)
+                VarGlobales.Personnage.Energie = VarGlobales.Personnage.EnergieMaximale;
+
             int pourcentageEnergie = (VarGlobales.Personnage.Energie * 100) / VarGlobales.Personnage.EnergieMaximale;
 
             int widthAjuste = max - ((max * pourcentageEnergie) / 100);

@@ -95,6 +95,9 @@
     <Compile Include="classes\services\StatistiqueService.cs" />
     <Compile Include="classes\VarGlobales.cs" />
     <Compile Include="classes\Effet.cs" />
+    <Compile Include="écrans\EcranAide.xaml.cs">
+      <DependentUpon>EcranAide.xaml</DependentUpon>
+    </Compile>
     <Compile Include="écrans\EcranCaracteristiques.xaml.cs">
       <DependentUpon>EcranCaracteristiques.xaml</DependentUpon>
     </Compile>
@@ -113,10 +116,17 @@
     <Compile Include="écrans\EcranMenuPrincipal.xaml.cs">
       <DependentUpon>EcranMenuPrincipal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="écrans\EcranOption.xaml.cs">
+      <DependentUpon>EcranOption.xaml</DependentUpon>
+    </Compile>
     <Compile Include="écrans\EcranRepos.xaml.cs">
       <DependentUpon>EcranRepos.xaml</DependentUpon>
     </Compile>
     <Compile Include="écrans\EcranStatistiques.xaml.cs" />
+    <Page Include="écrans\EcranAide.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="écrans\EcranCaracteristiques.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -173,6 +183,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="écrans\EcranOption.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="écrans\EcranRepos.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -208,7 +222,9 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\background.png" />
@@ -233,7 +249,16 @@
     <Resource Include="images\icones\deconnexion.png" />
     <Resource Include="images\icones\delete.png" />
     <Resource Include="images\icones\graph.png" />
+<<<<<<< HEAD
     <Resource Include="piece.png" />
+=======
+    <Resource Include="images\defaut.png" />
+    <Resource Include="images\guerrier.png" />
+    <Resource Include="images\mage.png" />
+    <Resource Include="images\background_azazel.png" />
+    <Resource Include="images\background_campagne_army.png" />
+    <Resource Include="images\background_campagne_mort.png" />
+>>>>>>> origin/master
     <Content Include="resources\media\clique.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

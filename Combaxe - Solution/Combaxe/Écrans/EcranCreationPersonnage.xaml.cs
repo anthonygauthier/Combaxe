@@ -17,6 +17,7 @@ using Combaxe___New.classes.services;
 using System.Text.RegularExpressions;
 using System.IO;
 using System.Windows.Ink;
+using System.Windows.Threading;
 
 namespace Combaxe___New.écrans
 {
@@ -38,6 +39,8 @@ namespace Combaxe___New.écrans
         PersonnageService personnageService = new PersonnageService();
         ProfessionService professionService = new ProfessionService();
         CaracteristiqueService caracteristiqueService = new CaracteristiqueService();
+
+        DispatcherTimer aideTimer;
         int profession = 0;
 
         //----------------------------------MÉTHODES---------------------------------
@@ -56,8 +59,11 @@ namespace Combaxe___New.écrans
             //Va chercher les caractéristiques de bases du guerrier
             List<string>[] caracteristiquesGuer = caracteristiqueService.RetrieveCaracteristiqueBase(btnGuerrier.Content.ToString());
 
+            txtbDescriptionProf.Text += "Description de la profession\n";
+            txtbDescriptionProf.Text += "-------------------------------------------------\n";
             //Change la description
-            txtbDescriptionProf.Text = professionService.selectionDescription(btnGuerrier.Content.ToString());
+            txtbDescriptionProf.Text += professionService.selectionDescription(btnGuerrier.Content.ToString());
+            descriptionCaracteristique("Guerrier");
 
             //Change les caractéristiques pour les caractéristiques proposées pour paladin
             txtForce.Text = caracteristiquesGuer[0][0];
@@ -77,8 +83,11 @@ namespace Combaxe___New.écrans
             //Va chercher les caractéristiques de bases du paladin
             List<string>[] caracteristiquesPal = caracteristiqueService.RetrieveCaracteristiqueBase(btnPaladin.Content.ToString());
 
+            txtbDescriptionProf.Text += "Description de la profession\n";
+            txtbDescriptionProf.Text += "-------------------------------------------------\n";
             //Change la description
-            txtbDescriptionProf.Text = professionService.selectionDescription(btnPaladin.Content.ToString());
+            txtbDescriptionProf.Text += professionService.selectionDescription(btnPaladin.Content.ToString());
+            descriptionCaracteristique("Paladin");
 
             //Change les caractéristiques pour les caractéristiques proposées pour paladin
             txtForce.Text = caracteristiquesPal[0][0];
@@ -98,8 +107,11 @@ namespace Combaxe___New.écrans
             //Va chercher les caractéristiques de bases du magicien
             List<string>[] caracteristiquesMagi = caracteristiqueService.RetrieveCaracteristiqueBase(btnMagicien.Content.ToString());
 
+            txtbDescriptionProf.Text += "Description de la profession\n";
+            txtbDescriptionProf.Text += "-------------------------------------------------\n";
             //Change la description
-            txtbDescriptionProf.Text = professionService.selectionDescription(btnMagicien.Content.ToString());
+            txtbDescriptionProf.Text += professionService.selectionDescription(btnMagicien.Content.ToString());
+            descriptionCaracteristique("Magicien");
 
             //Change les caractéristiques pour les caractéristiques proposées pour magicien
             txtForce.Text = caracteristiquesMagi[0][0];
@@ -500,7 +512,7 @@ namespace Combaxe___New.écrans
             }
             else if (txtbPointsRestants.Text != "0")
             {
-                MessageBox.Show("Vous devez placer tous vos points de caractéristiques, il vous en reste " + txtbPointsRestants.Text + " a placer.", "Erreur lors de la création du personnage", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Vous devez placer tous vos points de caractéristiques, il vous en reste " + txtbPointsRestants.Text + " à placer.", "Erreur lors de la création du personnage", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
             else if (txtDefense.Text == "0" && txtVie.Text == "0" && txtVitesse.Text == "0" && txtForce.Text == "0" && txtEnergie.Text == "0")
@@ -623,5 +635,140 @@ namespace Combaxe___New.écrans
                 _personnageDessin.Strokes.Remove(selectedStrokes);
             }
         }
+
+        /// <summary>
+        /// Fonction qui affiche les compétences d'une profession et comment optimiser son efficacité - Anthony Gauthier
+        /// </summary>
+        /// <param name="nomProfession">Recoit le nom de la profession</param>
+        private void descriptionCaracteristique(string nomProfession)
+        { 
+            List<Competence> lstCompetence;
+            CompetenceService compService = new CompetenceService();
+            CaracteristiqueService carService = new CaracteristiqueService();
+            int id = professionService.RetrieveIdProfession(nomProfession);
+
+            lstCompetence = compService.RetrieveCompetenceUnPersonnage(id);
+            txtbDescriptionProf.Text += "\n\n";
+
+            txtbDescriptionProf.Text += "Description caractéristique\n";
+            txtbDescriptionProf.Text += "-------------------------------------------------\n";
+            txtbDescriptionProf.Text += Caracteristiques.Force.ToString() + ": Augmente les dégâts infligés par les compétences physiques.\n";
+            txtbDescriptionProf.Text += Caracteristiques.Vie.ToString() + ": Augmente les points de vie du personnage.\n";
+            txtbDescriptionProf.Text += Caracteristiques.Vitesse.ToString() + ": Définit qui commence un combat, augment les chances d'esquive et de coups critiques.\n";
+            txtbDescriptionProf.Text += Caracteristiques.Defense.ToString() + ": Augmente la réduction des dégâts qui vous sont infligés.\n";
+            txtbDescriptionProf.Text += Caracteristiques.Energie.ToString() + ": Augmente les dégâts infligés par les compétences magiques.\n\n";
+            
+            txtbDescriptionProf.Text += "Compétences et optimisation des caractéristiques\n";
+            txtbDescriptionProf.Text += "-------------------------------------------------\n";
+            txtbDescriptionProf.Text += lstCompetence[0].Nom + ": Inflige quelques dégâts physiques - Efficacité augmenté par la force.\n";
+
+            switch(nomProfession)
+            {
+                case "Guerrier":
+                    txtbDescriptionProf.Text += lstCompetence[1].Nom + ": Restore des points de vie - Efficacité augmenté par l'énergie.\n";
+                    txtbDescriptionProf.Text += lstCompetence[2].Nom + ": Inflige beaucoup de dégâts physiques - Efficacité augmenté par la force.\n";
+                    txtbDescriptionProf.Text += lstCompetence[3].Nom + ": Inflige énormément de dégâts physiques - Efficacité augmenté par la force.\n";
+                    break;
+                case "Magicien":
+                    txtbDescriptionProf.Text += lstCompetence[1].Nom + ": Inflige beaucoup de dégâts magiques - Efficacité augmenté par l'énergie.\n";
+                    txtbDescriptionProf.Text += lstCompetence[2].Nom + ": Restore des points de vie - Efficacité augmenté par l'énergie.\n";
+                    txtbDescriptionProf.Text += lstCompetence[3].Nom + ": Inflige énormément de dégâts magiques - Efficacité augmenté par l'énergie.\n";
+                    break;
+                case "Paladin":
+                    txtbDescriptionProf.Text += lstCompetence[1].Nom + ": Inflige beaucoup de dégâts magiques - Efficacité augmenté par l'énergie.\n";
+                    txtbDescriptionProf.Text += lstCompetence[2].Nom + ": Restore des points de vie - Efficacité augmenté par l'énergie.\n";
+                    txtbDescriptionProf.Text += lstCompetence[3].Nom + ": Inflige énormément de dégâts magiques - Efficacité augmenté par l'énergie.\n";
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// Bouton pour mettre l'image du guerrier, tommy gingras
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnImageGuerrier_Click(object sender, RoutedEventArgs e)
+        {
+            _personnageDessin.Background = assignerImage("//resources//images//personnages//guerrier.png");
+        }
+
+        /// <summary>
+        /// Bouton pour mettre l'image du paladin, tommy gingras
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnImagePaladin_Click(object sender, RoutedEventArgs e)
+        {
+
+            _personnageDessin.Background = assignerImage("//resources//images//personnages//paladin.png");
+
+        }
+
+        /// <summary>
+        /// Bouton pour mettre l'image du mage, tommy gingras
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnImageMage_Click(object sender, RoutedEventArgs e)
+        {
+            _personnageDessin.Background = assignerImage("//resources//images//personnages//mage.png");
+
+        }
+
+        private ImageBrush assignerImage(string lien)
+        {
+            ImageBrush ib = new ImageBrush();
+            Directory.CreateDirectory("resources\\images\\personnages");
+            if (File.Exists(System.AppDomain.CurrentDomain.BaseDirectory + lien))
+                ib.ImageSource = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + lien, UriKind.RelativeOrAbsolute)); // fait par tommy gingras
+            else
+                ib.ImageSource = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "//resources//images//personnages//defaut.png", UriKind.RelativeOrAbsolute)); // fait par tommy gingras
+            return ib;
+        }
+
+        /// <summary>
+        /// Fonction pour afficher l'aide en ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAide_Click(object sender, RoutedEventArgs e)
+        {
+            TimeSpan tempsAide;
+            VarGlobales.endroitAide = "Caracteristiques";
+            var EcranAide = new EcranAide();
+
+            tempsAide = TimeSpan.FromSeconds(999999);
+
+            this.Opacity = 0.5;
+            this.IsEnabled = false;
+            this.Focusable = false;
+            //Si le jeu n'est pas fullscreen
+            if (this.WindowStyle != WindowStyle.None)
+            {
+                this.WindowStyle = WindowStyle.None;
+                this.ResizeMode = ResizeMode.NoResize;
+            }
+
+
+            EcranAide.Show();
+
+            aideTimer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            {
+                //On enleve du temps au timer
+                tempsAide = tempsAide.Add(TimeSpan.FromSeconds(-1));
+
+                if (VarGlobales.QuitterAide == true)
+                {
+                    this.Opacity = 1;
+                    this.IsEnabled = true;
+                    this.Focusable = true;
+                    VarGlobales.QuitterAide = false;
+                    aideTimer.Stop();
+                }
+            }, Application.Current.Dispatcher);
+
+            aideTimer.Start();
+        }
+
     }
 }
