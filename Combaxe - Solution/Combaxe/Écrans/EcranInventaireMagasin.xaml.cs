@@ -269,84 +269,14 @@ namespace Combaxe___New.écrans
                 }
             }
 
-            //trouve et va chercher les informations de l'équipement porté
-            for (int i = 0; i < equipementUtilise.Count; i++)
+            if(equipementUtilise.Count !=0)
             {
-                if (equipementUtilise[i].Modele.IdModele == unEquipementInventaire.Modele.IdModele
-                    || (equipementUtilise[i].Modele.IdModele == (int)Modele.Modeles.ArmeDeuxMains && (int)Modele.Modeles.ArmeUneMain == unEquipementInventaire.Modele.IdModele)
-                    || (equipementUtilise[i].Modele.IdModele == (int)Modele.Modeles.ArmeDeuxMains && (int)Modele.Modeles.Bouclier == unEquipementInventaire.Modele.IdModele))
+                //trouve et va chercher les informations de l'équipement porté
+                for (int i = 0; i < equipementUtilise.Count; i++)
                 {
-                    unEquipementPorte = equipementUtilise[i];
-                    //Supprime l'équipement de la liste d'équipement porté
-                    equipementUtilise.RemoveAt(i);
-                    equipementUtilise.Add(unEquipementInventaire);
-                    //Supprime l'équipement de la liste d'équipement de l'inventaire
-                    equipementInventaire.RemoveAt(positionInventaire);
-                    //On ajoute unEquipementPorte dans la liste d'equipementInventaire
-                    equipementInventaire.Add(unEquipementPorte);
-
-                    for (int j = 0; j < unEquipementInventaire.lstCaracteristique.Count(); j++)
-                    {
-                        lstCaracteristiqueEquipement[j].Valeur = lstCaracteristiqueEquipement[j].Valeur - unEquipementPorte.lstCaracteristique[j].Valeur;
-                        lstCaracteristiqueEquipement[j].Valeur = lstCaracteristiqueEquipement[j].Valeur + unEquipementInventaire.lstCaracteristique[j].Valeur;
-                    }
-                    break;
-                }
-                else if((equipementUtilise[i].Modele.IdModele == (int)Modele.Modeles.ArmeUneMain && (int)Modele.Modeles.ArmeDeuxMains == unEquipementInventaire.Modele.IdModele)
-                    || (equipementUtilise[i].Modele.IdModele == (int)Modele.Modeles.Bouclier && (int)Modele.Modeles.ArmeDeuxMains == unEquipementInventaire.Modele.IdModele))
-                {
-                    Equipement deuxiemeEquipementPorte = new Equipement();
-                    int position = 0;
-                    for (int j = 0; j < equipementUtilise.Count; j++)
-                    {
-                        if((equipementUtilise[i].Modele.IdModele == (int)Modele.Modeles.ArmeUneMain && equipementUtilise[j].Modele.IdModele == (int)Modele.Modeles.Bouclier && (int)Modele.Modeles.ArmeDeuxMains == unEquipementInventaire.Modele.IdModele)
-                            || (equipementUtilise[i].Modele.IdModele == (int)Modele.Modeles.Bouclier && equipementUtilise[j].Modele.IdModele == (int)Modele.Modeles.ArmeUneMain && (int)Modele.Modeles.ArmeDeuxMains == unEquipementInventaire.Modele.IdModele))
-                        {
-                            deuxiemeEquipementPorte = equipementUtilise[j];
-                            position = j;
-                            break;
-                        }
-                    }
-                    if (deuxiemeEquipementPorte.Nom != "")
-                    {
-                        if (equipementInventaire.Count == MAXEQUIPEMENTINVENTAIRE)
-                        {
-                            if (MessageBox.Show("Votre inventaire est plein, veuillez libérer une case de votre inventaire", "Inventaire plein", MessageBoxButton.OK, MessageBoxImage.Error) == MessageBoxResult.OK)
-                            {
-                                break;
-                            }
-                        }
-                        else
-                        {
-                            unEquipementPorte = equipementUtilise[i];
-                            //Supprime l'équipement de la liste d'équipement de l'inventaire
-                            equipementInventaire.RemoveAt(positionInventaire);
-                            //Supprime l'équipement de la liste d'équipement porté
-                            if (i < position)
-                            {
-                                equipementUtilise.RemoveAt(i);
-                                equipementUtilise.RemoveAt(position - 1);
-                            }
-                            else
-                            {
-                                equipementUtilise.RemoveAt(position);
-                                equipementUtilise.RemoveAt(i - 1);
-                            }
-                            equipementUtilise.Add(unEquipementInventaire);
-                            //On ajoute unEquipementPorte dans la liste d'equipementInventaire
-                            equipementInventaire.Add(unEquipementPorte);
-                            equipementInventaire.Add(deuxiemeEquipementPorte);
-
-                            for (int j = 0; j < unEquipementInventaire.lstCaracteristique.Count(); j++)
-                            {
-                                lstCaracteristiqueEquipement[j].Valeur = lstCaracteristiqueEquipement[j].Valeur - unEquipementPorte.lstCaracteristique[j].Valeur;
-                                lstCaracteristiqueEquipement[j].Valeur = lstCaracteristiqueEquipement[j].Valeur - deuxiemeEquipementPorte.lstCaracteristique[j].Valeur;
-                                lstCaracteristiqueEquipement[j].Valeur = lstCaracteristiqueEquipement[j].Valeur + unEquipementInventaire.lstCaracteristique[j].Valeur;
-                            }
-                            break;
-                        }
-                    }
-                    else
+                    if (equipementUtilise[i].Modele.IdModele == unEquipementInventaire.Modele.IdModele
+                        || (equipementUtilise[i].Modele.IdModele == (int)Modele.Modeles.ArmeDeuxMains && (int)Modele.Modeles.ArmeUneMain == unEquipementInventaire.Modele.IdModele)
+                        || (equipementUtilise[i].Modele.IdModele == (int)Modele.Modeles.ArmeDeuxMains && (int)Modele.Modeles.Bouclier == unEquipementInventaire.Modele.IdModele))
                     {
                         unEquipementPorte = equipementUtilise[i];
                         //Supprime l'équipement de la liste d'équipement porté
@@ -364,6 +294,98 @@ namespace Combaxe___New.écrans
                         }
                         break;
                     }
+                    else if((equipementUtilise[i].Modele.IdModele == (int)Modele.Modeles.ArmeUneMain && (int)Modele.Modeles.ArmeDeuxMains == unEquipementInventaire.Modele.IdModele)
+                        || (equipementUtilise[i].Modele.IdModele == (int)Modele.Modeles.Bouclier && (int)Modele.Modeles.ArmeDeuxMains == unEquipementInventaire.Modele.IdModele))
+                    {
+                        Equipement deuxiemeEquipementPorte = new Equipement();
+                        int position = 0;
+                        for (int j = 0; j < equipementUtilise.Count; j++)
+                        {
+                            if((equipementUtilise[i].Modele.IdModele == (int)Modele.Modeles.ArmeUneMain && equipementUtilise[j].Modele.IdModele == (int)Modele.Modeles.Bouclier && (int)Modele.Modeles.ArmeDeuxMains == unEquipementInventaire.Modele.IdModele)
+                                || (equipementUtilise[i].Modele.IdModele == (int)Modele.Modeles.Bouclier && equipementUtilise[j].Modele.IdModele == (int)Modele.Modeles.ArmeUneMain && (int)Modele.Modeles.ArmeDeuxMains == unEquipementInventaire.Modele.IdModele))
+                            {
+                                deuxiemeEquipementPorte = equipementUtilise[j];
+                                position = j;
+                                break;
+                            }
+                        }
+                        if (deuxiemeEquipementPorte.Nom != "")
+                        {
+                            if (equipementInventaire.Count == MAXEQUIPEMENTINVENTAIRE)
+                            {
+                                if (MessageBox.Show("Votre inventaire est plein, veuillez libérer une case de votre inventaire", "Inventaire plein", MessageBoxButton.OK, MessageBoxImage.Error) == MessageBoxResult.OK)
+                                {
+                                    break;
+                                }
+                            }
+                            else
+                            {
+                                unEquipementPorte = equipementUtilise[i];
+                                //Supprime l'équipement de la liste d'équipement de l'inventaire
+                                equipementInventaire.RemoveAt(positionInventaire);
+                                //Supprime l'équipement de la liste d'équipement porté
+                                if (i < position)
+                                {
+                                    equipementUtilise.RemoveAt(i);
+                                    equipementUtilise.RemoveAt(position - 1);
+                                }
+                                else
+                                {
+                                    equipementUtilise.RemoveAt(position);
+                                    equipementUtilise.RemoveAt(i - 1);
+                                }
+                                equipementUtilise.Add(unEquipementInventaire);
+                                //On ajoute unEquipementPorte dans la liste d'equipementInventaire
+                                equipementInventaire.Add(unEquipementPorte);
+                                equipementInventaire.Add(deuxiemeEquipementPorte);
+
+                                for (int j = 0; j < unEquipementInventaire.lstCaracteristique.Count(); j++)
+                                {
+                                    lstCaracteristiqueEquipement[j].Valeur = lstCaracteristiqueEquipement[j].Valeur - unEquipementPorte.lstCaracteristique[j].Valeur;
+                                    lstCaracteristiqueEquipement[j].Valeur = lstCaracteristiqueEquipement[j].Valeur - deuxiemeEquipementPorte.lstCaracteristique[j].Valeur;
+                                    lstCaracteristiqueEquipement[j].Valeur = lstCaracteristiqueEquipement[j].Valeur + unEquipementInventaire.lstCaracteristique[j].Valeur;
+                                }
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            unEquipementPorte = equipementUtilise[i];
+                            //Supprime l'équipement de la liste d'équipement porté
+                            equipementUtilise.RemoveAt(i);
+                            equipementUtilise.Add(unEquipementInventaire);
+                            //Supprime l'équipement de la liste d'équipement de l'inventaire
+                            equipementInventaire.RemoveAt(positionInventaire);
+                            //On ajoute unEquipementPorte dans la liste d'equipementInventaire
+                            equipementInventaire.Add(unEquipementPorte);
+
+                            for (int j = 0; j < unEquipementInventaire.lstCaracteristique.Count(); j++)
+                            {
+                                lstCaracteristiqueEquipement[j].Valeur = lstCaracteristiqueEquipement[j].Valeur - unEquipementPorte.lstCaracteristique[j].Valeur;
+                                lstCaracteristiqueEquipement[j].Valeur = lstCaracteristiqueEquipement[j].Valeur + unEquipementInventaire.lstCaracteristique[j].Valeur;
+                            }
+                            break;
+                        }
+                    }
+                }
+                equipementUtilise.Add(unEquipementInventaire);
+                //Supprime l'équipement de la liste d'équipement de l'inventaire
+                equipementInventaire.RemoveAt(positionInventaire);
+
+                for (int j = 0; j < unEquipementInventaire.lstCaracteristique.Count(); j++)
+                {
+                    lstCaracteristiqueEquipement[j].Valeur = lstCaracteristiqueEquipement[j].Valeur + unEquipementInventaire.lstCaracteristique[j].Valeur;
+                }
+            }
+            else
+            {
+                equipementUtilise.Add(unEquipementInventaire);
+                //Supprime l'équipement de la liste d'équipement de l'inventaire
+                equipementInventaire.RemoveAt(positionInventaire);
+
+                for (int j = 0; j < unEquipementInventaire.lstCaracteristique.Count(); j++)
+                {
+                    lstCaracteristiqueEquipement[j].Valeur = lstCaracteristiqueEquipement[j].Valeur + unEquipementInventaire.lstCaracteristique[j].Valeur;
                 }
             }
 
@@ -401,8 +423,6 @@ namespace Combaxe___New.écrans
         void equipement_Drop(object sender, DragEventArgs e)
         {
             Image dropImage = e.Source as Image;
-            Image tempo = new Image();
-            tempo.Tag = dragImage.Tag;
 
             //Si l'image qui se situe à l'endroit où l'on veut se déplacer ne porte pas de nom, ça signifie que
             //L'équipement qui est draguer veut être équipé et qu'il n'y a pas déjà un équipement de se modèle qui est porté.

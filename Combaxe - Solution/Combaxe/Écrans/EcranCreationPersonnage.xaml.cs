@@ -776,5 +776,9 @@ namespace Combaxe___New.écrans
             aideTimer.Start();
         }
 
+        private void btnImageDefaut_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
