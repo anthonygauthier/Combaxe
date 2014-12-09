@@ -120,7 +120,7 @@
                 <Button Margin="0,25,0,0" Style="{DynamicResource GlassButton}" FontSize="20" x:Name="btnImageGuerrier" Content="Guerrier" Click="btnImageGuerrier_Click" Width="100"/>
                 <Button Style="{DynamicResource GlassButton}" FontSize="20" x:Name="btnImagePaladin" Content="Paladin" Click="btnImagePaladin_Click" Width="100"/>
                 <Button Style="{DynamicResource GlassButton}" FontSize="20" x:Name="btnImageMage" Content="Mage" Click="btnImageMage_Click" Width="100" />
-                <Button Style="{DynamicResource GlassButton}" FontSize="20" x:Name="btnImageDefaut" Content="Mage" Click="btnImageDefaut_Click" Width="100" />
+                <Button Style="{DynamicResource GlassButton}" FontSize="20" x:Name="btnImageDefaut" Content="Défaut" Click="btnImageDefaut_Click" Width="100" />
             </StackPanel>
 
             <!--Border pour le background ou l'image du perso sera-->
