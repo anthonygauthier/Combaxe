@@ -715,6 +715,12 @@ namespace Combaxe___New.écrans
 
         }
 
+        private void btnImageDefault_Click(object sender, RoutedEventArgs e)
+        {
+            _personnageDessin.Background = assignerImage("//resources//images//personnages//defaut.png");
+
+        }
+
         private ImageBrush assignerImage(string lien)
         {
             ImageBrush ib = new ImageBrush();
