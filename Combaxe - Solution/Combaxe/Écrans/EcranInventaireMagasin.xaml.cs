@@ -764,18 +764,35 @@ namespace Combaxe___New.écrans
 
         void boutonPotionEnergie_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            VarGlobales.Personnage.Inventaire.argent -= VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Energie].Prix;
-            VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Energie].Quantite += 1;
-            nombrePotionEnergie.Content = VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Energie].Quantite + " potions d'énergie en inventaire";
-            txtbArgent.Text = VarGlobales.Personnage.Inventaire.argent.ToString() + "$";
+            if (VarGlobales.Personnage.Inventaire.argent < VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Prix)
+            { 
+                VarGlobales.Personnage.Inventaire.argent = 0;
+                txtbArgent.Text = VarGlobales.Personnage.Inventaire.argent.ToString() + "$";
+                
+            }
+            else
+            {
+                VarGlobales.Personnage.Inventaire.argent -= VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Energie].Prix;
+                VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Energie].Quantite += 1;
+                nombrePotionEnergie.Content = VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Energie].Quantite + " potions d'énergie en inventaire";
+                txtbArgent.Text = VarGlobales.Personnage.Inventaire.argent.ToString() + "$";
+            }
         }
 
         void boutonPotionVie_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            VarGlobales.Personnage.Inventaire.argent -= VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Prix;
-            VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Quantite += 1;
-            nombrePotionVie.Content = VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Quantite + " potions de vie en inventaire";
-            txtbArgent.Text = VarGlobales.Personnage.Inventaire.argent.ToString() + "$";
+            if (VarGlobales.Personnage.Inventaire.argent < VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Prix)
+            { 
+                VarGlobales.Personnage.Inventaire.argent = 0;
+                txtbArgent.Text = VarGlobales.Personnage.Inventaire.argent.ToString() + "$";
+            }
+            else
+            {
+                VarGlobales.Personnage.Inventaire.argent -= VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Prix;
+                VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Quantite += 1;
+                nombrePotionVie.Content = VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Quantite + " potions de vie en inventaire";
+                txtbArgent.Text = VarGlobales.Personnage.Inventaire.argent.ToString() + "$";
+            }
         }
 
         /// <summary>
