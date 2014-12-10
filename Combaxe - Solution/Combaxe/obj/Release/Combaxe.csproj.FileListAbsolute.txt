@@ -106,3 +106,4 @@ D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe\obj\Release\Combaxe___New.Properti
 D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe\obj\Release\Combaxe.csproj.GenerateResource.Cache
 D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe\obj\Release\Combaxe.exe
 D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe\obj\Release\Combaxe.pdb
+D:\Combaxe\Combaxe\Combaxe - Solution\Combaxe\obj\Release\Combaxe.csprojResolveAssemblyReference.cache

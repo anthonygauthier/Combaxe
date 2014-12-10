@@ -100,9 +100,6 @@ namespace Combaxe___New.écrans
             }
 
             //On charge les boutons de compétence
-            //Vérifie si le personnage a assez d'énergie pour ses actions
-            VerifierEnergie();
-
             btnAction1.Content = VarGlobales.Personnage.ListeCompetence[0].Nom;
             btnAction2.Content = VarGlobales.Personnage.ListeCompetence[1].Nom;
             btnAction3.Content = VarGlobales.Personnage.ListeCompetence[2].Nom;
@@ -129,7 +126,8 @@ namespace Combaxe___New.écrans
                 btnAction4.IsEnabled = false;
                 btnAction4.Content = VarGlobales.Personnage.ListeCompetence[3].Nom + "\n(" + (tempsRecharge[3] + 1) + ")";
             }
-
+            //Vérifie si le personnage a assez d'énergie pour ses actions
+            VerifierEnergie();
         }
 
         private void btnAction1_Click(object sender, RoutedEventArgs e)
@@ -435,7 +433,7 @@ namespace Combaxe___New.écrans
                 if(VarGlobales.Personnage.Vie > VarGlobales.Personnage.VieMaximale)
                     VarGlobales.Personnage.Vie = VarGlobales.Personnage.VieMaximale;
 
-                txtDmgPerso.Text += "+"+ VarGlobales.Personnage.VieMaximale * 30 / 100+ " PV \n\n";
+                txtDmgPerso.Text += "+"+ VarGlobales.Personnage.VieMaximale * 30 / 100+ " PV \n";
 
                 VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Vie].Quantite -= 1;
                 majInterface(true);
@@ -447,7 +445,7 @@ namespace Combaxe___New.écrans
                     VarGlobales.Personnage.Energie = VarGlobales.Personnage.EnergieMaximale;
                 VarGlobales.Personnage.Inventaire.listeConsommation[(int)Consommations.Energie].Quantite -= 1;
 
-                txtDmgPerso.Text += "+" + VarGlobales.Personnage.EnergieMaximale * 30 / 100 + " PE \n\n";
+                txtDmgPerso.Text += "+" + VarGlobales.Personnage.EnergieMaximale * 30 / 100 + " PE \n";
 
                 majInterface(true);
             }
@@ -502,12 +500,11 @@ namespace Combaxe___New.écrans
                                 combat.VieEnnemi = 0;
                             }
                             VarGlobales.Personnage.Energie -= VarGlobales.Personnage.ListeCompetence[num].EnergieUtilise;
-                            txtDmgPerso.Text += valeur.ToString() + " dégâts\n\n"; ;
+                            txtDmgPerso.Text += valeur.ToString() + " dégâts\n"; ;
                         }
                         else
                         {
-                            txtAttaquesPerso.Text += VarGlobales.Personnage.ListeCompetence[num].Nom + "\n\n";
-                            txtDmgPerso.Text += "Esquive" + "\n\n"; ;
+                            txtDmgPerso.Text += "Esquive" + "\n"; ;
                         }
                     }
                     else
@@ -517,7 +514,7 @@ namespace Combaxe___New.écrans
                             VarGlobales.Personnage.Vie = VarGlobales.Personnage.VieMaximale;
 
                         VarGlobales.Personnage.Energie -= VarGlobales.Personnage.ListeCompetence[num].EnergieUtilise;
-                        txtDmgPerso.Text += "+"+ valeur.ToString()+" PV \n\n";
+                        txtDmgPerso.Text += "+"+ valeur.ToString()+" PV \n";
                     }
 
                     majInterface(false);// mettre à jour l'interface
@@ -530,7 +527,7 @@ namespace Combaxe___New.écrans
                         int expGagner = combat.ExperienceRecu();
 
                         txtAttaquesEnnemi.Text += VarGlobales.Ennemi.Nom;
-                        txtDmgEnnemi.Text += "MORT\n\n";
+                        txtDmgEnnemi.Text += "MORT\n";
                         personnageService.MAJVieEnergie(false);
 
                         combat.VieEnnemi = 0;
@@ -715,13 +712,13 @@ namespace Combaxe___New.écrans
                 {
                     VarGlobales.Personnage.Vie -= valeur;
                     combat.EnergieEnnemi -= VarGlobales.Ennemi.ListeCompetence[num].EnergieUtilise;
-                    txtAttaquesEnnemi.Text += VarGlobales.Ennemi.ListeCompetence[num].Nom + "\n\n";
-                    txtDmgEnnemi.Text += valeur.ToString() + " dégâts\n\n";
+                    txtAttaquesEnnemi.Text += VarGlobales.Ennemi.ListeCompetence[num].Nom + "\n";
+                    txtDmgEnnemi.Text += valeur.ToString() + " dégâts\n";
                 }
                 else
                 {
-                    txtAttaquesEnnemi.Text += VarGlobales.Ennemi.ListeCompetence[num].Nom + "\n\n";
-                    txtDmgEnnemi.Text += "Esquive \n\n";
+                    txtAttaquesEnnemi.Text += VarGlobales.Ennemi.ListeCompetence[num].Nom + "\n";
+                    txtDmgEnnemi.Text += "Esquive \n";
                 }
             }
             else
@@ -732,8 +729,8 @@ namespace Combaxe___New.écrans
                     combat.VieEnnemi = combat.VieMaximale;
                 }
                 combat.EnergieEnnemi -= VarGlobales.Ennemi.ListeCompetence[num].EnergieUtilise;
-                txtAttaquesEnnemi.Text += VarGlobales.Ennemi.ListeCompetence[num].Nom + "\n\n";
-                txtDmgEnnemi.Text += "+"+ valeur.ToString() + " PV \n\n";
+                txtAttaquesEnnemi.Text += VarGlobales.Ennemi.ListeCompetence[num].Nom + "\n";
+                txtDmgEnnemi.Text += "+"+ valeur.ToString() + " PV \n";
             }
             // on vérifie quel est le type de compétence
             majInterface(true);// mettre à jour l'interface
@@ -743,8 +740,8 @@ namespace Combaxe___New.écrans
             {
                 PersonnageService personnageService = new PersonnageService();
 
-                txtAttaquesPerso.Text += VarGlobales.Personnage.Nom + "\n\n";
-                txtDmgPerso.Text += "MORT\n\n";
+                txtAttaquesPerso.Text += VarGlobales.Personnage.Nom + "\n";
+                txtDmgPerso.Text += "MORT\n";
                 VarGlobales.Personnage.Vie = 0;
 
                 int xpPerdu = (int)(VarGlobales.Personnage.Experience* 0.5);
@@ -768,9 +765,9 @@ namespace Combaxe___New.écrans
             EmphasePersonnage();
             if(temps == TimeSpan.FromSeconds(0))
             {
-                txtAttaquesPerso.Text += "Temps écoulé\n\n";
+                txtAttaquesPerso.Text += "Temps écoulé\n";
                 horloge.Stop();
-                txtDmgPerso.Text += "\n\n";
+                txtDmgPerso.Text += "\n";
                 majInterface(false); // pour mettre a jour selon le nb tour
                 DelaiAttaqueEnnemi(false);
             }
@@ -780,11 +777,11 @@ namespace Combaxe___New.écrans
                 {
                     if(btnClique != 4 && btnClique != 5)
                         //On affiche tout de suite l'attaque choisie par le joueur
-                        txtAttaquesPerso.Text += VarGlobales.Personnage.ListeCompetence[btnClique].Nom + "\n\n";
+                        txtAttaquesPerso.Text += VarGlobales.Personnage.ListeCompetence[btnClique].Nom + "\n";
                     else if (btnClique == 4)
-                        txtAttaquesPerso.Text += "Potion de vie\n\n"; //Correction faute ortographe - Anthony Gauthier
+                        txtAttaquesPerso.Text += "Potion de vie\n"; //Correction faute ortographe - Anthony Gauthier
                     else if (btnClique == 5)
-                        txtAttaquesPerso.Text += "Potion d'énergie\n\n";
+                        txtAttaquesPerso.Text += "Potion d'énergie\n";
 
                     if(VarGlobales.Personnage.Vie > 0)
                     { 
@@ -802,11 +799,11 @@ namespace Combaxe___New.écrans
                 {
                     //On affiche tout de suite l'attaque choisie par le joueur
                     if (btnClique != 4 && btnClique != 5)
-                        txtAttaquesPerso.Text += VarGlobales.Personnage.ListeCompetence[btnClique].Nom + "\n\n";
+                        txtAttaquesPerso.Text += VarGlobales.Personnage.ListeCompetence[btnClique].Nom + "\n";
                     else if(btnClique == 4)
-                        txtAttaquesPerso.Text += "Potion de vie\n\n"; //Correction faute ortographe - Anthony Gauthier
+                        txtAttaquesPerso.Text += "Potion de vie\n"; //Correction faute ortographe - Anthony Gauthier
                     else if(btnClique == 5)
-                        txtAttaquesPerso.Text += "Potion d'énergie\n\n";
+                        txtAttaquesPerso.Text += "Potion d'énergie\n";
 
                     boutonCliquer = btnClique;
                     DelaiAttaqueEnnemi(true);
@@ -843,10 +840,10 @@ namespace Combaxe___New.écrans
 
             MajBarreExperience((int)(brdMaxWidth.ActualWidth));
             //On donne l'expérience au joueur - Anthony Gauthier 30/10/2014
-            txtAttaquesPerso.Text += "Victoire!\n\n ";
+            txtAttaquesPerso.Text += "Victoire!\n ";
             if (VarGlobales.Personnage.Niveau < 20)
             {
-                txtDmgPerso.Text += "+" + experienceGagner.ToString() + " XP \n\n";
+                txtDmgPerso.Text += "+" + experienceGagner.ToString() + " XP \n";
                 VarGlobales.Personnage.Experience = VarGlobales.Personnage.Experience + experienceGagner;
             }
             else
@@ -919,10 +916,10 @@ namespace Combaxe___New.écrans
             PersonnageService persoService = new PersonnageService();
 
             //On retire l'expérience au joueur - Anthony Gauthier 30/10/2014
-            txtAttaquesPerso.Text += "Défaite!\n\n ";
+            txtAttaquesPerso.Text += "Défaite!\n ";
             if (VarGlobales.Personnage.Niveau < 20)
             {
-                txtDmgPerso.Text += "-"+ experiencePerdu.ToString() + " XP \n\n";
+                txtDmgPerso.Text += "-"+ experiencePerdu.ToString() + " XP \n";
                 VarGlobales.Personnage.Experience = VarGlobales.Personnage.Experience - experiencePerdu;
             }
 
@@ -1228,9 +1225,9 @@ namespace Combaxe___New.écrans
                 if(nbTour==0)
                 {
                     txtAttaquesPerso.Text += "Premier à attaquer\n\n";
-                    txtDmgPerso.Text += "<- \n\n";
-                    txtDmgEnnemi.Text += "\n\n\n";
-                    txtAttaquesEnnemi.Text += "\n\n\n";
+                    txtDmgPerso.Text += "<- \n";
+                    txtDmgEnnemi.Text += "\n\n";
+                    txtAttaquesEnnemi.Text += "\n\n";
                 }
             }
             else
@@ -1238,9 +1235,9 @@ namespace Combaxe___New.écrans
                 if (nbTour == 0)
                 {
                     txtAttaquesEnnemi.Text += "Premier à attaquer\n\n";
-                    txtDmgEnnemi.Text += "->\n\n";
-                    txtDmgPerso.Text += "\n\n\n";
-                    txtAttaquesPerso.Text += "\n\n\n";
+                    txtDmgEnnemi.Text += "->\n";
+                    txtDmgPerso.Text += "\n\n";
+                    txtAttaquesPerso.Text += "\n\n";
                 }
             }
         }
