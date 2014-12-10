@@ -367,14 +367,18 @@ namespace Combaxe___New.écrans
                             break;
                         }
                     }
-                }
-                equipementUtilise.Add(unEquipementInventaire);
-                //Supprime l'équipement de la liste d'équipement de l'inventaire
-                equipementInventaire.RemoveAt(positionInventaire);
+                    else if(i == equipementUtilise.Count-1)
+                    {
+                        equipementUtilise.Add(unEquipementInventaire);
+                        //Supprime l'équipement de la liste d'équipement de l'inventaire
+                        equipementInventaire.RemoveAt(positionInventaire);
 
-                for (int j = 0; j < unEquipementInventaire.lstCaracteristique.Count(); j++)
-                {
-                    lstCaracteristiqueEquipement[j].Valeur = lstCaracteristiqueEquipement[j].Valeur + unEquipementInventaire.lstCaracteristique[j].Valeur;
+                        for (int j = 0; j < unEquipementInventaire.lstCaracteristique.Count(); j++)
+                        {
+                            lstCaracteristiqueEquipement[j].Valeur = lstCaracteristiqueEquipement[j].Valeur + unEquipementInventaire.lstCaracteristique[j].Valeur;
+                        }
+                        break;
+                    }
                 }
             }
             else
