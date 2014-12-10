@@ -786,8 +786,10 @@ namespace Combaxe___New.écrans
                     else if (btnClique == 5)
                         txtAttaquesPerso.Text += "Potion d'énergie\n\n";
 
-                    actionBouton(btnClique);
-                    
+                    if(VarGlobales.Personnage.Vie > 0)
+                    { 
+                        actionBouton(btnClique);
+                    }
                     
                     /*Si l'ennemi est encore en vie, il va attaquer, mais on ajoute un délai pour faire comme si l'ennemi
                     Choisissais son attaque - Anthony Gauthier 2014-11-06*/
