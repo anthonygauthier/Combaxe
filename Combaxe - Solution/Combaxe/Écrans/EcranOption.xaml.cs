@@ -34,6 +34,17 @@ namespace Combaxe___New.écrans
             {
                 VarGlobales.delaiMin = Convert.ToInt32(txtbMin.Text);
                 VarGlobales.delaiMax = Convert.ToInt32(txtbMax.Text)+1;
+
+                if(VarGlobales.delaiMax == 0)
+                {
+                    VarGlobales.delaiMax = 1;
+                }
+
+                if(VarGlobales.delaiMin == 0)
+                {
+                    VarGlobales.delaiMin = 1;
+                }
+
                 VarGlobales.Retour = true;
                 this.Close();
             }
