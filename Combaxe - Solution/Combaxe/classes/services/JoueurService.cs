@@ -14,7 +14,7 @@ namespace Combaxe___New.classes.services
         //Méthode qui retourne les informations du compte du joueur (id, nom, mdp)
         public List<string>[] RetrieveInfoJoueur(string nomUsager, string mdp)
         {
-            string selConnexion = "SELECT * FROM joueurs WHERE pseudonyme = '" + nomUsager + "' AND motDePasse = '" + mdp + "';";
+            string selConnexion = "SELECT * FROM Joueurs WHERE pseudonyme = '" + nomUsager + "' AND motDePasse = '" + mdp + "';";
             List<string>[] unJoueur;
 
             int nombreRange = 0;

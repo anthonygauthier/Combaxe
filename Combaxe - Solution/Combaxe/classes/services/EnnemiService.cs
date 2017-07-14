@@ -39,7 +39,7 @@ namespace Combaxe___New.classes.services
             caracteristiques = caracteristiqueService.RetrieveCaracteristique(idEnnemi,typeof(Ennemi));
 
             //Selection des idCompetence pour trouver les compétences de l'ennemi
-            selConnexion = "SELECT idCompetence FROM competencesEnnemis WHERE idEnnemi = '" + idEnnemi + "';";
+            selConnexion = "SELECT idCompetence FROM CompetencesEnnemis WHERE idEnnemi = '" + idEnnemi + "';";
             List<string>[] idCompetences;
             idCompetences = bdCombaxe.selection(selConnexion, 1, ref nombreRange);
 

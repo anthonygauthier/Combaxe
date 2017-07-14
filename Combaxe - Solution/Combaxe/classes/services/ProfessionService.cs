@@ -17,7 +17,7 @@ namespace Combaxe___New.classes.services
         public string selectionDescription(string nom)
         {
             string description = string.Empty;
-            string requete = "SELECT description FROM professions WHERE idProfession = (SELECT idProfession FROM professions WHERE nom = '" + nom + "');";
+            string requete = "SELECT description FROM Professions WHERE idProfession = (SELECT idProfession FROM Professions WHERE nom = '" + nom + "');";
             List<string>[] maDescription;
             int nombreRange = 0;
 
@@ -31,7 +31,7 @@ namespace Combaxe___New.classes.services
         //Méthode qui va chercher le idProfession
         public int RetrieveIdProfession(string nom)
         {
-            string requete = "SELECT idProfession FROM Professions WHERE idProfession = (SELECT idProfession FROM professions WHERE nom = '" + nom + "');";
+            string requete = "SELECT idProfession FROM Professions WHERE idProfession = (SELECT idProfession FROM Professions WHERE nom = '" + nom + "');";
             List<string>[] lstId;
             int nombreRange = 0;
             int id = 0;
@@ -51,7 +51,7 @@ namespace Combaxe___New.classes.services
         {
             List<string>[] lstProf = null;
             Profession profession = null;
-            string requete = "SELECT idProfession, nom, image, description FROM professions WHERE idProfession = '" + id + "';";
+            string requete = "SELECT idProfession, nom, image, description FROM Professions WHERE idProfession = '" + id + "';";
             int nombreRange = 0;
 
             lstProf = bdCombaxe.selection(requete, 4, ref nombreRange);

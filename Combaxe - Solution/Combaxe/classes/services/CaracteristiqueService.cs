@@ -14,7 +14,7 @@ namespace Combaxe___New.classes.services
         //Méthode qui va chercher les caractéristiques de base de chaque profession
         public List<string>[] RetrieveCaracteristiqueBase(string nom)
         {
-            string requete = "SELECT valeur FROM caracteristiquesprofessions WHERE idProfession = (SELECT idProfession FROM professions WHERE nom = '" + nom + "');";
+            string requete = "SELECT valeur FROM CaracteristiquesProfessions WHERE idProfession = (SELECT idProfession FROM Professions WHERE nom = '" + nom + "');";
             List<string>[] mesCaracteristiques;
             int nombreRange = 0;
 

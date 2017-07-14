@@ -114,7 +114,7 @@ namespace Combaxe___New.classes.services
             List<string>[] unJoueur;
             unJoueur = joueurService.RetrieveInfoJoueur(nom, mdp);
 
-            string selPerso = "SELECT * FROM personnages WHERE idJoueur = " + unJoueur[0][0] + " AND estActif = TRUE;";
+            string selPerso = "SELECT * FROM Personnages WHERE idJoueur = " + unJoueur[0][0] + " AND estActif = TRUE;";
 
             List<string>[] persosDuJoueur;
             int nombreRange = 0;

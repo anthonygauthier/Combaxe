@@ -28,7 +28,7 @@ namespace Combaxe___New.classes.services
             //Selection des types de competence des competences
             List<string>[] typeCompetence;
 
-            selConnexion = "SELECT nom FROM typesCompetences WHERE idTypeCompetence = '" + uneCompetence[0][0] + "';";
+            selConnexion = "SELECT nom FROM TypesCompetences WHERE idTypeCompetence = '" + uneCompetence[0][0] + "';";
             typeCompetence = bdCombaxe.selection(selConnexion, 1, ref nombreRange);
             uneCompetence[0].AddRange(typeCompetence[0]);
 
